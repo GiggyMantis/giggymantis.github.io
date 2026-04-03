@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function(){
+        $("#header").load("header.html"); 
+      });
+    </script>
     <title>GiggyMantis</title>
     <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
@@ -11,7 +17,7 @@
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <header><a href="https://giggymantis.github.io">Home</a>&emsp;<a href="https://giggymantis.github.io/recipes.html">Recipes</a>&emsp;<a href="https://giggymantis.github.io/essays.html">Essays</a>&emsp;<a href="https://giggymantis.github.io/yukatati.html">Yukatati</a></header>
+    <div id="header-placeholder"></div>
     <h1>This is the recipes blog page</h1>
     <a href="https://en.wikipedia.org/wiki/NASA">:show</a>
   </body>
