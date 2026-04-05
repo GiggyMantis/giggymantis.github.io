@@ -18,3 +18,9 @@ header {
   text-align: justify;
   text-justify: inter-word;
 }
+
+.two-columns {
+  column-count: 2;
+  column-gap: 20px;
+  list-style-position: inside;
+}
