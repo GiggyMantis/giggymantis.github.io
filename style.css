@@ -19,6 +19,14 @@ header {
   text-justify: inter-word;
 }
 
+time {
+  margin:40px auto;
+  max-width:850px;
+  line-height:1.6;
+  font-size:15px;
+  color:#55986e;padding:010px
+}
+
 .two-columns {
   column-count: 2;
   column-gap: 20px;
