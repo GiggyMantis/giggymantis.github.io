@@ -1,11 +1,20 @@
+async function loadFileAsString(url) {
+    try {
+        const response = await fetch(url)
+        const text = await response.text()
+        return text
+    } catch (error) {
+        console.error("Failed to load file:", error)
+        return ""
+    }
+}
+
 
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
-// let verses = Papa.parse(fetch("Voslhemow_Resources/verses.csv"), {
-//     header: true
-// });
+$("#content").html($.parseHTML(htmlString))
 
-let verses1 = await fetch("Voslhemow_Resources/verses.csv").then(response => response.text())
-let verses = Papa.parse(String(verses1))
+let verses = Papa.parse(loadFileAsString("Voslhemow_Resources/verses.csv"), {
+    header: true
+});
 
 console.log(verses.data)
-$("#content").html($.parseHTML(htmlString))
