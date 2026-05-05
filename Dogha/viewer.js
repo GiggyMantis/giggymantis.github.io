@@ -13,6 +13,8 @@ async function loadFileAsString(url) {
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
 $("#content").html($.parseHTML(htmlString))
 
+console.log(loadFileAsString("Voslhemow_Resources/verses.csv"))
+
 let verses = Papa.parse(loadFileAsString("Voslhemow_Resources/verses.csv"), {
     header: true
 });
