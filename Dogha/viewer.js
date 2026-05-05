@@ -14,12 +14,13 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms, concordance) {
     // TODO: make this lol
-    let ret = formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"])
+    let ret = formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)
     return `<li>${ret}</li>`
 }
 
-function formatInterlinearGloss(part1,part2) {
-    let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${part2}</pre></div>`
+function formatInterlinearGloss(part1, part2, glossingTerms) {
+    let second_line = part2
+    let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
     return ret
 }
 

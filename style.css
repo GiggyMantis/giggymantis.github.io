@@ -42,7 +42,6 @@ time {
 }
 
 .interlinear {
-  font-family: monospace;
-  line-height:0.5;
-  background-color: lightgray;
+  font-family: 'Noto Sans', monospace;
+  line-height:0.3;
 }
