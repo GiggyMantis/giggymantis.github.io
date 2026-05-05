@@ -22,7 +22,7 @@ function formatInterlinearGloss(part1, part2, glossingTerms) {
     // Capture glossing abbreviations
     const capsRegex = /(\b[A-Z]+\b)/g
     let second_line = part2.replace(capsRegex, (match, item) => {
-        console,log(glossingTerms[1])
+        console.log(glossingTerms[1])
         return `<div class="tooltip">${item.toLowerCase()}<span class="tooltiptext">${glossingTerms[1][item]}</span></div>`
     })
     let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
