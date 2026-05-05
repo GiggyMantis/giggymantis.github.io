@@ -14,6 +14,7 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms, concordance) {
     // TODO: make this lol
+    console.log(glossingTerms)
     let ret = `<li class="verse"><p>${verse["Original"]}</p>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
 }
@@ -48,8 +49,8 @@ $(document).ready(function(){
         concordance.then(concordance_result => {
             verses.then(verses_result => {
                 verses_result.data.forEach((element, index) => {
+                    console.log(glossing_result.data)
                     const verhtml = formatVerse(element, glossing_result.data, concordance_result.data)
-                    console.log(verhtml)
                     $(`#list-chapter-${index+1}`).append($.parseHTML(verhtml))
                 })
             })
