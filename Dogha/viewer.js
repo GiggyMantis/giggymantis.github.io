@@ -1,1 +1,1 @@
-document.getElementById('content').innerHTML = "<a href=\"example.com\">test</a>"
+$("#header-placeholder").innerText = "hello"
