@@ -16,7 +16,7 @@ h1,h2,h3  {
 }
 
 .swowra {
-  line-height:1;
+  line-height:0.5;
 }
 
 header {
@@ -43,5 +43,6 @@ time {
 
 .interlinear {
   font-family: monospace;
-  line-height:1.2;
+  line-height:0.5;
+  background-color: lightgray;
 }
