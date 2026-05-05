@@ -20,7 +20,7 @@ $(document).ready(function(){
         const allHeaders = [...$(":header")]
         console.log(allHeaders)
         allHeaders.forEach(element => {
-            const id = element.attr("id")
+            const id = element[0].id
             const check = `[${id}]`
             result.data.forEach(verse => {
                 if (verse["Lemmatized"].includes(check)) {
