@@ -4,7 +4,7 @@
 
 body  {
   margin:40px auto;
-  max-width:850px;
+  max-width:1200px;
   line-height:1.6;
   font-size:18px;
   color:#444;
@@ -38,7 +38,7 @@ time {
 
 .verse {
   font-family: "Noto Sans";
-  line-height:0.3;
+  line-height:1;
 }
 
 .translated-chapter {
@@ -63,12 +63,12 @@ pre {
 
 .tooltiptext {
   visibility: hidden;
-  width: 130px;
   background-color: black;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  font-size: 14px;
+  border-radius: 7px;
+  padding: 7px 7px;
   position: absolute;
   z-index: 1;
 }
