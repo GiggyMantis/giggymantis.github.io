@@ -16,10 +16,11 @@ async function loadFileAsCSV(url) {
 const concordance = loadFileAsCSV("Voslhemow_Resources/concordance.csv")
 $(document).ready(function(){
     concordance.then(result => {
-        let content = ""
+        let content = "<ol>"
         result.data.forEach(element => {
-            content += `<h1 id="${element["Lemma"]}">${element["Lemma"]}</h1><p><i>${element["PoS"]}</i> - ${element["Definition"]}</p>`
+            content += `<li><h1 id="${element["Lemma"]}">${element["Lemma"]}</h1><p><i>${element["PoS"]}</i> - ${element["Meaning"]}</p></li>`
         })
+        content += "</ol>"
         $("#content").append($.parseHTML(content))
     })
 })
