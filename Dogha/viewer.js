@@ -15,7 +15,7 @@ async function loadFileAsCSV(url) {
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
 const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result => {
     result.data.forEach(element => {
-        htmlString += "\n<hgroup>\n\t<h2>Chapter " + element["Number"] + ": " + element["Original"] + "</h2><br>\t<p class=\"translated-chapter\">" + element["Plain"] + "<br>" + element["KJV"] + "<br>" + element["Literal"] + "</p>\n</hgroup>"
+        htmlString += "<hgroup><h2>Chapter " + element["Number"] + ": " + element["Original"] + "</h2><p class=\"translated-chapter\">" + element["Plain"] + "<br>" + element["KJV"] + "<br>" + element["Literal"] + "</p></hgroup>"
     })
 })
 
