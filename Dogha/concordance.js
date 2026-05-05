@@ -12,20 +12,19 @@ async function loadFileAsCSV(url) {
     }
 }
 
-function formatVerse(verse, glossingTerms) {
-    // TODO: link to concordance on click
-    let ret = `<li class="verse"><p>${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+function formatVerse(verse, glossingTerms, highlightTerm) {
+    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms, highlightTerm)}</li>`
     return ret
 }
 
-function formatInterlinearGloss(part1, part2, glossingTerms) {
+function formatInterlinearGloss(part1, part2, glossingTerms, highlightTerm) {
     // Capture glossing abbreviations
     const capsRegex = /(\b[A-Z0-9]+\b)/g
     let second_line = part2.replace(capsRegex, (match, item) => {
         return `<div class="tooltip">${item}<span class="tooltiptext">${glossingTerms[0][item]}</span></div>`
     })
     let ret = `<br><div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
-    return ret
+    return ret.replace(highlightTerm,`<b>${highlightTerm}</b>`)
 }
 
 //TODO: Load concordances
@@ -42,7 +41,7 @@ $(document).ready(function(){
                 const check = `[${id}]`
                 verses_result.data.forEach(verse => {
                     if (verse["Lemmatized"].includes(check)) {
-                        $(`#${id}`).parent().append($.parseHTML(formatVerse(verse,glossing_result.data)))
+                        $(`#${id}-list`).append($.parseHTML(formatVerse(verse,glossing_result.data)))
                     }
                 })
             })
