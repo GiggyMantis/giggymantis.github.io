@@ -20,6 +20,10 @@ function formatVerse(verse, glossingTerms, concordance) {
 
 function formatInterlinearGloss(part1, part2, glossingTerms) {
     let second_line = part2
+    // Capture glossing abbreviations
+    const capsRegex = /\b[A-Z]+\b/g
+    const matches = new Set(second_line.match(capsRegex) || []).sort((a,b) => a.length - b.length)
+    console.log(matches)
     let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
     return ret
 }
