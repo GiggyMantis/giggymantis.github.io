@@ -20,12 +20,12 @@ function formatVerse(verse, glossingTerms, concordance) {
 
 function formatInterlinearGloss(part1, part2, glossingTerms) {
     // Capture glossing abbreviations
-    const capsRegex = /(\b[A-Z]+\b)/g
+    const capsRegex = /(\b[A-Z0-9]+\b)/g
     console.log(glossingTerms)
     let second_line = part2.replace(capsRegex, (match, item) => {
         console.log(item)
-        console.log(glossingTerms[item])
-        return `<div class="tooltip">${item}<span class="tooltiptext">${glossingTerms[item]}</span></div>`
+        console.log(glossingTerms[0][item])
+        return `<div class="tooltip">${item}<span class="tooltiptext">${glossingTerms[0][item]}</span></div>`
     })
     let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
     return ret
