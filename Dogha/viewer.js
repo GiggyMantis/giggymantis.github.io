@@ -20,7 +20,7 @@ const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result =
 })
 
 $(document).ready(function(){
-
-    $("#content").html($.parseHTML(htmlString))
-
+    chapters.then(result => {
+        $("#content").html($.parseHTML(htmlString))
+    })
 })
