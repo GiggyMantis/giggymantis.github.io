@@ -12,18 +12,20 @@ async function loadFileAsCSV(url) {
     }
 }
 
+//TODO: Load concordances
+const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv")
 
-const concordance = loadFileAsCSV("Voslhemow_Resources/concordance.csv")
 $(document).ready(function(){
-    concordance.then(result => {
-        let content = "<ol>"
-        result.data.forEach(element => {
-            content += `<li><h1 id="${element["Lemma"]}">${element["Lemma"]}</h1><p><i>${element["PoS"]}</i> - ${element["Meaning"]}</p></li>`
-            if (element["Etymology"] !== undefined) {
-                content += `<p>Etymology: ${element["Etymology"]}</p>`
-            }
+    verses.then(result => {
+        const allHeaders = $(":header");
+        allHeaders.forEach(element => {
+            const id = element.attr("id")
+            const check = `[${id}]`
+            result.data.forEach(verse => {
+                if (verse["Lemmatized"].includes(check)) {
+                    $(`#${id}`).append($.parseHTML("<p>test</p>"))
+                }
+            })
         })
-        content += "</ol>"
-        $("#content").append($.parseHTML(content))
     })
 })
