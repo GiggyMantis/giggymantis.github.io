@@ -1,1 +1,1 @@
-$("#header-placeholder").innerText = "hello"
+$("#header-placeholder").html("<p>test</p>")
