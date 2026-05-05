@@ -1,4 +1,4 @@
-Lemma,PoS,Meaning
+Lemma,PoS,Meaning,Etymology
 "ʾa",verb,"to become (copulaic); to be (copulaic; deponent)"
 "jo","noun, adverb","all, everything, everyone; (adverb) most, the most"
 "haj",postposition,"of, from"
@@ -9,7 +9,7 @@ Lemma,PoS,Meaning
 "tojē",noun,"earth, soil, dirt, land"
 "hehja",verb,"to birthe, to give birth [to], to beget; to create, to bring forth"
 "heny",pronoun,"he, him, she, her, it, [singular] they, them"
-"hamyzwapazoñ",noun,"the afterlife"
+"hamyzwapazoñ",noun,"the afterlife","imperfect infinitive of hamyzwa \"to die \""
 "kā",postposition,"in, inside, into, at, by"
 "lej",pronoun,"[plural] they, them"
 "lōmo",postposition,"possessive postposition; 's; owned by, had by; (as a pseudo-verb) to own, to have"

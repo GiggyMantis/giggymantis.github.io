@@ -19,6 +19,9 @@ $(document).ready(function(){
         let content = "<ol>"
         result.data.forEach(element => {
             content += `<li><h1 id="${element["Lemma"]}">${element["Lemma"]}</h1><p><i>${element["PoS"]}</i> - ${element["Meaning"]}</p></li>`
+            if (element["Etymology"] !== undefined) {
+                content += `<p>Etymology: ${element["Etymology"]}</p>`
+            }
         })
         content += "</ol>"
         $("#content").append($.parseHTML(content))
