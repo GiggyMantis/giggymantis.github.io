@@ -12,10 +12,13 @@ async function loadFileAsCSV(url) {
     }
 }
 
-
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
-$("#content").html($.parseHTML(htmlString))
 
 console.log(loadFileAsCSV("Voslhemow_Resources/verses.csv"))
 
-console.log(verses.data)
+$(document).ready(function(){
+
+    $("#content").html($.parseHTML(htmlString))
+
+});
+
