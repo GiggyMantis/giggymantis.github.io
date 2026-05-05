@@ -14,8 +14,21 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms) {
     // TODO: link to concordance on click
-    let ret = `<li class="verse"><p>${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+
+    let ret = `<li class="verse"><p>${createLinkedVerse(verse)}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
+}
+
+function createLinkedVerse(verse) {
+    const list = verse["Original"].split(' ')
+    let lemmalist = verse["Lemmatized"].split(' ')
+    lemmalist.forEach((element, index) => {
+        lemmalist[index] = `#${element.substr(1, element.length-1)}`
+    })
+    let ret = ""
+    list.forEach((element, index) => {
+        ret += `<a href="concordances#${lemmalist[index]}" target="_blank">${element}</a> `
+    })
 }
 
 function formatInterlinearGloss(part1, part2, glossingTerms) {
