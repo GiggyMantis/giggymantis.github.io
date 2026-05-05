@@ -29,6 +29,7 @@ function createLinkedVerse(verse) {
     list.forEach((element, index) => {
         ret += `<a class="no-blue" href="concordances#${lemmalist[index]}" target="_blank">${element}</a> `
     })
+    return ret
 }
 
 function formatInterlinearGloss(part1, part2, glossingTerms) {

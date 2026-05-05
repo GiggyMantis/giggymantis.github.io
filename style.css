@@ -79,3 +79,15 @@ pre {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+a.no-blue {
+  font-family: "Noto Sans";
+  line-height:1.2;
+  margin:40px auto;
+  max-width:1400px;
+  font-size:18px;
+  font-weight: bold;
+  text-decoration: black dashed underline;
+  color:#444;
+  padding:010px
+}
