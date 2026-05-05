@@ -25,7 +25,7 @@ const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result =
         htmlString += `<hgroup><h2 id="chapter-${num}">Chapter ${num}: ${element["Original"]}</h2><p class="translated-chapter">Plain Translation: ${element["Plain"]}<br>EME Translation: ${element["EME"]}<br>Literal Translation: ${element["Literal"]}</p></hgroup><ol id="list-chapter-${num}"></ol>`
     })
 })
-const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv"
+const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv")
 const concordance = loadFileAsCSV("Voslhemow_Resources/concordance.csv")
 const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv")
 
