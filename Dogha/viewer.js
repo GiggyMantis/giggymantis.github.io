@@ -1,5 +1,5 @@
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
-let verses = Papa.parse(fetch("Voslhemow_Resources/verses.csv")), {
+let verses = Papa.parse(fetch("Voslhemow_Resources/verses.csv"), {
     header: true
 });
 
