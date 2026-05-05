@@ -36,13 +36,10 @@ $(document).ready(function(){
     glossingTerms.then((_) => {
         concordance.then((_) => {
             verses.then((_) => {
-                verses.forEach(element, index => {
+                verses.forEach((element, index) => {
                     $(`#list-chapter-${index}`).append($.parseHTML(formatVerse(element, glossingTerms, concordance)))
                 })
             })
         })
     })
-
-
-    Nutshell.init();
 })
