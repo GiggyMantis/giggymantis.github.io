@@ -27,7 +27,6 @@ function formatInterlinearGloss(part1, part2, glossingTerms, highlightTerm) {
     return ret.replace(highlightTerm,`<b>${highlightTerm}</b>`)
 }
 
-//TODO: Load concordances
 const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv")
 const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv")
 
@@ -41,7 +40,7 @@ $(document).ready(function(){
                 const check = `[${id}]`
                 verses_result.data.forEach(verse => {
                     if (verse["Lemmatized"].includes(check)) {
-                        $(`#${id}-list`).append($.parseHTML(formatVerse(verse,glossing_result.data)))
+                        $(`#${id}-list`).append($.parseHTML(formatVerse(verse,glossing_result.data,id)))
                     }
                 })
             })
