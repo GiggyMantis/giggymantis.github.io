@@ -13,11 +13,15 @@ async function loadFileAsCSV(url) {
 }
 
 function formatVerse(verse, glossingTerms, highlightTerm) {
-    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
-    let words = verse["Original"].split(' ')
+    let phrase = verse["Original"]
+    let words = phrase.split(' ')
     verse["Lemmatized"].split(' ').forEach((lemma, index) => {
-        ret = ret.replaceAll(new RegExp(`(\\b${words[index]}\\b)`, "g"), "<b>$1</b>")
+        if (lemma == highlightTerm) {
+            phrase = phrase.replaceAll(new RegExp(`(\\b${words[index]}\\b)`, "g"), "<b>$1</b>")
+            console.log("")
+        }
     })
+    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${phrase}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
 }
 
