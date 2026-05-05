@@ -13,8 +13,11 @@ async function loadFileAsCSV(url) {
 }
 
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
+const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv")
 
-console.log(loadFileAsCSV("Voslhemow_Resources/verses.csv"))
+chapters.forEach(element => {
+    htmlString += "\n<hgroup>\n\t<h2>Chapter " + element["Number"] + ": " + element["Original"] + "</h2>\n\t<p class=\"translated-chapter\">" + element["Plain"] + "</p>\n\t<p class=\"translated-chapter>\">" + element["KJV"] + "</p>\n\t<p class=\"translated-chapter\">" + element["Literal"] + "</p>\n</hgroup>"
+});
 
 $(document).ready(function(){
 
