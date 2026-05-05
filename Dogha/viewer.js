@@ -1,10 +1,8 @@
 fetch("header.html")
     .then(response => response.text())
     .then(data => {
-    $("#content").html(data)
+    $("#content").html($.parseHTML("<p>test</p>"))
 });
-
-$("#content").html("test")
 
 fetch("header.html")
     .then(response => response.text())
