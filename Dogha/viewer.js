@@ -3,7 +3,9 @@ let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
 //     header: true
 // });
 
-let verses = Papa.parse(fetch("Voslhemow_Resources/verses.csv").then(response => response.text()))
+console.log(fetch("Voslhemow_Resources/verses.csv").then(response => response.text()))
+
+let verses = Papa.parse("")
 
 console.log(verses.data)
 $("#content").html($.parseHTML(htmlString))
