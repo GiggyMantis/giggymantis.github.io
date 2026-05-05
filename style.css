@@ -38,7 +38,7 @@ time {
 
 .verse {
   font-family: "Noto Sans";
-  line-height:1;
+  line-height:1.2;
 }
 
 .translated-chapter {
@@ -52,6 +52,9 @@ pre {
 
 .interlinear {
   line-height:0.3;
+  background-color: #eee;
+  border-left: 4px solid gray;
+  padding: 7px 7px;
 }
 
 .tooltip {
