@@ -12,7 +12,7 @@ async function loadFileAsCSV(url) {
     }
 }
 
-function formatVerse(verse, glossingTerms, concordance) {
+function formatVerse(verse, glossingTerms) {
     // TODO: link to concordance on click
     let ret = `<li class="verse"><p>${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
@@ -36,7 +36,6 @@ const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result =
     })
 })
 const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv")
-const concordance = loadFileAsCSV("Voslhemow_Resources/concordance.csv")
 const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv")
 
 $(document).ready(function(){
@@ -44,12 +43,10 @@ $(document).ready(function(){
         $("#content").html($.parseHTML(htmlString))
     })
     glossingTerms.then(glossing_result => {
-        concordance.then(concordance_result => {
-            verses.then(verses_result => {
-                verses_result.data.forEach((element, index) => {
-                    const verhtml = formatVerse(element, glossing_result.data, concordance_result.data)
-                    $(`#list-chapter-${element["Chapter"]}`).append($.parseHTML(verhtml))
-                })
+        verses.then(verses_result => {
+            verses_result.data.forEach((element, index) => {
+                const verhtml = formatVerse(element, glossing_result.data, concordance_result.data)
+                $(`#list-chapter-${element["Chapter"]}`).append($.parseHTML(verhtml))
             })
         })
     })
