@@ -17,7 +17,7 @@ function formatVerse(verse, glossingTerms, highlightTerm) {
     let words = phrase.split(' ')
     verse["Lemmatized"].split(' ').forEach((lemma, index) => {
         if (lemma.trim() == `[${highlightTerm.trim()}]`) {
-            let rgx = new RegExp(`(\\b${words[index]}\\b)`, "g")
+            let rgx = new RegExp(`(\\b${RegExp.escape(words[index])}\\b)`, "gu")
             console.log(phrase)
             phrase = phrase.replaceAll(rgx, "<b>$1</b>")
             console.log(phrase)
