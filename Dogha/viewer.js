@@ -14,8 +14,8 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms, concordance) {
     // TODO: make this lol
-    let ret = formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)
-    return `<li>${ret}</li>`
+    let ret = `<li class="verse"><p>${verse["Original"]}</p>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+    return ret
 }
 
 function formatInterlinearGloss(part1, part2, glossingTerms) {

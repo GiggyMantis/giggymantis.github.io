@@ -36,12 +36,19 @@ time {
   list-style-position: inside;
 }
 
+.verse {
+  font-family: "Noto Sans";
+}
+
 .translated-chapter {
   font-style: italic;
   line-height:1;
 }
 
+pre {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .interlinear {
-  font-family: 'Noto Sans', monospace;
   line-height:0.3;
 }
