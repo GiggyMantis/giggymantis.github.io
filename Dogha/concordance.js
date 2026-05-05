@@ -13,18 +13,21 @@ async function loadFileAsCSV(url) {
 }
 
 function formatVerse(verse, glossingTerms, highlightTerm) {
-    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms, highlightTerm)}</li>`
+    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+    let words = verse["Original"].split(' ')
+    verse["Lemmatized"].split(' ').forEach((lemma, index) => {
+        ret = ret.replaceAll(new RegExp(`(\\b${words[index]}\\b)`, "g"), "<b>$1</b>")
+    })
     return ret
 }
 
-function formatInterlinearGloss(part1, part2, glossingTerms, highlightTerm) {
+function formatInterlinearGloss(part1, part2, glossingTerms) {
     // Capture glossing abbreviations
     const capsRegex = /(\b[A-Z0-9]+\b)/g
     let second_line = part2.replace(capsRegex, (match, item) => {
         return `<div class="tooltip">${item}<span class="tooltiptext">${glossingTerms[0][item]}</span></div>`
     })
-    let ret = `<br><div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
-    return ret.replace(highlightTerm,`<b>${highlightTerm}</b>`)
+    return `<br><div class="interlinear"><pre>${part1}</pre><pre>${second_line}</pre></div>`
 }
 
 const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv")
