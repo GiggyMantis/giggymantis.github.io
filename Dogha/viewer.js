@@ -1,11 +1,5 @@
-fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-    $("#content").html($.parseHTML("<p>test</p>"))
-});
+let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
+let verses = $.csv.toObjects(fetch("Voslhemow_Resources/verses.csv").then(response => response.text()))
 
-fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-    console.log(data)
-});
+console.log(verses)
+$("#content").html($.parseHTML(htmlString))
