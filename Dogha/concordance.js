@@ -16,10 +16,8 @@ function formatVerse(verse, glossingTerms, highlightTerm) {
     let phrase = verse["Original"]
     let words = phrase.split(' ')
     verse["Lemmatized"].split(' ').forEach((lemma, index) => {
-        console.log(lemma)
-        if (lemma.trim() == highlightTerm.trim()) {
+        if (lemma.trim() == `[${highlightTerm.trim()}]`) {
             phrase = phrase.replaceAll(new RegExp(`(\\b${words[index]}\\b)`, "g"), "<b>$1</b>")
-            console.log(lemma)
         }
     })
     let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${phrase}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
