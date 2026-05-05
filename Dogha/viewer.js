@@ -27,7 +27,7 @@ function createLinkedVerse(verse) {
     })
     let ret = ""
     list.forEach((element, index) => {
-        ret += `<a class="no-blue" href="concordance${lemmalist[index]}" target="_blank">${element}</a>&ensp;`
+        ret += `<a class="no-blue" href="concordance${lemmalist[index]}" target="_blank">${element}&ensp;</a>`
     })
     return ret
 }
