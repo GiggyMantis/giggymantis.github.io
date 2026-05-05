@@ -14,7 +14,7 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms, concordance) {
     // TODO: make this lol
-    let ret = `<li class="verse"><p>${verse["Original"]}</p><i>Plain Translation: ${verse["Plain"]}<br>EME: ${verse["EME"]}<br>Literal: ${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+    let ret = `<li class="verse"><p>${verse["Original"]}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
 }
 
@@ -32,7 +32,7 @@ let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
 const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result => {
     result.data.forEach(element => {
         const num = element["Number"]
-        htmlString += `<hgroup><h2 id="chapter-${num}" class="swowra">Chapter ${num}: ${element["Original"]}</h2><p class="translated-chapter">Plain Translation: ${element["Plain"]}<br>EME: ${element["EME"]}<br>Literal: ${element["Literal"]}</p></hgroup><ol id="list-chapter-${num}"></ol>`
+        htmlString += `<hgroup><h2 id="chapter-${num}" class="swowra">Chapter ${num}: ${element["Original"]}</h2><p class="translated-chapter">Plain:&Tab;${element["Plain"]}<br>EME:&Tab;${element["EME"]}<br>Literal:&Tab;${element["Literal"]}</p></hgroup><ol id="list-chapter-${num}"></ol>`
     })
 })
 const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv")
