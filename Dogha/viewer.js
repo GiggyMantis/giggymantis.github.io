@@ -1,0 +1,1 @@
+document.getElementById('content').innerHTML = "<a href=\"example.com\">test</a>"
