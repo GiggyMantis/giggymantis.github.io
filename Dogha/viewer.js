@@ -27,7 +27,7 @@ function createLinkedVerse(verse) {
     })
     let ret = ""
     list.forEach((element, index) => {
-        ret += `<a href="concordances#${lemmalist[index]}" target="_blank">${element}</a> `
+        ret += `<a class="no-blue" href="concordances#${lemmalist[index]}" target="_blank">${element}</a> `
     })
 }
 
@@ -58,7 +58,7 @@ $(document).ready(function(){
     glossingTerms.then(glossing_result => {
         verses.then(verses_result => {
             verses_result.data.forEach((element, index) => {
-                const verhtml = formatVerse(element, glossing_result.data, concordance_result.data)
+                const verhtml = formatVerse(element, glossing_result.data)
                 $(`#list-chapter-${element["Chapter"]}`).append($.parseHTML(verhtml))
             })
         })
