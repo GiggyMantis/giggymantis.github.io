@@ -25,19 +25,19 @@ const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result =
         htmlString += `<hgroup><h2 id="chapter-${num}">Chapter ${num}: ${element["Original"]}</h2><p class="translated-chapter">Plain Translation: ${element["Plain"]}<br>EME Translation: ${element["EME"]}<br>Literal Translation: ${element["Literal"]}</p></hgroup><ol id="list-chapter-${num}"></ol>`
     })
 })
-const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv").then(result => result.data)
-const concordance = loadFileAsCSV("Voslhemow_Resources/concordance.csv").then(result => result.data)
-const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv").then(result => result.data)
+const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv"
+const concordance = loadFileAsCSV("Voslhemow_Resources/concordance.csv")
+const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv")
 
 $(document).ready(function(){
     chapters.then((_) => {
         $("#content").html($.parseHTML(htmlString))
     })
-    glossingTerms.then((_) => {
-        concordance.then((_) => {
-            verses.then((_) => {
-                verses.forEach((element, index) => {
-                    $(`#list-chapter-${index}`).append($.parseHTML(formatVerse(element, glossingTerms, concordance)))
+    glossingTerms.then(glossing_result => {
+        concordance.then(concordance_result => {
+            verses.then(verses_result => {
+                verses_result.data.forEach((element, index) => {
+                    $(`#list-chapter-${index}`).append($.parseHTML(formatVerse(element, glossing_result.data, concordance_result.data)))
                 })
             })
         })
