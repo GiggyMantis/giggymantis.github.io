@@ -20,13 +20,14 @@ function formatVerse(verse, glossingTerms, concordance) {
 
 function formatInterlinearGloss(part1,part2) {
     let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${part2}</pre></div>`
+    return ret
 }
 
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
 const chapters = loadFileAsCSV("Voslhemow_Resources/chapters.csv").then(result => {
     result.data.forEach(element => {
         const num = element["Number"]
-        htmlString += `<hgroup><h2 id="chapter-${num}">Chapter ${num}: ${element["Original"]}</h2><p class="translated-chapter">Plain Translation: ${element["Plain"]}<br>EME Translation: ${element["EME"]}<br>Literal Translation: ${element["Literal"]}</p></hgroup><ol id="list-chapter-${num}"></ol>`
+        htmlString += `<hgroup><h2 id="chapter-${num}" class="swowra">Chapter ${num}: ${element["Original"]}</h2><p class="translated-chapter">Plain Translation: ${element["Plain"]}<br>EME Translation: ${element["EME"]}<br>Literal Translation: ${element["Literal"]}</p></hgroup><ol id="list-chapter-${num}"></ol>`
     })
 })
 const glossingTerms = loadFileAsCSV("Voslhemow_Resources/glossing_terms.csv")
