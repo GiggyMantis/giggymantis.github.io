@@ -17,7 +17,7 @@ const verses = loadFileAsCSV("Voslhemow_Resources/verses.csv")
 
 $(document).ready(function(){
     verses.then(result => {
-        const allHeaders = $(":header");
+        const allHeaders = [...$(":header")]
         allHeaders.forEach(element => {
             const id = element.attr("id")
             const check = `[${id}]`
