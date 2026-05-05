@@ -13,17 +13,13 @@ async function loadFileAsCSV(url) {
 }
 
 function formatVerse(verse, glossingTerms, highlightTerm) {
-    let phrase = verse["Original"]
-    let words = phrase.split(' ')
+    let words = verse["Original"].split(' ')
     verse["Lemmatized"].split(' ').forEach((lemma, index) => {
         if (lemma.trim() == `[${highlightTerm.trim()}]`) {
-            let rgx = new RegExp(`(\\b${RegExp.escape(words[index])}\\b)`, "gu")
-            console.log(phrase)
-            phrase = phrase.replaceAll(rgx, "<b>$1</b>")
-            console.log(phrase)
+            words[index] = words[index].prepend("<b>").append("</b>")
         }
     })
-    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${phrase}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${words.join(' ')}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
 }
 
