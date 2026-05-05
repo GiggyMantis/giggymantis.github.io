@@ -38,7 +38,7 @@ $(document).ready(function(){
                 verses_result.data.forEach((element, index) => {
                     const verhtml = formatVerse(element, glossing_result.data, concordance_result.data)
                     console.log(verhtml)
-                    $(`#list-chapter-${index}`).append($.parseHTML(verhtml))
+                    $(`#list-chapter-${index+1}`).append($.parseHTML(verhtml))
                 })
             })
         })
