@@ -4,7 +4,7 @@ let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
 //     header: true
 // });
 
-let verses1 = String(fetch("Voslhemow_Resources/verses.csv").then(response => response.text()))
+let verses1 = await String(fetch("Voslhemow_Resources/verses.csv").then(response => response.text()))
 console.log(verses1)
 let verses = Papa.parse(verses1)
 
