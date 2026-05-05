@@ -7,7 +7,8 @@ body  {
   max-width:850px;
   line-height:1.6;
   font-size:18px;
-  color:#444;padding:010px
+  color:#444;
+  padding:010px
 }
 
 h1,h2,h3  {
@@ -20,15 +21,23 @@ header {
 }
 
 time {
-  margin:40px auto;
-  max-width:850px;
   line-height:1;
   font-size:15px;
-  color:#55986e;padding:010px
+  color:#55986e;
 }
 
 .two-columns {
   column-count: 2;
   column-gap: 20px;
   list-style-position: inside;
+}
+
+.translated-chapter {
+  font-style: italic;
+  line-height:1;
+}
+
+.interlinear {
+  font-family: monospace;
+  line-height:1.2;
 }

@@ -14,7 +14,12 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms, concordance) {
     // TODO: make this lol
-    return "<li>" + verse + "</li>"
+    let ret = formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"])
+    return `<li>${ret}</li>`
+}
+
+function formatInterlinearGloss(part1,part2) {
+    let ret = `<div class="interlinear"><pre>${part1}</pre><pre>${part2}</pre></div>`
 }
 
 let htmlString = "<h1>Voslhemow Interlinear Text Viewer</h1>"
