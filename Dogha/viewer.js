@@ -23,7 +23,7 @@ function createLinkedVerse(verse) {
     const list = verse["Original"].split(' ')
     let lemmalist = verse["Lemmatized"].split(' ')
     lemmalist.forEach((element, index) => {
-        lemmalist[index] = `#${element.slice(0, -1)}`
+        lemmalist[index] = `#${element}`
     })
     let ret = ""
     list.forEach((element, index) => {
