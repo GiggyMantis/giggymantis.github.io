@@ -15,7 +15,6 @@ async function loadFileAsCSV(url) {
 function formatVerse(verse, glossingTerms, highlightTerm) {
     let words = verse["Original"].split(' ')
     verse["Lemmatized"].split(' ').forEach((lemma, index) => {
-        console.log(lemma.trim() + " " + highlightTerm.trim())
         if (lemma.trim() == `${highlightTerm.trim()}`) {
             words[index] = `<b><u>${words[index]}</u></b>`
         }
@@ -42,7 +41,7 @@ $(document).ready(function(){
             const allHeaders = [...$(":header")]
             allHeaders.forEach(element => {
                 const id = $(element).attr("id")
-                const check = `[${id}]`
+                const check = `${id}`
                 verses_result.data.forEach(verse => {
                     if (verse["Lemmatized"].includes(check)) {
                         $(`#${id}-list`).append($.parseHTML(formatVerse(verse,glossing_result.data,id)))
