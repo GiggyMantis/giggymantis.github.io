@@ -15,7 +15,7 @@ async function loadFileAsCSV(url) {
 function formatVerse(verse, glossingTerms, highlightTerm) {
     let words = verse["Original"].split(' ')
     verse["Lemmatized"].split(' ').forEach((lemma, index) => {
-        if (lemma.trim() == `[${highlightTerm.trim()}]`) {
+        if (lemma.trim() == `${highlightTerm.trim()}`) {
             words[index] = `<b><u>${words[index]}</u></b>`
         }
     })
