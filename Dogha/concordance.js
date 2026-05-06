@@ -41,9 +41,9 @@ $(document).ready(function(){
             const allHeaders = [...$(":header")]
             allHeaders.forEach(element => {
                 const id = $(element).attr("id")
-                const check = `${id}`
                 verses_result.data.forEach(verse => {
-                    if (verse["Lemmatized"].includes(check)) {
+                    const lemmatized_words = verse["Lemmatized"].split(' ')
+                    if (lemmatized_words.includes(id)) {
                         $(`#${id}-list`).append($.parseHTML(formatVerse(verse,glossing_result.data,id)))
                     }
                 })

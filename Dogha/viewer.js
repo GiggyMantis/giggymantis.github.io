@@ -13,8 +13,6 @@ async function loadFileAsCSV(url) {
 }
 
 function formatVerse(verse, glossingTerms) {
-    // TODO: link to concordance on click
-
     let ret = `<li class="verse"><p>${createLinkedVerse(verse)}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
 }
