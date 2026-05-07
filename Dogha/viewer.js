@@ -56,10 +56,11 @@ $(document).ready(function(){
     })
     glossingTerms.then(glossing_result => {
         verses.then(verses_result => {
-            verses_result.data.forEach((element, index) => {
+            verses_result.data.forEach(element => {
                 const verhtml = formatVerse(element, glossing_result.data)
                 $(`#list-chapter-${element["Chapter"]}`).append($.parseHTML(verhtml))
             })
+            $("#load-warning").hide()
         })
     })
 })
