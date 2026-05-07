@@ -59,9 +59,7 @@ $(document).ready(function(){
             verses_result.data.forEach(element => {
                 const verhtml = formatVerse(element, glossing_result.data)
                 $(`#list-chapter-${element["Chapter"]}`).append($.parseHTML(verhtml))
-                console.log(verhtml)
             })
-            $("#load-warning").hide()
         })
     })
 })
