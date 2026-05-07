@@ -57,6 +57,7 @@ $(document).ready(function(){
     glossingTerms.then(glossing_result => {
         verses.then(verses_result => {
             verses_result.data.forEach(element => {
+                console.log("loaded verse")
                 const verhtml = formatVerse(element, glossing_result.data)
                 $(`#list-chapter-${element["Chapter"]}`).append($.parseHTML(verhtml))
             })
