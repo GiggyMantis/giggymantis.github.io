@@ -19,7 +19,7 @@ function formatVerse(verse, glossingTerms, highlightTerm) {
             words[index] = `<b><u>${words[index]}</u></b>`
         }
     })
-    let ret = `<li class="verse"><div class="shrink"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${words.join(' ')}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</div></li>`
+    let ret = `<li class="verse"><p><b>${verse["Chapter"]}:${verse["Number"]}</b> - ${words.join(' ')}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
     return ret
 }
 

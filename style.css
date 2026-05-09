@@ -65,7 +65,7 @@ pre {
   border-left: 4px solid gray;
   padding: 7px 7px;
   font-size:10px;
-  letter-spacing:2px;
+  letter-spacing:0.5px;
 }
 
 .tooltip {
@@ -102,11 +102,4 @@ a.no-blue {
   color:#444;
   padding:3px;
   word-spacing: normal;
-}
-
-.shrink{
--webkit-transform:scale(0.9);
--moz-transform:scale(0.9);
--ms-transform:scale(0.9);
-transform:scale(0.9);
 }
