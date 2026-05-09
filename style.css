@@ -64,8 +64,7 @@ pre {
   background-color: #eee;
   border-left: 4px solid gray;
   padding: 7px 7px;
-  font-size: 10cqi;
-  letter-spacing:0.5px;
+  letter-spacing:0px;
 }
 
 .tooltip {
