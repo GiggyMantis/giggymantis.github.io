@@ -101,3 +101,10 @@ a.no-blue {
   padding:3px;
   word-spacing: normal;
 }
+
+.shrink{
+-webkit-transform:scale(0.5);
+-moz-transform:scale(0.5);
+-ms-transform:scale(0.5);
+transform:scale(0.5);
+}
