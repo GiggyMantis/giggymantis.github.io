@@ -64,6 +64,8 @@ pre {
   background-color: #eee;
   border-left: 4px solid gray;
   padding: 7px 7px;
+  font-size:10px;
+  letter-spacing:2px;
 }
 
 .tooltip {
@@ -103,8 +105,8 @@ a.no-blue {
 }
 
 .shrink{
--webkit-transform:scale(0.5);
--moz-transform:scale(0.5);
--ms-transform:scale(0.5);
-transform:scale(0.5);
+-webkit-transform:scale(0.9);
+-moz-transform:scale(0.9);
+-ms-transform:scale(0.9);
+transform:scale(0.9);
 }
