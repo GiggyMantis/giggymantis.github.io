@@ -90,6 +90,11 @@ pre {
   visibility: visible;
 }
 
+.saffjahim {
+  writing-mode: vertical-lr;
+  text-align: right;
+}
+
 a.no-blue {
   font-family: "Noto Sans";
   line-height:1.2;
