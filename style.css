@@ -93,7 +93,9 @@ pre {
 .saffjahim-caliphatic {
   writing-mode: vertical-lr;
   text-align: left;
-  max-height: 200px;
+  max-height: 300px;
+  min-height: 300px;
+  height: 300px;
 }
 
 .flex {
