@@ -92,7 +92,16 @@ pre {
 
 .saffjahim-caliphatic {
   writing-mode: vertical-lr;
-  text-align: right;
+  text-align: left;
+  max-height: 200px;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline {
+  display: inline;
 }
 
 a.no-blue {
