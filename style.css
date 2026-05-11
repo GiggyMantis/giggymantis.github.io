@@ -47,7 +47,13 @@ time {
 
 .verse {
   font-family: "Noto Sans";
-  line-height:1.2;
+  line-height: 1.2;
+  vertical-align: bottom;
+}
+
+.verse-container {
+  display: inline-block;
+  vertical-align: top;
 }
 
 .translated-chapter {
@@ -93,8 +99,12 @@ pre {
 .saffjahim-caliphatic {
   writing-mode: vertical-lr;
   text-align: left;
-  height: 200px;
-  width: 200px;
+  height: 225px;
+  max-height: 225px;
+  min-height: 225px;
+  width: 250px;
+  max-width: 225px;
+  min-width: 225px;
 }
 
 .flex {
