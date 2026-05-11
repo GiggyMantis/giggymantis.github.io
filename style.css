@@ -118,6 +118,10 @@ pre {
   display: inline;
 }
 
+.margin {
+  margin: 20px;
+}
+
 a.no-blue {
   font-family: "Noto Sans";
   line-height:1.2;
