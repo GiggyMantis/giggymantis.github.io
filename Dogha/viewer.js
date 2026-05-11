@@ -14,7 +14,7 @@ async function loadFileAsCSV(url) {
 
 function formatVerse(verse, glossingTerms) {
     //TODO: Split lines or condense text on long verses
-    let ret = `<li class="verse"><p>${createLinkedVerse(verse)}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i><p class="saffjahim-caliphatic">${verse["Saffjahim"]}</p>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</li>`
+    let ret = `<li class="verse"><p class="saffjahim-caliphatic">${verse["Saffjahim"]}</p><div><p>${createLinkedVerse(verse)}</p><i>Plain:&Tab;${verse["Plain"]}<br>EME:&Tab;${verse["EME"]}<br>Literal:&Tab;${verse["Literal"]}</i>${formatInterlinearGloss(verse["Interlinear1"], verse["Interlinear2"], glossingTerms)}</div></li>`
     return ret
 }
 
