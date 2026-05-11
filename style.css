@@ -105,7 +105,9 @@ pre {
   width: 200px;
   max-width: 200px;
   min-width: 200px;
-  background-color: lightgray;
+  background-color: #eee;
+  border: 4px dashed gray;
+  margin: 20px auto;
 }
 
 .flex {
