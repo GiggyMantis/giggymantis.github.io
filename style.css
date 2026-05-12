@@ -1,6 +1,10 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
+@font-face {
+  font-family: 'Caliphatic Saffjahim Silly';
+  src: url('/FONTS/CaliphaticSaffjahimSilly-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
 
 body  {
   margin:40px auto;
@@ -99,6 +103,7 @@ pre {
 .saffjahim-caliphatic {
   writing-mode: vertical-lr;
   text-align: left;
+  font-family: 'Caliphatic Saffjahim Silly';
   height: 225px;
   max-height: 225px;
   min-height: 225px;
