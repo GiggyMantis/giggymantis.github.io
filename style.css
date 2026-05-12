@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Caliphatic Saffjahim Silly';
-  src: url('/FONTS/CaliphaticSaffjahimSilly-Regular.otf') format('otf');
+  src: url('/FONTS/CaliphaticSaffjahimSilly-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -104,6 +104,7 @@ pre {
   writing-mode: vertical-lr;
   text-align: left;
   font-family: 'Caliphatic Saffjahim Silly';
+  font-variant-ligatures: discretionary-ligatures common-ligatures historical-ligatures;
   height: 225px;
   max-height: 225px;
   min-height: 225px;
@@ -113,6 +114,7 @@ pre {
   background-color: #eee;
   border: 4px dashed gray;
   margin: 20px auto;
+  letter-spacing: 1px;
 }
 
 .flex {
