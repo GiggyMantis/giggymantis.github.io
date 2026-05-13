@@ -105,6 +105,7 @@ pre {
   text-align: left;
   font-family: 'Caliphatic Saffjahim Silly';
   font-variant-ligatures: discretionary-ligatures common-ligatures historical-ligatures;
+  font-feature-settings: "liga";
   height: 225px;
   max-height: 225px;
   min-height: 225px;
