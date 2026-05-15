@@ -38,7 +38,7 @@ function formatInterlinearGloss(part1, part2, glossingTerms) {
         return `<div class="tooltip">${item}<span class="tooltiptext">${glossingTerms[0][item]}</span></div>`
     })
     console.log(part1)
-    let first_line = part1.replace("<","&lt;").replace(">","&gt;")
+    let first_line = part1.replaceall("<","&lt;").replaceall(">","&gt;")
     console.log(first_line)
     let ret = `<br><div class="interlinear"><pre>${first_line}</pre><pre>${second_line}</pre></div>`
     return ret
