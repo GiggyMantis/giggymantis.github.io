@@ -37,7 +37,7 @@ function formatInterlinearGloss(part1, part2, glossingTerms) {
     let second_line = part2.replace(capsRegex, (match, item) => {
         return `<div class="tooltip">${item}<span class="tooltiptext">${glossingTerms[0][item]}</span></div>`
     })
-    let first_line = part1.replaceall("<","&lt;").replaceall(">","&gt;")
+    let first_line = part1.replaceAll("<","&lt;").replaceAll(">","&gt;")
     let ret = `<br><div class="interlinear"><pre>${first_line}</pre><pre>${second_line}</pre></div>`
     return ret
 }
