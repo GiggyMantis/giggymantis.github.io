@@ -48,7 +48,7 @@ const latin_thirdpass = {
     "ɡn" : "ŋn"
 }
 
-function syllabify(input, vowels) = {
+function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "])"
     const c_regex = "([^" + vowels + ".])"
     return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3")
