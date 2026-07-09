@@ -32,7 +32,7 @@ const latin_secondpass = {
 
 // Third pass uses more complex rules but is still dealing with phonemic concepts.
 const latin_thirdpass = {
-    "\b(i)([aeiouy])" : "j$2"
+    "\\b(i)([aeiouy])" : "j$2"
 }
 
 
