@@ -38,14 +38,21 @@ const latin_secondpass = {
     "x" : "ks"
 }
 
+// Before syllabification
 const latin_thirdpass = {
     "\\b(i)([aeiouy])" : "j$2", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.ku.ʊs]
-    "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
-    "([^aeiouyː])(u)([aeiouy])" : "$1w$2", // Replaces ɡu with ɡʷ, as in pinguis [ˈpɪŋ.ɡʷɪs]
+    "([aeiouyː])(u)([aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
+    "([^aeiouyː])(u)([aeiouy])" : "$1w$2", // Replaces u with w after a consonant.
     "(n)([ɡk])" : "ŋ$2",
-    "ɡn" : "ŋn"
+    "ɡn" : "ŋn",
+}
+
+// After syllabification
+const latin_fourthpass = {
+    "(l)([aeou])" : "ɫ$2",
+    "(l)([\\b\\.])" : "ɫ$2"
 }
 
 function syllabify(input, vowels) {
@@ -63,6 +70,7 @@ function submit(latin) {
     Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_thirdpass[key]));
     latin_phonetic = latin_phonetic.replace("ɡw", "ɡʷ");
     latin_phonetic = syllabify(latin_phonetic, "aeiouyː");
+     Object.keys(latin_fourthpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_fourthpass[key]));
 
     $("#latinphon").val(latin_phonetic);
 }
