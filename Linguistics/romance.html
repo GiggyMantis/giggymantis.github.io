@@ -13,7 +13,15 @@
   <body>
     <div id="header-placeholder"></div>
     <h1>How to Use</h1>
-    <a>To use the evolver, input a Latin word (in orthography, using macrons to represent length, j/i/u/v does not matter). The pronunciation will automatically be added when you submit. If it looks off, you may need to edit your input.</a>
+    <p>To use the evolver, input a Latin word in its modern scholarly orthography. The pronunciation will automatically be added when you submit. If it looks off, you may need to edit your input.</p>
+    <p>Accepted Latin orthography:</p>
+    <ul>
+      <li>Macrons must represent long vowels. Acutes and I longa are not understood. <b>Use precomposed characters only.</b></li>
+      <li>Breves may indicate short vowels, but are not recommended or required.</li>
+      <li>⟨j⟩ and ⟨v⟩ are interpreted as merely orthographic variants of ⟨i⟩ and ⟨u⟩, and will not indicate or force a semivocalic interpretation.</li>
+      <li>Disaresis of ⟨ae⟩, ⟨oe⟩, ⟨au⟩ is not accepted, but ligature is.</li>
+      <li>Case does not matter.</li>
+    </ul>
     <h1>Latin -> Romance Evolver</h1>
     <label for="latin">Latin:</label><input type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin'))" value="Submit">[<output name="latinphon"></output>]<br><br>
     <label for="pr prphon">Proto-Romance: *</label><output name="pr"></output>&emsp;*[<output name="prphon"></output>]
