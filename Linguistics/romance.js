@@ -11,7 +11,14 @@ const latin_firstpass = {
     "æ" : "ae",
     "œ" : "oe",
     "ꜷ" : "au",
-    "ꜹ" : "au"
+    "ꜹ" : "au",
+    "á" : "ā",
+    "é" : "ē",
+    "í" : "ī",
+    "ó" : "ō",
+    "ú" : "ū",
+    "ý" : "ȳ",
+    "ꟾ" : "ī"
 }
 
 // Second pass is used to turn orthography into basic phonemic IPA
@@ -27,7 +34,8 @@ const latin_secondpass = {
     "ō" : "oː",
     "ū" : "uː",
     "ȳ" : "yː",
-    "c" : "k"
+    "c" : "k",
+    "x" : "ks"
 }
 
 const latin_thirdpass = {
@@ -35,9 +43,15 @@ const latin_thirdpass = {
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.ku.ʊs]
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
-    "(nɡu)([aeiouy])" : "ŋɡʷ$2", // Replaces nɡu with ŋɡʷ, as in pinguis [ˈpɪŋ.ɡʷɪs]
-    "nɡ" : "ŋɡ",
+    "([^aeiouyː])(u)([aeiouy])" : "$1w$2", // Replaces ɡu with ɡʷ, as in pinguis [ˈpɪŋ.ɡʷɪs]
+    "(n)([ɡk])" : "ŋ$2",
     "ɡn" : "ŋn"
+}
+
+function syllabify(input, vowels) = {
+    const v_regex = "([" + vowels + "])"
+    const c_regex = "([^" + vowels + ".])"
+    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3")
 }
 
 
@@ -46,7 +60,9 @@ function submit(latin) {
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
     
-    Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key), latin_thirdpass[key]));
+    Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_thirdpass[key]));
+    latin_phonetic = latin_phonetic.replace("ɡw", "ɡʷ");
+    latin_phonetic = syllabify(latin_phonetic, "aeiouyː");
 
     $("#latinphon").val(latin_phonetic);
 }
