@@ -40,7 +40,8 @@ function submit(latin) {
     latin_phonetic = String(latin).toLowerCase()
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
-    latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_thirdpass).join("|"), "g"), (matched) => latin_thirdpass[matched]);
+    
+    Object.keys(latin_thirdpass).forEach((key) => latin_phonetic.replace(new RegExp(key, "g"), (matched) => latin_thirdpass[key]))
 
     $("#latinphon").val(latin_phonetic);
 }
