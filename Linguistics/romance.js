@@ -36,5 +36,5 @@ function submit(latin) {
     result = result.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     result = result.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
 
-    window.alert(String(latin) + "   " + result)
+    $("#latinphon").val(result);
 }
