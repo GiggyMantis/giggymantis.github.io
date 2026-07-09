@@ -30,10 +30,14 @@ const latin_secondpass = {
     "c" : "k"
 }
 
-// Third pass uses more complex rules but is still dealing with phonemic concepts.
 const latin_thirdpass = {
-    "\\b(i)([aeiouy])" : "j$2",
-    "([aeiouyː])(i)([aeiouy])" : "$1jj$3",
+    "\\b(i)([aeiouy])" : "j$2", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
+    "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
+    "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.ku.ʊs]
+    "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
+    "(nɡu)([aeiouy])" : "ŋɡʷ$2", // Replaces nɡu with ŋɡʷ, as in pinguis [ˈpɪŋ.ɡʷɪs]
+    "nɡ" : "ŋɡ",
+    "ɡn" : "ŋn"
 }
 
 
