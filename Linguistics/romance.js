@@ -14,7 +14,7 @@ const latin_firstpass = {
     "ꜹ" : "au"
 }
 
-// Second pass is used to turn orthography into basic phonetic IPA
+// Second pass is used to turn orthography into basic phonemic IPA
 const latin_secondpass = {
     "ph" : "pʰ",
     "th" : "tʰ",
@@ -30,11 +30,17 @@ const latin_secondpass = {
     "c" : "k"
 }
 
+// Third pass uses more complex rules but is still dealing with phonemic concepts.
+const latin_thirdpass = {
+    "\b(i)([aeiouy])" : "j$2"
+}
+
 
 function submit(latin) {
-    result = String(latin).toLowerCase()
-    result = result.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
-    result = result.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
+    latin_phonetic = String(latin).toLowerCase()
+    latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
+    latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
+    latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_thirdpass).join("|"), "g"), (matched) => latin_thirdpass[matched]);
 
-    $("#latinphon").val(result);
+    $("#latinphon").val(latin_phonetic);
 }
