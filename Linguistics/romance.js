@@ -56,9 +56,9 @@ const latin_fourthpass = {
 }
 
 function syllabify(input, vowels) {
-    const v_regex = "([" + vowels + "])"
-    const c_regex = "([^" + vowels + ".])"
-    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3")
+    const v_regex = "([" + vowels + "ː])";
+    const c_regex = "([^" + vowels + ".])";
+    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3").replace(new RegExp(v_regex + "([" + vowels + "])", "g"), "$1.$2");
 }
 
 
@@ -69,7 +69,7 @@ function submit(latin) {
     
     Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_thirdpass[key]));
     latin_phonetic = latin_phonetic.replace("ɡw", "ɡʷ");
-    latin_phonetic = syllabify(latin_phonetic, "aeiouyː");
+    latin_phonetic = syllabify(latin_phonetic, "aeiouy");
      Object.keys(latin_fourthpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_fourthpass[key]));
 
     $("#latinphon").val(latin_phonetic);
