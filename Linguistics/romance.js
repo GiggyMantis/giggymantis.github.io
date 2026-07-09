@@ -41,7 +41,10 @@ function submit(latin) {
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
     
-    Object.keys(latin_thirdpass).forEach((key) => latin_phonetic.replace(new RegExp(key, "g"), (matched) => latin_thirdpass[key]))
-
+    // Horrible workaround to allow for foreaching a dictionary when it won't let me re-index the dict with the key because it collapses the double backslash.
+    for (const [key, value] of Object.entries(latin_thirdpass)) {
+        latin_phonetic.replace(new RegExp(key), value);
+    }
+    
     $("#latinphon").val(latin_phonetic);
 }
