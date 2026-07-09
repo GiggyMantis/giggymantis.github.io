@@ -32,9 +32,9 @@ const latin_secondpass = {
 
 
 function submit(latin) {
-    result = latin.toLowerCase()
+    result = (String)latin.toLowerCase()
     result = result.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => replacements[matched]);
     result = result.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => replacements[matched]);
 
-    window.alert(result)
+    window.alert((String)latin + "   " + result)
 }
