@@ -92,7 +92,9 @@ function submit(latin) {
     Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_thirdpass[key]));
     latin_phonetic = latin_phonetic.replace("ɡw", "ɡʷ");
     latin_phonetic = syllabify(latin_phonetic, "aeiouy");
-     Object.keys(latin_fourthpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_fourthpass[key]));
+    Object.keys(latin_fourthpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_fourthpass[key]));
+
+    latin_phonetic = latinate_stress(latin_phonetic);
 
     $("#latinphon").val(latin_phonetic);
 }
