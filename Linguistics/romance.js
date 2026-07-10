@@ -60,7 +60,7 @@ const latin_fourthpass = {
 
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "ː])";
-    const c_regex = "([^" + vowels + ".])";
+    const c_regex = "([^" + vowels + ".ː])";
     return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3").replace(new RegExp(v_regex + "([" + vowels + "])", "g"), "$1.$2");
 }
 
