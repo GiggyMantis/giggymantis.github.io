@@ -71,6 +71,8 @@ const latin_fourthpass = {
     "i(?!ː)" : "ɪ", // ″
     "u(?!ː)" : "ʊ", // ″
     "y(?!ː)" : "ʏ", // ″
+    "-" : ".",
+    "\\.\\." : ".",
 }
 
 function syllabify(input, vowels) {
