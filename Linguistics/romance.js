@@ -83,7 +83,7 @@ function latinate_stress(input) {
         }
     }
 
-    ret.replace("ˈ.", ".ˈ");
+    ret = ret.replace("ˈ.", ".ˈ");
     if (ret.startsWith(".")) {
         return ret.substring(1);
     }
