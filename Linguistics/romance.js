@@ -69,8 +69,8 @@ const latin_fourthpass = {
 
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "ː])";
-    const c_regex = "([^" + vowels + ".ː]ʰ*)";
-    const c_regex_unwrapped = "[^" + vowels + ".ː]ʰ*";
+    const c_regex_unwrapped = "[^" + vowels + "\\.ːʰ]ʰ*";
+    const c_regex = "(" + c_regex_unwrapped + ")"
     return input.replace(new RegExp(v_regex + c_regex + c_regex + "(?=.)", "g"), "$1$2.$3").replace(new RegExp(v_regex + "(?=" + c_regex_unwrapped + "[" + vowels + "])", "g"), "$1.").replace(new RegExp(v_regex + "([" + vowels + "])(?!̯)", "g"), "$1.$2");
 }
 
