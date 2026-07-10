@@ -71,16 +71,18 @@ function syllabify(input, vowels) {
 function latinate_stress(input) {
     if (input.split(".").length - 1 <= 1) {
         // One or two syllables, stress the primary
-        return "ˈ" + input;
+        const ret = "ˈ" + input;
+    } else {
+        if (new RegExp("[^aeoiuy]\\.(?!.*\\.)").test(input)) {
+            // Penult is heavy, stress the penult
+            const ret = input.replace(new RegExp("([\\.\\b])(?!.*\\..*\\.)"), "ˈ$1");
+        } else {
+            // Penult is liteweit, stress the antepenult
+            const ret = input.replace(new RegExp("([\\.\\b])(?!.*\\..*\\..*\\.)"), "ˈ$1");
+        }
     }
 
-    if (new RegExp("[^aeoiuy]\\.(?!.*\\.)").test(input)) {
-        // Penult is heavy, stress the penult
-        return input.replace(new RegExp("([\\.\\b])(?!.*\\..*\\.)"), "ˈ$1");
-    } else {
-        // Penult is liteweit, stress the antepenult
-        return input.replace(new RegExp("([\\.\\b])(?!.*\\..*\\..*\\.)"), "ˈ$1");
-    }
+    return ret.replace("ˈ.", ".ˈ");
 }
 
 
