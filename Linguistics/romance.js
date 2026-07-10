@@ -53,7 +53,9 @@ const latin_thirdpass = {
 // After syllabification
 const latin_fourthpass = {
     "(l)(-?[aeou])" : "ɫ$2",
-    "(l)(-?[\\b\\.])" : "ɫ$2"
+    "(l)(-?[\\b\\.])" : "ɫ$2",
+    "(ː[nm])([.s])" : "̃ː$2",
+    "([aeiouy])([nm])([.s])" : "̃$3",
 }
 
 function syllabify(input, vowels) {
