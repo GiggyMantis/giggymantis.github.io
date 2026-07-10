@@ -69,7 +69,7 @@ const latin_fourthpass = {
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "ː])";
     const c_regex = "([^" + vowels + ".ː]ʰ*)";
-    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + "(?=[^" + vowels + "][" + vowels + "])", "g"), "$1.").replace(new RegExp(v_regex + "([" + vowels + "])(?!̯)", "g"), "$1.$2");
+    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + "(?=[^" + vowels + "]ʰ?[" + vowels + "])", "g"), "$1.").replace(new RegExp(v_regex + "([" + vowels + "])(?!̯)", "g"), "$1.$2");
 }
 
 function latinate_stress(input) {
