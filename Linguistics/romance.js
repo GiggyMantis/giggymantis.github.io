@@ -58,14 +58,29 @@ const latin_thirdpass = {
 const latin_fourthpass = {
     "(l)(-?[aeou])" : "ɫ$2",
     "(l)(-?[\\b\\.])" : "ɫ$2",
-    "(ː[nm])([.s\\b])" : "̃ː$2",
-    "([aeiouy])([nm])([.s\\b])" : "$1̃$3",
+    "(ː[nm])(?=[.s\\b])" : "̃ː",
+    "([aeiouy])([nm])(?=[.s\\b])" : "$1̃",
 }
 
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "ː])";
     const c_regex = "([^" + vowels + ".ː])";
     return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + "(?=[^" + vowels + "][" + vowels + "])", "g"), "$1.").replace(new RegExp(v_regex + "([" + vowels + "])(?!̯)", "g"), "$1.$2");
+}
+
+function latinate_stress(input) {
+    if (input.split(".").length - 1 <= 1) {
+        // One or two syllables, stress the primary
+        return "ˈ" + input;
+    }
+
+    if (new RegExp("[^aeoiuy]\\.(?!.*\\.)").test(input)) {
+        // Penult is heavy, stress the penult
+        return input.replace(new RegExp("([\\.\\b])(?!.*\\..*\\.)"), "ˈ$1");
+    } else {
+        // Penult is liteweit, stress the antepenult
+        return input.replace(new RegExp("([\\.\\b])(?!.*\\..*\\..*\\.)"), "ˈ$1");
+    }
 }
 
 
