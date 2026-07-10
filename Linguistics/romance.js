@@ -45,9 +45,13 @@ const latin_thirdpass = {
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.ku.ʊs]
     "([aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
-    "([^aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$2", // Replaces u with w after a consonant.
+    "([ɡstdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal or velar consonant.
     "(n)(-?[ɡk])" : "ŋ$2",
     "ɡ(-?n)" : "ŋ$2",
+    "(a)([eu])" : "$1$2̯",
+    "(e)([iu])" : "$1$2̯",
+    "(o)(e)" : "$1$2̯",
+    "(u)(i)" : "$1$2̯",
 }
 
 // After syllabification
@@ -61,7 +65,7 @@ const latin_fourthpass = {
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "ː])";
     const c_regex = "([^" + vowels + ".ː])";
-    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3").replace(new RegExp(v_regex + "([" + vowels + "])", "g"), "$1.$2");
+    return input.replace(new RegExp(v_regex + c_regex + c_regex + "\\B", "g"), "$1$2.$3").replace(new RegExp(v_regex + c_regex + v_regex, "g"), "$1.$2$3").replace(new RegExp(v_regex + "([" + vowels + "])(?!̯)", "g"), "$1.$2");
 }
 
 
