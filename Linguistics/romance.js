@@ -50,7 +50,10 @@ const latin_thirdpass = {
     "m(-?[nsztdrl])" : "n$2", // ″
     "n(-?[mpbf])" : "m$2", // ″
     "ɡ(-?n)" : "ŋ$2", // ″
-    "(a)([eu])(?!ː)|(e)([iu])(?!ː)|(o)(e)(?!ː)|(u)(i)(?!ː)" : "$1$2̯", // Diphthongs
+    "(a)([eu])(?!ː)" : "$1$2̯", // Diphthongs
+    "(e)([iu])(?!ː)" : "$1$2̯", // ″
+    "(o)(e)(?!ː)" : "$1$2̯", // ″
+    "(u)(i)(?!ː)" : "$1$2̯", // ″
 }
 
 // After syllabification
@@ -107,7 +110,7 @@ function submit(latin) {
     
     Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_thirdpass[key]));
     latin_phonetic = latin_phonetic.replace("ɡw", "ɡʷ");
-    latin_phonetic = syllabify(latin_phonetic, "aeiouy");
+    latin_phonetic = syllabify(latin_phonetic, "aeoiuyɛɔɪʊʏ");
     Object.keys(latin_fourthpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_fourthpass[key]));
 
     latin_phonetic = latinate_stress(latin_phonetic);
