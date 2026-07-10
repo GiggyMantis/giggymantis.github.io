@@ -41,18 +41,19 @@ const latin_secondpass = {
 // Before syllabification
 const latin_thirdpass = {
     "\\b(i)([aeiouy])" : "j$2", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
+    "(-i)([aeiouy])" : "-j$2", // Replaces i with j at the beginnings of morphemes before vowels, as in adiaceō [adˈja.ke.oː]
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.ku.ʊs]
-    "([aeiouyː])(u)([aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
-    "([^aeiouyː])(u)([aeiouy])" : "$1w$2", // Replaces u with w after a consonant.
-    "(n)([ɡk])" : "ŋ$2",
-    "ɡn" : "ŋn",
+    "([aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
+    "([^aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$2", // Replaces u with w after a consonant.
+    "(n)(-?[ɡk])" : "ŋ$2",
+    "ɡ(-?n)" : "ŋ$2",
 }
 
 // After syllabification
 const latin_fourthpass = {
-    "(l)([aeou])" : "ɫ$2",
-    "(l)([\\b\\.])" : "ɫ$2"
+    "(l)(-?[aeou])" : "ɫ$2",
+    "(l)(-?[\\b\\.])" : "ɫ$2"
 }
 
 function syllabify(input, vowels) {
@@ -63,7 +64,7 @@ function syllabify(input, vowels) {
 
 
 function submit(latin) {
-    latin_phonetic = String(latin).toLowerCase()
+    latin_phonetic = String(latin).toLowerCase().replace(new RegExp("\\s", "g"), "");
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
     
