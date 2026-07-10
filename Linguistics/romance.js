@@ -50,7 +50,7 @@ const latin_thirdpass = {
     "m(-?[nsztdrl])" : "n$2", // ″
     "n(-?[mpbf])" : "m$2", // ″
     "ɡ(-?n)" : "ŋ$2", // ″
-    "(a)([eu])|(e)([iu])|(o)(e)|(u)(i)" : "$1$2̯", // Diphthongs
+    "(a)([eu])(?!ː)|(e)([iu])(?!ː)|(o)(e)(?!ː)|(u)(i)(?!ː)" : "$1$2̯", // Diphthongs
 }
 
 // After syllabification
@@ -65,6 +65,7 @@ const latin_fourthpass = {
     "o(?!ː)" : "ɔ", // ″
     "i(?!ː)" : "ɪ", // ″
     "u(?!ː)" : "ʊ", // ″
+    "y(?!ː)" : "ʏ", // ″
 }
 
 function syllabify(input, vowels) {
@@ -80,7 +81,7 @@ function latinate_stress(input) {
         // One or two syllables, stress the primary
         ret = "ˈ" + input;
     } else {
-        if (new RegExp("[^aeoiuy]\\.(?!.*\\.)").test(input)) {
+        if (new RegExp("[^aeoiuyɛɔɪʊʏ]\\.(?!.*\\.)").test(input)) {
             // Penult is heavy, stress the penult
             ret = ("." + input).replace(new RegExp("(\\.)(?!.*\\..*\\.)"), "ˈ$1");
             console.log("heavy penult");
