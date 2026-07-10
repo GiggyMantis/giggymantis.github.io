@@ -58,8 +58,10 @@ const latin_thirdpass = {
 
 // After syllabification
 const latin_fourthpass = {
-    "(l)(-?[aeou])" : "ɫ$2", // L-darkening
-    "(l)(-?\\b)" : "ɫ$2", // ″
+    "(l)(?=-?[aeou])" : "ɫ", // L-darkening
+    "(l)$" : "ɫ", // ″
+    "(l)\\.[^lɫ]" : "ɫ", // ″
+    "l.ɫ" : "l.l", // ″
     "(ː[nm])(s)" : "̃ːs", // Nasalization
     "([aeiouy])([nm])s" : "$1̃s", // ″
     "(ː[nm])$" : "̃ː", // ″
