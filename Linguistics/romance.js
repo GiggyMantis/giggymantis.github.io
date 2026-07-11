@@ -71,6 +71,11 @@ const latin_fourthpass = {
     "i(?![ː̯])" : "ɪ", // ″
     "u(?![ː̯])" : "ʊ", // ″
     "y(?![ː̯])" : "ʏ", // ″
+    "ɛ(?=.̯)" : "e", // Vowel unreduction in diphthongs (I'm too lazy to figure out how to incorporate this into the initial regices)
+    "ɔ(?=.̯)" : "o", // ″
+    "ɪ(?=.̯)" : "i", // ″
+    "ʊ(?=.̯)" : "u", // ″
+    "ʏ(?=.̯)" : "y", // ″
     "-" : ".",
     "\\.\\." : ".",
     "g" : "ɡ",
@@ -78,10 +83,14 @@ const latin_fourthpass = {
 
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
+    "y" : "i",
+    "ʏ" : "ɪ"
     "w" : "β",
-    "([aeoiuyɛɔɪʊʏ]ː̯?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
+    "([aeoiuyɛɔɪʊʏ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
     "ae̯" : "ɛː",
     "oe̯" : "eː",
+    "ui̯" : "u.i",
+    "ei̯" : "iː",
 }
 
 function syllabify(input, vowels) {
