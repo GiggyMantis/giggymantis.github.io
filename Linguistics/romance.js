@@ -47,8 +47,8 @@ const latin_thirdpass = {
     "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
     "(ng)(u)(?=[aeiouy])" : "ngʷ", // gʷ
     "(nm)(-?[gkw])" : "ŋ$2", // Nasal assimilation
-    "m(-?[nsztdrl])" : "n$2", // ″
-    "n(-?[mpbf])" : "m$2", // ″
+    "m(-?[sztdrl])" : "n$1", // ″
+    "n(-?[pbf])" : "m$1", // ″
     "g(-?n)" : "ŋ$1", // ″
     "(a)([eu])(?!ː)" : "$1$2̯", // Diphthongs
     "(e)([iu])(?!ː)" : "$1$2̯", // ″
@@ -60,7 +60,7 @@ const latin_thirdpass = {
 const latin_fourthpass = {
     "(l)(?=-?[aeou])" : "ɫ", // L-darkening
     "(l)$" : "ɫ", // ″
-    "(l)\\.[^lɫ]" : "ɫ", // ″
+    "(l)\\.(?=[^lɫ])" : "ɫ", // ″
     "l.ɫ" : "l.l", // ″
     "(ː[nm])(s)" : "̃ːs", // Nasalization
     "([aeiouy])([nm])s" : "$1̃s", // ″
