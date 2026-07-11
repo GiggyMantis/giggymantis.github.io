@@ -27,7 +27,6 @@ const latin_secondpass = {
     "th" : "tʰ",
     "ch" : "kʰ",
     "qu" : "kʷ",
-    "g" : "ɡ",
     "ā" : "aː",
     "ē" : "eː",
     "ī" : "iː",
@@ -46,11 +45,11 @@ const latin_thirdpass = {
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
     "([aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
     "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
-    "(nɡ)(u)(?=[aeiouy])" : "nɡʷ", // ɡʷ
-    "(nm)(-?[ɡkw])" : "ŋ$2", // Nasal assimilation
+    "(ng)(u)(?=[aeiouy])" : "ngʷ", // gʷ
+    "(nm)(-?[gkw])" : "ŋ$2", // Nasal assimilation
     "m(-?[nsztdrl])" : "n$2", // ″
     "n(-?[mpbf])" : "m$2", // ″
-    "ɡ(-?n)" : "ŋ$1", // ″
+    "g(-?n)" : "ŋ$1", // ″
     "(a)([eu])(?!ː)" : "$1$2̯", // Diphthongs
     "(e)([iu])(?!ː)" : "$1$2̯", // ″
     "(o)(e)(?!ː)" : "$1$2̯", // ″
@@ -74,6 +73,7 @@ const latin_fourthpass = {
     "y(?![ː̯])" : "ʏ", // ″
     "-" : ".",
     "\\.\\." : ".",
+    "g" : "ɡ",
 }
 
 function syllabify(input, vowels) {
@@ -81,7 +81,7 @@ function syllabify(input, vowels) {
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
     const c_regex_unwrapped = "[^" + vowels + "\\.ː̯ʰʷ][ʷʰ]?";
     const c_regex = "(" + c_regex_unwrapped + ")"
-    return input.replace(new RegExp(v_regex + "([pbtdkɡ]ʰ?)([lr])(?=.)", "g"), "$1.$2$3").replace(new RegExp(v_regex + c_regex + c_regex + "(?=.)", "g"), "$1$2.$3").replace(new RegExp(v_regex + "(?=" + c_regex_unwrapped + "[" + vowels + "])", "g"), "$1.").replace(new RegExp(v_regex + v_regex_exclusive + "(?!̯)", "g"), "$1.");
+    return input.replace(new RegExp(v_regex + "([pbtdkg]ʰ?)([lr])(?=.)", "g"), "$1.$2$3").replace(new RegExp(v_regex + c_regex + c_regex + "(?=.)", "g"), "$1$2.$3").replace(new RegExp(v_regex + "(?=" + c_regex_unwrapped + "[" + vowels + "])", "g"), "$1.").replace(new RegExp(v_regex + v_regex_exclusive + "(?!̯)", "g"), "$1.");
 }
 
 function latinate_stress(input) {
