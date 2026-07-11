@@ -79,7 +79,9 @@ const latin_fourthpass = {
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
     "w" : "β",
-    "([aeoiuyɛɔɪʊʏ]ː̯?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
+    "([aeoiuyɛɔɪʊʏ]ː̯?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
+    "ae̯" : "ɛː",
+    "oe̯" : "eː",
 }
 
 function syllabify(input, vowels) {
