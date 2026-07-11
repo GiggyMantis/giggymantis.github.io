@@ -46,7 +46,7 @@ const latin_thirdpass = {
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
     "([aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
     "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
-    "(ng)(u)(?=[aeiouy])" : "nɡʷ", // ɡʷ
+    "(nɡ)(u)(?=[aeiouy])" : "nɡʷ", // ɡʷ
     "(nm)(-?[ɡkw])" : "ŋ$2", // Nasal assimilation
     "m(-?[nsztdrl])" : "n$2", // ″
     "n(-?[mpbf])" : "m$2", // ″
