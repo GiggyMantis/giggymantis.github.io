@@ -84,9 +84,9 @@ const latin_fourthpass = {
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
     "y" : "i",
-    "ʏ" : "ɪ"
+    "ʏ" : "ɪ",
     "w" : "β",
-    "([aeoiuyɛɔɪʊʏ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
+    "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
     "ae̯" : "ɛː",
     "oe̯" : "eː",
     "ui̯" : "u.i",
