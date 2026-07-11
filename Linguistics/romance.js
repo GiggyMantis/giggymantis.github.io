@@ -76,6 +76,12 @@ const latin_fourthpass = {
     "g" : "ɡ",
 }
 
+// First pass evolving to Proto-Romance phonetically
+const pr_firstpass = {
+    "w" : "β",
+    "([aeoiuyɛɔɪʊʏ]ː̯?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
+}
+
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "][ː̯]?)"
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
@@ -109,6 +115,7 @@ function latinate_stress(input) {
 
 
 function submit(latin) {
+    // Phoneticize Latin
     latin_phonetic = String(latin).toLowerCase().replace(new RegExp("\\s", "g"), "");
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
@@ -119,5 +126,13 @@ function submit(latin) {
 
     latin_phonetic = latinate_stress(latin_phonetic);
 
+    // Evolve to Proto-Romance
+    proto_romance_phonetic = latin_phonetic;
+    proto_romance = latin;
+
+    proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(Object.keys(pr_firstpass).join("|"), "g"), (matched) => pr_firstpass[matched]);
+
     $("#latinphon").val(latin_phonetic);
+    $("#pr").val(proto_romance);
+    $("#prphon").val(proto_romance_phonetic);
 }
