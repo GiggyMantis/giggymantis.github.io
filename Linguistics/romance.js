@@ -63,7 +63,7 @@ const latin_fourthpass = {
     "(l)\\.(?=[^lɫ])" : "ɫ", // ″
     "l.ɫ" : "l.l", // ″
     "(ː[nm])(\\.)(s)" : "̃ː$2s", // Nasalization
-    "([aeiouy])([nm])(\\.)ː?s" : "$1̃ː$2s", // ″
+    "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s", // ″
     "(ː[nm])$" : "̃ː", // ″
     "([aeiouy])([nm])$" : "$1̃ː", // ″
     "e(?!̃?[ː̯])" : "ɛ", // Vowel reduction
