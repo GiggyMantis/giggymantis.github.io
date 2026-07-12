@@ -63,14 +63,14 @@ const latin_fourthpass = {
     "(l)\\.(?=[^lɫ])" : "ɫ", // ″
     "l.ɫ" : "l.l", // ″
     "(ː[nm])(s)" : "̃ːs", // Nasalization
-    "([aeiouy])([nm])s" : "$1̃s", // ″
+    "([aeiouy])([nm])ː?s" : "$1̃ːs", // ″
     "(ː[nm])$" : "̃ː", // ″
     "([aeiouy])([nm])$" : "$1̃", // ″
-    "e(?![ː̯])" : "ɛ", // Vowel reduction
-    "o(?![ː̯])" : "ɔ", // ″
-    "i(?![ː̯])" : "ɪ", // ″
-    "u(?![ː̯])" : "ʊ", // ″
-    "y(?![ː̯])" : "ʏ", // ″
+    "e(?!̃?[ː̯])" : "ɛ", // Vowel reduction
+    "o(?!̃?[ː̯])" : "ɔ", // ″
+    "i(?!̃?[ː̯])" : "ɪ", // ″
+    "u(?!̃?[ː̯])" : "ʊ", // ″
+    "y(?!̃?[ː̯])" : "ʏ", // ″
     "ɛ(?=.̯)" : "e", // Vowel unreduction in diphthongs (I'm too lazy to figure out how to incorporate this into the initial regices)
     "ɔ(?=.̯)" : "o", // ″
     "ɪ(?=.̯)" : "i", // ″
@@ -94,6 +94,7 @@ const pr_firstpass = {
     "ː" : "",
     "(ˈ)([^\\.]+)ɛ" : "$1$2e",
     "(ˈ)([^\\.]+)ɔ" : "$1$2o",
+    "̃" : ""
 }
 
 function syllabify(input, vowels) {
