@@ -91,6 +91,9 @@ const pr_firstpass = {
     "oe̯" : "eː",
     "ui̯" : "u.i",
     "ei̯" : "iː",
+    "ː" : "",
+    "(ˈ)([^\\.]+)ɛ" : "$1$2e",
+    "(ˈ)([^\\.]+)ɔ" : "$1$2o",
 }
 
 function syllabify(input, vowels) {
