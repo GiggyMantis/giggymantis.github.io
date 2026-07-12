@@ -154,7 +154,7 @@ function submit(latin) {
     proto_romance_phonetic = latin_phonetic;
     proto_romance = latin;
 
-    proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(Object.keys(pr_firstpass).join("|"), "g"), (matched) => pr_firstpass[matched]);
+    Object.keys(pr_firstpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_firstpass[key]));
 
     $("#latinphon").val(latin_phonetic);
     $("#pr").val(proto_romance);
