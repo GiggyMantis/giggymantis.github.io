@@ -117,9 +117,10 @@ const pr_firstpass = {
     "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in hiatus (and change of notation of /au̯/)
     "u̯" : "w",
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : "j",
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : "w",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
     ".([^aeoiuɛɔɪʊ])." : "$1.",
+    // "(?<=[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.[aeoiuɛɔɪʊ](?=.*\\.)"
 }
 
 function syllabify(input, vowels) {
