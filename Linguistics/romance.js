@@ -87,6 +87,7 @@ const pr_firstpass = {
     "ʏ" : "ɪ",
     "ʷ(?=[aeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel,
     "ʷ" : "",
+    "(?<![aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
     "(?<![stdnrkɡ]\\.?)w" : "β", // Fricatization of w
     "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
     "ae̯" : "ɛː", // Diphthong collapse
