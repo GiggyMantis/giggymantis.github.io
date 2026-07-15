@@ -87,9 +87,6 @@ const latin_fourthpass = {
 const pr_firstpass = {
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
-    "ʷ(?=j?[aeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel (or j!!!),
-    "kw\\.j" : "k.wj",
-    "ʷ" : "",
     "(?<=[aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
     "(?<![stdnrkɡ]\\.?)w" : "β", // Fricatization of w
     "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
@@ -98,6 +95,9 @@ const pr_firstpass = {
     "ui̯" : "u.i",
     "ei̯" : "iː",
     "eu̯" : "ɛː",
+    "ʷ(?=j?[aeiɛɪː̯̃])" : "w", // Loss of ʷ not before a front vowel (or j!!!),
+    "kw\\.j" : "k.wj",
+    "ʷ" : "",
     "aː?\\.(ˈ?)haː?" : "$1aː", // h loss
     "[eɛ]ː?\\.(ˈ?)h[eɛ]ː?" : "$1eː",
     "[oɔ]ː?\\.(ˈ?)h[oɔ]ː?" : "$1oː",
