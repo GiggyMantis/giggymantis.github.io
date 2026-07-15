@@ -85,7 +85,9 @@ const latin_fourthpass = {
 const pr_firstpass = {
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
-    "w" : "β", // Fricatization of w
+    "ʷ(?=[aeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel,
+    "ʷ" : "",
+    "(?<![stdnrkɡ])w" : "β", // Fricatization of w
     "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
     "ae̯" : "ɛː", // Diphthong collapse
     "oe̯" : "eː",
@@ -115,8 +117,9 @@ const pr_firstpass = {
     "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in hiatus (and change of notation of /au̯/)
     "u̯" : "w",
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : "j",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : "w",
+    ".([^aeoiuɛɔɪʊ])." : "$1.",
 }
 
 function syllabify(input, vowels) {
