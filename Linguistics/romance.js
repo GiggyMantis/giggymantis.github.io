@@ -127,6 +127,7 @@ const pr_firstpass = {
     "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
     "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
     "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1",
+    "^([^\\.ϝ]*)\\.ϝ" : ".ˈ$1",
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
