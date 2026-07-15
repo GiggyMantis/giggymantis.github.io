@@ -125,9 +125,11 @@ const pr_firstpass = {
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
     "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
     "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
+    "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
+    "\\.([^\\.ϝ]*)ϝ" : ".ˈ$1",
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
-    "([^aeoiuɛɔɪʊ])\\.ˈjɛ" : ".ˈ$1e",
-    "([^aeoiuɛɔɪʊ])\\.ˈwɔ" : ".ˈ$1o",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
     "w(?=[oɔuʊ])" : "", // w deletion before back vowels
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     "W" : "w", // undoes earlier temporary notation shift
