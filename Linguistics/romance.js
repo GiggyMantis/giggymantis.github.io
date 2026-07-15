@@ -83,30 +83,30 @@ const latin_fourthpass = {
 
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
-    "y" : "i",
+    "y" : "i", // Iotification
     "ʏ" : "ɪ",
-    "w" : "β",
-    "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β",
-    "ae̯" : "ɛː",
+    "w" : "β", // Fricatization of w
+    "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
+    "ae̯" : "ɛː", // Diphthong collapse
     "oe̯" : "eː",
     "ui̯" : "u.i",
     "ei̯" : "iː",
     "eu̯" : "ɛː",
-    "aː?\\.(ˈ?)haː?" : "$1aː",
+    "aː?\\.(ˈ?)haː?" : "$1aː", // h loss
     "[eɛ]ː?\\.(ˈ?)h[eɛ]ː?" : "$1eː",
     "[oɔ]ː?\\.(ˈ?)h[oɔ]ː?" : "$1oː",
     "[iɪ]ː?\\.(ˈ?)h[iɪ]ː?" : "$1iː",
     "[uʊ]ː?\\.(ˈ?)h[uʊ]ː?" : "$1uː",
     "([^aeoiuɛɔɪʊː̯̃])\\.(ˈ?)h" : ".$2$1",
     "h" : "",
-    "ː" : "",
-    "(ˈ)(.*\\..*)ɛ" : "$1$2e",
-    "(ˈ)(.*\\..*)ɔ" : "$1$2o",
-    "(?<=\\..*)̃" : "",
+    "ː" : "", // Vowel length loss
+    "(ˈ)(.*\\..*)ɛ" : "$1$2e", // Unstressed e-ɛ merger
+    "(ˈ)(.*\\..*)ɔ" : "$1$2o", // Unstressed o-ɔ merger
+    "(?<=\\..*)̃" : "", // Nasal loss
     "̃(?=.*\\.)" : "",
-    "̃" : "n",
-    "[iɪ]\\.[iɪ]" : "i",
-    "([^aeoiuɛɔɪʊ])[iɪ]\\.ˈ[iɪ]" : "ˈ$1i",
+    "̃" : "n", // Nasal comeback in monosyllables
+    "[iɪ]\\.[iɪ]" : "i", // i-i assimilation
+    "([^\\.])[iɪ]\\.ˈ[iɪ]" : "ˈ$1i",
     "[iɪ]\\.ˈ[iɪ]" : "ˈi",
 }
 
