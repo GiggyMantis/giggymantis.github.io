@@ -85,7 +85,8 @@ const latin_fourthpass = {
 const pr_firstpass = {
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
-    "ʷ(?=[jaeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel (or j!!!),
+    "ʷ(?=j?[aeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel (or j!!!),
+    "kw\\.j" : "k.wj",
     "ʷ" : "",
     "(?<=[aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
     "(?<![stdnrkɡ]\\.?)w" : "β", // Fricatization of w
