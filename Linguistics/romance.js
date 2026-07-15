@@ -44,7 +44,7 @@ const latin_thirdpass = {
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
     "([aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
-    "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
+    // "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
     "(ng)(u)(?=[aeiouy])" : "ngʷ", // gʷ
     "(nm)(-?[gkw])" : "ŋ$2", // Nasal assimilation
     "m(-?[sztdrl])" : "n$1", // ″
@@ -119,7 +119,6 @@ const pr_firstpass = {
     "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
-    "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
