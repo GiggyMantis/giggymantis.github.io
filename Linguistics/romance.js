@@ -122,7 +122,8 @@ const pr_firstpass = {
     "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
-    "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
+    "\\.([^aeoiuɛɔɪʊ])\\." : "$1.$2",
+    "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
     "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
     "([^aeoiuɛɔɪʊ])\\.ˈjɛ" : ".ˈ$1e",
