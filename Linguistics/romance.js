@@ -106,8 +106,8 @@ const pr_firstpass = {
     "([^aeoiuɛɔɪʊː̯̃])\\.(ˈ?)h" : ".$2$1",
     "h" : "",
     "ː" : "", // Vowel length loss
-    "(ˈ)(.*\\..*)ɛ" : "$1$2e", // Unstressed e-ɛ merger
-    "(ˈ)(.*\\..*)ɔ" : "$1$2o", // Unstressed o-ɔ merger
+    "ˈ([^\\.]*\\.[^\\.]*)ɛ" : "ˈ$1e", // Unstressed e-ɛ merger
+    "ˈ([^\\.]*\\.[^\\.]*)ɔ" : "ˈ$o", // Unstressed o-ɔ merger
     "(?<=\\..*)̃" : "", // Nasal loss
     "̃(?=.*\\.)" : "",
     "̃" : "n", // Nasal comeback in monosyllables
