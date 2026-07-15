@@ -108,6 +108,10 @@ const pr_firstpass = {
     "[iɪ]\\.[iɪ]" : "i", // i-i assimilation
     "([^\\.])[iɪ]\\.ˈ[iɪ]" : "ˈ$1i",
     "[iɪ]\\.ˈ[iɪ]" : "ˈi",
+    "(ˈ)([^\\.]*)(\\.)(?=.*[ptkbdɡ][lɫr])" : ".$2ˈ", // Stop-Liquid consonant clusters pull stress forward one syllable, as in integram -> *įntę́gra
+    "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
+    "([aeoiuɛɔɪʊ])β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
+    "([uʊoɔ])β(?=[aeoiuɛɔɪʊ])" : "$1.", 
 }
 
 function syllabify(input, vowels) {
