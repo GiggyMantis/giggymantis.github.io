@@ -39,7 +39,7 @@ const latin_secondpass = {
 
 // Before syllabification
 const latin_thirdpass = {
-    "\\b(i)([aeiouy])" : "j$2", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
+    "^(i)([aeiouy])" : "j$2", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
     "(-i)([aeiouy])" : "-j$2", // Replaces i with j at the beginnings of morphemes before vowels, as in adiaceō [adˈja.ke.oː]
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
     "\\b(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
@@ -85,7 +85,7 @@ const latin_fourthpass = {
 const pr_firstpass = {
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
-    "ʷ(?=[aeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel,
+    "ʷ(?=[jaeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel (or j!!!),
     "ʷ" : "",
     "(?<=[aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
     "(?<![stdnrkɡ]\\.?)w" : "β", // Fricatization of w
