@@ -110,8 +110,13 @@ const pr_firstpass = {
     "[iɪ]\\.ˈ[iɪ]" : "ˈi",
     "(ˈ)([^\\.]*)(\\.)(?=.*[ptkbdɡ]\\.?[lɫr])" : ".$2ˈ", // Stop-Liquid consonant clusters pull stress forward one syllable, as in integram -> *įntę́gra
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
-    "([aeoiuɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
-    "([uʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.", 
+    "^\\." : "",
+    "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
+    "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
+    "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in hiatus (and change of notation of /au̯/)
+    "u̯" : "w",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
 }
 
 function syllabify(input, vowels) {
