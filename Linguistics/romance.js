@@ -122,6 +122,8 @@ const pr_firstpass = {
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
     "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
+    "([^aeoiuɛɔɪʊ])\\.ˈjɛ" : ".ˈ$1e",
+    "([^aeoiuɛɔɪʊ])\\.ˈwɔ" : ".ˈ$1o",
     "w(?=[oɔuʊ])" : "", // w deletion before back vowels
 }
 
