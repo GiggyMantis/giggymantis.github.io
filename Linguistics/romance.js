@@ -125,6 +125,7 @@ const pr_firstpass = {
     "([^aeoiuɛɔɪʊ])\\.ˈjɛ" : ".ˈ$1e",
     "([^aeoiuɛɔɪʊ])\\.ˈwɔ" : ".ˈ$1o",
     "w(?=[oɔuʊ])" : "", // w deletion before back vowels
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion before back vowels
 }
 
 function syllabify(input, vowels) {
