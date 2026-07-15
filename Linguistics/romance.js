@@ -119,6 +119,7 @@ const pr_firstpass = {
     "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
+    "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
