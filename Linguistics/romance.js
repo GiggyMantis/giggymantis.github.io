@@ -87,7 +87,7 @@ const pr_firstpass = {
     "ʏ" : "ɪ",
     "ʷ(?=[aeoiuɛɔɪʊː̯̃])" : "w", // Loss of ʷ not before a vowel,
     "ʷ" : "",
-    "(?<![stdnrkɡ])w" : "β", // Fricatization of w
+    "(?<![stdnrkɡ]\\.?)w" : "β", // Fricatization of w
     "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
     "ae̯" : "ɛː", // Diphthong collapse
     "oe̯" : "eː",
@@ -122,8 +122,7 @@ const pr_firstpass = {
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
     "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
-    "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "$1Σw", // semivocalization in antepenultimate stressed hiatus with back vowels. The sigma is used in combination with the next rule to move the stress back.
-    // ""
+    "w(?=[oɔuʊ])" : "", // w deletion before back vowels
 }
 
 function syllabify(input, vowels) {
