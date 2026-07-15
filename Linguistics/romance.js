@@ -115,12 +115,13 @@ const pr_firstpass = {
     "^\\." : "",
     "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
     "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
-    "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in hiatus (and change of notation of /au̯/)
+    "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ])" : ".j",
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ])" : ".w",
-    // ".([^aeoiuɛɔɪʊ])." : "$1.",
-    // "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j",
+    "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
+    "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
+    // "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with back vowels (stress moves to preceding syllable)
 }
 
 function syllabify(input, vowels) {
