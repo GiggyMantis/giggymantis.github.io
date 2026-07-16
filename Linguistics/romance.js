@@ -160,6 +160,21 @@ const pr_firstpass = {
     "([kɡ])(?=[iɪeɛ])" : "$1ʲ"
 }
 
+const pr_orthography = {
+    "ˈ([^aeoiuɛɔɪʊ]{0,3})([aeoiuɛɔɪʊ])" : "$1$2́",
+    "ɪ" : "į",
+    "ɛ" : "ę",
+    "ɔ" : "ǫ",
+    "ʊ" : "ų",
+    "u" : "ụ",
+    "o" : "ọ",
+    "e" : "ẹ",
+    "i" : "ị",
+    "aw" : "au",
+    "ʲ" : "́",
+    "\\." : ""
+}
+
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "][ː̯]?)"
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
@@ -206,9 +221,11 @@ function submit(latin) {
 
     // Evolve to Proto-Romance
     proto_romance_phonetic = latin_phonetic;
-    proto_romance = latin;
 
     Object.keys(pr_firstpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_firstpass[key]));
+
+    proto_romance = proto_romance_phonetic;
+    Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
 
     $("#latinphon").val(latin_phonetic);
     $("#pr").val(proto_romance);
