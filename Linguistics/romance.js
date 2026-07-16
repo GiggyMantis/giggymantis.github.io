@@ -144,7 +144,8 @@ const pr_firstpass = {
     "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
     "(?<=\\..*)ks$" : "s",
     "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
-    "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs", // sC epenthesis
+    "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
+    "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
 }
 
 function syllabify(input, vowels) {
