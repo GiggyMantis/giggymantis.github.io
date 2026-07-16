@@ -106,8 +106,8 @@ const pr_firstpass = {
     "([^aeoiuɛɔɪʊː̯̃])\\.(ˈ?)h" : ".$2$1",
     "h" : "",
     "ː" : "", // Vowel length loss
-    "ˈ([^\\.]*\\.[^\\.]*)ɛ" : "ˈ$1e", // Unstressed e-ɛ merger
-    "ˈ([^\\.]*\\.[^\\.]*)ɔ" : "ˈ$1o", // Unstressed o-ɔ merger
+    "(?<!ˈ[^\\.]*)ɛ" : "e", // Unstressed e-ɛ merger
+    "(?<!ˈ[^\\.]*)ɔ" : "ˈ$1o", // Unstressed o-ɔ merger
     "(?<=\\..*)̃" : "", // Nasal loss
     "̃(?=.*\\.)" : "",
     "̃" : "n", // Nasal comeback in monosyllables
@@ -137,7 +137,8 @@ const pr_firstpass = {
     "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
     "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
-    "W" : "w", // undoes earlier temporary notation shift
+    "W" : "w", // undoes earlier temporary notation shift,
+    "ɡ(?=\\.?m)" : "w",
 }
 
 function syllabify(input, vowels) {
