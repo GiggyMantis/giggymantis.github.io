@@ -143,6 +143,8 @@ const pr_firstpass = {
     "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
     "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
     "(?<=\\..*)ks$" : "s",
+    "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
+    "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs", // sC epenthesis
 }
 
 function syllabify(input, vowels) {
