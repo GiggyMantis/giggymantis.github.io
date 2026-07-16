@@ -123,8 +123,8 @@ const pr_firstpass = {
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
     "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=ˈ?[aeoiuɛɔɪʊ])" : ".j",
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=ˈ?[aeoiuɛɔɪʊ])" : ".w",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1j",
+    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1w",
     "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
     "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
     "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
@@ -154,8 +154,8 @@ const pr_firstpass = {
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
     "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
-    "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊw])\\.j" : ".$1ʲ", // palatalization
-    "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.([^aeoiuɛɔɪʊw])j" : ".$1ʲ",
+    "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊw])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
+    "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.(ˈ?)([^aeoiuɛɔɪʊw])j" : ".$2$1ʲ",
     "([kɡ])(?=[iɪeɛ])" : "$1ʲ"
 }
 
