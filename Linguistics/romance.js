@@ -58,7 +58,6 @@ const latin_thirdpass = {
 
 // After syllabification
 const latin_fourthpass = {
-    "ˈ." : ".ˈ", // hotfix
     "(l)(?=-?[aeou])" : "ɫ", // L-darkening
     "(l)$" : "ɫ", // ″
     "(l)\\.(?=[^lɫ])" : "ɫ", // ″
@@ -152,8 +151,8 @@ const pr_firstpass = {
     "o(?=s\\.tj)" : "u",
     "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
     "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
-    "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
-    "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
+    // "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
+    // "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
 }
 
 function syllabify(input, vowels) {
