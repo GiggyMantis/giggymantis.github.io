@@ -154,6 +154,11 @@ const pr_firstpass = {
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
     "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
+    "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊw])\\.j" : ".$1ʲ", // palatalization
+    "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.([^aeoiuɛɔɪʊw])j" : ".$1ʲ",
+    "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
+    "([kɡ])\\.w(?=[iɪeɛ])" : ".$1",
+    "\\.([kɡ])w(?=[iɪeɛ])" : ".$1",
 }
 
 function syllabify(input, vowels) {
