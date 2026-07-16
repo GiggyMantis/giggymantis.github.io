@@ -125,21 +125,20 @@ const pr_firstpass = {
     "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1j",
     "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1w",
-    // "\\.\\." : ".",
-    // "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
-    // "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
-    // "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
-    // "^([^\\.ϝ]*)\\.ϝ" : "ˈ$1.",
-    // "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
-    // "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
-    // "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
-    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
-    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
-    // "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
-    // "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
-    // "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
-    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
-    // "W" : "w", // undoes earlier temporary notation shift,
+    "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
+    "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
+    "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
+    "^([^\\.ϝ]*)\\.ϝ" : "ˈ$1.",
+    "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
+    "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
+    "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
+    "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
+    "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
+    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
+    "W" : "w", // undoes earlier temporary notation shift,
     // "ɡ(?=\\.?m)" : "w", // gm -> wm
     // "ʊ(?=\\.ˈ?[ɪij])" : "u", // raising of u before i/j
     // "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
