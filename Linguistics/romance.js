@@ -138,6 +138,7 @@ const pr_firstpass = {
     "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
     "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
+    "k\\.wj" : "k.j", // kwj -> kj
     "W" : "w", // undoes earlier temporary notation shift,
     "ɡ(?=\\.?m)" : "w", // gm -> wm
     "ʊ(?=\\.ˈ?[ɪij])" : "u", // raising of u before i/j
@@ -156,9 +157,7 @@ const pr_firstpass = {
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
     "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊw])\\.j" : ".$1ʲ", // palatalization
     "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.([^aeoiuɛɔɪʊw])j" : ".$1ʲ",
-    "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
-    "([kɡ])\\.w(?=[iɪeɛ])" : ".$1",
-    "\\.([kɡ])w(?=[iɪeɛ])" : ".$1",
+    "([kɡ])(?=[iɪeɛ])" : "$1ʲ"
 }
 
 function syllabify(input, vowels) {
