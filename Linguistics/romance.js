@@ -58,6 +58,7 @@ const latin_thirdpass = {
 
 // After syllabification
 const latin_fourthpass = {
+    "ˈ." : ".ˈ", // hotfix
     "(l)(?=-?[aeou])" : "ɫ", // L-darkening
     "(l)$" : "ɫ", // ″
     "(l)\\.(?=[^lɫ])" : "ɫ", // ″
