@@ -140,6 +140,7 @@ const pr_firstpass = {
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     "W" : "w", // undoes earlier temporary notation shift,
     "ɡ(?=\\.?m)" : "w", // gm -> wm
+    "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "ʊ(?=\\.ˈ?[ɪij])" : "u", // raising of u before i/j
     "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
     "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
