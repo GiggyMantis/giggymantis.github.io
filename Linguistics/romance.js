@@ -97,7 +97,7 @@ const pr_firstpass = {
     "ei̯" : "iː",
     "eu̯" : "ɛː",
     "ʷ(?=j?[aeiɛɪː̯̃])" : "w", // Loss of ʷ not before a front vowel (or j!!!),
-    "kw\\.j" : "k.wj",
+    "kw\\.j" : "k.j",
     "ʷ" : "",
     "aː?\\.(ˈ?)haː?" : "$1aː", // h loss
     "[eɛ]ː?\\.(ˈ?)h[eɛ]ː?" : "$1eː",
@@ -138,7 +138,6 @@ const pr_firstpass = {
     "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
     "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
-    "k\\.wj" : "k.j", // kwj -> kj
     "W" : "w", // undoes earlier temporary notation shift,
     "ɡ(?=\\.?m)" : "w", // gm -> wm
     "ʊ(?=\\.ˈ?[ɪij])" : "u", // raising of u before i/j
