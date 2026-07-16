@@ -83,6 +83,9 @@ const latin_fourthpass = {
     "g" : "ɡ",
 }
 
+//TODO: erroneous -e in sesquipedalis
+// eboracum -> joracu somehow
+
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
     "ɫ" : "l", // l-ɫ distinction is mostly dropped
