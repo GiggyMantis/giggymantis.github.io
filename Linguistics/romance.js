@@ -130,14 +130,14 @@ const pr_firstpass = {
     "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
     "^([^\\.ϝ]*)\\.ϝ" : "ˈ$1.",
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
-    // "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
-    // "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
-    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
-    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
-    // "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
-    // "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
-    // "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
-    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
+    "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
+    "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
+    "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
+    "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
+    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.$2",
+    "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     // "W" : "w", // undoes earlier temporary notation shift,
     // "ɡ(?=\\.?m)" : "w", // gm -> wm
     // "ʊ(?=\\.ˈ?[ɪij])" : "u", // raising of u before i/j
