@@ -85,6 +85,7 @@ const latin_fourthpass = {
 
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
+    "ɫ" : "l", // l-ɫ distinction is mostly dropped
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
     "(?<=[aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
@@ -114,7 +115,7 @@ const pr_firstpass = {
     "[iɪ]\\.[iɪ]" : "i", // i-i assimilation
     "([^\\.])[iɪ]\\.ˈ[iɪ]" : "ˈ$1i",
     "[iɪ]\\.ˈ[iɪ]" : "ˈi",
-    "(ˈ)([^\\.]*)(\\.)(?=.*[ptkbdɡ]\\.?[lɫr])" : ".$2ˈ", // Stop-Liquid consonant clusters pull stress forward one syllable, as in integram -> *įntę́gra
+    "(ˈ)([^\\.]*)(\\.)(?=.*[ptkbdɡ]\\.?[lr])" : ".$2ˈ", // Stop-Liquid consonant clusters pull stress forward one syllable, as in integram -> *įntę́gra
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
     "^\\." : "",
     "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
@@ -146,6 +147,12 @@ const pr_firstpass = {
     "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
     "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
     "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
+    "e(?=s\\.tj)" : "i", // raising of e, o before stj
+    "o(?=s\\.tj)" : "u",
+    "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
+    "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
+    "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
+    "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
 }
 
 function syllabify(input, vowels) {
