@@ -138,10 +138,14 @@ const pr_firstpass = {
     "\\.([^aeoiuɛɔɪʊ])ˈ([^aeoiuɛɔɪʊ])" : ".ˈ$1$2",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
-    "w(?=[oɔuʊ].*ˈ)|(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "", // w deletion before unstressed back vowels
-    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ\\.])" : "$1.$2",
+    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ\\.])" : "$1.$2", // V.CC realigned to VC.C
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     "W" : "w", // undoes earlier temporary notation shift,
+}
+
+const optional_v_deletion = g/w(?=[oɔuʊ].*ˈ)|(?<!ˈ[^\.]*)w(?=[oɔuʊ])/;
+
+const pr_secondpass = {
     "(\\.)(?=\\1)" : "",
     "^([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", // misaligned consonants at the start of words fixed
     "^([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
@@ -151,7 +155,6 @@ const pr_firstpass = {
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
     "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
-    "([aeoiuɛɔɪʊ])\\.(ˈ?)([^aeoiuɛɔɪʊ])" : "$1$3.$2",
     "ɡ(?=\\.?m)" : "w", // gm -> wm
     "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
@@ -238,6 +241,10 @@ function submit(latin) {
     proto_romance_phonetic = latin_phonetic;
 
     Object.keys(pr_firstpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_firstpass[key]));
+    if ($('#v-deletion').val() == "on") {
+        proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
+    }
+    Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
 
     proto_romance = proto_romance_phonetic;
     Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
