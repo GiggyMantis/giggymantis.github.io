@@ -135,6 +135,7 @@ const pr_firstpass = {
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
     "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
+    "\\.([^aeoiuɛɔɪʊ])ˈ([^aeoiuɛɔɪʊ])" : ".ˈ$1$2",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
     "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
