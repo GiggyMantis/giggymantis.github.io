@@ -26,6 +26,16 @@
       <li>Latin <code>au</code> will always yield Proto-Romance *au. To specify that you want it to monophthongize, input it as <code>ō</code>.</li>
     </ul>
     <h1>Latin -> Romance Evolver</h1>
+    <details>
+      <summary>Settings</summary>
+      <div>
+        <input
+          type="checkbox"
+          id="v-deletion"
+          name="v-deletion"/>
+        <label for="v-deletion">Delete Proto-Romance *v next to rounded vowels?</label>
+      </div>
+    </details>
     <label for="latin">Latin:</label><input type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin').val())" value="Submit"><br>[<output id="latinphon" name="latinphon"></output>]<br><br>
     <label for="pr prphon">Proto-Romance: *</label><output id="pr" name="pr"></output>&emsp;*[<output id="prphon" name="prphon"></output>]
   </body>
