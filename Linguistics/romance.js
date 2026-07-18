@@ -84,7 +84,6 @@ const latin_fourthpass = {
     "g" : "ɡ",
 }
 
-//TODO: erroneous -e in sesquipedalis
 // eboracum -> joracu somehow
 
 // First pass evolving to Proto-Romance phonetically
@@ -93,7 +92,7 @@ const pr_firstpass = {
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
     "(?<=[aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
-    "(?<![stdnrkɡ]\\.?)w" : "β", // Fricatization of w
+    "(?<![stdnkɡ]\\.?)w" : "β", // Fricatization of w
     "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
     "ae̯" : "ɛː", // Diphthong collapse
     "oe̯" : "eː",
@@ -145,7 +144,7 @@ const pr_firstpass = {
     "W" : "w", // undoes earlier temporary notation shift,
     "ɡ(?=\\.?m)" : "w", // gm -> wm
     "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
-    "ʊ(?=\\.ˈ?[ɪij])" : "u", // raising of u before i/j
+    "ʊ(?=\\.?ˈ?[ɪij])" : "u", // raising of u before i/j
     "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
     "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
     "(?<=\\..*)ks$" : "s",
