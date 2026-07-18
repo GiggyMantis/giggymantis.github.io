@@ -168,7 +168,7 @@ const pr_firstpass = {
     "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
     "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
-    "(?<=[^aeoiuɛɔɪʊw])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
+    "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
     "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
 
 }
