@@ -172,6 +172,7 @@ const pr_secondpass = {
     "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
     "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
     "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
+    "jj" : "j", // /jj/ can't exist except when split between two syllables
 
 }
 
