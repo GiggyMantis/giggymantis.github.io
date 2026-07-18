@@ -159,9 +159,9 @@ const pr_firstpass = {
     "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
     "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
-    // "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
-    // "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.(ˈ?)([^aeoiuɛɔɪʊwj])j" : ".$2$1ʲ",
-    // "([kɡ])(?=[iɪeɛ])" : "$1ʲ"
+    "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
+    "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.(ˈ?)([^aeoiuɛɔɪʊwj])j" : ".$1$2ʲ",
+    "([kɡ])(?=[iɪeɛ])" : "$1ʲ"
 }
 
 const pr_orthography = {
