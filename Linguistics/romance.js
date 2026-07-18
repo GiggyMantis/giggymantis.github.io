@@ -120,56 +120,56 @@ const pr_firstpass = {
     "ˈ([^\\.]*)\\.([^\\.]*)([bdɡ]\\.[lr])([^\\.]*)$" : "$1.ˈ$2$3$4", // words with antepenult stress, with a short vowel in the penult followed by voiced stop-liquid cluster, have stress move to the penult
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
     "^\\." : "",
-    "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
-    "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
-    "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
-    "u̯" : "w",
-    "\\.\\." : "\\.",
-    "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1j",
-    "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1w",
-    "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
-    "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
-    "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
-    "^([^\\.ϝ]*)\\.ϝ" : "ˈ$1.",
-    "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
-    "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
-    "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
-    "\\.([^aeoiuɛɔɪʊ])ˈ([^aeoiuɛɔɪʊ])" : ".ˈ$1$2",
-    "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
-    "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
-    "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
-    "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
-    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ\\.])" : "$1.$2",
-    "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
-    "W" : "w", // undoes earlier temporary notation shift,
-    "^([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", // misaligned consonants at the start of words fixed
-    "^([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
-    "^(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
-    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ\\.])\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1.$2", // misaligned consonants otherwise
-    "(?<=[aeoiuɛɔɪʊ])\\.(ˈ?)([^aeoiuɛɔɪʊ])(?=[^aeoiuɛɔɪʊ\\.])" : "$2.$1", 
-    "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
-    "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
-    "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
-    "ɡ(?=\\.?m)" : "w", // gm -> wm
-    "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
-    "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
-    "ʊ(?=\\.?ˈ?[ɪij])" : "u", // raising of u before i/j
-    "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
-    "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
-    "(?<=\\..*)ks$" : "s",
-    "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
-    "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
-    "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
-    "e(?=s\\.tj)" : "i", // raising of e, o before stj
-    "o(?=s\\.tj)" : "u",
-    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
-    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
-    "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
-    "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
-    "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
-    "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
-    "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
+    // "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
+    // "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
+    // "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
+    // "u̯" : "w",
+    // "\\.\\." : "\\.",
+    // "w" : "W", // temporary notation shift to avoid deletion of preexisting w in geminate locations
+    // "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1j",
+    // "(?<!ˈ[^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(ˈ?)(?=[aeoiuɛɔɪʊ])" : ".$1w",
+    // "(?<=ˈ[^aeoiuɛɔɪʊ]{0,2})[eɛiɪ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "j", // semivocalization in antepenultimate stressed hiatus with front vowels
+    // "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
+    // "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
+    // "^([^\\.ϝ]*)\\.ϝ" : "ˈ$1.",
+    // "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
+    // "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
+    // "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
+    // "\\.([^aeoiuɛɔɪʊ])ˈ([^aeoiuɛɔɪʊ])" : ".ˈ$1$2",
+    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
+    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
+    // "w(?=[oɔuʊ].*ˈ)" : "", // w deletion before unstressed back vowels
+    // "(?<!ˈ[^\\.]*)w(?=[oɔuʊ])" : "",
+    // "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ\\.])" : "$1.$2",
+    // "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
+    // "W" : "w", // undoes earlier temporary notation shift,
+    // "^([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", // misaligned consonants at the start of words fixed
+    // "^([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
+    // "^(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
+    // "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ\\.])\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1.$2", // misaligned consonants otherwise
+    // "(?<=[aeoiuɛɔɪʊ])\\.(ˈ?)([^aeoiuɛɔɪʊ])(?=[^aeoiuɛɔɪʊ\\.])" : "$2.$1", 
+    // "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
+    // "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
+    // "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
+    // "ɡ(?=\\.?m)" : "w", // gm -> wm
+    // "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
+    // "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
+    // "ʊ(?=\\.?ˈ?[ɪij])" : "u", // raising of u before i/j
+    // "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
+    // "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
+    // "(?<=\\..*)ks$" : "s",
+    // "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
+    // "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
+    // "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
+    // "e(?=s\\.tj)" : "i", // raising of e, o before stj
+    // "o(?=s\\.tj)" : "u",
+    // "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
+    // "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
+    // "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
+    // "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
+    // "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
+    // "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
+    // "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
 
 }
 
