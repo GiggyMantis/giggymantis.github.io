@@ -241,7 +241,7 @@ function submit(latin) {
     proto_romance_phonetic = latin_phonetic;
 
     Object.keys(pr_firstpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_firstpass[key]));
-    if ($('#v-deletion').val() == "on") {
+    if ($('#v-deletion').is(":checked")) {
         proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
     }
     Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
