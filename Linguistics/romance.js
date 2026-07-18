@@ -120,8 +120,11 @@ const pr_firstpass = {
     "ˈ([^\\.]*)\\.([^\\.]*)([bdɡ]\\.[lr])([^\\.]*)$" : "$1.ˈ$2$3$4", // words with antepenult stress, with a short vowel in the penult followed by voiced stop-liquid cluster, have stress move to the penult
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
     "^\\." : "",
-    "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
-    "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
+}
+
+const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
+
+const pr_secondpass = {
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
     "\\.\\." : "\\.",
@@ -141,11 +144,6 @@ const pr_firstpass = {
     "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ\\.])" : "$1.$2", // V.CC realigned to VC.C
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     "W" : "w", // undoes earlier temporary notation shift,
-}
-
-const optional_v_deletion = /w(?=[oɔuʊ].*ˈ)|(?<!ˈ[^\.]*)w(?=[oɔuʊ])/g;
-
-const pr_secondpass = {
     "(\\.)(?=\\1)" : "",
     "^([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", // misaligned consonants at the start of words fixed
     "^([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
@@ -244,7 +242,7 @@ function submit(latin) {
     if ($('#v-deletion').is(":checked")) {
         proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
     }
-    // Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
+    Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
 
     proto_romance = proto_romance_phonetic;
     Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
