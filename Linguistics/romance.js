@@ -143,7 +143,7 @@ const pr_firstpass = {
     "W" : "w", // undoes earlier temporary notation shift,
 }
 
-const optional_v_deletion = g/w(?=[oɔuʊ].*ˈ)|(?<!ˈ[^\.]*)w(?=[oɔuʊ])/;
+const optional_v_deletion = /w(?=[oɔuʊ].*ˈ)|(?<!ˈ[^\.]*)w(?=[oɔuʊ])/g;
 
 const pr_secondpass = {
     "(\\.)(?=\\1)" : "",
