@@ -39,10 +39,11 @@ const latin_secondpass = {
 
 // Before syllabification
 const latin_thirdpass = {
-    "^(i)([aeiouy])" : "j$2", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
-    "(-i)([aeiouy])" : "-j$2", // Replaces i with j at the beginnings of morphemes before vowels, as in adiaceō [adˈja.ke.oː]
+    "^i([aeiouy])" : "j$1", // Replaces i with j at the beginnings of words before vowels, as in iacere [ˈja.kɛ.rɛ]
+    "(?<=-)i([aeiouy])" : "j$1", // Replaces i with j at the beginnings of morphemes before vowels, as in adiaceō [adˈja.ke.oː]
+    "(?<=-)u([aeiouy])" : "w$1", // Replaces u with w when requested by user using -, as in serviēns [ˈsɛr.wi.ẽːs]
     "([aeiouyː])(i)([aeiouy])" : "$1jj$3", // Replaces i with jj intervocalically, as in maior [ˈmaj.jɔr],
-    "^(u)([aeiouy])" : "w$2", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
+    "^u([aeiouy])" : "w$1", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
     "([aeiouyː]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
     // "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
     "(ng)(u)(?=[aeiouy])" : "ngʷ", // gʷ
