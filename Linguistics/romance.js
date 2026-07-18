@@ -60,7 +60,7 @@ const latin_thirdpass = {
 const latin_fourthpass = {
     "(l)(?=-?[aeou])" : "ɫ", // L-darkening
     "(l)$" : "ɫ", // ″
-    "(l)\\.(?=[^lɫ])" : "ɫ", // ″
+    "(l)\\.(?=[^lɫ])" : "ɫ.", // ″
     "l.ɫ" : "l.l", // ″
     "(ː[nm])(\\.)(s)" : "̃ː$2s", // Nasalization
     "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s", // ″
@@ -153,13 +153,13 @@ const pr_firstpass = {
     "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
     "e(?=s\\.tj)" : "i", // raising of e, o before stj
     "o(?=s\\.tj)" : "u",
-    "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
+    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
     "([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
     "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
-    "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊw])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
-    "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.(ˈ?)([^aeoiuɛɔɪʊw])j" : ".$2$1ʲ",
+    "(?<=[aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
+    "(?<=[aeoiuɛɔɪʊ][^aeoiuɛɔɪʊw])\\.(ˈ?)([^aeoiuɛɔɪʊwj])j" : ".$2$1ʲ",
     "([kɡ])(?=[iɪeɛ])" : "$1ʲ"
 }
 
