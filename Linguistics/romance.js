@@ -120,8 +120,8 @@ const pr_firstpass = {
     "ˈ([^\\.]*)\\.([^\\.]*)([bdɡ]\\.[lr])([^\\.]*)$" : "$1.ˈ$2$3$4", // words with antepenult stress, with a short vowel in the penult followed by voiced stop-liquid cluster, have stress move to the penult
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
     "^\\." : "",
-    // "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
-    // "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
+    "([aeoiu̯ɛɔɪʊ])\\.β(?=[uʊoɔ])" : "$1.", // loss of β next to rounded vowels
+    "([u̯ʊoɔ])\\.β(?=[aeoiuɛɔɪʊ])" : "$1.",
     // "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     // "u̯" : "w",
     // "\\.\\." : "\\.",
