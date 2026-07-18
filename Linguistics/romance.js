@@ -144,33 +144,33 @@ const pr_firstpass = {
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     "W" : "w", // undoes earlier temporary notation shift,
     "\\.\\." : ".", 
-    "^([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", // misaligned consonants at the start of words fixed
-    "^([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
-    "^(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
-    "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ\\.])\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1.$2", // misaligned consonants otherwise
-    "(?<=[aeoiuɛɔɪʊ])\\.(ˈ?)([^aeoiuɛɔɪʊ])(?=[^aeoiuɛɔɪʊ\\.])" : "$2.$1", 
-    "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
-    "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
-    "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
-    "ɡ(?=\\.?m)" : "w", // gm -> wm
-    "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
-    "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
-    "ʊ(?=\\.?ˈ?[ɪij])" : "u", // raising of u before i/j
-    "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
-    "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
-    "(?<=\\..*)ks$" : "s",
-    "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
-    "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
-    "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
-    "e(?=s\\.tj)" : "i", // raising of e, o before stj
-    "o(?=s\\.tj)" : "u",
-    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
-    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
-    "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
-    "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
-    "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
-    "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
-    "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
+    // "^([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", // misaligned consonants at the start of words fixed
+    // "^([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
+    // "^(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
+    // "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ\\.])\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1.$2", // misaligned consonants otherwise
+    // "(?<=[aeoiuɛɔɪʊ])\\.(ˈ?)([^aeoiuɛɔɪʊ])(?=[^aeoiuɛɔɪʊ\\.])" : "$2.$1", 
+    // "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
+    // "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
+    // "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
+    // "ɡ(?=\\.?m)" : "w", // gm -> wm
+    // "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
+    // "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
+    // "ʊ(?=\\.?ˈ?[ɪij])" : "u", // raising of u before i/j
+    // "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
+    // "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
+    // "(?<=\\..*)ks$" : "s",
+    // "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
+    // "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
+    // "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
+    // "e(?=s\\.tj)" : "i", // raising of e, o before stj
+    // "o(?=s\\.tj)" : "u",
+    // "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
+    // "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
+    // "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
+    // "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
+    // "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
+    // "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
+    // "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
 
 }
 
