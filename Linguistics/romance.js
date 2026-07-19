@@ -134,13 +134,13 @@ const pr_firstpass = {
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
 const optional_syncope = {
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)(\\.?[^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])(.)" : "$1$2$3",
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)(\\.?[^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
     "t(\\.?)l" : "k$1l",
 }
 
 const default_syncope = {
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)([lr])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])(.)" : "$1$2$3",
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[lr])(.)" : "$1$2$3",
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)([lr])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[lr])" : "$1$2",
     "t(\\.?)l" : "k$1l",
 }
 const av = /a\.β\./g;
@@ -251,8 +251,8 @@ const src_firstpass = {
     "^(ˈ?)kw" : "$1k", // qu-assimilation
     "[kɡ]\\.(ˈ?)w" : ".$1b", 
     "(?<!^)[kɡ]w" : "b",
-    "n(?=\\.?ˈ?b)" : "m",   
-    "([tk])(\\.?ˈ?)\\1ʲ" : "$1ʦ", // palatalization
+    "n(?=\\.?ˈ?b)" : "m",  
+    "([tk])(\\.?ˈ?)([tk])ʲ" : "$1ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
     "lʲ" : "ʣ",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
