@@ -107,6 +107,7 @@ const pr_firstpass = {
     "ui̯" : "u.i",
     "ei̯" : "iː",
     "eu̯" : "ɛː",
+    "d$" : "", // loss of d at the ends of words
     "ʷ(?=[aeiɛɪː̯̃])" : "w", // Loss of ʷ not before a front vowel
     "ʷ" : "",
     "aː?\\.(ˈ?)haː?" : "$1aː", // h loss
