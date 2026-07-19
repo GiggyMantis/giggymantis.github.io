@@ -220,6 +220,9 @@ const src_firstpass = {
     "o" : "ɔ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
+    "[kɡ]\\.w" : ".b", // qu-assimilation
+    "(?<!^)[kɡ]w" : "b",
+    "^kw" : "k",
 }
 
 function syllabify(input, vowels) {
