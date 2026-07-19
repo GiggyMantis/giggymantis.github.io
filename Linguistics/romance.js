@@ -221,7 +221,7 @@ const pr_orthography = {
 }
 
 const src_firstpass = {
-    "ɲ" : "n", 
+    "ɲ" : "n", // depalatalization
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
     "ɪ" : "i", // Vowel collapse
@@ -231,7 +231,8 @@ const src_firstpass = {
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
-    "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", // lenition chain shift
+    "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β",
     "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
     "(?<=[aeɛioɔu]\\.ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
