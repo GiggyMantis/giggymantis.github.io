@@ -232,7 +232,7 @@ const src_firstpass = {
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
     "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
-    "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
     "(?<=[aeɛioɔu]\\.ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
