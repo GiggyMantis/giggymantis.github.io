@@ -197,7 +197,8 @@ const pr_secondpass = {
     "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
     "jj" : "j", // /jj/ can't exist except when split between two syllables
     "ŋ(\\.?ˈ?)n" : "ɲ$1ɲ",
-    "^\\." : ""
+    "^\\." : "",
+    "(\\.)\\1" : ".",
 }
 
 const pr_orthography = {
@@ -312,9 +313,10 @@ function submit(latin) {
         proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
     }
 
-    if ($("#syncope").is(":checked")) {
+    if ($("#always-syncope").is(":checked")) {
         Object.keys(optional_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
-    } else {
+        $("#syncope").prop("checked", true);
+    } else if ($("#syncope").is(":checked")) {
         Object.keys(default_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
     }
     if ($("#av-au").is(":checked")) {
