@@ -191,7 +191,6 @@ const pr_secondpass = {
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
     "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
     "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
-    "([kɡ])(?=[iɪeɛ])" : "$1ʲ",
     "jj" : "j", // /jj/ can't exist except when split between two syllables
     "^\\." : ""
 
@@ -212,6 +211,13 @@ const pr_orthography = {
     "β" : "v",
     "ʲ" : "́",
     "\\." : ""
+}
+
+const src_firstpass = {
+    "ɪ" : "i",
+    "ʊ" : "u",
+    "e" : "ɛ",
+    "o" : "ɔ",
 }
 
 function syllabify(input, vowels) {
@@ -283,7 +289,12 @@ function submit(latin) {
     proto_romance = proto_romance_phonetic;
     Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
 
+    // Evolve to Logudorese Sardinian
+    logudorese_phonetic = proto_romance_phonetic;
+
+
     $("#latinphon").val(latin_phonetic);
     $("#pr").val(proto_romance);
     $("#prphon").val(proto_romance_phonetic);
+    $("#srcphon").val(logudorese_phonetic);
 }
