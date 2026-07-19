@@ -251,8 +251,8 @@ const src_firstpass = {
     "^(ˈ?)kw" : "$1k", // qu-assimilation
     "[kɡ]\\.(ˈ?)w" : ".$1b", 
     "(?<!^)[kɡ]w" : "b",
-    "n(?=\\.?ˈ?b)" : "m",  
-    "([tk])(\\.?ˈ?)([tk])ʲ" : "$1ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
+    "n(?=\\.?ˈ?b)" : "m",
+    "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
     "lʲ" : "ʣ",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
