@@ -86,6 +86,11 @@ const latin_fourthpass = {
 
 // eboracum -> joracu somehow
 
+const optional_early_monophthongs = {
+    "au̯" : "oː",
+    "[ao]e̯" : "eː"
+}
+
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
     "ɫ" : "l", // l-ɫ distinction is mostly dropped
@@ -135,6 +140,8 @@ const pr_secondpass = {
     "ˈ([^aeoiuɛɔɪʊ]{0,2})[oɔuʊ]\\.(?=[aeoiuɛɔɪʊ].*\\.)" : "ϝ$1w", // semivocalization in antepenultimate stressed hiatus with back vowels (here using ϝ to mark that the stress needs to be moved one syllable back)
     "\\.([^\\.ϝ]*)\\.ϝ" : ".ˈ$1.",
     "^([^\\.ϝ]*)\\.ϝ" : "ˈ$1.",
+    "(?<!ˈ.*)ϝ" : "ˈ",
+    "ϝ" : "",
     "\\.([^aeoiuɛɔɪʊ])\\." : "$1.",
     "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
@@ -240,8 +247,12 @@ function submit(latin) {
     // Evolve to Proto-Romance
     proto_romance_phonetic = latin_phonetic;
 
+    if ($("#early-monophthongs").is(":checked")) {
+        Object.keys(optional_early_monophthongs).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), optional_early_monophthongs[key]));
+    }
+
     Object.keys(pr_firstpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_firstpass[key]));
-    if ($('#v-deletion').is(":checked")) {
+    if ($("#v-deletion").is(":checked")) {
         proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
     }
     Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));

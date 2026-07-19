@@ -23,7 +23,6 @@
       <li>Use a hyphen (-) to break up morpheme boundaries if it would change pronunciation.<br><small stlye="text-indent: 40px;">e.g. <code>me-us</code> or <code>ad-iacēntem</code>.</small><br><small>It can also be used to mark a vocalic ngu sequence, as in <code>unguō</code> vs <code>ung-uō</code>.</small><br><small>It can also be used to mark a semivocalic v, as in <code>servientem</code> vs <code>ser-vientem</code>.</small></li>
       <li>Capitalization does not matter.</li>
       <li>Remember that the vast majority of surviving Romance nouns come from the <b>accusative case</b> in Latin. <small>If you don't want your masculine nouns to have an erroneous -s at the end, fix that.</small></li>
-      <li>Latin <code>au</code> will always yield Proto-Romance *au. To specify that you want it to monophthongize, input it as <code>ō</code>.</li>
     </ul>
     <h1>Latin -> Romance Evolver</h1>
     <details>
@@ -33,7 +32,12 @@
           type="checkbox"
           id="v-deletion"
           name="v-deletion"/>
-        <label for="v-deletion">Delete Proto-Romance *v next to rounded vowels? (<code>rīvum</code> -> <code>*rị́ụ</code>)</label>
+        <label for="v-deletion">Delete Proto-Romance *v next to rounded vowels? (<code>cauda</code> -> <code>*kọ́da</code>)</label>
+        <input
+          type="checkbox"
+          id="early-monophthongs"
+          name="early-monophthongs"/>
+        <label for="early-monophthongs">Early monophthongs? (a.k.a. rustic monophthongization) (<code>rīvum</code> -> <code>*rị́ụ</code>)</label>
       </div>
     </details>
     <label for="latin">Latin:</label><input type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin').val())" value="Submit"><br>[<output id="latinphon" name="latinphon"></output>]<br><br>
