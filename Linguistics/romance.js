@@ -129,6 +129,19 @@ const pr_firstpass = {
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
+const optional_syncope = {
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)(\\.?[^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
+    "tl" : "kl",
+}
+
+const default_syncope = {
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)([lr])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[lr])" : "$1$2",
+    "tl" : "kl",
+}
+const av = /a\.β\./g;
+const au = "au̯.";
+
 const pr_secondpass = {
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
@@ -160,20 +173,6 @@ const pr_secondpass = {
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
     "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
-}
-
-const optional_syncope = {
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)(\\.?[^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
-    "tl" : "kl",
-}
-
-const default_syncope = {
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)([lr])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[lr])" : "$1$2",
-    "tl" : "kl",
-}
-
-const pr_thirdpass = {
     "ɡ(?=\\.?m)" : "w", // gm -> wm
     "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
@@ -276,7 +275,9 @@ function submit(latin) {
     } else {
         Object.keys(default_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
     }
-    Object.keys(pr_thirdpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_thirdpass[key]));
+    if ($("#av-au").is(":checked")) {
+        proto_romance_phonetic = proto_romance_phonetic.replace(av, au);
+    }
 
     proto_romance = proto_romance_phonetic;
     Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
