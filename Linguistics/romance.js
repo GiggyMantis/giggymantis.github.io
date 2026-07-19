@@ -221,8 +221,6 @@ const pr_orthography = {
 }
 
 const src_firstpass = {
-    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ]+)$" : "$1$2.$3e", // monosyllablic words ending in a consonant get epenthetic -e
-    "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
     "ɲ" : "n", 
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
@@ -257,6 +255,8 @@ const src_firstpass = {
     "ɾʲ" : "ɾʣ",
     "([aeɛioɔu])\\.(ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
     "[dɡ]ʲ" : "j",
+    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
 
 }
 
