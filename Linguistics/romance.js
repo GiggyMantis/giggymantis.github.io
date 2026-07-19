@@ -93,6 +93,9 @@ const optional_early_monophthongs = {
 
 // First pass evolving to Proto-Romance phonetically
 const pr_firstpass = {
+    "pʰ" : "f", // aspirate collapse
+    "tʰ" : "t",
+    "kʰ" : "k", 
     "ɫ" : "l", // l-ɫ distinction is mostly dropped
     "y" : "i", // Iotification
     "ʏ" : "ɪ",
@@ -193,7 +196,6 @@ const pr_secondpass = {
     "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
     "jj" : "j", // /jj/ can't exist except when split between two syllables
     "^\\." : ""
-
 }
 
 const pr_orthography = {
@@ -224,12 +226,15 @@ const src_firstpass = {
     "(?<!^)[kɡ]w" : "p",
     "^(ˈ?)kw" : "$1k",
     "β" : "v", // *v /v/
-    "(?<=[aeɛioɔu]\\.?ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
-    "(?<=[aeɛioɔu]\\.?ˈ?)d(?=[aeɛioɔu])" : "ð",
-    "(?<=[aeɛioɔu]\\.?ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
-    "(?<=[aeɛioɔu]\\.?ˈ?)p(?=[aeɛioɔu])" : "b",
-    "(?<=[aeɛioɔu]\\.?ˈ?)t(?=[aeɛioɔu])" : "d",
-    "(?<=[aeɛioɔu]\\.?ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
+    "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]\\.ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
+    "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
+    "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
+    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "[tk]ʲ" : "ʦ",
+    "(?<=[aeɛioɔu]\\.ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "j.j",
+    "[dɡ]ʲ" : "j",
 
 }
 
