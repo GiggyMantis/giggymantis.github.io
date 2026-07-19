@@ -131,13 +131,13 @@ const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊo�
 
 const optional_syncope = {
     "(?<=ˈ[^\\.]*\\.[^\\.]*)(\\.?[^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
-    "tl" : "kl",
+    "t(\\.?)l" : "k$1l",
 }
 
 const default_syncope = {
     "(?<=ˈ[^\\.]*\\.[^\\.]*)([lr])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
     "(?<=ˈ[^\\.]*\\.[^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[lr])" : "$1$2",
-    "tl" : "kl",
+    "t(\\.?)l" : "k$1l",
 }
 const av = /a\.β\./g;
 const au = "au̯.";
