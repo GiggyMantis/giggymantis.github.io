@@ -238,7 +238,7 @@ const src_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "v",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
-    "n(\\.?ˈ?)d" : "n$1ɖ",
+    "n(\\.?ˈ?)d" : "ɳ$1ɖ",
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[ptk](\\.?ˈ?)s" : "s$1s", // [C +stop]s -> ss
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
@@ -290,7 +290,7 @@ function latinate_stress(input) {
 
 function submit(latin) {
     // Phoneticize Latin
-    latin_phonetic = String(latin).toLowerCase().replace(new RegExp("\\s", "g"), "");
+    latin_phonetic = String(latin).toLowerCase().replace(/\s/g, "-");
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
     
