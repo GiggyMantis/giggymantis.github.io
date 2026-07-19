@@ -242,9 +242,9 @@ const src_firstpass = {
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[ptk](\\.?ˈ?)s" : "s$1s", // [C +stop]s -> ss
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
-    "[kɡ]\\.(ˈ?)w" : ".$1b", // qu-assimilation
+    "^(ˈ?)kw" : "$1k", // qu-assimilation
+    "[kɡ]\\.(ˈ?)w" : ".$1b", 
     "(?<!^)[kɡ]w" : "b",
-    "^(ˈ?)kw" : "$1k",
     "n(?=\\.?ˈ?b)" : "m",   
     "([tk])\\.?\\1ʲ" : "ʦ", // palatalization
     "[tk]ʲ" : "ʦ",
