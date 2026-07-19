@@ -269,7 +269,7 @@ function submit(latin) {
     if ($("#v-deletion").is(":checked")) {
         proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
     }
-    Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
+
     if ($("#syncope").is(":checked")) {
         Object.keys(optional_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
     } else {
@@ -278,6 +278,7 @@ function submit(latin) {
     if ($("#av-au").is(":checked")) {
         proto_romance_phonetic = proto_romance_phonetic.replace(av, au);
     }
+    Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
 
     proto_romance = proto_romance_phonetic;
     Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
