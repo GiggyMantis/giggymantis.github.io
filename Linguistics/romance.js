@@ -232,7 +232,7 @@ const src_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
-    "([ptkbdɡ]).\\1" : ".$1",
+    "([tk])\\.?\\1ʲ" : "ʦ", // palatalization
     "[tk]ʲ" : "ʦ",
     "([aeɛioɔu])\\.(ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
     "[dɡ]ʲ" : "j",
