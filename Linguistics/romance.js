@@ -232,7 +232,7 @@ const src_firstpass = {
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", 
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", 
     "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
     "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
     "(?<=[aeɛioɔu]\\.ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
@@ -246,7 +246,7 @@ const src_firstpass = {
     "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
-    "[ptk](\\.?ˈ?)s" : "s$1s", // [C +stop]s -> ss
+    "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "^(ˈ?)kw" : "$1k", // qu-assimilation
     "[kɡ]\\.(ˈ?)w" : ".$1b", 
@@ -262,6 +262,7 @@ const src_firstpass = {
     "[dɡ]ʲ" : "j",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])\\.\\1" : "$1",
 
 }
 
