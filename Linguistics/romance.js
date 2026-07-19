@@ -227,9 +227,6 @@ const src_firstpass = {
     "o" : "ɔ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
-    "[kɡ]\\.(ˈ?)w" : ".$1p", // qu-assimilation
-    "(?<!^)[kɡ]w" : "p",
-    "^(ˈ?)kw" : "$1k",
     "β" : "v", // *v /v/
     "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
     "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "ð",
@@ -237,8 +234,15 @@ const src_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "l(\\.?ˈ?)l" : "ɖ$1ɖ",
+    "n(\\.?ˈ?)d" : "n$1ɖ",
+    "[kɡ]\\.(ˈ?)w" : ".$1b", // qu-assimilation
+    "(?<!^)[kɡ]w" : "b",
+    "^(ˈ?)kw" : "$1k",
+    "n(?=\\.?ˈ?b)" : "m",   
     "([tk])\\.?\\1ʲ" : "ʦ", // palatalization
     "[tk]ʲ" : "ʦ",
+    "[lr]ʲ" : "ʣ",
     "([aeɛioɔu])\\.(ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
     "[dɡ]ʲ" : "j",
 
