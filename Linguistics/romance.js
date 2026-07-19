@@ -214,9 +214,11 @@ const pr_orthography = {
     "β" : "v",
     "ʲ" : "́",
     "\\." : ""
+    "ɲɲ" : "gn",
 }
 
 const src_firstpass = {
+    "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
     "ɪ" : "i", // Vowel collapse
     "ʊ" : "u",
