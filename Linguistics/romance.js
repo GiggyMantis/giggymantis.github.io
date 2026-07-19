@@ -242,19 +242,20 @@ const src_firstpass = {
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɖ",
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
+    "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptk](\\.?ˈ?)s" : "s$1s", // [C +stop]s -> ss
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "^(ˈ?)kw" : "$1k", // qu-assimilation
     "[kɡ]\\.(ˈ?)w" : ".$1b", 
     "(?<!^)[kɡ]w" : "b",
     "n(?=\\.?ˈ?b)" : "m",   
-    "([tk])\\.?(ˈ?)\\1ʲ" : "$1ʦ", // palatalization
+    "([tk])(\\.?ˈ?)\\1ʲ" : "$1ʦ", // palatalization
     "[tk]ʲ" : "ʦ",
     "lʲ" : "ʣ",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
     "(?<=[aeɛioɔu])\\.ɾʲ" : "ɾ.ʣ",
     "ɾʲ" : "ɾʣ",
-    "([aeɛioɔu])\\.(ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
+    "([aeɛioɔu])(\\.ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
     "[dɡ]ʲ" : "j",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
