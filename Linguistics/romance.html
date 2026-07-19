@@ -28,16 +28,37 @@
     <details>
       <summary>Settings</summary>
       <div>
-        <input
-          type="checkbox"
-          id="v-deletion"
-          name="v-deletion"/>
-        <label for="v-deletion">Delete Proto-Romance *v next to rounded vowels? (<code>cauda</code> -> <code>*kọ́da</code>)</label>
-        <input
-          type="checkbox"
-          id="early-monophthongs"
-          name="early-monophthongs"/>
-        <label for="early-monophthongs">Early monophthongs? (a.k.a. rustic monophthongization) (<code>rīvum</code> -> <code>*rị́ụ</code>)</label>
+        <ul>
+          <li>
+            <input
+              type="checkbox"
+              id="v-deletion"
+              name="v-deletion"/>
+            <label for="v-deletion">Delete Proto-Romance *v next to rounded vowels? (<code>cauda</code> -> <code>*kọ́da</code>)</label>
+          </li>
+        <li>
+          <input
+            type="checkbox"
+            id="early-monophthongs"
+            name="early-monophthongs"/>
+          <label for="early-monophthongs">Early monophthongs? (a.k.a. rustic monophthongization) (<code>rīvum</code> -> <code>*rị́ụ</code>)</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="syncope"
+            name="syncope"/>
+          <label for="syncope">Always syncopate internal unstressed non-a vowels? (<code>frīgida</code> -> <code>*frį́ɡda</code>)</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="ab-au"
+            name="ab-au"/>
+          <label for="ab-au">Syncopated *av -> *au (<code>fabula</code> -> <code>*fáula</code>)</label>
+        </li>
+      </ul>
+        
       </div>
     </details>
     <label for="latin">Latin:</label><input type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin').val())" value="Submit"><br>[<output id="latinphon" name="latinphon"></output>]<br><br>

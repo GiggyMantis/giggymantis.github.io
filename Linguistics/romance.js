@@ -160,6 +160,20 @@ const pr_secondpass = {
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)\\.([^aeoiuɛɔɪʊ\\.]+)" : "$1$2.", 
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
     "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
+}
+
+const optional_syncope = {
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)(\\.?[^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
+    "tl" : "kl",
+}
+
+const default_syncope = {
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)([lr])[eoiuɛɔɪʊ](\\.?[^aeoiuɛɔɪʊ\\.ˈ])" : "$1$2",
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ])[eoiuɛɔɪʊ](\\.?[lr])" : "$1$2",
+    "tl" : "kl",
+}
+
+const pr_thirdpass = {
     "ɡ(?=\\.?m)" : "w", // gm -> wm
     "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
@@ -195,6 +209,7 @@ const pr_orthography = {
     "e" : "ẹ",
     "i" : "ị",
     "aw" : "au",
+    "áw" : "áu",
     "β" : "v",
     "ʲ" : "́",
     "\\." : ""
@@ -256,6 +271,12 @@ function submit(latin) {
         proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
     }
     Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
+    if ($("#syncope").is(":checked")) {
+        Object.keys(optional_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
+    } else {
+        Object.keys(default_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
+    }
+    Object.keys(pr_thirdpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_thirdpass[key]));
 
     proto_romance = proto_romance_phonetic;
     Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
