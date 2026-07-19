@@ -214,10 +214,12 @@ const pr_orthography = {
 }
 
 const src_firstpass = {
-    "ɪ" : "i",
+    "ɪ" : "i", // Vowel collapse
     "ʊ" : "u",
     "e" : "ɛ",
     "o" : "ɔ",
+    "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
+    "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
 }
 
 function syllabify(input, vowels) {
