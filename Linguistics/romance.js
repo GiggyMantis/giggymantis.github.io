@@ -220,9 +220,17 @@ const src_firstpass = {
     "o" : "ɔ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
-    "[kɡ]\\.w" : ".b", // qu-assimilation
-    "(?<!^)[kɡ]w" : "b",
-    "^kw" : "k",
+    "[kɡ]\\.(ˈ?)w" : ".$1p", // qu-assimilation
+    "(?<!^)[kɡ]w" : "p",
+    "^(ˈ?)kw" : "$1k",
+    "β" : "v", // *v /v/
+    "(?<=[aeɛioɔu]\\.?ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
+    "(?<=[aeɛioɔu]\\.?ˈ?)d(?=[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]\\.?ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
+    "(?<=[aeɛioɔu]\\.?ˈ?)p(?=[aeɛioɔu])" : "b",
+    "(?<=[aeɛioɔu]\\.?ˈ?)t(?=[aeɛioɔu])" : "d",
+    "(?<=[aeɛioɔu]\\.?ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+
 }
 
 function syllabify(input, vowels) {
