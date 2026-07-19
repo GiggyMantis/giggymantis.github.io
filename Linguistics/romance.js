@@ -291,6 +291,7 @@ function submit(latin) {
 
     // Evolve to Logudorese Sardinian
     logudorese_phonetic = proto_romance_phonetic;
+    Object.keys(src_firstpass).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), src_firstpass[key]));
 
 
     $("#latinphon").val(latin_phonetic);
