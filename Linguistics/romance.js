@@ -195,6 +195,7 @@ const pr_secondpass = {
     "([^aeoiuɛɔɪʊwj])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
     "(?<=[^aeoiuɛɔɪʊwj])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwj])j" : "$1$2$3ʲ",
     "jj" : "j", // /jj/ can't exist except when split between two syllables
+    "ŋ(\\.?ˈ?)n" : "ɲ$1ɲ",
     "^\\." : ""
 }
 
@@ -216,7 +217,7 @@ const pr_orthography = {
 }
 
 const src_firstpass = {
-    "r" : 
+    "r" : "ɾ", // ɾ!! ɾ!!!!!!
     "ɪ" : "i", // Vowel collapse
     "ʊ" : "u",
     "e" : "ɛ",
