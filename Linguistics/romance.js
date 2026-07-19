@@ -216,6 +216,7 @@ const pr_orthography = {
 }
 
 const src_firstpass = {
+    "r" : 
     "ɪ" : "i", // Vowel collapse
     "ʊ" : "u",
     "e" : "ɛ",
