@@ -268,7 +268,6 @@ const camp_firstpass = {
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
-    "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "^(ˈ?)kw" : "$1k", // qu-assimilation
     "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
@@ -289,6 +288,7 @@ const camp_firstpass = {
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
     "^(ˈ?)ɾ" : "a.$1r",
     "ð" : "ɾ", // ð -> ɾ
+    "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
 
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
