@@ -502,7 +502,7 @@ function submit(latin) {
     camp_phonetic = proto_phonetic;
     Object.keys(camp_firstpass).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_firstpass[key]));
     camp = camp_phonetic;
-    Object.keys(camp_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
+    Object.keys(sard_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
     
 
     $("#latinphon").val(latin_phonetic);
