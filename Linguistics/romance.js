@@ -294,7 +294,7 @@ const nuor_firstpass = {
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "([ptk])(\\.?ˈ?)\\1([^aeɛioɔu\\.])" : "$1$2$3", // geminate voiceless stops degeminate
     "([ptk])(\\.?ˈ?)\\1" : "$1$2",
-    "^f(?=[aeɛioɔu])" : "", // loss of word-initial f
+    "^(ˈ?)f(?=[aeɛioɔu])" : "$1", // loss of word-initial f
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "^(ˈ?)kw" : "$1k", // qu-assimilation
     "[kɡ]\\.(ˈ?)w" : ".$1b", 
