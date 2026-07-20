@@ -320,7 +320,7 @@ function latinate_stress(input) {
 
 
 function submit(latin) {
-    // Phoneticize Latin 
+    // Phoneticize Latin
     latin_phonetic = String(latin).toLowerCase().replace(/\s/g, "-");
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
@@ -361,7 +361,7 @@ function submit(latin) {
     logudorese_phonetic = proto_romance_phonetic;
     Object.keys(src_firstpass).forEach((key) => logudorese_phonetic = logudorese_phonetic.replace(new RegExp(key, "g"), src_firstpass[key]));
     logudorese = logudorese_phonetic;
-    Object.keys(src_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), src_orthography[key]));
+    Object.keys(src_orthography).forEach((key) => logudorese = logudorese.replace(new RegExp(key, "g"), src_orthography[key]));
 
     $("#latinphon").val(latin_phonetic);
     $("#pr").val(proto_romance);
