@@ -245,6 +245,10 @@ const camp_firstpass = {
     "s(\\.?)ʧ" : "$1ʃ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
+    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
+    "ɛ$" : "i", // vowel raising at the ends of words
+    "ɔ$" : "u", 
     "β" : "v", // *v /v/
     "(?<=n\\.ɡ)l" : "", // nɡl l-deletion
     "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", 
@@ -286,10 +290,7 @@ const camp_firstpass = {
     "^(ˈ?)ɾ" : "a.$1r",
     "ð" : "ɾ", // ð -> ɾ
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
-    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
-    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
-    "ɛ$" : "i", // vowel raising at the ends of words
-    "ɔ$" : "u", 
+
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
 }
 
@@ -304,6 +305,8 @@ const logu_firstpass = {
     "o" : "ɔ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
+    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "β" : "v", // *v /v/
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
     "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", // lenition chain shift
@@ -343,8 +346,6 @@ const logu_firstpass = {
     "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "j", // Cl -> Cj
-    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
-    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
     "v" : "B",
 }
@@ -360,6 +361,8 @@ const nuor_firstpass = {
     "o" : "ɔ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
+    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "β" : "v", // *v /v/
     "(?<=n\\.ɡ)l" : "ɾ", // nɡl rhotacism
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition
@@ -393,8 +396,6 @@ const nuor_firstpass = {
     "[dɡ]ʲ" : "j",
     "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
-    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
-    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
 }
 
