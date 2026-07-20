@@ -369,5 +369,5 @@ function submit(latin) {
     $("#pr").val(proto_romance);
     $("#prphon").val(proto_romance_phonetic);
     $("#srcphon").val(logudorese_phonetic);
-    $("#src").val(logudorese_phonetic);
+    $("#src").val(logudorese);
 }
