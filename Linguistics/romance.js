@@ -315,7 +315,7 @@ const nuor_firstpass = {
 
 const sard_orthography = {
     "ˈ([^\\.]*\\.[^\\.]*)$" : "$1",
-    "ˈ([^aeiou\\.]*)([aeiou])" : "$1$2̀",
+    "ˈ([^aeɛioɔu\\.]*)([aeɛioɔu])" : "$1$2̀",
     "ˈ" : "",
     "(?<=[eo])̀" : "̀",
     "[eɛ]" : "e",
