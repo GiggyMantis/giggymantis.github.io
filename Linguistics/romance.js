@@ -223,6 +223,59 @@ const proto_orthography = {
     "ɲɲ" : "gn",
 }
 
+const camp_firstpass = {
+    "ɲ" : "n", // depalatalization
+    "sʲ" : "s",
+    "aw" : "a", // au collapse
+    "r" : "ɾ", // ɾ!! ɾ!!!!!!
+    "ɪ" : "i", // Vowel collapse
+    "ʊ" : "u",
+    "e" : "ɛ",
+    "o" : "ɔ",
+    "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
+    "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
+    "β" : "v", // *v /v/
+    "n\\.ɡl" : "ɡ.n", // nɡl metathesis
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", // lenition chain shift
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
+    "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
+    "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
+    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "v",
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
+    "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
+    "n(\\.?ˈ?)d" : "ɳ$1ɖ",
+    "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
+    "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
+    "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
+    "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
+    "^(ˈ?)kw" : "$1k", // qu-assimilation
+    "[kɡ]\\.(ˈ?)w" : ".$1b", 
+    "(?<!^)[kɡ]w" : "b",
+    "n(?=\\.?ˈ?b)" : "m",
+    "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
+    "[tk]ʲ" : "ʦ",
+    "lʲ" : "ʣ",
+    "(?<=[aeɛioɔu])\\.vʲ" : "b.bj",
+    "βʲ" : "bj",
+    "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
+    "(?<=[aeɛioɔu])\\.([nɾ])ʲ" : "$1.ʣ",
+    "([ɾn])ʲ" : "$1ʣ",
+    "([aeɛioɔu])(\\.ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
+    "^(ˈ?)ɡʲ" : "$1",
+    "[dɡ]ʲ" : "j",
+    "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
+    "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
+    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
+    "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
+}
+
 const logu_firstpass = {
     "ɲ" : "n", // depalatalization
     "sʲ" : "s",
@@ -444,6 +497,12 @@ function submit(latin) {
     Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
     nuor = nuor_phonetic;
     Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
+
+    // Evolve to Campidanese Sardinian
+    camp_phonetic = proto_phonetic;
+    Object.keys(camp_firstpass).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_firstpass[key]));
+    camp = camp_phonetic;
+    Object.keys(camp_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
     
 
     $("#latinphon").val(latin_phonetic);
@@ -453,4 +512,6 @@ function submit(latin) {
     $("#logu").val(logu);
     $("#nuor_phon").val(nuor_phonetic);
     $("#nuor").val(nuor);
+    $("#camp_phon").val(camp_phonetic);
+    $("#camp").val(camp);
 }
