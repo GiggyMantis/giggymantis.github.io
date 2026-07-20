@@ -281,7 +281,7 @@ const camp_firstpass = {
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
     "^(ˈ?)ɾ" : "a.$1r",
     "ð" : "ɾ", // ð -> ɾ
-    "(?<=[^aeɛioɔu]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "ɛ$" : "i", // vowel raising at the ends of words
@@ -338,7 +338,7 @@ const logu_firstpass = {
     "[dɡ]ʲ" : "j",
     "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
-    "(?<=[^aeɛioɔu]\\.?ˈ?)l" : "j", // Cl -> Cj
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "j", // Cl -> Cj
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
@@ -421,7 +421,7 @@ const sard_orthography = {
     "ɡ" : "g",
     "ʣ" : "z",
     "ʦ" : "tz",
-    "(?<=[aeiou])j(?!j)" : "i",
+    "(?<=[^aeiou])j(?!j)" : "i",
     "jj" : "j",
     "r" : "rr",
     "ɾ" : "r",
