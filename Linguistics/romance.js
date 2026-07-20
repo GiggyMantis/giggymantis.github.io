@@ -268,14 +268,22 @@ const logu_firstpass = {
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
 }
 
-const logu_orthography = {
-    "[eɛ]" : "e",
-    "[oɔ]" : "o",
+const sard_orthography = {
     "ˈ([^\\.]*\\.[^\\.]*)$" : "$1",
     "ˈ([^aeiou\\.]*)([aeiou])" : "$1$2̀",
     "ˈ" : "",
+    "(?<=[eo])̀" : "̀",
+    "[eɛ]" : "e",
+    "[oɔ]" : "o",
     "\\." : "",
     "z" : "s",
+    "ʒ" : "x",
+    "ʃ(?=[ei])" : "sc",
+    "ʃ" : "sci",
+    "ʧ(?=[ei])" : "c",
+    "ʧ" : "ci",
+    "ʤ(?=[ei])" : "g",
+    "ʤ" : "gi",
     "(?<=[aeiou]̀?)v(?=[aeiou])" : "f",
     "β" : "b",
     "ɣ" : "ɡ",
@@ -365,11 +373,20 @@ function submit(latin) {
     logu_phonetic = proto_phonetic;
     Object.keys(logu_firstpass).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), logu_firstpass[key]));
     logu = logu_phonetic;
-    Object.keys(logu_orthography).forEach((key) => logu = logu.replace(new RegExp(key, "g"), logu_orthography[key]));
+    Object.keys(sard_orthography).forEach((key) => logu = logu.replace(new RegExp(key, "g"), sard_orthography[key]));
+
+    // Evolve to Nuorese Sardinian
+    sard_phonetic = proto_phonetic;
+    Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
+    nuor = nuor_phonetic;
+    Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
+    
 
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
     $("#proto_phon").val(proto_phonetic);
     $("#logu_phon").val(logu_phonetic);
-    $("#logu").val(logu); 
+    $("#logu").val(logu);
+    $("#nuor_phon").val(logu_phonetic);
+    $("#nuor").val(logu);
 }
