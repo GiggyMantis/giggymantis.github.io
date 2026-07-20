@@ -236,8 +236,8 @@ const logu_firstpass = {
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)v(?=u)" : "", // vu -> u
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition chain shift
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", // lenition chain shift
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β",
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
@@ -262,7 +262,7 @@ const logu_firstpass = {
     "[tk]ʲ" : "ʦ",
     "lʲ" : "ʣ",
     "(?<=[aeɛioɔu])\\.vʲ" : "b.bj",
-    "vʲ" : "bj",
+    "βʲ" : "bj",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
     "(?<=[aeɛioɔu])\\.([nɾ])ʲ" : "$1.ʣ",
     "([ɾn])ʲ" : "$1ʣ",
