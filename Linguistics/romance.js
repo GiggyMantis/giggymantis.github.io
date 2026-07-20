@@ -187,7 +187,7 @@ const proto_secondpass = {
     "k\\.s(?=[^aeoiuɛɔɪʊ])" : "s.",
     "(?<=\\..*)ks$" : "s",
     "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
-    "^s(?=[^aeoiuɛɔɪʊ])" : "ɪs.", // sC epenthesis
+    "^s(?=[^aeoiuɛɔɪʊwj])" : "ɪs.", // sC epenthesis
     "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
     "e(?=s\\.tj)" : "i", // raising of e, o before stj
     "o(?=s\\.tj)" : "u",
@@ -243,8 +243,8 @@ const camp_firstpass = {
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
     "(?<=n\\.ɡ)l" : "", // nɡl l-deletion
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", // lenition chain shift
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β",
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aeɛioɔu])" : "", 
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition chain shift
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
