@@ -237,7 +237,9 @@ const logu_firstpass = {
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)v(?=u)" : "", 
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition chain shift
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
@@ -333,6 +335,7 @@ const sard_orthography = {
     "(?<=[aeiou]̀?)v(?=[aeiou])" : "f",
     "β" : "b",
     "ɣ" : "ɡ",
+    "ð" : "d",
     "ɡ(?=[ei])" : "gh",
     "ɡ" : "g",
     "ʣ" : "z",
