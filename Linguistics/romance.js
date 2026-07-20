@@ -188,7 +188,7 @@ const proto_secondpass = {
     "(?<=\\..*)ks$" : "s",
     "(?<=[^aeoiuɛɔɪʊ\\.])ks$" : "s",
     "^s(?=[^aeoiuɛɔɪʊwj])" : "ɪs.", // sC epenthesis
-    "^ˈs(?=[^aeoiuɛɔɪʊ])" : "ɪs.ˈ",
+    "^ˈs(?=[^aeoiuɛɔɪʊwj])" : "ɪs.ˈ",
     "e(?=s\\.tj)" : "i", // raising of e, o before stj
     "o(?=s\\.tj)" : "u",
     // I don't think this applied to Proto-Romance
@@ -252,7 +252,7 @@ const camp_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
-    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "v",
+    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "V",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɖ",
@@ -313,7 +313,7 @@ const logu_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
-    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "v",
+    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "V",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɖ",
@@ -342,6 +342,7 @@ const logu_firstpass = {
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
+    "v" : "B",
 }
 
 const nuor_firstpass = {
@@ -360,7 +361,7 @@ const nuor_firstpass = {
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
-    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "v",
+    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "V",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɳ",
@@ -413,11 +414,12 @@ const sard_orthography = {
     "ʧ" : "ci",
     "ʤ(?=[ei])" : "g",
     "ʤ" : "gi",
-    "(?<=[aeiou]̀?)v(?=[aeiou])" : "f",
+    "V" : "f",
     "β" : "b",
     "ɣ" : "ɡ",
     "ð" : "d",
     "ɡ(?=[ei])" : "gh",
+    "B" : "v",
     "ɡ" : "g",
     "ʣ" : "z",
     "ʦ" : "tz",
@@ -430,6 +432,12 @@ const sard_orthography = {
     "k(?=[ei])" : "ch",
     "k" : "c",
     "θ" : "th",
+}
+
+const sard_finish = {
+    "V" : "v",
+    "(?<=[aeɛioɔu]\\.?ˈ?)B(?<=[aeɛioɔu])" : "β",
+    "B" : "b",
 }
 
 function syllabify(input, vowels) {
@@ -507,19 +515,21 @@ function submit(latin) {
     Object.keys(logu_firstpass).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), logu_firstpass[key]));
     logu = logu_phonetic;
     Object.keys(sard_orthography).forEach((key) => logu = logu.replace(new RegExp(key, "g"), sard_orthography[key]));
+    Object.keys(sard_finish).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
 
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
     Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
     nuor = nuor_phonetic;
     Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
+    Object.keys(sard_finish).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
 
     // Evolve to Campidanese Sardinian
     camp_phonetic = proto_phonetic;
     Object.keys(camp_firstpass).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_firstpass[key]));
     camp = camp_phonetic;
     Object.keys(sard_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
-    
+    Object.keys(sard_finish).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
 
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
