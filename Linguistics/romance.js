@@ -225,6 +225,7 @@ const proto_orthography = {
 
 const logu_firstpass = {
     "ɲ" : "n", // depalatalization
+    "sʲ" : "s",
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
     "ɪ" : "i", // Vowel collapse
@@ -260,11 +261,16 @@ const logu_firstpass = {
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
     "lʲ" : "ʣ",
+    "(?<=[aeɛioɔu])\\.βʲ" : "b.bj",
+    "βʲ" : "bj",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
-    "(?<=[aeɛioɔu])\\.ɾʲ" : "ɾ.ʣ",
-    "ɾʲ" : "ɾʣ",
+    "(?<=[aeɛioɔu])\\.([nɾ])ʲ" : "$1.ʣ",
+    "([ɾn])ʲ" : "$1ʣ",
     "([aeɛioɔu])(\\.ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
+    "^(ˈ?)ɡʲ" : "$1",
     "[dɡ]ʲ" : "j",
+    "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
+    "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
@@ -272,6 +278,7 @@ const logu_firstpass = {
 
 const nuor_firstpass = {
     "ɲ" : "n", // depalatalization
+    "sʲ" : "s",
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
     "ɪ" : "i", // Vowel collapse
@@ -304,11 +311,16 @@ const nuor_firstpass = {
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "θ",
     "lʲ" : "ʣ",
+    "(?<=[aeɛioɔu])\\.βʲ" : "b.bj",
+    "βʲ" : "bj",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
-    "(?<=[aeɛioɔu])\\.ɾʲ" : "ɾ.ʣ",
-    "ɾʲ" : "ɾʣ",
+    "(?<=[aeɛioɔu])\\.nʲ" : "n.ʣ",
+    "nʲ" : "nʣ",
     "([aeɛioɔu])(\\.ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
+    "^(ˈ?)ɡʲ" : "$1",
     "[dɡ]ʲ" : "j",
+    "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
+    "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
