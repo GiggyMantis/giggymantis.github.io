@@ -351,7 +351,7 @@ function submit(latin) {
     } else if ($("#syncope").is(":checked")) {
         Object.keys(default_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
     }
-    if ($("#av-au").is(":checked")) {
+    if ($("#av-au").is(":checked")) { 
         proto_romance_phonetic = proto_romance_phonetic.replace(av, au);
     }
     Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
