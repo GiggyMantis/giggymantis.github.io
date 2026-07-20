@@ -320,7 +320,7 @@ function latinate_stress(input) {
 
 
 function submit(latin) {
-    // Phoneticize Latin
+    // Phoneticize Latin 
     latin_phonetic = String(latin).toLowerCase().replace(/\s/g, "-");
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
