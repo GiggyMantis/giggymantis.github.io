@@ -232,6 +232,10 @@ const camp_firstpass = {
     "ʊ" : "u",
     "e" : "ɛ",
     "o" : "ɔ",
+    "(?<=[aeɛioɔu]\\.?ˈ?)k(?=\\.?ˈ?[eɛi])" : "ʒ",  // palatalization
+    "k(?=\\.?ˈ?[eɛi])" : "ʧ",
+    "(?<=[aeɛioɔu]\\.?ˈ?)ɡ(?=\\.?ˈ?[eɛi])" : "",
+    "ɡ(?=\\.?ˈ?[eɛi])" : "ʤ",
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
@@ -274,6 +278,8 @@ const camp_firstpass = {
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
+    "ɛ$" : "i", // vowel raising at the ends of words
+    "ɔ$" : "u", 
 }
 
 const logu_firstpass = {
