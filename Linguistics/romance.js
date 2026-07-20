@@ -360,10 +360,12 @@ function submit(latin) {
     // Evolve to Logudorese Sardinian
     logudorese_phonetic = proto_romance_phonetic;
     Object.keys(src_firstpass).forEach((key) => logudorese_phonetic = logudorese_phonetic.replace(new RegExp(key, "g"), src_firstpass[key]));
-
+    logudorese = logudorese_phonetic;
+    Object.keys(src_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), src_orthography[key]));
 
     $("#latinphon").val(latin_phonetic);
     $("#pr").val(proto_romance);
     $("#prphon").val(proto_romance_phonetic);
     $("#srcphon").val(logudorese_phonetic);
+    $("#src").val(logudorese_phonetic);
 }
