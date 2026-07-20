@@ -377,7 +377,7 @@ function submit(latin) {
 
     // Evolve to Nuorese Sardinian
     sard_phonetic = proto_phonetic;
-    Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
+    // Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
     nuor = nuor_phonetic;
     Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
     
