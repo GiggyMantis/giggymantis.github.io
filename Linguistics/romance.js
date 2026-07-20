@@ -314,6 +314,7 @@ const nuor_firstpass = {
 }
 
 const sard_orthography = {
+    "(?<=[aeɛioɔu])\\.(?=[aeɛioɔu])" : "", // diphthongs don't count for counting purposes
     "ˈ([^\\.]*\\.[^\\.]*)$" : "$1",
     "ˈ([^aeɛioɔu\\.]*)([aeɛioɔu])" : "$1$2̀",
     "ˈ" : "",
