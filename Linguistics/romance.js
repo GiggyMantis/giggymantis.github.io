@@ -264,7 +264,27 @@ const src_firstpass = {
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
+}
 
+const src_orthography = {
+    "ˈ" : "",
+    "\\." : "",
+    "[eɛ]" : "e",
+    "[oɔ]" : "o",
+    "z" : "s",
+    "(?<=[aeiou])v(?=[aeiou])" : "f",
+    "β" : "b",
+    "ɣ" : "ɡ",
+    "ɡ(?=[ei])" : "gh",
+    "ɡ" : "g",
+    "ʣ" : "z",
+    "ʦ" : "tz",
+    "jj" : "j",
+    "r" : "rr",
+    "ɾ" : "r",
+    "ɖ" : "d",
+    "k(?=[ei])" : "ch",
+    "k" : "c",
 }
 
 function syllabify(input, vowels) {
