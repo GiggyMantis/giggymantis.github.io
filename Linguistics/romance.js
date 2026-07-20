@@ -261,8 +261,6 @@ const camp_firstpass = {
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "^(ˈ?)kw" : "$1k", // qu-assimilation
-    "[kɡ]\\.(ˈ?)w" : ".$1b", 
-    "(?<!^)[kɡ]w" : "b",
     "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
@@ -280,6 +278,7 @@ const camp_firstpass = {
     "^(ˈ?)j" : "$1ʤ",
     "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
+    "^ɾ(ˈ?)" : "a.$1r",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "ɛ$" : "i", // vowel raising at the ends of words
