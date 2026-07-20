@@ -237,8 +237,8 @@ const logu_firstpass = {
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)v(?=u)" : "", 
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition chain shift
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "",
-    "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
     "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
