@@ -423,7 +423,7 @@ const sard_orthography = {
     "ɡ" : "g",
     "ʣ" : "z",
     "ʦ" : "tz",
-    "(?<!j)j(?!j)" : "i",
+    "(?<=[aeiou])j(?!j)" : "i",
     "jj" : "j",
     "r" : "rr",
     "ɾ" : "r",
