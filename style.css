@@ -19,6 +19,10 @@ label {
   font-weight: bold;
 }
 
+li label {
+  font-weight: normal;
+}
+
 body.wide  {
   margin:40px auto;
   max-width:2000px;
