@@ -423,7 +423,7 @@ function submit(latin) {
 
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
-    // Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
+    Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
     nuor = nuor_phonetic;
     Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
     
@@ -433,6 +433,6 @@ function submit(latin) {
     $("#proto_phon").val(proto_phonetic);
     $("#logu_phon").val(logu_phonetic);
     $("#logu").val(logu);
-    $("#nuor_phon").val(logu_phonetic);
-    $("#nuor").val(logu);
+    $("#nuor_phon").val(nuor_phonetic);
+    $("#nuor").val(nuor);
 }
