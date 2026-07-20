@@ -322,8 +322,7 @@ const logu_firstpass = {
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
-    "^(ˈ?)kw" : "$1k", // qu-assimilation
-    "[kɡ]\\.(ˈ?)w" : ".$1b", 
+    "[kɡ]\\.(ˈ?)w" : ".$1b", // qu-assimilation
     "(?<!^)[kɡ]w" : "b",
     "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
@@ -373,8 +372,7 @@ const nuor_firstpass = {
     "([ptk])(\\.?ˈ?)\\1" : "$2$1",
     "^(ˈ?)f(?=[aeɛioɔu])" : "$1", // loss of word-initial f
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
-    "^(ˈ?)kw" : "$1k", // qu-assimilation
-    "[kɡ]\\.(ˈ?)w" : ".$1b", 
+    "[kɡ]\\.(ˈ?)w" : ".$1b", // qu-assimilation
     "(?<!^)[kɡ]w" : "b",
     "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
