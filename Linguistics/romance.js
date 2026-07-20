@@ -216,6 +216,7 @@ const pr_orthography = {
     "áw" : "áu",
     "β" : "v",
     "ʲ" : "́",
+    "k" : "c",
     "\\." : "",
     "ɲɲ" : "gn",
 }
@@ -262,8 +263,7 @@ const src_firstpass = {
     "[dɡ]ʲ" : "j",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
-    "(?<=i\\.ˈ)i" : "e",
-    "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\1" : "$3$1$2",
+    "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
 
 }
 
