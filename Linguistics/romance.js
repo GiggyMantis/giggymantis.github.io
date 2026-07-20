@@ -224,6 +224,7 @@ const proto_orthography = {
 }
 
 const camp_firstpass = {
+    "^ɪs\\." : "s", // reversal of proto-romance *įsC
     "ɲ" : "n", // depalatalization
     "sʲ" : "s",
     "aw" : "a", // au collapse
@@ -278,7 +279,7 @@ const camp_firstpass = {
     "^(ˈ?)j" : "$1ʤ",
     "(?<=[^aeɛioɔu])\\.(.)ʲ" : ".$1j",
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
-    "^ɾ(ˈ?)" : "a.$1r",
+    "^(ˈ?)ɾ" : "a.$1r",
     "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
     "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
     "ɛ$" : "i", // vowel raising at the ends of words
