@@ -235,15 +235,15 @@ const logu_firstpass = {
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", 
-    "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "β", // lenition chain shift
-    "(?<=[aeɛioɔu]\\.ˈ?)d(?=[aeɛioɔu])" : "",
-    "(?<=[aeɛioɔu]\\.ˈ?)ɡ(?=[aeɛioɔu])" : "ɣ",
-    "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b",
-    "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
-    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
-    "(?<=[aeɛioɔu]\\.ˈ?)f(?=[aeɛioɔu])" : "v",
-    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)v(?=u)" : "", 
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition chain shift
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)p(?=ɾ?[aeɛioɔu])" : "b",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)t(?=ɾ?[aeɛioɔu])" : "d",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)k(?=ɾ?[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)f(?=ɾ?[aeɛioɔu])" : "v",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)s(?=ɾ?[aeɛioɔu])" : "z",
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɖ",
     "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
@@ -257,6 +257,51 @@ const logu_firstpass = {
     "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
+    "lʲ" : "ʣ",
+    "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
+    "(?<=[aeɛioɔu])\\.ɾʲ" : "ɾ.ʣ",
+    "ɾʲ" : "ɾʣ",
+    "([aeɛioɔu])(\\.ˈ?)[dɡ]ʲ(?=[aeɛioɔu])" : "$1j.$2j",
+    "[dɡ]ʲ" : "j",
+    "([aeɛioɔu])([^aeɛioɔu])$" : "$1.$2$1", // mirror vowel when word ends with a consonant
+    "([aeɛioɔu])([^aeɛioɔu])([^aeɛioɔu]+)$" : "$1$2.$3$1", // mirror vowel when word ends with a consonant
+    "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
+}
+
+const nuor_firstpass = {
+    "ɲ" : "n", // depalatalization
+    "aw" : "a", // au collapse
+    "r" : "ɾ", // ɾ!! ɾ!!!!!!
+    "ɪ" : "i", // Vowel collapse
+    "ʊ" : "u",
+    "e" : "ɛ",
+    "o" : "ɔ",
+    "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
+    "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
+    "β" : "v", // *v /v/
+    "n\\.ɡl" : "ɡ.n", // nɡl metathesis
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", 
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)f(?=ɾ?[aeɛioɔu])" : "v",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)s(?=ɾ?[aeɛioɔu])" : "z",
+    "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
+    "n(\\.?ˈ?)d" : "ɳ$1ɳ",
+    "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
+    "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
+    "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
+    "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "([ptk])(\\.?ˈ?)\\1([^aeɛioɔu\\.])" : "$1$2$3", // geminate voiceless stops degeminate
+    "([ptk])(\\.?ˈ?)\\1" : "$1$2",
+    "^f(?=[aeɛioɔu])" : "", // loss of word-initial f
+    "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
+    "^(ˈ?)kw" : "$1k", // qu-assimilation
+    "[kɡ]\\.(ˈ?)w" : ".$1b", 
+    "(?<!^)[kɡ]w" : "b",
+    "n(?=\\.?ˈ?b)" : "m",
+    "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
+    "[tk]ʲ" : "θ",
     "lʲ" : "ʣ",
     "ɖ\\.?(ˈ?)ɖʲ" : "$1ʣ", 
     "(?<=[aeɛioɔu])\\.ɾʲ" : "ɾ.ʣ",
@@ -297,6 +342,7 @@ const sard_orthography = {
     "ɖ" : "d",
     "k(?=[ei])" : "ch",
     "k" : "c",
+    "θ" : "th",
 }
 
 function syllabify(input, vowels) {
