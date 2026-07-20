@@ -235,7 +235,7 @@ const logu_firstpass = {
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
     "n\\.ɡl" : "ɡ.n", // nɡl metathesis
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)v(?=u)" : "", 
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)v(?=u)" : "", // vu -> u
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition chain shift
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]ɾ\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
@@ -281,8 +281,7 @@ const nuor_firstpass = {
     "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e", // Metaphony/vowel harmony
     "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
     "β" : "v", // *v /v/
-    "n\\.ɡl" : "ɡ.n", // nɡl metathesis
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", 
+    "(?<=n\\.ɡ)l" : "ɾ", // nɡl rhotacism
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)b(?=ɾ?[aeɛioɔu])" : "β", // lenition
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)d(?=ɾ?[aeɛioɔu])" : "ð",
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)ɡ(?=ɾ?[aeɛioɔu])" : "ɣ",
@@ -290,12 +289,12 @@ const nuor_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɳ",
-    "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
+    "k(\\.?ˈ?)l" : "k$1ɾ", // kl -> kɾ
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "([ptk])(\\.?ˈ?)\\1([^aeɛioɔu\\.])" : "$1$2$3", // geminate voiceless stops degeminate
-    "([ptk])(\\.?ˈ?)\\1" : "$1$2",
+    "([ptk])(\\.?ˈ?)\\1" : "$2$1",
     "^(ˈ?)f(?=[aeɛioɔu])" : "$1", // loss of word-initial f
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "^(ˈ?)kw" : "$1k", // qu-assimilation
@@ -321,6 +320,8 @@ const sard_orthography = {
     "ˈ([^aeɛioɔu\\.]*)([aeɛioɔu])" : "$1$2̀",
     "ˈ" : "",
     "(?<=[eo])̀" : "́",
+    "ɳɳ" : "nd",
+    "ɳ" : "n",
     "[eɛ]" : "e",
     "[oɔ]" : "o",
     "\\." : "",
