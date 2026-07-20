@@ -92,7 +92,7 @@ const optional_early_monophthongs = {
 }
 
 // First pass evolving to Proto-Romance phonetically
-const pr_firstpass = {
+const proto_firstpass = {
     "pʰ" : "f", // aspirate collapse
     "tʰ" : "t",
     "kʰ" : "k", 
@@ -148,7 +148,7 @@ const default_syncope = {
 const av = /a\.β\./g;
 const au = "au̯.";
 
-const pr_secondpass = {
+const proto_secondpass = {
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
     "\\.\\." : "\\.",
@@ -204,7 +204,7 @@ const pr_secondpass = {
     "(\\.)\\1" : ".",
 }
 
-const pr_orthography = {
+const proto_orthography = {
     "ˈ([^aeoiuɛɔɪʊ]{0,3})([aeoiuɛɔɪʊ])" : "$1$2́",
     "ɪ" : "į",
     "ɛ" : "ę",
@@ -223,7 +223,7 @@ const pr_orthography = {
     "ɲɲ" : "gn",
 }
 
-const src_firstpass = {
+const logu_firstpass = {
     "ɲ" : "n", // depalatalization
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
@@ -268,7 +268,7 @@ const src_firstpass = {
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
 }
 
-const src_orthography = {
+const logu_orthography = {
     "[eɛ]" : "e",
     "[oɔ]" : "o",
     "ˈ([^\\.]*\\.[^\\.]*)$" : "$1",
@@ -336,40 +336,40 @@ function submit(latin) {
     latin_phonetic = latinate_stress(latin_phonetic);
 
     // Evolve to Proto-Romance
-    proto_romance_phonetic = latin_phonetic;
+    proto_phonetic = latin_phonetic;
 
     if ($("#early-monophthongs").is(":checked")) {
-        Object.keys(optional_early_monophthongs).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), optional_early_monophthongs[key]));
+        Object.keys(optional_early_monophthongs).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_early_monophthongs[key]));
     }
 
-    Object.keys(pr_firstpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_firstpass[key]));
+    Object.keys(proto_firstpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_firstpass[key]));
     if ($("#v-deletion").is(":checked")) {
-        proto_romance_phonetic = proto_romance_phonetic.replace(optional_v_deletion, "");
+        proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
     }
 
     if ($("#always-syncope").is(":checked")) {
-        Object.keys(optional_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
+        Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
         $("#syncope").prop("checked", true);
     } else if ($("#syncope").is(":checked")) {
-        Object.keys(default_syncope).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
+        Object.keys(default_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
     }
     if ($("#av-au").is(":checked")) { 
-        proto_romance_phonetic = proto_romance_phonetic.replace(av, au);
+        proto_phonetic = proto_phonetic.replace(av, au);
     }
-    Object.keys(pr_secondpass).forEach((key) => proto_romance_phonetic = proto_romance_phonetic.replace(new RegExp(key, "g"), pr_secondpass[key]));
+    Object.keys(proto_secondpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_secondpass[key]));
 
-    proto_romance = proto_romance_phonetic;
-    Object.keys(pr_orthography).forEach((key) => proto_romance = proto_romance.replace(new RegExp(key, "g"), pr_orthography[key]));
+    proto = proto_phonetic;
+    Object.keys(proto_orthography).forEach((key) => proto = proto.replace(new RegExp(key, "g"), proto_orthography[key]));
 
     // Evolve to Logudorese Sardinian
-    logudorese_phonetic = proto_romance_phonetic;
-    Object.keys(src_firstpass).forEach((key) => logudorese_phonetic = logudorese_phonetic.replace(new RegExp(key, "g"), src_firstpass[key]));
-    logudorese = logudorese_phonetic;
-    Object.keys(src_orthography).forEach((key) => logudorese = logudorese.replace(new RegExp(key, "g"), src_orthography[key]));
+    logu_phonetic = proto_phonetic;
+    Object.keys(logu_firstpass).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), logu_firstpass[key]));
+    logu = logu_phonetic;
+    Object.keys(logu_orthography).forEach((key) => logu = logu.replace(new RegExp(key, "g"), logu_orthography[key]));
 
     $("#latinphon").val(latin_phonetic);
-    $("#pr").val(proto_romance);
-    $("#prphon").val(proto_romance_phonetic);
-    $("#srcphon").val(logudorese_phonetic);
-    $("#src").val(logudorese); 
+    $("#proto").val(proto);
+    $("#proto_phon").val(proto_phonetic);
+    $("#logu_phon").val(logu_phonetic);
+    $("#logu").val(logu); 
 }

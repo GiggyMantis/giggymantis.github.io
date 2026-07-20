@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
     <script src="/global.js"></script>
-    <script src="romance.js"></script>
+    <script src="protonce.js"></script>
     <title>GiggyMantis</title>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
   </head>
@@ -69,9 +69,11 @@
         
       </div>
     </details>
-    <label for="latin">Latin:</label><input type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin').val())" value="Submit"><br>[<output id="latinphon" name="latinphon"></output>]<br><br>
-    <label for="pr">Proto-Romance: *</label><output id="pr" name="pr"></output>&emsp;*[<output id="prphon" name="prphon"></output>]
+    <label for="latin">Latin: </label><input type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin').val())" value="Submit"><br>[<output id="latinphon" name="latinphon"></output>]<br><br>
+    <label for="proto">Proto-Romance: *</label><output id="proto" name="proto"></output>&emsp;*[<output id="proto_phon" name="proto_phon"></output>]
     <h2>Southern</h2>
-    <label for="src">Logudorese Sardinian: </label><output id="src" name="src"></output>&emsp;[<output id="srcphon" name="srcphon"></output>]
+    <h3>Sardinian</h3>
+    <label for="logu">Logudorese: </label><output id="logu" name="logu"></output>&emsp;[<output id="logu_phon" name="logu_phon"></output>]
+    <label for="nuor">Nuorese: </label><output id="nuor" name="nuor"></output>&emsp;[<output id="nuor_phon" name="nuor_phon"></output>]
   </body>
 </html>
