@@ -266,7 +266,9 @@ const camp_firstpass = {
     "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
-    "lʲ" : "ʣ",
+    "(?<![^aeɛioɔu\\.ˈ])lʲ(?!\\.)" : "l.l",
+    "(?<![^aeɛioɔu\\.ˈ])lʲ(\\.ˈ?)([[^aeɛioɔu]])" : "ll$1$2",
+    "lʲ" : "ll",
     "(?<=[aeɛioɔu])\\.vʲ" : "b.bj",
     "βʲ" : "bj",
     "ɖ\\.?(ˈ?)ɖʲ" : "l$1l", 
