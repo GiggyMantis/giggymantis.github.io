@@ -453,6 +453,7 @@ const afri_firstpass = {
 }
 
 const afri_orthography = {
+    "m$" : "",
     "ch" : "k",
     "th" : "t",
     "ph" : "f",
@@ -505,7 +506,7 @@ function latinate_stress(input) {
 
 function submit(latin_input) {
     // Phoneticize Latin
-    latin = String(latin).toLowerCase().replace(/\s/g, "-");
+    latin = String(latin_input).toLowerCase().replace(/\s/g, "-");
     latin_phonetic = latin
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
