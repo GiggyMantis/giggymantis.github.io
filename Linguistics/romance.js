@@ -607,6 +607,6 @@ function submit(latin_input) {
     $("#camp").val(camp);
     $("#afri_phon").val(afri_phonetic);
     $("#afri").val(afri);
-    $("#proma_phon").val(roma_phonetic);
-    $("#proma").val(roma);
+    $("#proma_phon").val(proma_phonetic);
+    $("#proma").val(proma);
 }
