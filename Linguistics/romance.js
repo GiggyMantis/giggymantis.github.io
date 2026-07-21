@@ -489,7 +489,6 @@ function latinate_stress(input) {
         if (new RegExp("[^aeoiuyɛɔɪʊʏ]\\.(?!.*\\.)").test(input)) {
             // Penult is heavy, stress the penult
             ret = ("." + input).replace(new RegExp("(\\.)(?!.*\\..*\\.)"), "ˈ$1");
-            console.log("heavy penult");
         } else {
             // Penult is liteweit, stress the antepenult
             ret = ("." + input).replace(new RegExp("(\\.)(?!.*\\..*\\..*\\.)"), "ˈ$1");
