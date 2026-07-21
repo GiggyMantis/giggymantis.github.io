@@ -202,7 +202,7 @@ const proto_secondpass = {
     // "(?<!\\..*)([aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])$" : "$1.$2e",
     "(?<=^[^\\.]*\\.[^\\.]*)i(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ɪ", // In the second syllable of words with the structure [ˌσσˈσσ], /i/ and /u/ merge into /ɪ/ and /ʊ/ respectively.
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
-    "([^aeoiuɛɔɪʊwjˈ])\\.(ˈ?)j" : ".$2$1ʲ", // palatalization
+    "([^aeoiuɛɔɪʊwjˈ])(\\.?ˈ?)j" : "$2$1ʲ", // palatalization
     "(?<=[^aeoiuɛɔɪʊwjˈ])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwjˈ])j" : "$1$2$3ʲ",
     "jj" : "j", // /jj/ can't exist except when split between two syllables
     "ŋ(\\.?ˈ?)n" : "ɲ$1ɲ",
@@ -460,6 +460,7 @@ const afri_firstpass = {
 }
 
 const afri_orthography = {
+    "-" : "",
     "m$" : "",
     "ch" : "k",
     "th" : "t",
@@ -491,6 +492,7 @@ const proma_firstpass = {
     "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
     "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
     "ɲ(\\.?ˈ?)ɲ" : "m$1n",
+    "[tk]ʲ" : "" // palatalization outcomes
 
 }
 
