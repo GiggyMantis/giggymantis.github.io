@@ -227,6 +227,7 @@ const proto_orthography = {
 
 const camp_firstpass = {
     "^ɪs\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "ɡ\\.d" : "k.t", // gd -> ct
     "ɲ" : "n", // depalatalization
     "sʲ" : "s",
     "aw" : "a", // au collapse
@@ -295,6 +296,7 @@ const camp_firstpass = {
 
 const logu_firstpass = {
     "ɲ" : "n", // depalatalization
+    "ɡ\\.d" : "k.t", // gd -> ct
     "sʲ" : "s",
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
@@ -352,6 +354,7 @@ const logu_firstpass = {
 
 const nuor_firstpass = {
     "ɲ" : "n", // depalatalization
+    "ɡ\\.d" : "k.t", // gd -> ct
     "sʲ" : "s",
     "aw" : "a", // au collapse
     "r" : "ɾ", // ɾ!! ɾ!!!!!!
