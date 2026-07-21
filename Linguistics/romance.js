@@ -263,6 +263,7 @@ const camp_firstpass = {
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɖ",
     "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
+    "\\.jj" : ".j",
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
@@ -323,6 +324,7 @@ const logu_firstpass = {
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // ɖ
     "n(\\.?ˈ?)d" : "ɳ$1ɖ",
     "k(\\.?ˈ?)l" : "j$1j", // kl -> jj
+    "\\.jj" : ".j",
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
