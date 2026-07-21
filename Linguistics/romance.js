@@ -492,11 +492,11 @@ const proma_firstpass = {
     "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
     "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
     "ɲ(\\.?ˈ?)ɲ" : "m$1n",
-    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo]$)" : "t$2ʦ", // geminate palatalization outcomes
-    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo])" : "t$2ʧ",
-    "([tk])(\\.?ˈ?)\\1ʲ" : "t$2ʦ",
+    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo]$)" : "ʦ$2ʦ", // geminate palatalization outcomes
+    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo])" : "ʧ$2ʧ",
+    "([tk])(\\.?ˈ?)\\1ʲ" : "ʦ$2ʦ",
     "s(\\.?ˈ?)sʲ" : "ʃ$1ʃ",
-    "d(\\.?ˈ?)dʲ" : "d$1ʣ",
+    "d(\\.?ˈ?)dʲ" : "ʣ$1ʣ",
     "n(\\.?ˈ?)nʲ" : "ɲ$1ɲ",
     "l(\\.?ˈ?)lʲ" : "ʎ$1ʎ",
     "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
@@ -508,11 +508,15 @@ const proma_firstpass = {
     "nʲ" : "ɲ",
     "lʲ" : "ʎ",
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
-    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$1$2j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
     "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
     "ɛ" : "je", // ɛ-opening
-    "\\.(ˈ?)([^aeɛiou\\.ˈ])j" : "$2.$1j",
+    "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
+    "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeiou\\.ˈ])\\1" : "$1",
 
 }
 
