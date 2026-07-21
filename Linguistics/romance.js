@@ -442,6 +442,35 @@ const sard_finish = {
     "B" : "b",
 }
 
+const afri_firstpass = {
+    "β" : "b", // betacism
+    "ɪ" : "i", // Vowel collapse
+    "ʊ" : "u",
+    "e" : "ɛ",
+    "o" : "ɔ",
+    "k(\\.?ˈ?)l" : "ɡ$1l", // kl -> gl
+    "^(ˈ?)k" : "$1ɡ",
+}
+
+const afri_orthography = {
+    "ch" : "k",
+    "th" : "t",
+    "ph" : "f",
+    "c" : "k",
+    "ā" : "a",
+    "ē" : "e",
+    "ī" : "i",
+    "ō" : "o",
+    "ū" : "u",
+    "ȳ" : "y",
+    "y" : "i",
+    "ae" : "e",
+    "oe" : "e"
+    "^u([aeiouy])" : "w$1", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
+    "([aeiouy]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
+    "w" : "b",
+}
+
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "][ː̯]?)"
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
@@ -474,9 +503,10 @@ function latinate_stress(input) {
 }
 
 
-function submit(latin) {
+function submit(latin_input) {
     // Phoneticize Latin
-    latin_phonetic = String(latin).toLowerCase().replace(/\s/g, "-");
+    latin = String(latin).toLowerCase().replace(/\s/g, "-");
+    latin_phonetic = latin
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
     
@@ -533,6 +563,14 @@ function submit(latin) {
     Object.keys(sard_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
     Object.keys(sard_finish).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
 
+    // Evolve to African
+    afri_phonetic = proto_phonetic;
+    Object.keys(afri_firstpass).forEach((key) => afri_phonetic = afri_phonetic.replace(new RegExp(key, "g"), afri_firstpass[key]));
+    afri = latin;
+    afri = afri.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
+    Object.keys(afri_orthography).forEach((key) => afri = afri.replace(new RegExp(key, "g"), afri_orthography[key]));
+    afri.toUpperCase();
+
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
     $("#proto_phon").val(proto_phonetic);
@@ -542,4 +580,6 @@ function submit(latin) {
     $("#nuor").val(nuor);
     $("#camp_phon").val(camp_phonetic);
     $("#camp").val(camp);
+    $("#afri_phon").val(afri_phonetic);
+    $("#afri").val(afri);
 }
