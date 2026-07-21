@@ -482,6 +482,7 @@ const afri_orthography = {
 // This is a Proto-Romanian pass used for all of the Romanian langs
 const proma_firstpass = {
     "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
+    "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
     "ɔ" : "o",
     "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
