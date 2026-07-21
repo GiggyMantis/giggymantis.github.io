@@ -465,7 +465,7 @@ const afri_orthography = {
     "ȳ" : "y",
     "y" : "i",
     "ae" : "e",
-    "oe" : "e"
+    "oe" : "e",
     "^u([aeiouy])" : "w$1", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
     "([aeiouy]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
     "w" : "b",
