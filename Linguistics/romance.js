@@ -488,9 +488,9 @@ const proma_firstpass = {
     "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
     "(?<=ˈ[^\\.]*)k(\\.?)s(?=[^aɛeiou])" : "s$1", // Labialization (or loss) of velars before non-liquid coronals
     "(?<=ˈ[^\\.]*)k(\\.?)s" : "$1s",
-    "k(?=[tdns])" : "p",
-    "ɡ(?=[tdns])" : "b",
-    "ɲ(\\.?)ɲ" : "m$1n",
+    "k(?=(\\.?ˈ?)[tdns])" : "p",
+    "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
+    "ɲ(\\.?ˈ?)ɲ" : "m$1n",
 
 }
 
