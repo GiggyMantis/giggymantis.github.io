@@ -570,7 +570,6 @@ function submit(latin_input) {
     afri = latin;
     afri = afri.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     Object.keys(afri_orthography).forEach((key) => afri = afri.replace(new RegExp(key, "g"), afri_orthography[key]));
-    afri.toUpperCase();
 
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
