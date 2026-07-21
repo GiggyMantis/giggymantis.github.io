@@ -135,17 +135,21 @@ const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊo�
 
 const optional_syncope = {
     "^(.)" : "S$1",
-    "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)(?!E?$)" : "$1$2$3",
+    "([ɛː]r)ɛ$" : "$1E$",
+    "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E?$)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
+    "E" : "ɛ"
 }
 
 const default_syncope = {
     "^(.)" : "S$1",
-    "(?<![Sˈ][^\\.]*)([lr]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)(?!E?$)" : "$1$2$3",
-    "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[lr])([^\\.]*)(?!E?$)" : "$1$2$3",
+    "([ɛː]r)ɛ$" : "$1E$",
+    "(?<![Sˈ][^\\.]*)([lr]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!$)" : "$1$2$3$4",
+    "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊ\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[lr])([^\\.]*)([aeoiuɛɔɪʊ])(?!E?$)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
+    "E" : "ɛ"
 }
 const av = /a\.β\./g;
 const au = "au̯.";
@@ -268,8 +272,6 @@ const camp_firstpass = {
     "n(\\.?ˈ?)w" : "n$1n", // nw -> nn
     "[pk](\\.?ˈ?)t" : "t$1t", // [C +stop]t -> tt
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
-    "^(ˈ?)kw" : "$1k", // qu-assimilation
-    "n(?=\\.?ˈ?b)" : "m",
     "([tk])(\\.?)(ˈ?)([tk])ʲ" : "$2$3ʦ", // palatalization. this intentionally triggers for ktj and tkj as well, as in Latin *sūctiāre -> Sardinian sutzare
     "[tk]ʲ" : "ʦ",
     "([^aeɛioɔu])\\.(ˈ?)lʲ" : "$1.$2ll",
@@ -288,9 +290,8 @@ const camp_firstpass = {
     "(?<![^aeɛioɔu])\\.(.)ʲ" : "$1.j",
     "^(ˈ?)ɾ" : "a.$1r",
     "ð" : "ɾ", // ð -> ɾ
+    "(?<=[^aeɛioɔu\\.ˈlwj]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
-    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
-
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
 }
 
@@ -431,7 +432,7 @@ const sard_orthography = {
     "ɡ" : "g",
     "ʣ" : "z",
     "ʦ" : "tz",
-    "(?<=[^aeiou])j(?!j)" : "i",
+    "(?<=[^aeiou])j(?![ji])" : "i",
     "w" : "u",
     "jj" : "j",
     "r" : "rr",
@@ -476,6 +477,19 @@ const afri_orthography = {
     "^u([aeiouy])" : "w$1", // Replaces u with w at the beginnings of words before vowels, as in vacuus [ˈwa.kʊ.ʊs]
     "([aeiouy]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w intervocalically, as in flāvus [ˈfɫaː.wʊs],
     "w" : "b",
+}
+
+// This is a Proto-Romanian pass used for all of the Romanian langs
+const proma_firstpass = {
+    "ɪ" : "e",
+    "ɔ" : "o",
+    "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin short u -> PRi *o 
+    "ʊ" : "u",
+    "ʷ(?=[eiɛ])" : "",
+}
+
+const proma_orthography = {
+    "" : ""
 }
 
 function syllabify(input, vowels) {
@@ -576,6 +590,12 @@ function submit(latin_input) {
     afri = afri.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     Object.keys(afri_orthography).forEach((key) => afri = afri.replace(new RegExp(key, "g"), afri_orthography[key]));
 
+    // Evolve to Proto-Romanian
+    proma_phonetic = proto_phonetic;
+    Object.keys(proma_firstpass).forEach((key) => proma_phonetic = proma_phonetic.replace(new RegExp(key, "g"), proma_firstpass[key]));
+    proma = proma_phonetic;
+    Object.keys(proma_orthography).forEach((key) => proma = proma.replace(new RegExp(key, "g"), proma_orthography[key]));
+
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
     $("#proto_phon").val(proto_phonetic);
@@ -587,4 +607,6 @@ function submit(latin_input) {
     $("#camp").val(camp);
     $("#afri_phon").val(afri_phonetic);
     $("#afri").val(afri);
+    $("#proma_phon").val(roma_phonetic);
+    $("#proma").val(roma);
 }
