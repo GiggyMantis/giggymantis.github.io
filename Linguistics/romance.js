@@ -514,6 +514,9 @@ const proma_firstpass = {
     "ɛ" : "je", // ɛ-opening
     "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
     "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeiou\\.ˈ])\\1" : "$1",
     "t(\\.?ˈ?)j" : "ʦ$1ʦ", // second palatalization
     "d(\\.?ˈ?)j" : "ʣ$1ʣ",
     "s(\\.?ˈ?)j" : "ʃ$1ʃ",
@@ -526,7 +529,7 @@ const proma_firstpass = {
     "l(?=\\.?ˈ?i)" : "ʎ",
     "k(?=\\.?ˈ?[ei])" : "ʧ",
     "ɡ(?=\\.?ˈ?[ei])" : "ʤ",
-    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // i'm lazy so... double degemination
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "([^aeiou\\.ˈ])\\1" : "$1",
 
