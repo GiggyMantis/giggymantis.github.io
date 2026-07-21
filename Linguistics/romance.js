@@ -485,7 +485,7 @@ const proma_firstpass = {
     "ɔ" : "o",
     "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin short u -> PRi *o 
     "ʊ" : "u",
-    "ʷ(?=[eiɛ])" : "",
+    "(?<=[kɡ\\.?ˈ?)w(?=[eiɛ])" : "",
 }
 
 const proma_orthography = {
