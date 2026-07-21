@@ -483,9 +483,15 @@ const afri_orthography = {
 const proma_firstpass = {
     "ɪ" : "e",
     "ɔ" : "o",
-    "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin short u -> PRi *o 
+    "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
     "ʊ" : "u",
-    "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "",
+    "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
+    "(?<=ˈ[^\\.]*)k(\\.?)s(?=[^aɛeiou])" : "s$1", // Labialization (or loss) of velars before non-liquid coronals
+    "(?<=ˈ[^\\.]*)k(\\.?)s" : "$1s",
+    "k(?=[tdns])" : "p",
+    "ɡ(?=[tdns])" : "b",
+    "ɲ(\\.?)ɲ" : "m$1n",
+
 }
 
 const proma_orthography = {
