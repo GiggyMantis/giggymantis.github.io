@@ -482,6 +482,7 @@ const afri_orthography = {
 
 // This is a Proto-Romanian pass used for all of the Romanian langs
 const proma_firstpass = {
+    "j" : "ʒ", // j -> ʒ
     "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
@@ -531,7 +532,7 @@ const proma_firstpass = {
     "ɡ(?=\\.?ˈ?[ei])" : "ʤ",
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // i'm lazy so... double degemination
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
-    "([^aeiou\\.ˈ])\\1" : "$1",
+    "([^aeiou\\.ˈ])(?=\\1)" : "",
 
 }
 
