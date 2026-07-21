@@ -492,7 +492,27 @@ const proma_firstpass = {
     "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
     "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
     "ɲ(\\.?ˈ?)ɲ" : "m$1n",
-    "[tk]ʲ" : "" // palatalization outcomes
+    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo]$)" : "t$2ʦ", // geminate palatalization outcomes
+    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo])" : "t$2ʧ",
+    "([tk])(\\.?ˈ?)\\1ʲ" : "t$2ʦ",
+    "s(\\.?ˈ?)sʲ" : "ʃ$1ʃ",
+    "d(\\.?ˈ?)dʲ" : "d$1ʣ",
+    "n(\\.?ˈ?)nʲ" : "ɲ$1ɲ",
+    "l(\\.?ˈ?)lʲ" : "ʎ$1ʎ",
+    "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
+    "[tk]ʲ(?=[uo])" : "ʧ",
+    "[tk]ʲ" : "ʦ",
+    "sʲ" : "ʃ",
+    "(?<=^ˈ?)dʲ" : "j",
+    "dʲ" : "ʣ",
+    "nʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$1$2j",
+    "ʲ" : "j",
+    "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
+    "ɛ" : "je", // ɛ-opening
+    "\\.(ˈ?)([^aeɛiou\\.ˈ])j" : "$2.$1j",
 
 }
 
