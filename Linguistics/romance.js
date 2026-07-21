@@ -481,14 +481,13 @@ const afri_orthography = {
 
 // This is a Proto-Romanian pass used for all of the Romanian langs
 const proma_firstpass = {
+    "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪ" : "e",
     "ɔ" : "o",
     "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
     "ʊ" : "u",
     "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
-    "(?<=ˈ[^\\.]*)k(\\.?)s(?=[^aɛeiou])" : "s$1", // Labialization (or loss) of velars before non-liquid coronals
-    "(?<=ˈ[^\\.]*)k(\\.?)s" : "$1s",
-    "k(?=(\\.?ˈ?)[tdns])" : "p",
+    "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
     "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
     "ɲ(\\.?ˈ?)ɲ" : "m$1n",
 
