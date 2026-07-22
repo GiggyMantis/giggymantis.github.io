@@ -1,0 +1,247 @@
+/* Page: romance.html
+This is layout and presentation specifically for the romance.html page 
+These patterns are fairly global and could be placed on other pages.
+*/
+
+/*
+Animations for moving a settings gear up and down
+*/
+@keyframes gearBounceDown {
+    0% {
+        transform: translateY(0)
+    }
+
+    33% {
+        transform: translateY(1ex)
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes gearBounceUp {
+    0% {
+        transform: translateY(0)
+    }
+
+    33% {
+        transform: translateY(-1ex)
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Global styles 
+    These could be moved to baseline
+    but they're here because you may want to do different things with buttons and labels in different pages
+*/
+
+/* Give Primary buttons a green color */
+button,
+input[type="button"] {
+    --controlColor: #fff;
+    --controlColorInterest: #fff;
+    --controlBackgroundColor: var(--colorCooler);
+    --controlBorderColor: var(--colorCooler);
+    --controlBackgroundColorInterest: var(--colorCoolerDarker);
+    --controlBorderColorInterest: var(--colorCoolerDarker)
+}
+
+/*treat legend, fieldset, and label all as titles*/
+legend,
+fieldset,
+label {
+    font-family: var(--formTitleFontFamily);
+}
+
+/*
+@desc the page-level header (This introduces the page-specific content)
+@members
+.p-header
+  .p-header__title
+  .p-header__description
+*/
+
+.p-header__description ul {
+    font-size: var(--smallTextSize);
+}
+
+/* rather than use a small element, shrink texts that's ul in  ul */
+.p-header__description ul ul {
+    font-size: var(--smallerTextSize);
+}
+
+
+
+/*
+@desc Where the user makes modifications to the computation
+This is currently a summary/details element b/c it's expand/collapsible
+@members
+.settings - a details element
+  .settings__title a summary element
+  .settings__fields a fieldset element
+    .field (see the .field section below)
+*/
+
+.settings__title {
+    display: inline-block;
+    color: var(--colorNeutral);
+    text-indent: var(--baseSpacingHorizontal);
+    padding-bottom: var(--baseSpacingVertical);
+    border-bottom: 1px solid transparent;
+}
+
+.settings__title::before {
+    content: '\2699 ';
+    font-size: var(--biggerTextSize);
+    position: relative;
+    display: inline-block;
+    left: -.2em;
+    transition: all .2s ease-in-out
+}
+
+.settings__title:is(:hover, :focus) {
+    color: var(--colorNeutralDarker);
+}
+
+.settings__title:is(:hover, :focus)::before {
+    animation: .3s ease-in-out gearBounceDown 0s 1;
+}
+
+.settings[open] .settings__title {
+    color: var(--colorNeutralDarker)
+}
+
+.settings[open] .settings__title:is(:hover, :focus)::before {
+    animation: .3s ease-in-out gearBounceUp 0s 1;
+}
+
+
+/*
+@desc Represents a field a user would manipulate in a form
+@members: 
+.field
+  .field__control
+  .field__label
+  .field__action
+*/
+
+.field {
+    display: flex;
+}
+
+/* if we have text input right next to a button input, give them both spacing */
+.field__control {
+    margin: 0 var(--baseSpacingHorizontal);
+}
+
+h3.nutshell-heading {
+    border-bottom: 2px solid;
+}
+
+/*
+@desc The result of a language computation
+@members:
+.result
+  .result__label
+  .result__products
+    .result__text
+    .result__phonetic
+    .result__ipa
+*/
+.result {
+    margin: var(--baseSpacingVertical) 0;
+    display: grid;
+    grid-template-columns: 12rem auto;
+    grid-column-gap: var(--baseSpacingHorizontal);
+    align-items: start;
+    justify-content: start;
+}
+
+/* 
+ex is measured against the height of a lowercase x; it's the only measurement based on actual font
+so the first column starts at 14ex but can grow. 
+*/
+.result__products {
+    display: grid;
+    grid-template-columns: minmax(14ex, auto) auto;
+    align-items: center;
+    column-gap: var(--bigSpacingHorizontal);
+}
+
+.result__phonetic {
+    display: inline-block;
+}
+
+/* if there's a sup, don't let it screw up the alignment */
+.result__phonetic sup {
+    display: inline-block;
+    width: 1ch;
+    margin-left: -1ch;
+}
+
+/* if there's nothing in the ipa, don't show anything
+this keeps the sometimes-present asterisk from displaying without text
+*/
+.result__phonetic:has(.ipa:empty) {
+    visibility: hidden;
+}
+
+
+/*
+@desc The IPA representation of a word
+@members:
+.ipa
+
+@modifiers:
+.ipa--important
+*/
+.ipa {
+    color: var(--colorCool);
+    transition: all .2s ease-in-out;
+}
+
+/* The brackets are important. 
+So we display them using the content property (that way you don't have to add them in HTML)
+We also make them bigger and space them out
+*/
+.ipa::before,
+.ipa::after {
+    --bracketSpacing: -.3ch;
+    font-size: var(--smallTitleSize);
+    font-weight: bold;
+    position: relative;
+}
+
+.ipa::before {
+    content: "[";
+    left: var(--bracketSpacing);
+}
+
+.ipa::after {
+    content: "]";
+    right: var(--bracketSpacing);
+}
+
+/* when empty don't show anything*/
+.ipa:empty {
+    color: transparent;
+    background-color: transparent;
+    border-left-color: transparent;
+}
+
+/* Latin specifically will look larger and be spaced out. */
+.ipa--important {
+    font-size: var(--bigTitleSize);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+    display: block;
+    min-width: 12em;
+    margin: 1em 1rem;
+}
+
+.smallCaps {
+    font-variant-caps: all-small-caps;
+}
