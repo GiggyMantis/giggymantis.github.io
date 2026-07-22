@@ -1173,16 +1173,76 @@ label {
   font-size: var(--smallerTextSize);
 }
 
+@keyframes gearBounceDown {
+  0% {
+    transform: translateY(0)
+  }
+
+  33% {
+    transform: translateY(1ex)
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes gearBounceUp {
+  0% {
+    transform: translateY(0)
+  }
+
+  33% {
+    transform: translateY(-1ex)
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /*
 @desc Where the user makes modifications to the computation
 This is currently a summary/details element b/c it's expand/collapsible
 @members
-.settings
-  .settings__title
-  .settings__fields
+.settings - a details element
+  .settings__title a summary element
+  .settings__fields a fieldset element
     .field (see the .field section below)
 */
 
+.settings__title {
+  display: inline-block;
+  color: var(--colorNeutral);
+  text-indent: var(--baseSpacingHorizontal);
+  padding-bottom: var(--baseSpacingVertical);
+  border-bottom: 1px solid transparent;
+}
+
+.settings__title::before {
+  content: '\2699 ';
+  font-size: var(--biggerTextSize);
+  position: relative;
+  display:inline-block;
+  left: -.2em;
+  transition: all .2s ease-in-out
+}
+
+.settings__title:is(:hover, :focus) {
+  color: var(--colorNeutralDarker);
+}
+
+.settings__title:is(:hover, :focus)::before {
+  animation: .3s ease-in-out gearBounceDown 0s 1;
+}
+
+.settings[open] .settings__title {
+  color: var(--colorNeutralDarker)
+}
+
+.settings[open] .settings__title:is(:hover, :focus)::before {
+  animation: .3s ease-in-out gearBounceUp 0s 1;
+}
 
 
 /*
@@ -1193,6 +1253,10 @@ This is currently a summary/details element b/c it's expand/collapsible
   .field__label
   .field__action
 */
+
+.field {
+  display: flex;
+}
 
 /* if we have text input right next to a button input, give them both spacing */
 .field__control {
