@@ -1160,31 +1160,52 @@ label {
   font-family: var(--formTitleFontFamily);
 }
 
+/*
+@desc the page-level header (if this became multiple pages, we'd assume this stays the same
+@members
+.g-header
+  .g-header__title
+  .g-header__description
+*/
+
+/* rather than use a small element, shrink texts that's ul in  ul */
+.g-header__description ul ul {
+  font-size: var(--smallerTextSize);
+}
+
+/*
+@desc Where the user makes modifications to the computation
+This is currently a summary/details element b/c it's expand/collapsible
+@members
+.settings
+  .settings__title
+  .settings__fields
+    .field (see the .field section below)
+*/
+
+
+
+/*
+@desc Represents a field a user would manipulate in a form
+@members: 
+.field
+  .field__control
+  .field__label
+  .field__action
+*/
+
 /* if we have text input right next to a button input, give them both spacing */
 .field__control {
   margin: 0 var(--baseSpacingHorizontal);
 }
-
-/* any li containing an input shouldn't have the lil' disk */
-li:has(input) {
-  list-style-type: none;
-}
-
-/* This overrides the inline-block for the conversions. 
-Not necessary if those conversions go into HTML containers with a class */
-li:has(input + label) label {
-  display: inline;
-}
-
-
-
-
 
 h3.nutshell-heading {
   border-bottom: 2px solid;
 }
 
 /*
+@desc The result of a language computation
+@members:
 .result
   .result__label
   .result__products
@@ -1230,6 +1251,15 @@ this keeps the sometimes-present asterisk from displaying without text
   visibility: hidden;
 }
 
+
+/*
+@desc The IPA representation of a word
+@members:
+.ipa
+
+@modifiers:
+.ipa--important
+*/
 .ipa {
   color: var(--colorCool);
   transition: all .2s ease-in-out;
