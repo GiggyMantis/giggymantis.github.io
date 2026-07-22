@@ -535,7 +535,7 @@ const proma_firstpass = {
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // i'm lazy so... double degemination!!!!
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
-    "(.)(?=\\1)" : "",
+    "(.)(?=\\1)" : "$1adfadadadadadadad",
 
 }
 
