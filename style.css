@@ -1142,3 +1142,137 @@ dialog:open::backdrop {
   position: relative;
 }
 
+/* Give Primary buttons a green color */
+button,
+input[type="button"] {
+  --controlColor: #fff;
+  --controlColorInterest: #fff;
+  --controlBackgroundColor: var(--colorCooler);
+  --controlBorderColor: var(--colorCooler);
+  --controlBackgroundColorInterest: var(--colorCoolerDarker);
+  --controlBorderColorInterest: var(--colorCoolerDarker)
+}
+
+/*treat legend, fieldset, and label all as titles*/
+legend,
+fieldset,
+label {
+  font-family: var(--formTitleFontFamily);
+}
+
+/* if we have text input right next to a button input, give them both spacing */
+.field__control {
+  margin: 0 var(--baseSpacingHorizontal);
+}
+
+/* any li containing an input shouldn't have the lil' disk */
+li:has(input) {
+  list-style-type: none;
+}
+
+/* This overrides the inline-block for the conversions. 
+Not necessary if those conversions go into HTML containers with a class */
+li:has(input + label) label {
+  display: inline;
+}
+
+
+
+
+
+h3.nutshell-heading {
+  border-bottom: 2px solid;
+}
+
+/*
+.result
+  .result__label
+  .result__products
+    .result__text
+    .result__phonetic
+    .result__ipa
+*/
+.result {
+  margin: var(--baseSpacingVertical) 0;
+  display: grid;
+  grid-template-columns: 12rem auto;
+  grid-column-gap: var(--baseSpacingHorizontal);
+  align-items: start;
+  justify-content: start;
+}
+
+/* 
+ex is measured against the height of a lowercase x; it's the only measurement based on actual font
+so the first column starts at 14ex but can grow. 
+*/
+.result__products {
+  display: grid;
+  grid-template-columns: minmax(14ex, auto) auto;
+  align-items: center;
+  column-gap: var(--bigSpacingHorizontal);
+}
+
+.result__phonetic {
+  display: inline-block;
+}
+
+/* if there's a sup, don't let it screw up the alignment */
+.result__phonetic sup {
+  display:inline-block;
+  width: 1ch;
+  margin-left:-1ch;
+}
+
+/* if there's nothing in the ipa, don't show anything
+this keeps the sometimes-present asterisk from displaying without text
+*/
+.result__phonetic:has(.ipa:empty) {
+  visibility: hidden;
+}
+
+.ipa {
+  color: var(--colorCool);
+  transition: all .2s ease-in-out;
+}
+
+/* The brackets are important. 
+So we display them using the content property (that way you don't have to add them in HTML)
+We also make them bigger and space them out
+*/
+.ipa::before,
+.ipa::after {
+  --bracketSpacing: -.3ch;
+  font-size: var(--smallTitleSize);
+  font-weight: bold;
+  position: relative;
+}
+
+.ipa::before {
+  content: "[";
+  left: var(--bracketSpacing);
+}
+
+.ipa::after {
+  content: "]";
+  right: var(--bracketSpacing);
+}
+
+/* when empty don't show anything*/
+.ipa:empty {
+  color: transparent;
+  background-color: transparent;
+  border-left-color: transparent;
+}
+
+/* Latin specifically will look larger and be spaced out. */
+.ipa--important {
+  font-size: var(--bigTitleSize);
+  padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+  display: block;
+  min-width: 12em;
+  margin: 1em 1rem;
+}
+
+.smallCaps {
+  font-variant-caps: all-small-caps;
+}

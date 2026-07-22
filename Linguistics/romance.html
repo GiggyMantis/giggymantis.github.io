@@ -69,14 +69,67 @@
         
       </div>
     </details>
-    <label for="latin">Latin: </label><input style="font-variant-caps: all-small-caps;" type="text" id="latin" name="latin"><input type="button" id="submit" onclick="submit($('#latin').val())" value="Submit"><br>[<output id="latinphon" name="latinphon"></output>]<br><br>
-    <label for="proto">Proto-Romance: *</label><output id="proto" name="proto"></output>&emsp;*[<output id="proto_phon" name="proto_phon"></output>]<br>
-    <h2>Southern</h2>
-    <h3>Sardinian</h3>
-    <label for="camp">Campidanese: </label><output id="camp" name="camp"></output>&emsp;[<output id="camp_phon" name="camp_phon"></output>]<br>
-    <label for="logu">Logudorese: </label><output id="logu" name="logu"></output>&emsp;[<output id="logu_phon" name="logu_phon"></output>]<br>
-    <label for="nuor">Nuorese: </label><output id="nuor" name="nuor"></output>&emsp;[<output id="nuor_phon" name="nuor_phon"></output>]<br>
-    <h3>African</h3>
-    <label for="afri">African<sup>†</sup>: </label><output style="font-variant-caps: all-small-caps;" id="afri" name="afri"></output>&emsp;*[<output id="afri_phon" name="afri_phon"></output>]<br>
-  </body>
+    <div class="field">
+      <label class="field__label" for="latin">Latin: </label>
+      <input class="field__control smallCaps" type="text" id="latin" name="latin">
+      <input class="field__action" type="button" id="submit" onclick="submit($('#latin').val())" value="Submit">
+    </div>
+    <output class="ipa ipa--important" id="latinphon" name="latinphon"></output>
+    <div class="result">
+      <label class="result__label" for="proto">Proto-Romance: *</label>
+      <div class="result__products">
+        <output class="result__text" id="proto" name="proto"></output>
+        <span class="result__phonetic">
+          <sup>*</sup>
+          <output class="ipa" id="proto_phon" name="proto_phon"></output>
+        </span>
+      </div>
+    </div>
+    <section class="results">
+      <h2>Southern</h2>
+      <section class="results__subfamily">
+        <h3>Sardinian</h3>
+        <article class="result">
+          <label class="result__label" for="camp">Campidanese: </label>
+          <div class="result__products">
+            <output class="result__text" id="camp" name="camp"></output>
+            <span class="result__phonetic">
+              <output class="ipa" id="camp_phon" name="camp_phon"></output>
+            </span>
+          </div>
+        </article>
+        <article class="result">
+          <label class="result__label" for="logu">Logudorese: </label>
+          <div class="result__products">
+            <output class="result__text" id="logu" name="logu"></output>
+            <span class="result__phonetic">
+              <output class="ipa" id="logu_phon" name="logu_phon"></output>
+            </span>
+          </div>
+        </article>
+        <article class="result">
+          <label class="result__label" for="nuor">Nuorese: </label>
+          <div class="result__products">
+            <output class="result__text" id="nuor" name="nuor"></output>
+            <span class="result__phonetic">
+              <output class="ipa" id="nuor_phon" name="nuor_phon"></output>
+            </span>
+          </div>
+        </article>
+      </section>
+      <section class="results__subfamily">
+        <h3>African</h3>
+        <article class="result">
+          <label class="result__label" for="afri">African<sup>†</sup>:</label>
+          <div class="result__products">
+            <output class="result__text smallCaps" id="afri" name="afri"></output>
+            <span class="result__phonetic">
+              <sup>*</sup>
+              <output class="ipa" id="afri_phon" name="afri_phon"></output>
+            </span>
+          </div>
+        </article>
+      </section>
+    </section>
+    </body>
 </html>
