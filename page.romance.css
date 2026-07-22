@@ -91,7 +91,6 @@ This is currently a summary/details element b/c it's expand/collapsible
     color: var(--colorNeutral);
     text-indent: var(--baseSpacingHorizontal);
     padding-bottom: var(--baseSpacingVertical);
-    border-bottom: 1px solid transparent;
 }
 
 .settings__title::before {
@@ -138,8 +137,22 @@ This is currently a summary/details element b/c it's expand/collapsible
     margin: 0 var(--baseSpacingHorizontal);
 }
 
-h3.nutshell-heading {
-    border-bottom: 2px solid;
+/*
+@desc a collection of results by language family
+@members
+.results
+    .results__title
+    .results__subfamily
+        .results__subfamilyTitle
+
+*/
+
+.results__title {
+    border-bottom: 3px solid
+}
+
+.results__subfamily {
+    padding-left: var(--baseSpacingHorizontal);
 }
 
 /*
