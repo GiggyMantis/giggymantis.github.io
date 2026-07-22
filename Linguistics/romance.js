@@ -536,6 +536,9 @@ const proma_firstpass = {
     "o(?=[^\\.]*\\.[^\\.][aeo])" : "wa", // o-breaking, e-breaking
     "e(?=[^\\.]*\\.[^\\.][aeo])" : "ja",
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // i'm lazy so... triple degemination!!!!
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeiou\\.ˈ])(?=\\1)" : "",
 
 }
 
