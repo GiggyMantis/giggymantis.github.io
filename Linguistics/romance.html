@@ -12,124 +12,148 @@
   </head>
   <body>
     <div id="header-placeholder"></div>
-    <h1>How to Use</h1>
-    <p>To use the evolver, input a Latin word in its modern scholarly orthography. The pronunciation will automatically be added when you submit. If it looks off, you may need to edit your input.</p>
-    <p>Accepted Latin orthography:</p>
-    <ul>
-      <li>Macrons or acutes should be used to represent long vowels. <b>Use precomposed characters only.</b></li>
-      <li>Breves may indicate short vowels, but are not recommended or required.</li>
-      <li>⟨j⟩ and ⟨v⟩ are interpreted as merely orthographic variants of ⟨i⟩ and ⟨u⟩, and will not indicate or force a semivocalic interpretation.</li>
-      <li>Diaresis of ⟨ae⟩, ⟨oe⟩, ⟨au⟩ is not accepted, but ligature is.</li>
-      <li>Use a hyphen (-) to break up morpheme boundaries if it would change pronunciation.<br><small stlye="text-indent: 40px;">e.g. <code>me-us</code> or <code>ad-iacēntem</code>.</small><br><small>It can also be used to mark a vocalic ngu sequence, as in <code>unguō</code> vs <code>ung-uō</code>.</small><br><small>It can also be used to mark a semivocalic v, as in <code>servientem</code> vs <code>ser-vientem</code>.</small></li>
-      <li>Capitalization does not matter.</li>
-      <li>Remember that the vast majority of surviving Romance nouns come from the <b>accusative case</b> in Latin. <small>If you don't want your masculine nouns to have an erroneous -s at the end, fix that.</small></li>
-    </ul>
-    <h1>Latin -> Romance Evolver</h1>
-    <details>
-      <summary>Settings</summary>
-      <div>
-        <ul>
-          <li>
-            <input
-              type="checkbox"
-              id="v-deletion"
-              name="v-deletion"/>
-            <label for="v-deletion">Delete Proto-Romance *v next to rounded vowels? (<code>rīvum</code> -> <code>*rị́ụ</code>)</label>
-          </li>
-        <li>
-          <input
-            type="checkbox"
-            id="early-monophthongs"
-            name="early-monophthongs"/>
-          <label for="early-monophthongs">Early monophthongs? (a.k.a. rustic monophthongization) (<code>cauda</code> -> <code>*cọ́da</code>)</label>
+    
+    <header class="g-header">
+    <h1 class="g-header__title">How to Use</h1>
+    <div class="g-header__description">
+      <p>To use the evolver, input a Latin word in its modern scholarly orthography. The pronunciation will automatically be added when you submit. If it looks off, you may need to edit your input.</p>
+      <p>Accepted Latin orthography:</p>
+      <ul>
+        <li>Macrons or acutes should be used to represent long vowels. <strong>Use precomposed characters only.</strong></li>
+        <li>Breves may indicate short vowels, but are not recommended or required.</li>
+        <li><i>j</i> and <i>v</i> are interpreted as merely orthographic variants of <i>i</i> and <i>u</i>, and will not indicate or force a semivocalic interpretation.</li>
+        <li>Diaresis of <i>ae</i>, <i>oe</i>, <i>au</i> is not accepted, but ligature is.</li>
+        <li>Use a hyphen <var>-</var> to break up morpheme boundaries if it would change pronunciation.
+          <ul>
+          <li>e.g. <code>me-us</code> or <code>ad-iacēntem</code>.</li>
+          <li>It can also be used to mark a vocalic ngu sequence, as in <code>unguō</code> vs <code>ung-uō</code>.</li>
+          <li>It can also be used to mark a semivocalic v, as in <code>servientem</code> vs <code>ser-vientem</code>.</li>
         </li>
-        <li>
-          <input
-            type="checkbox"
-            id="syncope"
-            name="syncope"
-            checked/>
-          <label for="syncope">Syncopate internal unstressed non-a vowels next to liquids? (<code>speculum</code> -> <code>*įspę́clụ</code>)</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="always-syncope"
-            name="always-syncope"/>
-          <label for="always-syncope">Always syncopate internal unstressed non-a vowels? (<code>frīgida</code> -> <code>*frị́ɡda</code>)</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="av-au"
-            name="av-au"/>
-          <label for="av-au">Syncopated *av -> *au (<code>fabula</code> -> <code>*fáula</code>)</label>
-        </li>
+        <li>Capitalization does not matter.</li>
+        <li>Remember that the vast majority of surviving Romance nouns come from the <b>accusative case</b> in Latin. <small>If you don't want your masculine nouns to have an erroneous <i>-s</i> at the end, fix that.</small></li>
       </ul>
-        
-      </div>
-    </details>
-    <div class="field">
-      <label class="field__label" for="latin">Latin: </label>
-      <input class="field__control smallCaps" type="text" id="latin" name="latin">
-      <input class="field__action" type="button" id="submit" onclick="submit($('#latin').val())" value="Submit">
     </div>
-    <output class="ipa ipa--important" id="latinphon" name="latinphon"></output>
-    <div class="result">
-      <label class="result__label" for="proto">Proto-Romance: *</label>
-      <div class="result__products">
-        <output class="result__text" id="proto" name="proto"></output>
-        <span class="result__phonetic">
-          <sup>*</sup>
-          <output class="ipa" id="proto_phon" name="proto_phon"></output>
-        </span>
+    </header>
+    <main>
+      <h2>Latin &rarr; Romance Evolver</h2>
+      <details class="settings">
+        <summary class="settings__title">Settings</summary>
+        <fieldset class="settings__fields">
+            <div class="field">
+              <input
+                class="field__control"
+                type="checkbox"
+                id="v-deletion"
+                name="v-deletion"/>
+              <label class="field__label" 
+                for="v-deletion"
+                >Delete Proto-Romance *v next to rounded vowels? (<code>rīvum</code> -> <code>*rị́ụ</code>)</label>
+            </div>
+          <div class="field">
+            <input
+              class="field__control"
+              type="checkbox"
+              id="early-monophthongs"
+              name="early-monophthongs"/>
+            <label class="field__label" 
+              for="early-monophthongs">
+              Early monophthongs? (a.k.a. rustic monophthongization) (<code>cauda</code> -> <code>*cọ́da</code>)</label>
+          </div>
+          <div class="field">
+            <input
+              class="field__control"
+              type="checkbox"
+              id="syncope"
+              name="syncope"
+              checked/>
+            <label class="field__label" 
+              for="syncope">
+              Syncopate internal unstressed non-a vowels next to liquids? (<code>speculum</code> -> <code>*įspę́clụ</code>)</label>
+          </div>
+          <div class="field">
+            <input
+              class="field__control"
+              type="checkbox"
+              id="always-syncope"
+              name="always-syncope"/>
+            <label class="field__label" 
+              for="always-syncope">
+              Always syncopate internal unstressed non-a vowels? (<code>frīgida</code> -> <code>*frị́ɡda</code>)</label>
+          </div>
+          <div class="field">
+            <input
+              class="field__control"
+              type="checkbox"
+              id="av-au"
+              name="av-au"/>
+            <label class="field__label" 
+              for="av-au">
+              Syncopated *av -> *au (<code>fabula</code> -> <code>*fáula</code>)</label>
+          </div>
+        </fieldset>
+      </details>
+      <div class="field">
+        <label class="field__label" for="latin">Latin: </label>
+        <input class="field__control smallCaps" type="text" id="latin" name="latin">
+        <input class="field__action" type="button" id="submit" onclick="submit($('#latin').val())" value="Submit">
       </div>
-    </div>
-    <section class="results">
-      <h2>Southern</h2>
-      <section class="results__subfamily">
-        <h3>Sardinian</h3>
-        <article class="result">
-          <label class="result__label" for="camp">Campidanese: </label>
-          <div class="result__products">
-            <output class="result__text" id="camp" name="camp"></output>
-            <span class="result__phonetic">
-              <output class="ipa" id="camp_phon" name="camp_phon"></output>
-            </span>
-          </div>
-        </article>
-        <article class="result">
-          <label class="result__label" for="logu">Logudorese: </label>
-          <div class="result__products">
-            <output class="result__text" id="logu" name="logu"></output>
-            <span class="result__phonetic">
-              <output class="ipa" id="logu_phon" name="logu_phon"></output>
-            </span>
-          </div>
-        </article>
-        <article class="result">
-          <label class="result__label" for="nuor">Nuorese: </label>
-          <div class="result__products">
-            <output class="result__text" id="nuor" name="nuor"></output>
-            <span class="result__phonetic">
-              <output class="ipa" id="nuor_phon" name="nuor_phon"></output>
-            </span>
-          </div>
-        </article>
+      <output class="ipa ipa--important" id="latinphon" name="latinphon"></output>
+      <div class="result">
+        <label class="result__label" for="proto">Proto-Romance: *</label>
+        <div class="result__products">
+          <output class="result__text" id="proto" name="proto"></output>
+          <span class="result__phonetic">
+            <sup>*</sup>
+            <output class="ipa" id="proto_phon" name="proto_phon"></output>
+          </span>
+        </div>
+      </div>
+      <section class="results">
+        <h2>Southern</h2>
+        <section class="results__subfamily">
+          <h3>Sardinian</h3>
+          <article class="result">
+            <label class="result__label" for="camp">Campidanese: </label>
+            <div class="result__products">
+              <output class="result__text" id="camp" name="camp"></output>
+              <span class="result__phonetic">
+                <output class="ipa" id="camp_phon" name="camp_phon"></output>
+              </span>
+            </div>
+          </article>
+          <article class="result">
+            <label class="result__label" for="logu">Logudorese: </label>
+            <div class="result__products">
+              <output class="result__text" id="logu" name="logu"></output>
+              <span class="result__phonetic">
+                <output class="ipa" id="logu_phon" name="logu_phon"></output>
+              </span>
+            </div>
+          </article>
+          <article class="result">
+            <label class="result__label" for="nuor">Nuorese: </label>
+            <div class="result__products">
+              <output class="result__text" id="nuor" name="nuor"></output>
+              <span class="result__phonetic">
+                <output class="ipa" id="nuor_phon" name="nuor_phon"></output>
+              </span>
+            </div>
+          </article>
+        </section>
+        <section class="results__subfamily">
+          <h3>African</h3>
+          <article class="result">
+            <label class="result__label" for="afri">African<sup>†</sup>:</label>
+            <div class="result__products">
+              <output class="result__text smallCaps" id="afri" name="afri"></output>
+              <span class="result__phonetic">
+                <sup>*</sup>
+                <output class="ipa" id="afri_phon" name="afri_phon"></output>
+              </span>
+            </div>
+          </article>
+        </section>
       </section>
-      <section class="results__subfamily">
-        <h3>African</h3>
-        <article class="result">
-          <label class="result__label" for="afri">African<sup>†</sup>:</label>
-          <div class="result__products">
-            <output class="result__text smallCaps" id="afri" name="afri"></output>
-            <span class="result__phonetic">
-              <sup>*</sup>
-              <output class="ipa" id="afri_phon" name="afri_phon"></output>
-            </span>
-          </div>
-        </article>
-      </section>
-    </section>
+    </main>
     </body>
 </html>
