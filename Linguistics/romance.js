@@ -515,6 +515,12 @@ const proma_firstpass = {
     "ɛ" : "je", // ɛ-opening
     "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
     "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
+    "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
+    "^ə" : "a", 
+    "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
+    "a(?=\\.?n$)|a(?=\\.?n\\.?[^n])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
+    "e(?=\\.?ˈ?n)|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n or before m and after a nasal. note that using I here is to avoid it palatalizing :3
+    "o(?=\\.?ˈ?n)|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n or before m and after a nasal
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
@@ -528,21 +534,16 @@ const proma_firstpass = {
     "d(?=\\.?ˈ?i)" : "ʣ",
     "s(?=\\.?ˈ?i)" : "ʃ",
     "l(?=\\.?ˈ?i)" : "ʎ",
-    "k(?=\\.?ˈ?[ei])" : "ʧ",
-    "ɡ(?=\\.?ˈ?[ei])" : "ʤ",
+    "k(?=\\.?ˈ?[eiI])" : "ʧ",
+    "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
     "o(?=[^\\.]*\\.[^\\.][aeo])" : "wa", // o-breaking, e-breaking
     "e(?=[^\\.]*\\.[^\\.][aeo])" : "ja",
+    "I" : "i", //returning I to normal
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", 
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
-    "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
-    "^ə" : "a", 
-    "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
-    "a(?=\\.?ˈ?n)|a(?=m\\.?ˈ?[^aeiouə])" : "ə", // a -> ə when before n or a consonant cluster starting with m
-    "e(?=\\.?ˈ?n)" : "i", // e -> i when before n
-    "o(?=\\.?ˈ?n)" : "u", // o -> u when before n
 }
 
 const proma_orthography = {
