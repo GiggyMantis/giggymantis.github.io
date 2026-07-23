@@ -223,7 +223,6 @@ const proto_orthography = {
     "aw" : "au",
     "áw" : "áu",
     "β" : "v",
-    "ʲ" : "́",
     "k" : "c",
     "\\." : "",
     "ɲɲ" : "gn",
@@ -482,6 +481,7 @@ const afri_orthography = {
 
 // This is a Proto-Romanian pass used for all of the Romanian langs
 const proma_firstpass = {
+    "β" : "v",
     "j" : "ʒ", // j -> ʒ
     "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
     "[^aeɛiɪoɔuʊjw]$" : "",
@@ -518,9 +518,9 @@ const proma_firstpass = {
     "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
     "^ə" : "a", 
     "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
-    "a(?=\\.?n$)|a(?=\\.?n\\.?[^n])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
-    "e(?=\\.?ˈ?n)|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n or before m and after a nasal. note that using I here is to avoid it palatalizing :3
-    "o(?=\\.?ˈ?n)|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n or before m and after a nasal
+    "a(?=\\.?n$)|a(?=\\.?n\\.[^n])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
+    "e(?=\\.?ˈ?n$)|e(?=\\.?ˈ?n\.[^n])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
+    "o(?=\\.?ˈ?n$)|o(?=\\.?ˈ?n\.[^n])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
