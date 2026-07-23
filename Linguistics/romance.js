@@ -537,6 +537,12 @@ const proma_firstpass = {
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", 
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
+    "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
+    "^ə" : "a", 
+    "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
+    "a(?=\\.?ˈ?n)|a(?=m\\.?ˈ?[^aeiouə])" : "ə", // a -> ə when before n or a consonant cluster starting with m
+    "e(?=\\.?ˈ?n)" : "i", // e -> i when before n
+    "o(?=\\.?ˈ?n)" : "u", // o -> u when before n
 }
 
 const proma_orthography = {
