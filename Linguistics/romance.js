@@ -48,35 +48,35 @@ const latin_thirdpass = {
     // "([stdnr]-?)(u)(-?[aeiouy])" : "$1w$3", // Replaces u with w after a coronal consonant.
     "(ng)(u)(?=[aeiouy])" : "ngʷ", // gʷ
     "(nm)(-?[gkw])" : "ŋ$2", // Nasal assimilation
-    "m(-?[sztdrl])" : "n$1", // ″
-    "n(-?[pbf])" : "m$1", // ″
-    "g(-?n)" : "ŋ$1", // ″
+    "m(-?[sztdrl])" : "n$1",
+    "n(-?[pbf])" : "m$1",
+    "g(-?n)" : "ŋ$1",
     "(a)([eu])(?!ː)" : "$1$2̯", // Diphthongs
-    "(e)([iu])(?!ː)" : "$1$2̯", // ″
-    "(o)(e)(?!ː)" : "$1$2̯", // ″
-    "(u)(i)(?!ː)" : "$1$2̯", // ″
+    "(e)([iu])(?!ː)" : "$1$2̯",
+    "(o)(e)(?!ː)" : "$1$2̯",
+    "(u)(i)(?!ː)" : "$1$2̯",
 }
 
 // After syllabification
 const latin_fourthpass = {
     "(l)(?=-?[aeou])" : "ɫ", // L-darkening
-    "(l)$" : "ɫ", // ″
-    "(l)\\.(?=[^lɫ])" : "ɫ.", // ″
-    "l.ɫ" : "l.l", // ″
-    "(ː[nm])(\\.)(s)" : "̃ː$2s", // Nasalization
-    "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s", // ″
-    "(ː[nm])$" : "̃ː", // ″
-    "([aeiouy])([nm])$" : "$1̃ː", // ″
+    "(l)$" : "ɫ",
+    "(l)\\.(?=[^lɫ])" : "ɫ.",
+    "l.ɫ" : "l.l",
+    "(?<=[aeiouy])ː?[nm](\\.?)(s)" : "̃ː$1s", // Nasalization
+    "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s",
+    "(ː[nm])$" : "̃ː",
+    "([aeiouy])([nm])$" : "$1̃ː",
     "e(?!̃?[ː̯])" : "ɛ", // Vowel reduction
-    "o(?!̃?[ː̯])" : "ɔ", // ″
-    "i(?!̃?[ː̯])" : "ɪ", // ″
-    "u(?!̃?[ː̯])" : "ʊ", // ″
-    "y(?!̃?[ː̯])" : "ʏ", // ″
+    "o(?!̃?[ː̯])" : "ɔ",
+    "i(?!̃?[ː̯])" : "ɪ",
+    "u(?!̃?[ː̯])" : "ʊ",
+    "y(?!̃?[ː̯])" : "ʏ",
     "ɛ(?=.̯)" : "e", // Vowel unreduction in diphthongs (I'm too lazy to figure out how to incorporate this into the initial regices)
-    "ɔ(?=.̯)" : "o", // ″
-    "ɪ(?=.̯)" : "i", // ″
-    "ʊ(?=.̯)" : "u", // ″
-    "ʏ(?=.̯)" : "y", // ″
+    "ɔ(?=.̯)" : "o",
+    "ɪ(?=.̯)" : "i",
+    "ʊ(?=.̯)" : "u",
+    "ʏ(?=.̯)" : "y",
     "(?<=[aeoiuɛɔɪʊyʏː̯̃])-(?=[aeoiuɛɔɪʊyʏː̯̃])" : ".",
     "(?<=[aeoiuɛɔɪʊyʏː̯̃][^aeoiuɛɔɪʊyʏː̯̃])-(?=[^aeoiuɛɔɪʊyʏː̯̃])" : ".",
     "-" : "",
@@ -518,6 +518,7 @@ const proma_firstpass = {
     "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
     "^ə" : "a", 
     "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
+
     "a(?=\\.?n$)|a(?=\\.?n\\.[^n])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
     "e(?=\\.?ˈ?n$)|e(?=\\.?ˈ?n\.[^n])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
     "o(?=\\.?ˈ?n$)|o(?=\\.?ˈ?n\.[^n])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
