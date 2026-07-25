@@ -519,9 +519,9 @@ const proma_firstpass = {
     "^ə" : "a", 
     "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
     //why is this still broken
-    "a(?=n$)|a(?=n\\.?[^n])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
-    "e(?=n$)|e(?=n\\.?ˈ?[^n])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
-    "o(?=n$)|o(?=n\\.?ˈ?[^n])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
+    "a(?=n$)|a(?=n\\.?[^n\\.])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
+    "e(?=n$)|e(?=n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
+    "o(?=n$)|o(?=n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
