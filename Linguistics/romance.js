@@ -545,9 +545,11 @@ const proma_firstpass = {
     "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
     "k(\\.?ˈ?)w" : "p$1p", // Labialization of remaining labiovelars
     "ɡ(\\.?ˈ?)w" : "b$1b",
+    "(?<=[ʎj])ə$" : "Ə", // word final -ʎə, -jə block e-breaking in standard Romanian. this is clearly better explained by the wave model, but it'll be easy enuff to achieve here 
     "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
     "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
-    "I" : "i", //returning I to normal
+    "I" : "i", //returning I and Ə to normal
+    "Ə" : "ə",
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
     "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", 
@@ -662,6 +664,8 @@ function submit(latin_input) {
     Object.keys(proma_firstpass).forEach((key) => proma_phonetic = proma_phonetic.replace(new RegExp(key, "g"), proma_firstpass[key]));
     proma = proma_phonetic;
     Object.keys(proma_orthography).forEach((key) => proma = proma.replace(new RegExp(key, "g"), proma_orthography[key]));
+
+    // remember to re-break Ə-situation e in languages where it is relevant
 
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
