@@ -133,8 +133,6 @@ const proto_firstpass = {
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
-//TODO: FIX SYNCOPE!! ALSO SYLLABIFICATION WITH KL???
-//TODO: rubeum doesn't work in proto-romanian (doesn't lower u to o)
 //TODO: degemination still doesn't work in words like equa -> iapa??!?!
 //TODO: the word terra gets incorrectly syllabified at some point preventing it breaking into țeară
 //TODO: lingua -/> limbă, instead to linbă
@@ -528,8 +526,8 @@ const proma_firstpass = {
     "a(?=n$)|a(?=\\.?n\\.?[^n\\.])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
     "e(?=n$)|e(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
     "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
-    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
-    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", // degemination
+    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
     "t(\\.?ˈ?)j" : "ʦ$1ʦ", // second palatalization
     "d(\\.?ˈ?)j" : "ʣ$1ʣ",
@@ -552,8 +550,8 @@ const proma_firstpass = {
     "Ə" : "ə",
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
-    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", 
-    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", 
+    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
 }
 
