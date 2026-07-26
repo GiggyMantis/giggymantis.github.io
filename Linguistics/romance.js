@@ -536,7 +536,7 @@ const proma_firstpass = {
     "l(?=\\.?ˈ?i)" : "ʎ",
     "k(?=\\.?ˈ?[eiI])" : "ʧ",
     "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
-    "(?<=\\.r)e^" : "E", // lazy workaround to avoid e-breaking in verb infinitives
+    "(?<=\\.r)e$" : "E", // lazy workaround to avoid e-breaking in verb infinitives
     "o(?=[^\\.]*\\.[^\\.][aeoə])" : "wa", // o-breaking, e-breaking\
     "e(?=[^\\.]*\\.[^\\.][aeoə])" : "ja",
     "E" : "e", // end of lazy workaround
