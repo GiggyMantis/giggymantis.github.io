@@ -133,6 +133,8 @@ const proto_firstpass = {
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
+//TODO: FIX SYNCOPE!! ALSO SYLLABIFICATION WITH KL???
+
 const optional_syncope = {
     "^(.)" : "S$1",
     "([ɛː]r)ɛ$" : "$1E$",
@@ -536,10 +538,10 @@ const proma_firstpass = {
     "l(?=\\.?ˈ?i)" : "ʎ",
     "k(?=\\.?ˈ?[eiI])" : "ʧ",
     "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
-    "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
-    "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
     "k(\\.?ˈ?)w" : "p$1p", // Labialization of remaining labiovelars
     "ɡ(\\.?ˈ?)w" : "b$1b",
+    "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
+    "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
     "I" : "i", //returning I to normal
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
