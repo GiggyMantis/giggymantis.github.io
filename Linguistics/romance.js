@@ -495,7 +495,7 @@ const proma_firstpass = {
     "ɔ" : "o",
     "ʊ" : "u",
     "vʲ" : "bʲ", // early palatalization outcome of vj
-    "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
+    "(?<=ˈ[^\\.]*)ʊ(?=\\.?[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
     "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
     "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
     "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
