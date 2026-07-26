@@ -551,7 +551,7 @@ const proma_firstpass = {
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
     "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", 
-    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeiouə\\.ˈ])\\.(ˈ?)(?=\\1)" : ".$2",
     "(.)(?=\\1)" : "",
 }
 
