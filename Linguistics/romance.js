@@ -133,7 +133,6 @@ const proto_firstpass = {
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
-//TODO: degemination still doesn't work in words like equa -> iapa??!?!
 //TODO: the word terra gets incorrectly syllabified at some point preventing it breaking into țeară
 //TODO: lingua -/> limbă, instead to linbă
 
