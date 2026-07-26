@@ -133,9 +133,6 @@ const proto_firstpass = {
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
-//TODO: the word terra gets incorrectly syllabified at some point preventing it breaking into țeară
-//TODO: lingua -/> limbă, instead to linbă
-
 const optional_syncope = {
     "^(.)" : "S$1",
     "([ɛː]r)ɛ$" : "$1E$",
