@@ -504,7 +504,7 @@ const proma_firstpass = {
     "d(\\.?ˈ?)dʲ" : "ʣ$1ʣ",
     "n(\\.?ˈ?)nʲ" : "ɲ$1ɲ",
     "l(\\.?ˈ?)lʲ" : "ʎ$1ʎ",
-    "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
+    "[tk]ʲ(?=[uo]$)" : "ʦ", // palatalization outcomes
     "[tk]ʲ(?=[uo])" : "ʧ",
     "[tk]ʲ" : "ʦ",
     "sʲ" : "ʃ",
@@ -542,6 +542,7 @@ const proma_firstpass = {
     "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
     "k(\\.?ˈ?)w" : "p$1p", // Labialization of remaining labiovelars
     "ɡ(\\.?ˈ?)w" : "b$1b",
+    "n(?=\\.?ˈ?[bp])" : "m",
     "(?<=[ʎj])ə$" : "Ə", // word final -ʎə, -jə block e-breaking in standard Romanian. this is clearly better explained by the wave model, but it'll be easy enuff to achieve here 
     "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
     "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
@@ -551,7 +552,7 @@ const proma_firstpass = {
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
     "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", 
     "([^aeiouə\\.ˈ])\\.(ˈ?)(?=\\1)" : ".$2",
-    "(.)(?=\\1)" : "",
+    "(.)(?=\\1)" : "",    
 }
 
 const proma_orthography = {
