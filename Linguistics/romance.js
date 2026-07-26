@@ -543,12 +543,13 @@ const proma_firstpass = {
     "(?<=[ʎj])ə$" : "Ə", // word final -ʎə, -jə block e-breaking in standard Romanian. this is clearly better explained by the wave model, but it'll be easy enuff to achieve here 
     "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
     "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
+    "e(?=[^\\.]*\\.[^\\.]Ə)" : "e(a)", // wave model stuff go brrr
     "I" : "i", //returning I and Ə to normal
     "Ə" : "ə",
-    "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
+    "([aeiou]\\)?)\\.(ˈ?)([^aeiou\\(\\)])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
-    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", 
-    "([^aeiouə\\.ˈ])\\.(ˈ?)(?=\\1)" : ".$2",
+    "([^aeiouə\\.ˈ\\(\\)])\\.(ˈ?)\\1(?=([^aeiouə\\(\\)]))" : "$1.$2", 
+    "([^aeiouə\\.ˈ\\(\\)])\\.(ˈ?)(?=\\1)" : ".$2",
     "(.)(?=\\1)" : "",    
 }
 
