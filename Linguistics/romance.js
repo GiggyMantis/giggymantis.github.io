@@ -494,6 +494,8 @@ const proma_firstpass = {
     "ɪ" : "e",
     "ɔ" : "o",
     "ʊ" : "u",
+    "vʲ" : "bʲ", // early palatalization outcome of vj
+    "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
     "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
     "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
     "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
@@ -508,7 +510,6 @@ const proma_firstpass = {
     "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
     "[tk]ʲ(?=[uo])" : "ʧ",
     "[tk]ʲ" : "ʦ",
-    "vʲ" : "bʲ",
     "sʲ" : "ʃ",
     "(?<=^ˈ?)dʲ" : "j",
     "dʲ" : "ʣ",
@@ -517,7 +518,6 @@ const proma_firstpass = {
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
-    "(?<=ˈ[^\\.]*)ʊ(?=[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
     "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
     "ɛ" : "je", // ɛ-opening
     "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
