@@ -509,6 +509,7 @@ const proma_firstpass = {
     "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
     "[tk]ʲ(?=[uo])" : "ʧ",
     "[tk]ʲ" : "ʦ",
+    "βʲ" : "b",
     "sʲ" : "ʃ",
     "(?<=^ˈ?)dʲ" : "j",
     "dʲ" : "ʣ",
