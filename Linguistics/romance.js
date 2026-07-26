@@ -518,7 +518,6 @@ const proma_firstpass = {
     "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
     "^ə" : "a", 
     "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
-    //why is this still broken
     "a(?=n$)|a(?=\\.?n\\.?[^n\\.])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
     "e(?=n$)|e(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
     "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
@@ -537,8 +536,12 @@ const proma_firstpass = {
     "l(?=\\.?ˈ?i)" : "ʎ",
     "k(?=\\.?ˈ?[eiI])" : "ʧ",
     "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
-    "o(?=[^\\.]*\\.[^\\.][aeo])" : "wa", // o-breaking, e-breaking
-    "e(?=[^\\.]*\\.[^\\.][aeo])" : "ja",
+    "(?<=\\.r)e^" : "E", // lazy workaround to avoid e-breaking in verb infinitives
+    "o(?=[^\\.]*\\.[^\\.][aeoə])" : "wa", // o-breaking, e-breaking\
+    "e(?=[^\\.]*\\.[^\\.][aeoə])" : "ja",
+    "E" : "e", // end of lazy workaround
+    "k(\\.?ˈ?)w" : "p$1p", // Labialization of remaining labiovelars
+    "ɡ(\\.?ˈ?)w" : "b$1b",
     "I" : "i", //returning I to normal
     "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
@@ -584,7 +587,7 @@ function latinate_stress(input) {
 
 function submit(latin_input) {
     // Phoneticize Latin
-    latin = String(latin_input).toLowerCase().replace(/\s/g, "-");
+    latin = String(latin_input).toLowerCase().trim().replace(/\s/g, "-");
     latin_phonetic = latin
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
     latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
