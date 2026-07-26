@@ -258,3 +258,8 @@ We also make them bigger and space them out
 .smallCaps {
     font-variant-caps: all-small-caps;
 }
+
+/* Font support :3 */
+output {
+    font-family: math; 
+}
