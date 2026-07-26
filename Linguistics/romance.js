@@ -493,66 +493,66 @@ const proma_firstpass = {
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
     "ɔ" : "o",
-    "ʊ" : "u",
     "vʲ" : "bʲ", // early palatalization outcome of vj
     "(?<=ˈ[^\\.]*)ʊ(?=\\.?[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
-    // "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
-    // "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
-    // "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
-    // "ɲ(\\.?ˈ?)ɲ" : "m$1n",
-    // "([tk])(\\.?ˈ?)\\1ʲ(?=[uo]$)" : "ʦ$2ʦ", // geminate palatalization outcomes
-    // "([tk])(\\.?ˈ?)\\1ʲ(?=[uo])" : "ʧ$2ʧ",
-    // "([tk])(\\.?ˈ?)\\1ʲ" : "ʦ$2ʦ",
-    // "s(\\.?ˈ?)sʲ" : "ʃ$1ʃ",
-    // "d(\\.?ˈ?)dʲ" : "ʣ$1ʣ",
-    // "n(\\.?ˈ?)nʲ" : "ɲ$1ɲ",
-    // "l(\\.?ˈ?)lʲ" : "ʎ$1ʎ",
-    // "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
-    // "[tk]ʲ(?=[uo])" : "ʧ",
-    // "[tk]ʲ" : "ʦ",
-    // "sʲ" : "ʃ",
-    // "(?<=^ˈ?)dʲ" : "j",
-    // "dʲ" : "ʣ",
-    // "nʲ" : "ɲ",
-    // "lʲ" : "ʎ",
-    // "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
-    // "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
-    // "ʲ" : "j",
-    // "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
-    // "ɛ" : "je", // ɛ-opening
-    // "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
-    // "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
-    // "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
-    // "^ə" : "a", 
-    // "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
-    // "a(?=n$)|a(?=\\.?n\\.?[^n\\.])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
-    // "e(?=n$)|e(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
-    // "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
-    // "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
-    // "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
-    // "(.)(?=\\1)" : "",
-    // "t(\\.?ˈ?)j" : "ʦ$1ʦ", // second palatalization
-    // "d(\\.?ˈ?)j" : "ʣ$1ʣ",
-    // "s(\\.?ˈ?)j" : "ʃ$1ʃ",
-    // "l(\\.?ˈ?)j" : "ʎ$1ʎ",
-    // "k(\\.?ˈ?)j" : "ʧ$1ʧ",
-    // "ɡ(\\.?ˈ?)j" : "ʤ$1ʤ",
-    // "t(?=\\.?ˈ?i)" : "ʦ",
-    // "d(?=\\.?ˈ?i)" : "ʣ",
-    // "s(?=\\.?ˈ?i)" : "ʃ",
-    // "l(?=\\.?ˈ?i)" : "ʎ",
-    // "k(?=\\.?ˈ?[eiI])" : "ʧ",
-    // "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
-    // "k(\\.?ˈ?)w" : "p$1p", // Labialization of remaining labiovelars
-    // "ɡ(\\.?ˈ?)w" : "b$1b",
-    // "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
-    // "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
-    // "I" : "i", //returning I to normal
-    // "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
-    // "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
-    // "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", 
-    // "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
-    // "(.)(?=\\1)" : "",
+    "ʊ" : "u",
+    "(?<=[kɡ]\\.?ˈ?)w(?=[eiɛ])" : "", // Velarization of labiovelars before front vowels
+    "k(?=(\\.?ˈ?)[tdns])" : "p", // Labialization of velars before non-liquid coronals
+    "ɡ(?=(\\.?ˈ?)[tdns])" : "b",
+    "ɲ(\\.?ˈ?)ɲ" : "m$1n",
+    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo]$)" : "ʦ$2ʦ", // geminate palatalization outcomes
+    "([tk])(\\.?ˈ?)\\1ʲ(?=[uo])" : "ʧ$2ʧ",
+    "([tk])(\\.?ˈ?)\\1ʲ" : "ʦ$2ʦ",
+    "s(\\.?ˈ?)sʲ" : "ʃ$1ʃ",
+    "d(\\.?ˈ?)dʲ" : "ʣ$1ʣ",
+    "n(\\.?ˈ?)nʲ" : "ɲ$1ɲ",
+    "l(\\.?ˈ?)lʲ" : "ʎ$1ʎ",
+    "[tk]ʲ(?=[uo]$)" : "ʦ", //  palatalization outcomes
+    "[tk]ʲ(?=[uo])" : "ʧ",
+    "[tk]ʲ" : "ʦ",
+    "sʲ" : "ʃ",
+    "(?<=^ˈ?)dʲ" : "j",
+    "dʲ" : "ʣ",
+    "nʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
+    "ʲ" : "j",
+    "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
+    "ɛ" : "je", // ɛ-opening
+    "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
+    "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
+    "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
+    "^ə" : "a", 
+    "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
+    "a(?=n$)|a(?=\\.?n\\.?[^n\\.])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
+    "e(?=n$)|e(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
+    "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", // degemination
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
+    "t(\\.?ˈ?)j" : "ʦ$1ʦ", // second palatalization
+    "d(\\.?ˈ?)j" : "ʣ$1ʣ",
+    "s(\\.?ˈ?)j" : "ʃ$1ʃ",
+    "l(\\.?ˈ?)j" : "ʎ$1ʎ",
+    "k(\\.?ˈ?)j" : "ʧ$1ʧ",
+    "ɡ(\\.?ˈ?)j" : "ʤ$1ʤ",
+    "t(?=\\.?ˈ?i)" : "ʦ",
+    "d(?=\\.?ˈ?i)" : "ʣ",
+    "s(?=\\.?ˈ?i)" : "ʃ",
+    "l(?=\\.?ˈ?i)" : "ʎ",
+    "k(?=\\.?ˈ?[eiI])" : "ʧ",
+    "ɡ(?=\\.?ˈ?[eiI])" : "ʤ",
+    "k(\\.?ˈ?)w" : "p$1p", // Labialization of remaining labiovelars
+    "ɡ(\\.?ˈ?)w" : "b$1b",
+    "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
+    "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
+    "I" : "i", //returning I to normal
+    "([aeiou])\\.(ˈ?)([^aeiou])([wj])" : "$1$3.$2$4",
+    "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1(?=([^aeiou]))" : "$1.$2", 
+    "([^aeiou\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
 }
 
 const proma_orthography = {
