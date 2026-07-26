@@ -134,6 +134,10 @@ const proto_firstpass = {
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
 //TODO: FIX SYNCOPE!! ALSO SYLLABIFICATION WITH KL???
+//TODO: rubeum doesn't work in proto-romanian (doesn't lower u to o)
+//TODO: degemination still doesn't work in words like equa -> iapa??!?!
+//TODO: the word terra gets incorrectly syllabified at some point preventing it breaking into țeară
+//TODO: lingua -/> limbă, instead to linbă
 
 const optional_syncope = {
     "^(.)" : "S$1",
