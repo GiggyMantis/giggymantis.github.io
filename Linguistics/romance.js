@@ -673,16 +673,16 @@ function submit(latin_input) {
         proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
     }
 
-    if ($("#always-syncope").is(":checked")) {
-        Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
-        $("#syncope").prop("checked", true);
-    } else if ($("#syncope").is(":checked")) {
-        Object.keys(default_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
-    }
-    if ($("#av-au").is(":checked")) { 
-        proto_phonetic = proto_phonetic.replace(av, au);
-    }
-    Object.keys(proto_secondpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_secondpass[key]));
+    // if ($("#always-syncope").is(":checked")) {
+    //     Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
+    //     $("#syncope").prop("checked", true);
+    // } else if ($("#syncope").is(":checked")) {
+    //     Object.keys(default_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
+    // }
+    // if ($("#av-au").is(":checked")) { 
+    //     proto_phonetic = proto_phonetic.replace(av, au);
+    // }
+    // Object.keys(proto_secondpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_secondpass[key]));
 
     proto = proto_phonetic;
     Object.keys(proto_orthography).forEach((key) => proto = proto.replace(new RegExp(key, "g"), proto_orthography[key]));
