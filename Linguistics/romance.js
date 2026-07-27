@@ -484,10 +484,10 @@ const afri_orthography = {
 const proma_firstpass = {
     "β" : "v",
     "j" : "ʒ", // j -> ʒ
-    "^ɪs\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
+    "^es\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "ɔ" : "o",
     "vʲ" : "bʲ", // early palatalization outcome of vj
     "(?<=ˈ[^\\.]*)ʊ(?=\\.?[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
