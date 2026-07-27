@@ -578,6 +578,36 @@ const proma_orthography = {
     "ʃ" : "ș",
 }
 
+const roma_firstpass = {
+    "\\(a\\)" : "",
+    "ʎ" : "j",
+    "jə$" : "e",
+}
+
+// to update, of course
+const roma_orthography = {
+    "ˈ([^aeoiuɛɔɪʊ]{0,3})([aeoiuɛɔɪʊ])" : "$1$2́",
+    "ˈ" : "",
+    "\\." : "",
+    "ə" : "ă",
+    "k(?=[jie])" : "ch",
+    "ɡ(?=[jie])" : "gh",
+    "k": "c",
+    "ɡ" : "g",
+    "ʒ(?=[jie])" : "g",
+    "j" : "ĭ",
+    "ʒ" : "gi",
+    "ʒ$" : "j",
+    "ʧ(?=[jie])" : "c",
+    "ʧ$" : "č",
+    "ʧ" : "ci",
+    "ʎ" : "ļ",
+    "ɲ" : "ņ",
+    "ʦ" : "ț",
+    "ʣ" : "ḑ",
+    "ʃ" : "ș",
+}
+
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "][ː̯]?)"
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
@@ -682,7 +712,13 @@ function submit(latin_input) {
     proma = proma_phonetic;
     Object.keys(proma_orthography).forEach((key) => proma = proma.replace(new RegExp(key, "g"), proma_orthography[key]));
 
+    roma_phonetic = proma_phonetic;
+    Object.keys(roma_firstpass).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_firstpass[key]));
+    roma = roma_phonetic;
+    Object.keys(roma_orthography).forEach((key) => roma = roma.replace(new RegExp(key, "g"), roma_orthography[key]));
+
     // remember to re-break Ə-situation e in languages where it is relevant
+
 
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
@@ -697,4 +733,6 @@ function submit(latin_input) {
     $("#afri").val(afri);
     $("#proma_phon").val(proma_phonetic);
     $("#proma").val(proma);
+    $("#roma_phon").val(roma_phonetic);
+    $("#roma").val(roma);
 }
