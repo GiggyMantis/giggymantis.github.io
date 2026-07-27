@@ -580,7 +580,8 @@ const proma_orthography = {
 
 const roma_firstpass = {
     "\\(a\\)" : "",
-    "ʎ" : "j",
+    "[ɲʎ]" : "j",
+    "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e",
     "jə$" : "e",
 }
 
