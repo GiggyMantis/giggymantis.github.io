@@ -414,6 +414,7 @@ const sard_orthography = {
     "[eɛ]" : "e",
     "[oɔ]" : "o",
     "\\." : "",
+    "jj" : "j",
     "z" : "s",
     "ʒ" : "x",
     "ʃ(?=[ei])" : "sc",
@@ -483,6 +484,7 @@ const afri_orthography = {
 const proma_firstpass = {
     "β" : "v",
     "j" : "ʒ", // j -> ʒ
+    "^ɪs\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
