@@ -129,6 +129,8 @@ const proto_firstpass = {
     "ˈ([^\\.]*)\\.([^\\.]*)([bdɡ]\\.[lr])([^\\.]*)$" : "$1.ˈ$2$3$4", // words with antepenult stress, with a short vowel in the penult followed by voiced stop-liquid cluster, have stress move to the penult
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
     "^\\." : "",
+    "^ek\\.(ˈ?)s(?=[^aeoiuɛɔɪʊ])" : "ɪs.$1",
+    "^ek\\.(ˈ?)s" : "ɪ.$1s",
 }
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
