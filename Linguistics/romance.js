@@ -137,7 +137,7 @@ const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊo�
 
 const optional_syncope = {
     "^(.)" : "S$1",
-    "([ɛː]r)ɛ$" : "$1E$",
+    "(?<=[ɛː]r)ɛ$" : "E$",
     "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊS\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
@@ -146,8 +146,8 @@ const optional_syncope = {
 
 const default_syncope = {
     "^(.)" : "S$1",
-    "([ɛː]r)ɛ$" : "$1E$",
-    "(?<![Sˈ][^\\.]*)([lr]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])" : "$1$2$3$4",
+    "(?<=[ɛː]r)ɛ$" : "E$",
+    "(?<![Sˈ][^\\.]*)([lr]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊS\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[lr])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
@@ -589,7 +589,7 @@ const roma_firstpass = {
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
     "e\\.re$" : "ja",
-    "(?<=[aei])\\.re$", ""
+    "(?<=[aei])\\.re$" : "",
 }
 
 // to update, of course
