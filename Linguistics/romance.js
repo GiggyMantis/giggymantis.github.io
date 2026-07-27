@@ -587,6 +587,9 @@ const roma_firstpass = {
     "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e",
     "jə$" : "e",
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
+    "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
+    "e\\.re$" : "ja",
+    "(?<=[aei])\\.re$", ""
 }
 
 // to update, of course
