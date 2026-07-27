@@ -576,6 +576,7 @@ const proma_orthography = {
     "ʦ" : "ț",
     "ʣ" : "ḑ",
     "ʃ" : "ș",
+    "w": "u",
 }
 
 const roma_firstpass = {
@@ -583,6 +584,7 @@ const roma_firstpass = {
     "[ɲʎ]" : "j",
     "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e",
     "jə$" : "e",
+    "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
 }
 
 // to update, of course
@@ -607,6 +609,7 @@ const roma_orthography = {
     "ʦ" : "ț",
     "ʣ" : "ḑ",
     "ʃ" : "ș",
+    "w" : "u",
 }
 
 function syllabify(input, vowels) {
