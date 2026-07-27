@@ -558,7 +558,7 @@ const proma_firstpass = {
 }
 
 const proma_orthography = {
-    "ˈ([^aeoiuɛɔɪʊ]{0,3})([aeoiuɛɔɪʊ])" : "$1$2́",
+    "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
     "ə" : "ă",
@@ -567,10 +567,9 @@ const proma_orthography = {
     "k": "c",
     "ɡ" : "g",
     "ʒ(?=[jie])" : "g",
-    "j" : "ĭ",
-    "ʒ" : "gi",
-    "ʒ$" : "j",
     "ʧ(?=[jie])" : "c",
+    "j" : "ĭ",
+    "ʒ" : "j",
     "ʧ$" : "č",
     "ʧ" : "ci",
     "ʎ" : "ļ",
@@ -594,7 +593,7 @@ const roma_firstpass = {
 
 // to update, of course
 const roma_orthography = {
-    "ˈ([^aeoiuɛɔɪʊ]{0,3})([aeoiuɛɔɪʊ])" : "$1$2́",
+    "ˈ([^aeoiuɨə]{0,3})([aeoiuɨə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
     "ə" : "ă",
@@ -603,18 +602,19 @@ const roma_orthography = {
     "k": "c",
     "ɡ" : "g",
     "ʒ(?=[jie])" : "g",
-    "j" : "ĭ",
-    "ʒ" : "gi",
-    "ʒ$" : "j",
     "ʧ(?=[jie])" : "c",
-    "ʧ$" : "č",
+    "^j" : "i",
+    "(?<=[aeoiuɨă])j" : "i",
+    "j" : "e",
+    "ʒ" : "j",
+    "ʧ$" : "ci",
     "ʧ" : "ci",
-    "ʎ" : "ļ",
-    "ɲ" : "ņ",
     "ʦ" : "ț",
-    "ʣ" : "ḑ",
     "ʃ" : "ș",
-    "w" : "u",
+    "(?<=[aeoiuɨă])" : "u",
+    "w" : "o",
+    "^ɨ|ɨ$" : "î",
+    "ɨ" : "â",
 }
 
 function syllabify(input, vowels) {
