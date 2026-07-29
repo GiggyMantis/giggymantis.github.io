@@ -581,13 +581,15 @@ const proma_orthography = {
 }
 
 const roma_firstpass = {
-    "\\(a\\)" : "",
-    "[ɲʎ]" : "j",
-    "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e",
+    "\\(a\\)" : "", // -j(a) -> -e
+    "([pmv])(\\.ˈ?)ja(?=[^\\.]*\\.?[^\\.]*[aouə])" : "$2$1e", // somewhat complicated ea -> e, e -> ə in specific situations. doesn't occur in Țara Hațegului dialect if i ever want to include that as a feature.\
+    "(?<=\\.ˈ?[pmv])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "ə", 
+    "[ɲʎ]" : "j", // ɲ, ʎ -> j
+    "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
     "jə$" : "e",
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
-    "e\\.re$" : "ja",
+    "e\\.re$" : "ja", // -ere -> -ea
     "(?<=[aei])\\.re$" : "",
 }
 
