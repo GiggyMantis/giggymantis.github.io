@@ -485,7 +485,7 @@ const afri_orthography = {
 // This is a Proto-Romanian pass used for all of the Romanian langs
 const proma_firstpass = {
     "β" : "v",
-    "j" : "ʒ", // j -> ʒ
+    "j" : "ʤ", // j -> ʤ
     "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
@@ -566,10 +566,10 @@ const proma_orthography = {
     "ɡ(?=[jie])" : "gh",
     "k": "c",
     "ɡ" : "g",
-    "ʒ(?=[jie])" : "g",
+    "ʤ(?=[jie])" : "g",
     "ʧ(?=[jie])" : "c",
     "j" : "ĭ",
-    "ʒ" : "j",
+    "ʤ" : "j",
     "ʧ$" : "č",
     "ʧ" : "ci",
     "ʎ" : "ļ",
@@ -593,6 +593,8 @@ const roma_firstpass = {
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
     "e\\.re$" : "ja", // -ere -> -ea
     "(?<=[aei])\\.re$" : "",
+    "ʣ" : "z", // ʣ -> z
+    "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
 }
 
 // to update, of course
@@ -605,12 +607,13 @@ const roma_orthography = {
     "ɡ(?=[jie])" : "gh",
     "k": "c",
     "ɡ" : "g",
-    "ʒ(?=[jie])" : "g",
+    "ʤ(?=[jie])" : "g",
     "ʧ(?=[jie])" : "c",
     "^j" : "i",
     "(?<=[aeoiuɨă])j" : "i",
     "j(?=e)" : "i",
     "j" : "e",
+    "ʤ$" : "gi",
     "ʒ" : "j",
     "ʧ$" : "ci",
     "ʧ" : "ci",
