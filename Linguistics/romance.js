@@ -595,6 +595,7 @@ const roma_firstpass = {
     "(?<=[aei])\\.re$" : "",
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
+    "\\.([^aeoiuəɨˈ]*)u$" : "$1", // -u -> -∅
 }
 
 // to update, of course
