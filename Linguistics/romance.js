@@ -614,7 +614,7 @@ const roma_orthography = {
     "(?<=[aeoiuɨă])j" : "i",
     "j(?=e)" : "i",
     "j" : "e",
-    "ʤ$" : "gi",
+    "ʤ" : "gi",
     "ʒ" : "j",
     "ʧ$" : "ci",
     "ʧ" : "ci",
