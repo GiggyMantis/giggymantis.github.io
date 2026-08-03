@@ -582,7 +582,7 @@ const proma_orthography = {
 
 const roma_firstpass = {
     "\\(a\\)" : "", // -j(a) -> -e
-    "(?<=r\\.?ˈ?)e" : "ə", // re -> rə
+    "(?<=ˈ[^\\.]*r)e" : "ə", // stressed re -> rə
     "(?<=[pmv])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "ə", // somewhat complicated ea -> e, e -> ə in specific situations. doesn't occur in Țara Hațegului dialect if i ever want to include that as a feature.
     "([pmv])(\\.?ˈ?)ja(?=[^\\.]*\\.?[^\\.]*[aouə])" : "$2$1e", 
     "a(?=[^\\.]*\\.?[^\\.]*[i])" : "ə", // a -> ə harmonically if i is in the next syllable
