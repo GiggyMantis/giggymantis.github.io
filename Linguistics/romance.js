@@ -685,7 +685,7 @@ function submit(latin_input) {
         proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
     }
     
-    Console.log(proto_phonetic);
+    console.log(proto_phonetic);
     if ($("#always-syncope").is(":checked")) {
         Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
         $("#syncope").prop("checked", true);
