@@ -587,8 +587,6 @@ const roma_firstpass = {
     "([pmv])(\\.?ˈ?)ja(?=[^\\.]*\\.?[^\\.]*[aouə])" : "$2$1e", 
     "a(?=[^\\.]*\\.?[^\\.]*[i])" : "ə", // a -> ə harmonically if i is in the next syllable
     "[ɲʎ]" : "j", // ɲ, ʎ -> j
-    "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
-    "jə$" : "e",
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
     "e\\.re$" : "ja", // -ere -> -ea
@@ -596,6 +594,8 @@ const roma_firstpass = {
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
     "\\.([^aeoiuəɨˈ]*)u$" : "$1", // -u -> -∅
+    "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
+    "jə$" : "e",
 }
 
 // to update, of course
