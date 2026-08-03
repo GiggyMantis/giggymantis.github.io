@@ -590,7 +590,7 @@ const roma_firstpass = {
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
     "(?<=[aeiouəɨ]\\.?ˈ?)l(?=a)" : "", // l -> ∅ / V_a
     "a\\.ə" : "a",
-    "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "" // v -> ∅ / V_V
+    "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "", // v -> ∅ / V_V
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
     "e\\.re$" : "ja", // -ere -> -ea
     "(?<=[aei])\\.re$" : "",
