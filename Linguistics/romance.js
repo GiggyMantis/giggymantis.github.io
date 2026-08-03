@@ -137,21 +137,21 @@ const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊo�
 
 const optional_syncope = {
     "^(.)" : "S$1",
-    "(?<=[eɛː]\\.?r)ɛ$" : "E$",
+    "(?<=[eɛː]\\.?r)e$" : "E$",
     "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊS\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
-    "E" : "ɛ"
+    "E" : "e"
 }
 
 const default_syncope = {
     "^(.)" : "S$1",
-    "(?<=[eɛː]\\.?r)ɛ$" : "E$",
+    "(?<=[eɛː]\\.?r)e$" : "E$",
     "(?<![Sˈ][^\\.]*)([lr]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊS\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[lr])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
-    "E" : "ɛ"
+    "E" : "e"
 }
 const av = /a\.β\./g;
 const au = "au̯.";
@@ -685,7 +685,6 @@ function submit(latin_input) {
         proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
     }
     
-    console.log(proto_phonetic);
     if ($("#always-syncope").is(":checked")) {
         Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
         $("#syncope").prop("checked", true);
