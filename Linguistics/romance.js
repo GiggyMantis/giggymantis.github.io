@@ -594,8 +594,11 @@ const roma_firstpass = {
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
     "\\.([^aeoiuəɨˈ]*)u$" : "$1", // -u -> -∅
-    "([^aeiouə])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
+    "([^aeiouəɨ])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
     "jə$" : "e",
+    "(?<=[aeiouəɨ]\\.?ˈ?)l(?=a)" : "", // l -> ∅ / V_a
+    "a\\.ə" : "a",
+    "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "" // v -> ∅ / V_V
 }
 
 // to update, of course
@@ -681,7 +684,8 @@ function submit(latin_input) {
     if ($("#v-deletion").is(":checked")) {
         proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
     }
-
+    
+    Console.log(proto_phonetic);
     if ($("#always-syncope").is(":checked")) {
         Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
         $("#syncope").prop("checked", true);
