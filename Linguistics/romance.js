@@ -547,8 +547,6 @@ const proma_firstpass = {
     "(?<=[ʎj])ə$" : "Ə", // word final -ʎə, -jə block e-breaking in standard Romanian. this is clearly better explained by the wave model, but it'll be easy enuff to achieve here 
     "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
     "e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
-    "ʃ(\\.?ˈ?)j" : "ʃ$1ʃ", // can't figure out how to make this work appropriately
-    "ʣ(\\.?ˈ?)j" : "ʣ$1ʣ", 
     "e(?=[^\\.]*\\.[^\\.]Ə)" : "e(a)", // wave model stuff go brrr
     "I" : "i", //returning I and Ə to normal
     "Ə" : "ə",
