@@ -590,10 +590,16 @@ const roma_firstpass = {
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
     "(?<=[aeiouəɨ]\\.?ˈ?)l(?=[aə])" : "", // l -> ∅ / V_[aə]
     "a\\.ə" : "a",
+}
+
+const roma_assverb = {
     "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "", // v -> ∅ / V_V
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
     "e\\.re$" : "ja", // -ere -> -ea
     "(?<=[aei])\\.re$" : "",
+}
+
+const roma_secondpass = {
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
     "\\.([^aeoiuəɨˈ]*)u$" : "$1", // -u -> -∅
@@ -773,6 +779,10 @@ function submit(latin_input) {
     // Evolve to Romanian
     roma_phonetic = proma_phonetic;
     Object.keys(roma_firstpass).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_firstpass[key]));
+    if ($("#assverb").is(":checked")) { 
+        Object.keys(roma_assverb).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_assverb[key]));
+    }
+    Object.keys(roma_secondpass).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_secondpass[key]));
     roma = roma_phonetic;
     Object.keys(roma_orthography).forEach((key) => roma = roma.replace(new RegExp(key, "g"), roma_orthography[key]));
 
