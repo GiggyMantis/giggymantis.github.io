@@ -230,6 +230,11 @@ const proto_orthography = {
     "ɲɲ" : "gn",
 }
 
+// Merges Latin 2nd and 3rd conjugation to have the infinitive with stress before it
+const sard_assverbs = {
+    "([^\\.]*)\\.ˈ([^\\.]*)e\\.ɾe$" : "ˈ$1.$2e.ɾe",
+}
+
 const camp_firstpass = {
     "^ɪs\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "ɡ\\.d" : "k.t", // gd -> ct
@@ -294,6 +299,11 @@ const camp_firstpass = {
     "(?<=[^aeɛioɔu\\.ˈlwj]\\.?ˈ?)l" : "ɾ", // Cl -> Cɾ
     "ɾ(\\.?ˈ?)ɾ" : "$1r", // r
     "([^aeɛioɔu]*)([aeɛioɔu])\\.(ˈ?)\\2" : "$3$1$2", // V.V -> V
+}
+
+const camp_verbs = {
+    "(?<=ˈ[^\\.]*)a\\.ɾi$" : "aj",
+    "e\\.ɾi$" : "i",
 }
 
 const logu_firstpass = {
@@ -750,6 +760,9 @@ function submit(latin_input) {
 
     // Evolve to Logudorese Sardinian
     logu_phonetic = proto_phonetic;
+    if ($("#assverb").is(":checked")) { 
+        Object.keys(sard_assverbs).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), sard_assverbs[key]));
+    }
     Object.keys(logu_firstpass).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), logu_firstpass[key]));
     logu = logu_phonetic;
     Object.keys(sard_orthography).forEach((key) => logu = logu.replace(new RegExp(key, "g"), sard_orthography[key]));
@@ -757,6 +770,9 @@ function submit(latin_input) {
 
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
+    if ($("#assverb").is(":checked")) { 
+        Object.keys(sard_assverbs).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), sard_assverbs[key]));
+    }
     Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
     nuor = nuor_phonetic;
     Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
@@ -764,7 +780,13 @@ function submit(latin_input) {
 
     // Evolve to Campidanese Sardinian
     camp_phonetic = proto_phonetic;
+    if ($("#assverb").is(":checked")) { 
+        Object.keys(sard_assverbs).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), sard_assverbs[key]));
+    }
     Object.keys(camp_firstpass).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_firstpass[key]));
+    if ($("#assverb").is(":checked")) { 
+        Object.keys(camp_verbs).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_verbs[key]));
+    }
     camp = camp_phonetic;
     Object.keys(sard_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
     Object.keys(sard_finish).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
