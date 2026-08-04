@@ -135,9 +135,10 @@ const proto_firstpass = {
 
 const optional_v_deletion = /(?<=[aeoiu̯ɛɔɪʊ]\.)β(?=[uʊoɔ])|(?<=[u̯ʊoɔ]\.)β(?=[aeoiuɛɔɪʊ])/g;
 
-const optional_syncope = {
+const syncope_assverb = /(?<=[eɛː]\.?r)e$/g 
+
+const optional_syncope = { 
     "^(.)" : "S$1",
-    "(?<=[eɛː]\\.?r)e$" : "E",
     "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊS\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
     "S" : "",
@@ -146,7 +147,6 @@ const optional_syncope = {
 
 const default_syncope = {
     "^(.)" : "S$1",
-    "(?<=[eɛː]\\.?r)e$" : "E",
     "(?<![Sˈ][^\\.]*)([lr]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[^aeoiuɛɔɪʊ\\.ˈ̃ː̯])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "(?<![Sˈ][^\\.]*)([^aeoiuɛɔɪʊS\\.ˈ̃ː̯]\\.?)[eoiuɛɔɪʊ](\\.?ˈ?[lr])([^\\.]*)([aeoiuɛɔɪʊ])(?!E)" : "$1$2$3$4",
     "t(\\.?)l" : "k$1l",
@@ -729,9 +729,15 @@ function submit(latin_input) {
     }
     
     if ($("#always-syncope").is(":checked")) {
+        if ($("#assverb").is(":checked")) { 
+            proto_phonetic = proto_phonetic.replace(syncope_assverb, "E");
+        }
         Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
         $("#syncope").prop("checked", true);
     } else if ($("#syncope").is(":checked")) {
+        if ($("#assverb").is(":checked")) { 
+            proto_phonetic = proto_phonetic.replace(syncope_assverb, "E");
+        }
         Object.keys(default_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
     }
     if ($("#av-au").is(":checked")) { 
