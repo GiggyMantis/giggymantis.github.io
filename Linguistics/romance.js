@@ -537,6 +537,7 @@ const proma_firstpass = {
     "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", // degemination
     "([^aeiouə\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
+    "(j?)e\\.ve$" : "$1ew", // -eve -> -eu
     "t(\\.?ˈ?)j" : "ʦ$1ʦ", // second palatalization
     "d(\\.?ˈ?)j" : "ʣ$1ʣ",
     "s(\\.?ˈ?)j" : "ʃ$1ʃ",
@@ -618,7 +619,7 @@ const roma_secondpass = {
     "(?<=ˈ[^\\.]*n)u([^aeiouəɨ\\.])\\." : "un.$1",
     "(?<=ˈ[^\\.]*n)u(?=\\.)" : "un",
     "(?<=[^aeiouəɨ])j$" : "ʲ",
-
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ",
 }
 
 const roma_orthography = {
