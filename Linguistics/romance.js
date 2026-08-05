@@ -494,7 +494,8 @@ const afri_orthography = {
 const proma_firstpass = {
     "β" : "v",
     "j" : "ʤ", // j -> ʤ
-    "(?<=[aeiou])s$" : "j", // Ṿs -> Ṿj / _#
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
     "^es\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -684,11 +685,12 @@ const arom_orthography = {
     "ɡ" : "g",
     "ʤ(?=[jie])" : "g",
     "ʧ(?=[jie])" : "c",
-    "(?<=[aeoiuɨă]́?)j" : "i",
+    "^j(?=[aeoiuă])" : "y",
+    "(?<=[aeoiuă]́?)j" : "i",
     "j(?=e)" : "i",
-    "(?<![aeoiuɨă]́?)j" : "e",
+    "(?<![aeoiuă]́?)j" : "e",
     "j" : "i",
-    "(?<=[aeoiuɨă]́?)w" : "u",
+    "(?<=[aeoiuă]́?)w" : "u",
     "w" : "o",
     "ʤ" : "j",
     "ʧ" : "ci",
