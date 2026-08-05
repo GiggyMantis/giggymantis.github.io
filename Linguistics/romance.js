@@ -667,6 +667,10 @@ const arom_firstpass = {
     "(?<=[aeiouə]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
     "v\\.(ˈ?)j(?=([^aieouə]))" : "j.$1", // vj -> j
     "vj" : "j", 
+    "[ptk]\\.(ˈ?)j(?=([^aieouə]))" : "c.$1", // kj, tj, pj -> c
+    "[ptk]j" : "c", 
+    "[bdɡ]\\.(ˈ?)j(?=([^aieouə]))" : "ɟ.$1", // ɡj, dj, bj -> ɟ
+    "[bdɡ]j" : "ɟ", 
 }
 
 const arom_orthography = {
