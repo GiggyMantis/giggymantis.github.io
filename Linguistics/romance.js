@@ -613,7 +613,8 @@ const roma_assverb = {
 const roma_secondpass = {
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
-    "\\.([^aeoiuəɨˈ]*)u$" : "$1", // -u -> -∅
+    "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
+    "\\.([^aeoiuəɨˈ]*)u$" : "$1",
     "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "", // v -> ∅ / V_V
     "([^aeiouəɨ])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
     "jə$" : "e",
@@ -657,6 +658,7 @@ const arom_firstpass = {
     "e$" : "i", // -e -> -i
     "m(\\.?ˈ?)j(?=[^aieouə])" : "ɲ$1", // palatalization of m
     "(?<=ˈ[^\\.]*r)e" : "a", // stressed re -> ra
+    "([aeoiuəɨ])\\.u$" : "$1w", // -Vu -> -Vw
     "m(\\.?ˈ?)j" : "$1ɲ",
     "m(?=\\.?ˈ?i)" : "ɲ",
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
