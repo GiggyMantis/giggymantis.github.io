@@ -623,6 +623,7 @@ const roma_secondpass = {
     "(?<=ˈ[^\\.]*n)u(?=\\.)" : "un",
     "(?<=[^aeiouəɨ])j$" : "ʲ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ",
+    "v$" : "w"
 }
 
 const roma_orthography = {
