@@ -665,6 +665,7 @@ const arom_firstpass = {
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
+    "i(?=n$)|i(?=\\.?n\\.?[^n\\.])|i(?=m\\.?[^aeiouə])" : "ə", // i -> ə when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
     "^(ˈ?)r" : "a.$1r", // r- -> ar-
 
