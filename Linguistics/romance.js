@@ -669,7 +669,7 @@ const arom_firstpass = {
     "i(?=n$)|i(?=\\.?n\\.?[^n\\.])|i(?=m\\.?[^aeiouə])" : "ə", // i -> ə when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
     "^(ˈ?)r" : "a.$1r", // r- -> ar-
-    "(?<=[aeiouə]\\.?ˈ?)w(?=\\.?ˈ?[aə])" : "", // l -> w / V_[aə]
+    "(?<=[aeiouə]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
     "v\\.(ˈ?)j(?=([^aieouə]))" : "j.$1", // vj -> j
     "vj" : "j", 
 }
