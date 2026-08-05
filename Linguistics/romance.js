@@ -301,7 +301,7 @@ const camp_firstpass = {
 
 const camp_verbs = {
     "(?<=ˈ[^\\.]*)a\\.ɾi$" : "aj",
-    "e\\.ɾi$" : "i",
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)ɛ\\.ɾi$" : "i",
 }
 
 const logu_firstpass = {
