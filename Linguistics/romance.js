@@ -599,6 +599,7 @@ const roma_firstpass = {
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
     "(?<=[aeiouəɨ]\\.?ˈ?)l(?=[aə])" : "", // l -> ∅ / V_[aə]
     "a\\.ə" : "a",
+    "pt" : "t", // pt clusters reduced as in strâmt <- Latin *strinctum
 }
 
 const roma_assverb = {
@@ -657,6 +658,7 @@ const arom_firstpass = {
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
+    "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
 
 }
 
