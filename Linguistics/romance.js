@@ -231,9 +231,7 @@ const proto_orthography = {
 }
 
 // Merges Latin 2nd and 3rd conjugation to have the infinitive with stress before it
-const sard_assverbs = {
-    "([^\\.]*)\\.ˈ([^\\.]*)e\\.ɾe$" : "ˈ$1.$2e.ɾe",
-}
+const sard_assverbs = /([^\.]*)\.ˈ([^\.]*)e\.ɾe$/g;
 
 const camp_firstpass = {
     "^ɪs\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -761,7 +759,7 @@ function submit(latin_input) {
     // Evolve to Logudorese Sardinian
     logu_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
-        Object.keys(sard_assverbs).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), sard_assverbs[key]));
+        logu_phonetic = logu_phonetic.replace(sard_assverbs, "");
     }
     Object.keys(logu_firstpass).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), logu_firstpass[key]));
     logu = logu_phonetic;
@@ -771,7 +769,7 @@ function submit(latin_input) {
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
-        Object.keys(sard_assverbs).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), sard_assverbs[key]));
+        nuor_phonetic = nuor_phonetic.replace(sard_assverbs, "");
     }
     Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
     nuor = nuor_phonetic;
@@ -781,7 +779,7 @@ function submit(latin_input) {
     // Evolve to Campidanese Sardinian
     camp_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
-        Object.keys(sard_assverbs).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), sard_assverbs[key]));
+        camp_phonetic = camp_phonetic.replace(sard_assverbs, "");
     }
     Object.keys(camp_firstpass).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_firstpass[key]));
     if ($("#assverb").is(":checked")) { 
