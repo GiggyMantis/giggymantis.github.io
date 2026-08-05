@@ -650,10 +650,11 @@ const roma_orthography = {
 }
 
 const arom_firstpass = {
-    "e$" : "i",
+    "e$" : "i", // -e -> -i
     "m(\\.?ˈ?)j(?=[^aieouə])" : "ɲ$1", // palatalization of m
     "m(\\.?ˈ?)j" : "$1ɲ",
     "m(?=\\.?ˈ?i)" : "ɲ",
+    "^s(?=k)" : "ʃ", // sc -> shc
 
 }
 
