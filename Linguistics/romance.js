@@ -526,6 +526,8 @@ const proma_firstpass = {
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
     "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
+    "[ɛe](?=n$)|[ɛe](?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)[ɛe](?=\\.?ˈ?m)" : "I", // ɛ, e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
+    "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
     "ɛ" : "je", // ɛ-opening
     "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
     "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
@@ -533,8 +535,6 @@ const proma_firstpass = {
     "^ə" : "a", 
     "(?<!ˈ[^\\.]*)o" : "u", // o -> u except when stressed
     "a(?=n$)|a(?=\\.?n\\.?[^n\\.])|a(?=m\\.?[^aeiouə])" : "ə", // a -> ə when before n, but not nn, or a consonant cluster starting with m
-    "e(?=n$)|e(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)e(?=\\.?ˈ?m)" : "I", // e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
-    "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
     "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", // degemination
     "([^aeiouə\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
@@ -658,15 +658,12 @@ const roma_orthography = {
 
 const arom_firstpass = {
     "e$" : "i", // -e -> -i
-    "m(\\.?ˈ?)j(?=[^aieouə])" : "ɲ$1", // palatalization of m
-    "([aeoiuəɨ])\\.u$" : "$1w", // -Vu -> -Vw
     "m(\\.?ˈ?)j" : "$1ɲ",
     "m(?=\\.?ˈ?i)" : "ɲ",
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
-    "i(?=n$)|i(?=\\.?n\\.?[^n\\.])|i(?=m\\.?[^aeiouə])" : "ə", // i -> ə when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
     "^(ˈ?)r" : "a.$1r", // r- -> ar-
     "(?<=[aeiouə]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
