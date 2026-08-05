@@ -658,8 +658,6 @@ const roma_orthography = {
 
 const arom_firstpass = {
     "e$" : "i", // -e -> -i
-    "m(\\.?ˈ?)j" : "$1ɲ",
-    "m(?=\\.?ˈ?i)" : "ɲ",
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
