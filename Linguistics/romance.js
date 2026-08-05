@@ -601,7 +601,7 @@ const roma_firstpass = {
     "a\\.ə" : "a",
     "pt" : "t", // pt clusters reduced as in strâmt <- Latin *strinctum
     "(?<=ˈ[^\\.]*r)i" : "ɨ", // stressed ri -> rɨ
-    "[ieə](?=r\\.ˈ?[^aeiouəɨ])" : "ɨ", // i, e, ə -> ɨ / _rC
+    "[ieə](?=r\\.ˈ?[^aeiouəɨ])" : "ɨ", // i, e, ə -> ɨ / _rC ()
 }
 
 const roma_assverb = {
@@ -617,6 +617,7 @@ const roma_secondpass = {
     "\\.([^aeoiuəɨˈ]*)u$" : "$1",
     "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "", // v -> ∅ / V_V
     "([^aeiouəɨ])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
+    "(?<=[aeiouəɨ]\\.j)ə$" : "e",
     "jə$" : "e",
     "(?<=i\\.?ˈ?)j(?=[aeiouəɨ])" : "", // j -> ∅ / i_V
     "(?<=ˈ[^\\.]*n)u(?=[^aeiouəɨ\\.]?$)" : "un", // ˈnu -> ˈnun 
