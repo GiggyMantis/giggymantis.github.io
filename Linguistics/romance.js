@@ -657,7 +657,6 @@ const roma_orthography = {
 const arom_firstpass = {
     "e$" : "i", // -e -> -i
     "m(\\.?ˈ?)j(?=[^aieouə])" : "ɲ$1", // palatalization of m
-    "(?<=ˈ[^\\.]*r)e" : "a", // stressed re -> ra
     "([aeoiuəɨ])\\.u$" : "$1w", // -Vu -> -Vw
     "m(\\.?ˈ?)j" : "$1ɲ",
     "m(?=\\.?ˈ?i)" : "ɲ",
@@ -666,7 +665,7 @@ const arom_firstpass = {
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
-    "^(ˈ?)r" : "a$1r", // r- -> ar-
+    "^(ˈ?)r" : "a.$1r", // r- -> ar-
 
 }
 
