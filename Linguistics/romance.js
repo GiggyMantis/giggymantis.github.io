@@ -655,6 +655,8 @@ const arom_firstpass = {
     "m(\\.?ˈ?)j" : "$1ɲ",
     "m(?=\\.?ˈ?i)" : "ɲ",
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
+    "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
+    "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
 
 }
 
