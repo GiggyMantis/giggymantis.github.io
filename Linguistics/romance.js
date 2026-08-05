@@ -649,7 +649,7 @@ const roma_orthography = {
 }
 
 const arom_firstpass = {
-    "" : "",
+    "e$" : "i",
 }
 
 const arom_orthography = {
