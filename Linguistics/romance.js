@@ -654,7 +654,7 @@ const arom_firstpass = {
     "m(\\.?ˈ?)j(?=[^aieouə])" : "ɲ$1", // palatalization of m
     "m(\\.?ˈ?)j" : "$1ɲ",
     "m(?=\\.?ˈ?i)" : "ɲ",
-    "^s(?=k)" : "ʃ", // sc -> shc
+    "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
 
 }
 
