@@ -657,6 +657,8 @@ const roma_orthography = {
 }
 
 const arom_firstpass = {
+    "([aieouə])\\.(ˈ?)([^aieouə])e\\(a\\)" : "$1$3.$2ja",
+    "e\\(a\\)" : "ja",
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
