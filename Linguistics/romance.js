@@ -605,7 +605,6 @@ const roma_firstpass = {
 }
 
 const roma_assverb = {
-    "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "", // v -> ∅ / V_V
     "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
     "e\\.re$" : "ja", // -ere -> -ea
     "(?<=[aei])\\.re$" : "",
@@ -615,6 +614,7 @@ const roma_secondpass = {
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
     "\\.([^aeoiuəɨˈ]*)u$" : "$1", // -u -> -∅
+    "(?<=[aeiouəɨ]\\.?ˈ?)v(?=[aeiouəɨ])" : "", // v -> ∅ / V_V
     "([^aeiouəɨ])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
     "jə$" : "e",
     "(?<=i\\.?ˈ?)j(?=[aeiouəɨ])" : "", // j -> ∅ / i_V
