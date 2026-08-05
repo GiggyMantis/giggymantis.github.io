@@ -598,7 +598,7 @@ const roma_firstpass = {
     "a(?=[^\\.]*\\.?[^\\.]*[i])" : "ə", // a -> ə harmonically if i is in the next syllable
     "[ɲʎ]" : "j", // ɲ, ʎ -> j
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
-    "(?<=[aeiouəɨ]\\.?ˈ?)l(?=[aə])" : "", // l -> ∅ / V_[aə]
+    "(?<=[aeiouəɨ]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "", // l -> ∅ / V_[aə]
     "a\\.ə" : "a",
     "pt" : "t", // pt clusters reduced as in strâmt <- Latin *strinctum
     "(?<=ˈ[^\\.]*r)i" : "ɨ", // stressed ri -> rɨ
@@ -669,7 +669,7 @@ const arom_firstpass = {
     "i(?=n$)|i(?=\\.?n\\.?[^n\\.])|i(?=m\\.?[^aeiouə])" : "ə", // i -> ə when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
     "^(ˈ?)r" : "a.$1r", // r- -> ar-
-    "(?<=[aeiouə]\\.?ˈ?)w(?=[aə])" : "", // l -> w / V_[aə]
+    "(?<=[aeiouə]\\.?ˈ?)w(?=\\.?ˈ?[aə])" : "", // l -> w / V_[aə]
     "v\\.(ˈ?)j(?=([^aieouə]))" : "j.$1", // vj -> j
     "vj" : "j", 
 }
