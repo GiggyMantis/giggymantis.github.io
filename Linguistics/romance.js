@@ -626,7 +626,7 @@ const roma_secondpass = {
     "(?<=ˈ[^\\.]*n)u(?=\\.)" : "un",
     "(?<=[^aeiouəɨ])j$" : "ʲ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ",
-    "v$" : "w"
+    "v$" : "w" // -v -> -w
 }
 
 const roma_orthography = {
@@ -673,6 +673,7 @@ const arom_firstpass = {
     "[bdɡ]\\.(ˈ?)j(?=([^aieouə]))" : "ɟ.$1",
     "[bdɡ](\\.?ˈ?)je" : "$1ɟa",
     "[bdɡ]j" : "ɟ", 
+    "\\.vu$" : "w", // -vu -> -w
 }
 
 const arom_orthography = {
