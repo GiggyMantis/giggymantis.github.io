@@ -231,7 +231,7 @@ const proto_orthography = {
 }
 
 // Merges Latin 2nd and 3rd conjugation to have the infinitive with stress before it
-const sard_assverbs = /([^\.]*)\.ˈ([^\.]*)e\.ɾe$/g;
+const sard_assverbs = /([^\.]*)\.ˈ([^\.]*)e\.re$/g;
 
 const camp_firstpass = {
     "^ɪs\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
