@@ -624,8 +624,8 @@ const roma_secondpass = {
     "(?<=ˈ[^\\.]*n)u(?=[^aeiouəɨ\\.]?$)" : "un", // ˈnu -> ˈnun 
     "(?<=ˈ[^\\.]*n)u([^aeiouəɨ\\.])\\." : "un.$1",
     "(?<=ˈ[^\\.]*n)u(?=\\.)" : "un",
-    "(?<=[^aeiouəɨ])j$" : "ʲ",
-    "n(?=\\.?ˈ?[ɡk])" : "ŋ",
+    "(?<=[^aeiouəɨ])j$" : "ʲ", // word final j becomes palatalization
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng
     "v$" : "w" // -v -> -w
 }
 
@@ -657,11 +657,12 @@ const roma_orthography = {
 }
 
 const arom_firstpass = {
-    "([aieouə])\\.(ˈ?)([^aieouə])e\\(a\\)" : "$1$3.$2ja",
+    "([aieouə])\\.(ˈ?)([^aieouə])e\\(a\\)" : "$1$3.$2ja", // e(a) -> ja
     "e\\(a\\)" : "ja",
-    "(?<=ʎ)ə$" : "e",
+    "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
+    "^(ˈ?)f" : "h", // sc -> shc
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
@@ -677,6 +678,7 @@ const arom_firstpass = {
     "[bdɡ](\\.?ˈ?)je" : "$1ɟa",
     "[bdɡ]j" : "ɟ", 
     "\\.vu$" : "w", // -vu -> -w
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
 }
 
 const arom_orthography = {
