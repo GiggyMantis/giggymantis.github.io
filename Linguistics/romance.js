@@ -528,7 +528,8 @@ const proma_firstpass = {
     "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
     "[ɛe](?=n$)|[ɛe](?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)[ɛe](?=\\.?ˈ?m)" : "I", // ɛ, e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
     "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
-    "ɛ" : "je", // ɛ-opening
+    "(?<=^ˈs.)ɛ" : "je", // ɛ-opening
+    "ɛ" : "e",
     "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
     "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
     "(?<!ˈ[^\\.]*)a" : "ə", // a -> ə except when stressed or at the start of a word
