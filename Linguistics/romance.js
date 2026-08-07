@@ -669,6 +669,7 @@ const arom_firstpass = {
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
+    "(?<=ˈ[^\\.]*r)i" : "ə", // stressed ri -> rə
     "^(ˈ?)r" : "a.$1r", // r- -> ar-
     "(?<=[aeiouə]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
     "v\\.(ˈ?)j(?=([^aieouə]))" : "j.$1", // vj -> j
