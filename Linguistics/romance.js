@@ -644,7 +644,7 @@ const roma_orthography = {
     "ʧ(?=[jie])" : "c",
     "(?<=[aeoiuɨă]́?)j" : "i",
     "j(?=e)" : "i",
-    "(?<![aeoiuɨă]́?)j" : "e",
+    "(?<![aeoiuɨă]́?)j(?!=[ue])" : "e",
     "j" : "i",
     "(?<=[aeoiuɨă]́?)w" : "u",
     "ŋ" : "n",
@@ -675,6 +675,7 @@ const arom_firstpass = {
     "v(\\.?ˈ?)j" : "$1j",
     "[ptk]\\.(ˈ?)j(?=([^aieouə]))" : "c.$1", // pj, tj, kj -> c; bj, dj, ɡj -> ɟ
     "[ptk](\\.?ˈ?)je" : "$1ca",
+    "[ptk]\\.(ˈ?)j(?=([aieouə]))" : "$1c", // pj, tj, kj -> c; bj, dj, ɡj -> ɟ
     "[ptk]j" : "c", 
     "[bdɡ]\\.(ˈ?)j(?=([^aieouə]))" : "ɟ.$1",
     "[bdɡ](\\.?ˈ?)je" : "$1ɟa",
@@ -702,7 +703,7 @@ const arom_orthography = {
     "^j(?=[aeoiuă])" : "y",
     "(?<=[aeoiuă]́?)j" : "i",
     "j(?=e)" : "i",
-    "(?<![aeoiuă]́?)j" : "e",
+    "(?<![aeoiuă]́?)j(?!=[ue])" : "e",
     "j" : "i",
     "(?<=[aeoiuă]́?)w" : "u",
     "w" : "o",
