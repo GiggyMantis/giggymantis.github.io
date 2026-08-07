@@ -565,7 +565,8 @@ const proma_firstpass = {
     "(.)\\1" : "$1", // i'm lazy so... double degemination!!!! {no. i don't know why the fuck i have to do this random workaround and then degeminate ones with no syllable break twice. it's the only way it works for some reason.}
     "([^aeiouə\\.ˈ\\(\\)])\\.(ˈ?)\\1(?=([^aeiouə\\(\\)]))" : "$1.$2", 
     "([^aeiouə\\.ˈ\\(\\)])\\.(ˈ?)(?=\\1)" : ".$2",
-    "(.)(?=\\1)" : "",    
+    "(.)(?=\\1)" : "",
+    "s(\\.?ˈ?)ʧ" : "ʃ$1t", // sch -> sht
 }
 
 const proma_orthography = {
