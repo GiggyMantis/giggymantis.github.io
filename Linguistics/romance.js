@@ -621,10 +621,11 @@ const roma_secondpass = {
     "(?<=[aeiouəɨ]\\.j)ə$" : "e",
     "jə$" : "e",
     "(?<=i\\.?ˈ?)j(?=[aeiouəɨ])" : "", // j -> ∅ / i_V
-    "(?<=ˈ[^\\.]*n)u(?=[^aeiouəɨ\\.]?$)" : "un", // ˈnu -> ˈnun 
+    "(?<=ˈ[^\\.]*n)u(?=[^aeiouəɨ\\.]*$)" : "un", // ˈnu -> ˈnun 
     "(?<=ˈ[^\\.]*n)u([^aeiouəɨ\\.])\\." : "un.$1",
     "(?<=ˈ[^\\.]*n)u(?=\\.)" : "un",
     "(?<=[^aeiouəɨ])j$" : "ʲ", // word final j becomes palatalization
+    "(?<=r)ʲ" : "", // rʲ -> r
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng
     "v$" : "w" // -v -> -w
 }
