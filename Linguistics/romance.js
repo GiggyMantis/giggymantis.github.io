@@ -624,6 +624,7 @@ const roma_secondpass = {
     "(?<=ˈ[^\\.]*n)u(?=[^aeiouəɨ\\.]*$)" : "un", // ˈnu -> ˈnun 
     "(?<=ˈ[^\\.]*n)u([^aeiouəɨ\\.])\\." : "un.$1",
     "(?<=ˈ[^\\.]*n)u(?=\\.)" : "un",
+    "(?<!\\..*)o$" : "aw", // monosyllabic word-final -o becomes -au
     "(?<=[^aeiouəɨ])j$" : "ʲ", // word final j becomes palatalization
     "(?<=r)ʲ" : "", // rʲ -> r
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng
@@ -664,13 +665,14 @@ const arom_firstpass = {
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
-    "^(ˈ?)f" : "h", // sc -> shc
+    "^(ˈ?)f" : "h", // #f -> h
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
     "(?<=ˈ[^\\.]*r)i" : "ə", // stressed ri -> rə
     "^(ˈ?)r" : "a.$1r", // r- -> ar-
+    "(?<=a)w(?=\\.)" : "v", // au -> av
     "(?<=[aeiouə]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
     "v\\.(ˈ?)j(?=([^aieouə]))" : "j.$1", // vj -> j
     "v(\\.?ˈ?)j" : "$1j",
@@ -682,6 +684,7 @@ const arom_firstpass = {
     "[bdɡ]\\.(ˈ?)j(?=([^aieouə]))" : "ɟ.$1",
     "[bdɡ]\\.(ˈ?)j(?=([aieouə]))" : ".$1ɟ", 
     "[bdɡ]j" : "ɟ", 
+    "(?<!\\..*)o$" : "aw", // monosyllabic word-final -o becomes -au
     "\\.vu$" : "w", // -vu -> -w
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
 }
