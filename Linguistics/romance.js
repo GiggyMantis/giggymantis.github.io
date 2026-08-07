@@ -606,7 +606,7 @@ const roma_firstpass = {
 }
 
 const roma_assverb = {
-    "([aeiouəɨ]?)(\\.?)([^aeiouəɨ\\.])([^aeiouəɨ\\.]*)e\\.re$" : "$1$3$2$4ja", // stressed -ere -> -ea
+    "([aeiouəɨ]?)(\\.?ˈ)([^aeiouəɨ\\.])([^aeiouəɨ\\.]*)e\\.re$" : "$1$3$2$4ja", // stressed -ere -> -ea
     "(?<=ˈ[^\\.]*)e\\.re$" : "ja",
     "(?<=[aei])\\.re$" : "",
 }
