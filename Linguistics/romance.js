@@ -528,7 +528,7 @@ const proma_firstpass = {
     "(?<=[kɡ]\\.?ˈ?)l" : "ʎ", // cl/gl palatalization
     "[ɛe](?=n$)|[ɛe](?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)[ɛe](?=\\.?ˈ?m)" : "I", // ɛ, e -> i when before n (but not nn) or before m and after a nasal. note that using I here is to avoid it palatalizing :3
     "o(?=n$)|o(?=\\.?n\\.?ˈ?[^n\\.])|(?<=[mnɲ]\\.?ˈ?)o(?=\\.?ˈ?m)" : "u", // o -> u when before n (but not nn) or before m and after a nasal
-    "(?<=^ˈs.)ɛ" : "je", // ɛ-opening
+    "(?<!^ˈs.)ɛ" : "je", // ɛ-opening
     "ɛ" : "e",
     "\\.(ˈ?)([^aeiou\\.ˈ])j" : "$2.$1j",
     "(?<=[aeiou]\\.ˈ?)l(?=[aeiou])" : "r", // rhotacism of intervocalic single l
@@ -557,7 +557,7 @@ const proma_firstpass = {
     "n(?=\\.?ˈ?[bp])" : "m",
     "(?<=[ʎj])ə$" : "Ə", // word final -ʎə, -jə block e-breaking in standard Romanian. this is clearly better explained by the wave model, but it'll be easy enuff to achieve here 
     "o(?=[^\\.]*\\.[^\\.][aeə])" : "wa", // o-breaking
-    "(?<=^ˈs.)e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
+    "(?<!^ˈs.)e(?=[^\\.]*\\.[^\\.][aə])" : "ja", // e-breaking
     "e(?=[^\\.]*\\.[^\\.]Ə)" : "e(a)", // wave model stuff go brrr
     "I" : "i", //returning I and Ə to normal
     "Ə" : "ə",
