@@ -606,8 +606,8 @@ const roma_firstpass = {
 }
 
 const roma_assverb = {
-    "([aeiouəɨ]?)(\\.ˈ?)([^aeiouəɨ])([^aeiouəɨ]*)e\\.re$" : "$1$3$2$4ja", // -ere -> -ea
-    "e\\.re$" : "ja", // -ere -> -ea
+    "([aeiouəɨ]?)(\\.?)([^aeiouəɨ\\.])([^aeiouəɨ\\.]*)e\\.re$" : "$1$3$2$4ja", // stressed -ere -> -ea
+    "(?<=ˈ[^\\.]*)e\\.re$" : "ja",
     "(?<=[aei])\\.re$" : "",
 }
 
@@ -647,6 +647,7 @@ const roma_orthography = {
     "(?<![aeoiuɨă]́?)j" : "e",
     "j" : "i",
     "(?<=[aeoiuɨă]́?)w" : "u",
+    "ŋ" : "n",
     "w" : "o",
     "ʤ" : "gi",
     "ʒ" : "j",
