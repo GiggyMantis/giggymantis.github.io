@@ -126,7 +126,7 @@ const proto_firstpass = {
     "[iɪ]\\.[iɪ]" : "i", // i-i assimilation
     "([^\\.])[iɪ]\\.ˈ[iɪ]" : "ˈ$1i",
     "[iɪ]\\.ˈ[iɪ]" : "ˈi",
-    "ˈ([^\\.]*)\\.([^\\.]*)([bdɡ]\\.[lr])([^\\.]*)$" : "$1.ˈ$2$3$4", // words with antepenult stress, with a short vowel in the penult followed by voiced stop-liquid cluster, have stress move to the penult
+    "ˈ([^\\.]*)\\.([^\\.]*)(\\.?[bdɡ]\\.?[lr])([^\\.]*)$" : "$1.ˈ$2$3$4", // words with antepenult stress, with a short vowel in the penult followed by voiced stop-liquid cluster, have stress move to the penult
     "([aeoiuɛɔɪʊ])ˈ" : "$1.ˈ",
     "^\\." : "",
     "^ek\\.(ˈ?)s(?=[^aeoiuɛɔɪʊ])" : "ɪs.$1",
