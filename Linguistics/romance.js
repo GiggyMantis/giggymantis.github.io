@@ -156,6 +156,8 @@ const default_syncope = {
 const av = /a\.β\./g;
 const au = "au̯.";
 
+const rsss_regex = /r(?=\.?ˈ?s)/g;
+
 const proto_secondpass = {
     "u̯\\.(?=[aeoiuɛɔɪʊ])" : ".w", // semivocalization in unstressed hiatus (and change of notation of /au̯/)
     "u̯" : "w",
@@ -730,6 +732,22 @@ const arom_orthography = {
     "ɲ" : "nj",
 }
 
+const megl_firstpass = {
+    "" : ""
+}
+
+const megl_orthography = {
+    "" : ""
+}
+
+const istr_firstpass = {
+    "" : ""
+}
+
+const istr_orthography = {
+    "" : ""
+}
+
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "][ː̯]?)"
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
@@ -801,6 +819,9 @@ function submit(latin_input) {
     if ($("#av-au").is(":checked")) { 
         proto_phonetic = proto_phonetic.replace(av, au);
     }
+    if ($("#rsss").is(":checked")) { 
+        proto_phonetic = proto_phonetic.replace(rsss_regex, "s");
+    }
     Object.keys(proto_secondpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_secondpass[key]));
 
     proto = proto_phonetic;
@@ -868,6 +889,18 @@ function submit(latin_input) {
     arom = arom_phonetic;
     Object.keys(arom_orthography).forEach((key) => arom = arom.replace(new RegExp(key, "g"), arom_orthography[key]));
 
+    // Evolve to Meglo-Romanian
+    megl_phonetic = proma_phonetic;
+    Object.keys(megl_firstpass).forEach((key) => megl_phonetic = megl_phonetic.replace(new RegExp(key, "g"), megl_firstpass[key]));
+    megl = megl_phonetic;
+    Object.keys(megl_orthography).forEach((key) => megl = megl.replace(new RegExp(key, "g"), megl_orthography[key]));
+
+    // Evolve to Istro-Romanian
+    istr_phonetic = proma_phonetic;
+    Object.keys(istr_firstpass).forEach((key) => istr_phonetic = istr_phonetic.replace(new RegExp(key, "g"), istr_firstpass[key]));
+    istr = istr_phonetic;
+    Object.keys(istr_orthography).forEach((key) => istr = istr.replace(new RegExp(key, "g"), istr_orthography[key]));
+
     // remember to re-break Ə-situation e in languages where it is relevant
 
 
@@ -888,4 +921,8 @@ function submit(latin_input) {
     $("#roma").val(roma);
     $("#arom_phon").val(arom_phonetic);
     $("#arom").val(arom);
+    $("#megl_phon").val(megl_phonetic);
+    $("#megl").val(megl);
+    $("#istr_phon").val(istr_phonetic);
+    $("#istr").val(istr);
 }
