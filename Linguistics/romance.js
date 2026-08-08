@@ -603,8 +603,6 @@ const roma_firstpass = {
     "(?<=[aeiouəɨ]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
     "(?<=[aeiouəɨ]\\.?ˈ?)w(\\.?ˈ?)[aə]" : "$1a", // w -> ∅ / V_[aə]
     "pt" : "t", // pt clusters reduced as in strâmt <- Latin *strinctum
-    "(?<=ˈ[^\\.]*r)i" : "ɨ", // stressed ri -> rɨ
-    "[ieə](?=r\\.ˈ?[^aeiouəɨ])" : "ɨ", // i, e, ə -> ɨ / _rC ()
 }
 
 const roma_assverb = {
@@ -614,6 +612,8 @@ const roma_assverb = {
 }
 
 const roma_secondpass = {
+    "(?<=ˈ[^\\.]*r)i" : "ɨ", // stressed ri -> rɨ
+    "[ieə](?=r\\.ˈ?[^aeiouəɨ])" : "ɨ", // i, e, ə -> ɨ / _rC ()
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
     "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
@@ -665,6 +665,8 @@ const arom_firstpass = {
     "([aieouə])\\.(ˈ?)([^aieouə])e\\(a\\)" : "$1$3.$2ja", // e(a) -> ja
     "e\\(a\\)" : "ja",
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
+    "ʧ(?=i)" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
+    "ʤ(?=i)" : "ʣ", 
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "^(ˈ?)f" : "h", // #f -> h
