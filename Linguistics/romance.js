@@ -498,7 +498,9 @@ const proma_firstpass = {
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
-    "^es\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "(?<=^[ɛe]s\\.(ˈ?))w" : "v", // esw -> esv
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "^s(?=\\.?ˈ?[bdɡv])" : "z", // s- -> z- before certain voiced consonants
     "ɔ" : "o",
     "vʲ" : "bʲ", // early palatalization outcome of vj
     "(?<=ˈ[^\\.]*)ʊ(?=\\.?[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
@@ -665,8 +667,8 @@ const arom_firstpass = {
     "([aieouə])\\.(ˈ?)([^aieouə])e\\(a\\)" : "$1$3.$2ja", // e(a) -> ja
     "e\\(a\\)" : "ja",
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
-    "ʧ(?=i)" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
-    "ʤ(?=i)" : "ʣ", 
+    "ʧ(?=[ie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
+    "ʤ(?=[ie])" : "ʣ", 
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "^(ˈ?)f" : "h", // #f -> h
@@ -716,6 +718,7 @@ const arom_orthography = {
     "(?<![aeoiuă]́?)j(?!=[ue])" : "e",
     "j" : "i",
     "(?<=[aeoiuă]́?)w" : "u",
+    "ŋ" : "n",
     "w" : "o",
     "ʤ" : "j",
     "ʧ" : "ci",
