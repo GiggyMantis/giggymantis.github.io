@@ -744,12 +744,12 @@ function latinate_stress(input) {
         // One or two syllables, stress the primary
         ret = "ˈ" + input;
     } else {
-        if (new RegExp("[^aeoiuyɛɔɪʊʏ]\\.(?!.*\\.)").test(input)) {
+        if (/[^aeoiuyɛɔɪʊʏ]\.(?!.*\.)/.test(input)) {
             // Penult is heavy, stress the penult
-            ret = ("." + input).replace(new RegExp("(\\.)(?!.*\\..*\\.)"), "ˈ$1");
+            ret = ("." + input).replace(/(\.)(?!.*\..*\.)/, "ˈ$1");
         } else {
             // Penult is liteweit, stress the antepenult
-            ret = ("." + input).replace(new RegExp("(\\.)(?!.*\\..*\\..*\\.)"), "ˈ$1");
+            ret = ("." + input).replace(/(\.)(?!.*\..*\..*\.)/, "ˈ$1");
         }
     }
 
