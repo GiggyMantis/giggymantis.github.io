@@ -737,7 +737,39 @@ const megl_firstpass = {
 }
 
 const megl_orthography = {
-    "" : ""
+    "ˈ([^aeoiuəɔɛ]{0,3})([aeoiuəɔɛ])" : "$1$2́",
+    "ˈ" : "",
+    "\\." : "",
+    "ə" : "ă",
+    "c(?!i)" : "Kʼ",
+    "c" : "k",
+    "ɟ(?!i)" : "gʼ",
+    "ɟ" : "ɡ",
+    "k(?=[jieɛ])" : "ch",
+    "ɡ(?=[jieɛ])" : "gh",
+    "k" : "c",
+    "K" : "k",
+    "ɡ" : "g",
+    "ʤ(?=[jieɛ])" : "g",
+    "ʧ(?=[jieɛ])" : "c",
+    "j(?=a)" : "e",
+    "ɔ" : "ǫ",
+    "ɛ" : "ę",
+    "j" : "i̯",
+    "ʤ" : "j",
+    "ʧ$" : "tș",
+    "ʧ" : "ci",
+    "ʎ" : "ľ",
+    "ɲ" : "ń",
+    "ʦ" : "ț",
+    "ʃ" : "ș",
+    "ŋ" : "n",
+    "w(?=a)" : "o",
+    "w": "u̯",
+}
+
+const megl_finish = {
+    "ǫ" : "ɔ"
 }
 
 const istr_firstpass = {
@@ -894,6 +926,8 @@ function submit(latin_input) {
     Object.keys(megl_firstpass).forEach((key) => megl_phonetic = megl_phonetic.replace(new RegExp(key, "g"), megl_firstpass[key]));
     megl = megl_phonetic;
     Object.keys(megl_orthography).forEach((key) => megl = megl.replace(new RegExp(key, "g"), megl_orthography[key]));
+    Object.keys(megl_finish).forEach((key) => megl_phonetic = megl_phonetic.replace(new RegExp(key, "g"), megl_finish[key]));
+
 
     // Evolve to Istro-Romanian
     istr_phonetic = proma_phonetic;
