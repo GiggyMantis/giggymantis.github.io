@@ -498,7 +498,7 @@ const proma_firstpass = {
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjw]$" : "",
     "ɪ" : "e",
-    "(?<=^[ɛe]s\\.(ˈ?))w" : "v", // esw -> esv
+    "(?<=^[ɛe]s\\.(ˈ?))w" : "b", // esw -> esb
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "^s(?=\\.?ˈ?[bdɡv])" : "z", // s- -> z- before certain voiced consonants
     "ɔ" : "o",
