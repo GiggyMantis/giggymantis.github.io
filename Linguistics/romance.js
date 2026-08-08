@@ -500,7 +500,7 @@ const proma_firstpass = {
     "ɪ" : "e",
     "(?<=^[ɛe]s\\.(ˈ?))w" : "b", // esw -> esb
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
-    "^s(?=\\.?ˈ?[bdɡv])" : "z", // s- -> z- before certain voiced consonants
+    "s(?=\\.?ˈ?[bdɡv])" : "z", // s- -> z- before certain voiced consonants
     "ɔ" : "o",
     "vʲ" : "bʲ", // early palatalization outcome of vj
     "(?<=ˈ[^\\.]*)ʊ(?=\\.?[mb])" : "o", // Latin stressed short u -> PRi *o / _m, _b
