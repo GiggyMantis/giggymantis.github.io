@@ -617,6 +617,7 @@ const roma_assverb = {
 
 const roma_secondpass = {
     "(?<=ˈ[^\\.]*r)i" : "ɨ", // stressed ri -> rɨ
+    "()a\\.a" : "a", // a.a -> a
     "[ieə](?=r\\.ˈ?[^aeiouəɨ])" : "ɨ", // i, e, ə -> ɨ / _rC ()
     "ʣ" : "z", // ʣ -> z
     "ʤ(?=[ou])" : "ʒ", // ʤ -> ʒ / _[o,u]
