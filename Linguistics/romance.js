@@ -215,6 +215,7 @@ const proto_secondpass = {
 }
 
 const proto_orthography = {
+    "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɛɔɪʊ]{0,3})([aeoiuɛɔɪʊ])" : "$1$2́",
     "ɪ" : "į",
     "ɛ" : "ę",
@@ -498,7 +499,7 @@ const proma_firstpass = {
     "j" : "ʤ", // j -> ʤ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
-    "[^aeɛiɪoɔuʊjw]$" : "",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e",
     "(?<=^[ɛe]s\\.(ˈ?))w" : "b", // esw -> esb
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -574,6 +575,7 @@ const proma_firstpass = {
 }
 
 const proma_orthography = {
+    "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
@@ -680,7 +682,7 @@ const arom_firstpass = {
     "^(ˈ?)mj" : "$1ɲ", // m-palatalization at the beginnings of words
     "^(ˈ?)m(?=i)" : "$1ɲ",
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
-    "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
+    "b(?=\\.?ˈ?[tkʦ])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
     "^([^aieouə]+)\\.(ˈ?)" : "$2$1",
     "(?<=ˈ[^\\.]*r)i" : "ə", // stressed ri -> rə
