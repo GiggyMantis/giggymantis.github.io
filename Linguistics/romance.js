@@ -639,6 +639,7 @@ const roma_secondpass = {
 }
 
 const roma_orthography = {
+    "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɨə]{0,3})([aeoiuɨə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
@@ -706,6 +707,7 @@ const arom_firstpass = {
 }
 
 const arom_orthography = {
+    "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
@@ -746,6 +748,7 @@ const megl_firstpass = {
     "^(ˈ?)o" : "$1wo", // o -> wo / #_
     "(?<=[pmvf])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "i", // somewhat complicated e -> i in specific situations. see Daco-Romanian for more details
     "e$" : "i", // -e -> -i
+    "\\.vu$" : "w", // -vu -> -w
     "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
     "\\.([^aeoiuəɨˈ]*)u$" : "$1",    
     "ʧ(?=\\.?ˈ?[jie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
@@ -758,6 +761,7 @@ const megl_firstpass = {
 }
 
 const megl_orthography = {
+    "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuəɔɛ]{0,3})([aeoiuəɔɛ])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
