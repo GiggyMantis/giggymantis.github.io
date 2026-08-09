@@ -797,14 +797,15 @@ const megl_orthography = {
 }
 
 const istr_firstpass = {
-    "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
-    "\\.([^aeoiuəɨˈ]*)u$" : "$1",
+    "([aeoiuə])\\.u$" : "$1w", // -u -> -∅
+    "\\.([^aeoiuəˈ]*)u$" : "$1",
     "v\\.(ˈ?)j(?=([^aieouə]))" : "ʎ.$1", // vj -> ʎ
     "v(\\.?ˈ?)j" : "$1ʎ",
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
     "ə$" : "ɛ", // ə -> ɛ / _#
     "w" : "v", // w -> v
     "a(?=\\.?ˈ?r)" : "ɔ", // a -> ɔ / _r 
+    "(?<=ˈ[^\\.]*)a(?![^aieouəɔɛ])" : "ɔ", // stressed a -> ɔ unless followed by a consonant cluster
 }
 
 const istr_orthography = {
