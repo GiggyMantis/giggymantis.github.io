@@ -674,7 +674,8 @@ const arom_firstpass = {
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
     "^(ˈ?)f" : "h", // #f -> h
-    "^(ˈ?)mj|^(ˈ?)m(?=i)" : "$1ɲ", // m-palatalization at the beginnings of words
+    "^(ˈ?)mj" : "$1ɲ", // m-palatalization at the beginnings of words
+    "^(ˈ?)m(?=i)" : "$1ɲ",
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
     "b(?=\\.?ˈ?[tk])" : "p", // assimilative devoicing of b as in suptsãri <- Latin subtīlem
     "^ə(?=n$)|^ə(?=\\.?n\\.?[^n\\.])|^ə(?=m\\.?[^aeiouə])" : "", // ə -> ∅ at the starts of words when before n, but not nn, or a consonant cluster starting with m
@@ -685,6 +686,10 @@ const arom_firstpass = {
     "(?<=[aeiouə]\\.?ˈ?)l(?=\\.?ˈ?[aə])" : "w", // l -> w / V_[aə]
     "v\\.(ˈ?)j(?=([^aieouə]))" : "j.$1", // vj -> j
     "v(\\.?ˈ?)j" : "$1j",
+    "^(ˈ?)v(?=i)" : "$1j", // v -> j / #_i
+    "([^aeiouəɨ])(\\.ˈ?)jə$" : "$2$1e", // -jə -> -e
+    "(?<=[aeiouəɨ]\\.j)ə$" : "e",
+    "jə$" : "e",
     "[ptk](\\.?ˈ?)je" : "$1ca", // pj, tj, kj -> c; bj, dj, ɡj -> ɟ
     "[ptk]\\.(ˈ?)j(?=([^aieouə]))" : "c.$1",
     "[ptk]\\.(ˈ?)j(?=([aieouə]))" : ".$1c", 
@@ -733,7 +738,13 @@ const arom_orthography = {
 }
 
 const megl_firstpass = {
-    "" : ""
+    "^(ˈ?)e" : "$1je", // e -> je / #_
+    "^(ˈ?)o" : "$1wo", // o -> wo / #_
+    "e$" : "i", // -e -> -i
+    "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
+    "ʧ(?=[ie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
+    "ʤ(?=[ie])" : "ʣ", 
+
 }
 
 const megl_orthography = {
@@ -773,7 +784,7 @@ const megl_finish = {
 }
 
 const istr_firstpass = {
-    "" : ""
+    "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
 }
 
 const istr_orthography = {
