@@ -847,9 +847,11 @@ function latinate_stress(input) {
 // However, we probably should't rely on it
 // If the string matches the pattern, the part of it that matches gets replaced by the value
 String.prototype.evolve = function (rules) {
-    for (const [key, value] of Object.entries(object)) {
-        this = this.replace(new RegExp(key, "g"), value);
+    var result = this;
+    for (const [key, value] of Object.entries(rules)) {
+        result = result.replace(new RegExp(key, "g"), value);
     }
+    return result;
 }
 
 
@@ -857,12 +859,12 @@ function submit(latin_input) {
     // Phoneticize Latin
     latin = String(latin_input).toLowerCase().trim().replace(/\s/g, "-");
     latin_phonetic = latin;
-    latin_phonetic.evolve(latin_firstpass);
-    latin_phonetic.evolve(latin_secondpass);
+    latin_phonetic = latin_phonetic.evolve(latin_firstpass);
+    latin_phonetic = latin_phonetic.evolve(latin_secondpass);
     
-    latin.evolve(latin_thirdpass);
+    latin_phonetic = latin_phonetic.evolve(latin_thirdpass);
     latin_phonetic = syllabify(latin_phonetic, "aeoiuyɛɔɪʊʏ");
-    latin.evolve(latin_fourthpass);
+    latin_phonetic = latin_phonetic.evolve(latin_fourthpass);
 
     latin_phonetic = latinate_stress(latin_phonetic);
 
@@ -870,10 +872,10 @@ function submit(latin_input) {
     proto_phonetic = latin_phonetic;
 
     if ($("#early-monophthongs").is(":checked")) {
-        latin.evolve(optional_early_monophthongs);
+         latin = latin.evolve(optional_early_monophthongs);
     }
 
-    proto_phonetic.evolve(proto_firstpass);
+    proto_phonetic = proto_phonetic.evolve(proto_firstpass);
     
     if ($("#v-deletion").is(":checked")) {
         proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
@@ -883,13 +885,13 @@ function submit(latin_input) {
         if ($("#assverb").is(":checked")) { 
             proto_phonetic = proto_phonetic.replace(syncope_assverb, "E");
         }
-        proto_phonetic.evolve(optional_syncope);
+        proto_phonetic .evolve(optional_syncope);
         $("#syncope").prop("checked", true);
     } else if ($("#syncope").is(":checked")) {
         if ($("#assverb").is(":checked")) { 
             proto_phonetic = proto_phonetic.replace(syncope_assverb, "E");
         }
-        proto_phonetic.evolve(default_syncope);
+        proto_phonetic = proto_phonetic.evolve(default_syncope);
     }
     if ($("#av-au").is(":checked")) { 
         proto_phonetic = proto_phonetic.replace(av, au);
@@ -897,84 +899,84 @@ function submit(latin_input) {
     if ($("#rsss").is(":checked")) { 
         proto_phonetic = proto_phonetic.replace(rsss_regex, "s");
     }
-    proto_phonetic.evolve(proto_secondpass);
+    proto_phonetic = proto_phonetic.evolve(proto_secondpass);
 
     proto = proto_phonetic;
-    proto.evolve(proto_orthography);
+    proto = proto.evolve(proto_orthography);
 
     // Evolve to Logudorese Sardinian
     logu_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
         logu_phonetic = logu_phonetic.replace(sard_assverbs, "ˈ$1.$2e.re");
     }
-    logu_phonetic.evolve(logu_firstpass);
+    logu_phonetic = logu_phonetic.evolve(logu_firstpass);
     logu = logu_phonetic;
-    logu.evolve(sard_orthography);
-    logu_phonetic.evolve(sard_finish);
+    logu = logu.evolve(sard_orthography);
+    logu_phonetic = logu_phonetic.evolve(sard_finish);
 
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
         nuor_phonetic = nuor_phonetic.replace(sard_assverbs, "ˈ$1.$2e.re");
     }
-    nuor_phonetic.evolve(nuor_firstpass);
+    nuor_phonetic = nuor_phonetic.evolve(nuor_firstpass);
     nuor = nuor_phonetic;
-    nuor.evolve(sard_orthography);
-    nuor_phonetic.evolve(sard_finish);
+    nuor = nuor.evolve(sard_orthography);
+    nuor_phonetic = nuor_phonetic.evolve(sard_finish);
 
     // Evolve to Campidanese Sardinian
     camp_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
         camp_phonetic = camp_phonetic.replace(sard_assverbs, "ˈ$1.$2e.re");
     }
-    camp_phonetic.evolve(camp_firstpass);
+    camp_phonetic = camp_phonetic.evolve(camp_firstpass);
     if ($("#assverb").is(":checked")) {
-        camp_phonetic.evolve(camp_verbs);
+        camp_phonetic = camp_phonetic.evolve(camp_verbs);
     }
     camp = camp_phonetic;
-    camp.evolve(sard_orthography);
-    camp_phonetic.evolve(sard_finish);
+    camp = camp.evolve(sard_orthography);
+    camp_phonetic = camp_phonetic.evolve(sard_finish);
 
     // Evolve to African
     afri_phonetic = proto_phonetic;
-    afri_phonetic.evolve(afri_firstpass);
+    afri_phonetic = afri_phonetic.evolve(afri_firstpass);
     afri = latin;
-    afri.evolve(latin_firstpass);
-    afri.evolve(afri_orthography);
+    afri = afri.evolve(latin_firstpass);
+    afri = afri.evolve(afri_orthography);
 
     // Evolve to Proto-Romanian
     proma_phonetic = proto_phonetic;
-    proma_phonetic.evolve(proma_firstpass);
+    proma_phonetic = proma_phonetic.evolve(proma_firstpass);
     proma = proma_phonetic;
-    proma.evolve(proma_orthography);
+    proma = proma.evolve(proma_orthography);
 
     // Evolve to Romanian
     roma_phonetic = proma_phonetic;
-    roma_phonetic.evolve(roma_firstpass);
+    roma_phonetic = roma_phonetic.evolve(roma_firstpass);
     if ($("#assverb").is(":checked")) { 
-        roma_phonetic.evolve(roma_assverb);
+        roma_phonetic = roma_phonetic.evolve(roma_assverb);
     }
-    roma_phonetic.evolve(roma_secondpass);
+    roma_phonetic = roma_phonetic.evolve(roma_secondpass);
     roma = roma_phonetic;
-    roma.evolve(roma_orthography);
+    roma = roma.evolve(roma_orthography);
 
     // Evolve to Aromanian
     arom_phonetic = proma_phonetic;
-    arom_phonetic.evolve(arom_firstpass);
+    arom_phonetic = arom_phonetic.evolve(arom_firstpass);
     arom = arom_phonetic;
-    arom.evolve(arom_orthography);
+    arom = arom.evolve(arom_orthography);
 
     // Evolve to Meglo-Romanian
     megl_phonetic = proma_phonetic;
-    megl_phonetic.evolve(megl_firstpass);
+    megl_phonetic = megl_phonetic.evolve(megl_firstpass);
     megl = megl_phonetic;
-    megl.evolve(megl_orthography);
+    megl = megl.evolve(megl_orthography);
 
     // Evolve to Istro-Romanian
     istr_phonetic = proma_phonetic;
-    istr_phonetic.evolve(istr_firstpass);
+    istr_phonetic = istr_phonetic.evolve(istr_firstpass);
     istr = istr_phonetic;
-    istr.evolve(istr_orthography);
+    istr = istr.evolve(istr_orthography);
 
     // remember to re-break Ə-situation e in languages where it is relevant
 
