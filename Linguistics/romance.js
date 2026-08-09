@@ -745,6 +745,7 @@ const megl_firstpass = {
     "\\.([^aeoiuəɨˈ]*)u$" : "$1",    
     "ʧ(?=[ie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
     "ʤ(?=[ie])" : "ʣ", 
+    "pt" : "t", // pt clusters reduced as in strimt <- Latin *strinctum
 
 }
 
@@ -778,10 +779,6 @@ const megl_orthography = {
     "ŋ" : "n",
     "w(?=a)" : "o",
     "w": "u̯",
-}
-
-const megl_finish = {
-    "ǫ" : "ɔ"
 }
 
 const istr_firstpass = {
@@ -938,8 +935,6 @@ function submit(latin_input) {
     Object.keys(megl_firstpass).forEach((key) => megl_phonetic = megl_phonetic.replace(new RegExp(key, "g"), megl_firstpass[key]));
     megl = megl_phonetic;
     Object.keys(megl_orthography).forEach((key) => megl = megl.replace(new RegExp(key, "g"), megl_orthography[key]));
-    Object.keys(megl_finish).forEach((key) => megl_phonetic = megl_phonetic.replace(new RegExp(key, "g"), megl_finish[key]));
-
 
     // Evolve to Istro-Romanian
     istr_phonetic = proma_phonetic;
