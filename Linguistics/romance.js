@@ -746,7 +746,7 @@ const megl_firstpass = {
     "ʧ(?=[ie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
     "ʤ(?=[ie])" : "ʣ", 
     "pt" : "t", // pt clusters reduced as in strimt <- Latin *strinctum
-
+    "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɔ", // ə, i -> ɔ when before n, but not nn
 }
 
 const megl_orthography = {
