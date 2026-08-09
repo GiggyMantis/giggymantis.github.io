@@ -674,7 +674,7 @@ const arom_firstpass = {
     "ʤ(?=\\.?ˈ?[jie])" : "ʣ", 
     "e$" : "i", // -e -> -i
     "^(ˈ?)s(?=k)" : "$1ʃ", // sc -> shc
-    "^(ˈ?)f" : "h", // #f -> h
+    "^(ˈ?)f(?=[aieouə])" : "$1h", // f -> h / #_V
     "^(ˈ?)mj" : "$1ɲ", // m-palatalization at the beginnings of words
     "^(ˈ?)m(?=i)" : "$1ɲ",
     "pt" : "t", // pt clusters reduced as in strimtu <- Latin *strinctum
