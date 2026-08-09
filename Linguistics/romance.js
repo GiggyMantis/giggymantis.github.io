@@ -747,7 +747,7 @@ const megl_firstpass = {
     "ʤ(?=[ie])" : "ʣ", 
     "pt" : "t", // pt clusters reduced as in strimt <- Latin *strinctum
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɔ", // ə, i -> ɔ when before n, but not nn
-    "v\\.(ˈ?)j(?=([^aieouə]))" : "ɟ.$1", // vj -> ɟ
+    "v\\.(ˈ?)j(?=([^aieouəɔ]))" : "ɟ.$1", // vj -> ɟ
     "v(\\.?ˈ?)j" : "$1ɟ",
 }
 
@@ -756,9 +756,9 @@ const megl_orthography = {
     "ˈ" : "",
     "\\." : "",
     "ə" : "ă",
-    "c(?!i)" : "Kʼ",
+    "c(?![jieɛ])" : "Kʼ",
     "c" : "k",
-    "ɟ(?!i)" : "gʼ",
+    "ɟ(?![jieɛ])" : "gʼ",
     "ɟ" : "ɡ",
     "k(?=[jieɛ])" : "ch",
     "ɡ(?=[jieɛ])" : "gh",
@@ -785,7 +785,10 @@ const megl_orthography = {
 
 const istr_firstpass = {
     "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
-    "\\.([^aeoiuəɨˈ]*)u$" : "$1",}
+    "\\.([^aeoiuəɨˈ]*)u$" : "$1",
+    "v\\.(ˈ?)j(?=([^aieouə]))" : "ʎ.$1", // vj -> ʎ
+    "v(\\.?ˈ?)j" : "$1ʎ",
+}
 
 const istr_orthography = {
     "" : ""
