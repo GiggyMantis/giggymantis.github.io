@@ -724,7 +724,9 @@ const arom_orthography = {
     "^j(?=[aeoiuă])" : "y",
     "(?<=[aeoiuă]́?)j" : "i",
     "j(?=e)" : "i",
-    "(?<![aeoiuă]́?)j(?!=[ue])" : "e",
+    "(?<![aeoiuă]́?)j(?!=[ue])" : "J",
+    "^J" : "j",
+    "J" : "e",
     "j" : "i",
     "(?<=[aeoiuă]́?)w" : "u",
     "ŋ" : "n",
@@ -796,6 +798,7 @@ const istr_firstpass = {
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
     "ə$" : "ɛ", // ə -> ɛ / _#
     "w" : "v", // w -> v
+    "a(?=\\.?ˈ?r)" : "ɔ", // a -> ɔ / _r 
 }
 
 const istr_orthography = {
