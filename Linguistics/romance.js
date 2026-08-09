@@ -809,19 +809,39 @@ const istr_firstpass = {
 }
 
 const istr_orthography = {
-    "" : ""
-}
-
-//Proto-Italo-Western
-const pitwe_firstpass = {
-    "ɪ" : "e", // Vowel collapse
-    "ʊ" : "o",
-    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "k$1kʲ", // gemination of kj
-    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "^ˈ(?!.*\\.)" : "",
+    "ˈ([^aeoiuɨə]{0,3})([aeoiuɨə])" : "$1$2́",
+    "ˈ" : "",
+    "\\." : "",
+    "ə" : "ă",
+    "k(?=[jie])" : "ch",
+    "ɡ(?=[jie])" : "gh",
+    "k": "c",
+    "ɡ" : "g",
+    "ʤ(?=[jie])" : "g",
+    "ʧ(?=[jie])" : "c",
+    "(?<=[aeoiuɨă]́?)j" : "i",
+    "j(?=e)" : "i",
+    "(?<![aeoiuɨă]́?)j(?!=[ue])" : "e",
+    "j" : "i",
+    "(?<=[aeoiuɨă]́?)w" : "u",
+    "ŋ" : "n",
+    "w" : "o",
+    "ʤ" : "gi",
+    "ʒ" : "j",
+    "ʧ" : "ci",
+    "ʦ" : "ț",
+    "ʃ" : "ș",
+    "^ɨ|ɨ$" : "î",
+    "ɨ" : "â",
 }
 
 //Old Gallo-Romance
 const ogall_firstpass = {
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "k$1kʲ", // gemination of kj
+    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "β": "v",
     "[kt]ʲ": "ʦʲ",
     "[dg]ʲ": "j", // TODO: divergent dj gj?
@@ -842,8 +862,8 @@ const ogall_firstpass = {
 
 // Early Old French
 const eofren_firstpass = {
-    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?![̂\\.].)" = "$1ː", // vowels lengthen in stressed open syllables
-    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])j" = "$1ːj", // vowels lengthen in closed syllables with a final palatalized consonant
+    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?![̂\\.].)" : "$1ː", // vowels lengthen in stressed open syllables
+    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])j" : "$1ːj", // vowels lengthen in closed syllables with a final palatalized consonant
     "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?=[^ieɛaɔou]+ʲ)" = "$1ː",
     "ɛː": "ie̯", // Diphthongization of open-mid vowels /ɛː, ɔː/
     "ɔː": "uo̯",
@@ -1052,23 +1072,13 @@ function submit(latin_input) {
     istr_phonetic = istr_phonetic.evolve(istr_firstpass);
     istr = istr_phonetic;
     istr = istr.evolve(istr_orthography);
-
-    // remember to re-break Ə-situation e in languages where it is relevant (comment duplicated)
-    
-    // Evolve to Proto-Italo-Western
-    pitwe_phonetic = proto_phonetic;
-    pitwe_phonetic = pitwe_phonetic.evolve(pitwe_firstpass);
-    pitwe = pitwe_phonetic;
-    pitwe = pitwe.evolve(proto_orthography);
     
     // Evolve to Old Gallo-Romance
-    ogall_phonetic = pitwe_phonetic;
+    ogall_phonetic = proto_phonetic;
     ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
     ogall = ogall_phonetic;
     //ogall = ogall.evolve(ogall_orthography);
     
-    // remember to re-break Ə-situation e in languages where it is relevant (comment duplicated)
-
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
     $("#proto_phon").val(proto_phonetic);
@@ -1090,8 +1100,6 @@ function submit(latin_input) {
     $("#megl").val(megl);
     $("#istr_phon").val(istr_phonetic);
     $("#istr").val(istr);
-    $("#pitwe_phon").val(pitwe_phonetic);
-    $("#pitwe").val(pitwe);
     $("#ogall_phon").val(ogall_phonetic);
     $("#ogall").val(ogall);
 }
