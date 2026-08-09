@@ -742,6 +742,7 @@ const megl_firstpass = {
     "^(ˈ?)o" : "$1wo", // o -> wo / #_
     "e$" : "i", // -e -> -i
     "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
+    "\\.([^aeoiuəɨˈ]*)u$" : "$1",    
     "ʧ(?=[ie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
     "ʤ(?=[ie])" : "ʣ", 
 
@@ -785,7 +786,7 @@ const megl_finish = {
 
 const istr_firstpass = {
     "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
-}
+    "\\.([^aeoiuəɨˈ]*)u$" : "$1",}
 
 const istr_orthography = {
     "" : ""
