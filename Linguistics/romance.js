@@ -599,8 +599,8 @@ const proma_orthography = {
 const roma_firstpass = {
     "\\(a\\)" : "", // -j(a) -> -e
     "(?<=ˈ[^\\.]*r)e" : "ə", // stressed re -> rə
-    "(?<=[pmv])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "ə", // somewhat complicated ea -> e, e -> ə in specific situations. doesn't occur in Țara Hațegului dialect if i ever want to include that as a feature.
-    "([pmv])(\\.?ˈ?)ja(?=[^\\.]*\\.?[^\\.]*[aouə])" : "$2$1e", 
+    "(?<=[pmvf])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "ə", // somewhat complicated ea -> e, e -> ə in specific situations. doesn't occur in Țara Hațegului dialect if i ever want to include that as a feature.
+    "([pmvf])(\\.?ˈ?)ja(?=[^\\.]*\\.?[^\\.]*[aouə])" : "$2$1e", 
     "a(?=[^\\.]*\\.?[^\\.]*[i])" : "ə", // a -> ə harmonically if i is in the next syllable
     "[ɲʎ]" : "j", // ɲ, ʎ -> j
     "[əi](?=n$)|[əi](?=\\.?n\\.?[^n\\.])|[əi](?=m\\.?[^aeiouə])" : "ɨ", // ə, i -> ɨ when before n, but not nn, or a consonant cluster starting with m
@@ -669,6 +669,7 @@ const roma_orthography = {
 const arom_firstpass = {
     "([aieouə])\\.(ˈ?)([^aieouə])e\\(a\\)" : "$1$3.$2ja", // e(a) -> ja
     "e\\(a\\)" : "ja",
+    "(?<=[pmvf])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "i", // somewhat complicated e -> i in specific situations. see Daco-Romanian for more details
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
     "ʧ(?=\\.?ˈ?[jie])" : "ʦ", // ʧi -> ʦi, ʤi -> ʣi
     "ʤ(?=\\.?ˈ?[jie])" : "ʣ", 
@@ -741,6 +742,7 @@ const arom_orthography = {
 const megl_firstpass = {
     "^(ˈ?)e" : "$1je", // e -> je / #_
     "^(ˈ?)o" : "$1wo", // o -> wo / #_
+    "(?<=[pmvf])e(?=[^\\.]*\\.?[^\\.]*[aouə])" : "i", // somewhat complicated e -> i in specific situations. see Daco-Romanian for more details
     "e$" : "i", // -e -> -i
     "([aeoiuəɨ])\\.u$" : "$1w", // -u -> -∅
     "\\.([^aeoiuəɨˈ]*)u$" : "$1",    
