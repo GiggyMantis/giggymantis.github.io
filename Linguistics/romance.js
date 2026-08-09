@@ -878,7 +878,7 @@ const eofren_firstpass = {
     "(?<=[ieɛa]ː?̯?\\.?ˈ?)ɣa": "ja",
     // TODO: [ɣ] also becomes a palatal glide [i̯] in the suffixes -īcum and -(i)ācum
     "j(\\.?ˈ?)([tdr])": "$1$2ʲ", // Where intertonic vowel loss had brought [j] into contact with following [d r t n], it palatalized them
-    "j(\\.?ˈ?)n": "$1ɲ"
+    "j(\\.?ˈ?)n": "$1ɲ",
     "[pf]ʲ": "ʧ", // palatalization of labials
     "[bv]ʲ": "ʤ",
     "mʲ": "nʤ",
