@@ -884,10 +884,10 @@ const eofren_firstpass = {
     "mʲ": "nʤ",
     "(?<![ieɛaɔouː̯](\\.?ˈ?))j": "ʤ", // fortition of j
     // TODO: Morphemic [-arʲ-] in inherited words becomes [-ie̯r-] instead of [-ajr-]
-    "(?<=[ieɛaɔouː])s(\\.?ˈ?)sʲ": "js$1sʲ" // The glide j develops between a vowel and a following palatalized consonant in some cases
-    "(?<=[ieɛaɔouː])(\\.?ˈ?[zʣ])ʲ": "j$1ʲ"
-    "(?<=[ieɛaɔouː])ɲ": "jɲ"
-    "ː(?=[wj])": ""
+    "(?<=[ieɛaɔouː])s(\\.?ˈ?)sʲ": "js$1sʲ", // The glide j develops between a vowel and a following palatalized consonant in some cases
+    "(?<=[ieɛaɔouː])(\\.?ˈ?[zʣ])ʲ": "j$1ʲ",
+    "(?<=[ieɛaɔouː])ɲ": "jɲ",
+    "ː(?=[wj])": "",
     "eː": "ej", // vowel changes
     "oː": "ow",
     "aː(?!mnɲŋ)": "æː",
