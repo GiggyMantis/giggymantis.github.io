@@ -842,17 +842,27 @@ function latinate_stress(input) {
     return ret;
 }
 
+// Test against each key(pattern)-value pair individually
+// Technically since 2015 the order is guaranteed to be the insertion order
+// However, we probably should't rely on it
+// If the string matches the pattern, the part of it that matches gets replaced by the value
+String.prototype.evolve = function (rules) {
+    for (const [key, value] of Object.entries(object)) {
+        this = this.replace(new RegExp(key, "g"), value);
+    }
+}
+
 
 function submit(latin_input) {
     // Phoneticize Latin
     latin = String(latin_input).toLowerCase().trim().replace(/\s/g, "-");
-    latin_phonetic = latin
-    latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
-    latin_phonetic = latin_phonetic.replace(new RegExp(Object.keys(latin_secondpass).join("|"), "g"), (matched) => latin_secondpass[matched]);
+    latin_phonetic = latin;
+    latin_phonetic.evolve(latin_firstpass);
+    latin_phonetic.evolve(latin_secondpass);
     
-    Object.keys(latin_thirdpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_thirdpass[key]));
+    latin.evolve(latin_thirdpass);
     latin_phonetic = syllabify(latin_phonetic, "aeoiuyɛɔɪʊʏ");
-    Object.keys(latin_fourthpass).forEach((key) => latin_phonetic = latin_phonetic.replace(new RegExp(key, "g"), latin_fourthpass[key]));
+    latin.evolve(latin_fourthpass);
 
     latin_phonetic = latinate_stress(latin_phonetic);
 
@@ -860,10 +870,11 @@ function submit(latin_input) {
     proto_phonetic = latin_phonetic;
 
     if ($("#early-monophthongs").is(":checked")) {
-        Object.keys(optional_early_monophthongs).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_early_monophthongs[key]));
+        latin.evolve(optional_early_monophthongs);
     }
 
-    Object.keys(proto_firstpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_firstpass[key]));
+    proto_phonetic.evolve(proto_firstpass);
+    
     if ($("#v-deletion").is(":checked")) {
         proto_phonetic = proto_phonetic.replace(optional_v_deletion, "");
     }
@@ -872,13 +883,13 @@ function submit(latin_input) {
         if ($("#assverb").is(":checked")) { 
             proto_phonetic = proto_phonetic.replace(syncope_assverb, "E");
         }
-        Object.keys(optional_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), optional_syncope[key]));
+        proto_phonetic.evolve(optional_syncope);
         $("#syncope").prop("checked", true);
     } else if ($("#syncope").is(":checked")) {
         if ($("#assverb").is(":checked")) { 
             proto_phonetic = proto_phonetic.replace(syncope_assverb, "E");
         }
-        Object.keys(default_syncope).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), default_syncope[key]));
+        proto_phonetic.evolve(default_syncope);
     }
     if ($("#av-au").is(":checked")) { 
         proto_phonetic = proto_phonetic.replace(av, au);
@@ -886,84 +897,84 @@ function submit(latin_input) {
     if ($("#rsss").is(":checked")) { 
         proto_phonetic = proto_phonetic.replace(rsss_regex, "s");
     }
-    Object.keys(proto_secondpass).forEach((key) => proto_phonetic = proto_phonetic.replace(new RegExp(key, "g"), proto_secondpass[key]));
+    proto_phonetic.evolve(proto_secondpass);
 
     proto = proto_phonetic;
-    Object.keys(proto_orthography).forEach((key) => proto = proto.replace(new RegExp(key, "g"), proto_orthography[key]));
+    proto.evolve(proto_orthography);
 
     // Evolve to Logudorese Sardinian
     logu_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
         logu_phonetic = logu_phonetic.replace(sard_assverbs, "ˈ$1.$2e.re");
     }
-    Object.keys(logu_firstpass).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), logu_firstpass[key]));
+    logu_phonetic.evolve(logu_firstpass);
     logu = logu_phonetic;
-    Object.keys(sard_orthography).forEach((key) => logu = logu.replace(new RegExp(key, "g"), sard_orthography[key]));
-    Object.keys(sard_finish).forEach((key) => logu_phonetic = logu_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
+    logu.evolve(sard_orthography);
+    logu_phonetic.evolve(sard_finish);
 
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
         nuor_phonetic = nuor_phonetic.replace(sard_assverbs, "ˈ$1.$2e.re");
     }
-    Object.keys(nuor_firstpass).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), nuor_firstpass[key]));
+    nuor_phonetic.evolve(nuor_firstpass);
     nuor = nuor_phonetic;
-    Object.keys(sard_orthography).forEach((key) => nuor = nuor.replace(new RegExp(key, "g"), sard_orthography[key]));
-    Object.keys(sard_finish).forEach((key) => nuor_phonetic = nuor_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
+    nuor.evolve(sard_orthography);
+    nuor_phonetic.evolve(sard_finish);
 
     // Evolve to Campidanese Sardinian
     camp_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
         camp_phonetic = camp_phonetic.replace(sard_assverbs, "ˈ$1.$2e.re");
     }
-    Object.keys(camp_firstpass).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_firstpass[key]));
-    if ($("#assverb").is(":checked")) { 
-        Object.keys(camp_verbs).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), camp_verbs[key]));
+    camp_phonetic.evolve(camp_firstpass);
+    if ($("#assverb").is(":checked")) {
+        camp_phonetic.evolve(camp_verbs);
     }
     camp = camp_phonetic;
-    Object.keys(sard_orthography).forEach((key) => camp = camp.replace(new RegExp(key, "g"), sard_orthography[key]));
-    Object.keys(sard_finish).forEach((key) => camp_phonetic = camp_phonetic.replace(new RegExp(key, "g"), sard_finish[key]));
+    camp.evolve(sard_orthography);
+    camp_phonetic.evolve(sard_finish);
 
     // Evolve to African
     afri_phonetic = proto_phonetic;
-    Object.keys(afri_firstpass).forEach((key) => afri_phonetic = afri_phonetic.replace(new RegExp(key, "g"), afri_firstpass[key]));
+    afri_phonetic.evolve(afri_firstpass);
     afri = latin;
-    afri = afri.replace(new RegExp(Object.keys(latin_firstpass).join("|"), "g"), (matched) => latin_firstpass[matched]);
-    Object.keys(afri_orthography).forEach((key) => afri = afri.replace(new RegExp(key, "g"), afri_orthography[key]));
+    afri.evolve(latin_firstpass);
+    afri.evolve(afri_orthography);
 
     // Evolve to Proto-Romanian
     proma_phonetic = proto_phonetic;
-    Object.keys(proma_firstpass).forEach((key) => proma_phonetic = proma_phonetic.replace(new RegExp(key, "g"), proma_firstpass[key]));
+    proma_phonetic.evolve(proma_firstpass);
     proma = proma_phonetic;
-    Object.keys(proma_orthography).forEach((key) => proma = proma.replace(new RegExp(key, "g"), proma_orthography[key]));
+    proma.evolve(proma_orthography);
 
     // Evolve to Romanian
     roma_phonetic = proma_phonetic;
-    Object.keys(roma_firstpass).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_firstpass[key]));
+    roma_phonetic.evolve(roma_firstpass);
     if ($("#assverb").is(":checked")) { 
-        Object.keys(roma_assverb).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_assverb[key]));
+        roma_phonetic.evolve(roma_assverb);
     }
-    Object.keys(roma_secondpass).forEach((key) => roma_phonetic = roma_phonetic.replace(new RegExp(key, "g"), roma_secondpass[key]));
+    roma_phonetic.evolve(roma_secondpass);
     roma = roma_phonetic;
-    Object.keys(roma_orthography).forEach((key) => roma = roma.replace(new RegExp(key, "g"), roma_orthography[key]));
+    roma.evolve(roma_orthography);
 
     // Evolve to Aromanian
     arom_phonetic = proma_phonetic;
-    Object.keys(arom_firstpass).forEach((key) => arom_phonetic = arom_phonetic.replace(new RegExp(key, "g"), arom_firstpass[key]));
+    arom_phonetic.evolve(arom_firstpass);
     arom = arom_phonetic;
-    Object.keys(arom_orthography).forEach((key) => arom = arom.replace(new RegExp(key, "g"), arom_orthography[key]));
+    arom.evolve(arom_orthography);
 
     // Evolve to Meglo-Romanian
     megl_phonetic = proma_phonetic;
-    Object.keys(megl_firstpass).forEach((key) => megl_phonetic = megl_phonetic.replace(new RegExp(key, "g"), megl_firstpass[key]));
+    megl_phonetic.evolve(megl_firstpass);
     megl = megl_phonetic;
-    Object.keys(megl_orthography).forEach((key) => megl = megl.replace(new RegExp(key, "g"), megl_orthography[key]));
+    megl.evolve(megl_orthography);
 
     // Evolve to Istro-Romanian
     istr_phonetic = proma_phonetic;
-    Object.keys(istr_firstpass).forEach((key) => istr_phonetic = istr_phonetic.replace(new RegExp(key, "g"), istr_firstpass[key]));
+    istr_phonetic.evolve(istr_firstpass);
     istr = istr_phonetic;
-    Object.keys(istr_orthography).forEach((key) => istr = istr.replace(new RegExp(key, "g"), istr_orthography[key]));
+    istr.evolve(istr_orthography);
 
     // remember to re-break Ə-situation e in languages where it is relevant
 
