@@ -190,7 +190,7 @@ const proto_secondpass = {
     "(?<=\\.)([^aeoiuɛɔɪʊ]+)ˈ([^aeoiuɛɔɪʊ\\.ˈ]+)" : "ˈ$1$2",
     "(?<=\\.)(ˈ?[^aeoiuɛɔɪʊ\\.]*)\\.([aeoiuɛɔɪʊ])" : "$1$2",
     "ɡ(?=\\.?m)" : "w", // gm -> wm
-    "(?<=[aeoiuɛɔɪʊ])\\.k\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
+    "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "ˈ\\." : ".ˈ", // I am actually so confused as to what the cause of this is but this band-aid fix should work for now 
     "ʊ(?=\\.?ˈ?[ɪij])" : "u", // raising of u before i/j
     "\\.ks" : ".s", // ks -> s before or after a consonant, or at the end of multisyllabic words
@@ -812,6 +812,80 @@ const istr_orthography = {
     "" : ""
 }
 
+//Proto-Italo-Western
+const pitwe_firstpass = {
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "k$1kʲ", // gemination of kj
+    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+}
+
+//Old Gallo-Romance
+const ogall_firstpass = {
+    "β": "v",
+    "[kt]ʲ": "ʦʲ",
+    "[dg]ʲ": "j", // TODO: divergent dj gj?
+    "k(\\.?ˈ?)l": "$1ʎ", // /ɡl/ and /kl/ become /ʎ/
+    "k(\\.?ˈ?)([ts])": "j$1$2", // /kt/ > /jt/ and /ks/ > /js/
+    "(?<=[ieɛaɔou]\\.?ˈ?)[fb](?=ʲ?[aeɛioɔur])": "v", // intervocalic lenition
+    "(?<=[ieɛaɔou]\\.?ˈ?)d(?=[aeɛioɔur])": "ð",
+    "(?<=[ieɛaɔou]\\.?ˈ?)s(?=ʲ?[aeɛioɔur])": "z",
+    "(?<=[ieɛaɔou]\\.?ˈ?)g(?=aeɛioɔur])": "ɣ",
+    "(?<=[ieɛaɔou]\\.?ˈ?)p(?=ʲ?[aeɛioɔur])": "b",
+    "(?<=[ieɛaɔou]\\.?ˈ?)t(?=[aeɛioɔur])": "d",
+    "(?<=[ieɛaɔou]\\.?ˈ?)ʦ(?=ʲ?[aeɛioɔur])": "ʣ",
+    "(?<=[ieɛaɔou]\\.?ˈ?)k(?=[aeɛioɔur])": "g",
+    // TODO: give option to put loss of intertonic non-a vowel here
+    "e(?=[^ieɛaɔou]*[ij])": "i", // Vowels /e/ and /o/ are raised to /i/ and /u/, when preceding a syllable containing /i/ or /j/
+    "o(?=[^ieɛaɔou]*[ij])": "u",
+}   
+
+// Early Old French
+const eofren_firstpass = {
+    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?![̂\\.].)" = "$1ː", // vowels lengthen in stressed open syllables
+    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])j" = "$1ːj", // vowels lengthen in closed syllables with a final palatalized consonant
+    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?=[^ieɛaɔou]+ʲ)" = "$1ː",
+    "ɛː": "ie̯", // Diphthongization of open-mid vowels /ɛː, ɔː/
+    "ɔː": "uo̯",
+    "(?<=[ieɛaɔouː̯]\\.?ˈ?)b(?=ʲ?[aeɛioɔur])": "v", // intervocalic lenition
+    "(?<=[ieɛaɔouː̯]\\.?ˈ?)d(?=[aeɛioɔur])": "ð",
+    "(?<=[ieɛaɔouː̯]\\.?ˈ?)g(?=[aeɛioɔur])": "ɣ",
+    // TODO: progressive assimilation after [j, β, b]
+    "k(\\.?ˈ?)ka": "t$1ʧa",
+    "g(\\.?ˈ?)ga": "d$1ʤa",
+    "ka": "ʧa", // palatalization before a
+    "ga": "ʤa",
+    "(?<=[ieɛa]ː?̯?\\.?ˈ?)ɣa": "ja",
+    // TODO: [ɣ] also becomes a palatal glide [i̯] in the suffixes -īcum and -(i)ācum
+    "j(\\.?ˈ?)([tdr])": "$1$2ʲ", // Where intertonic vowel loss had brought [j] into contact with following [d r t n], it palatalized them
+    "j(\\.?ˈ?)n": "$1ɲ"
+    "[pf]ʲ": "ʧ", // palatalization of labials
+    "[bv]ʲ": "ʤ",
+    "mʲ": "nʤ",
+    "(?<![ieɛaɔouː̯](\\.?ˈ?))j": "ʤ", // fortition of j
+    // TODO: Morphemic [-arʲ-] in inherited words becomes [-ie̯r-] instead of [-ajr-]
+    "(?<=[ieɛaɔouː])s(\\.?ˈ?)sʲ": "js$1sʲ" // The glide j develops between a vowel and a following palatalized consonant in some cases
+    "(?<=[ieɛaɔouː])(\\.?ˈ?[zʣ])ʲ": "j$1ʲ"
+    "(?<=[ieɛaɔouː])ɲ": "jɲ"
+    "ː(?=[wj])": ""
+    "eː": "ej", // vowel changes
+    "oː": "ow",
+    "aː(?!mnɲŋ)": "æː",
+    "(?<=[jʲʧʤ])aː": "ie̯",
+    "aː": "aj",
+    "u(?!o|̯)": "y",
+    "a(\\.?ˈ?)w": "ɔ",
+    "(?<=[jʲʧʤ])ai̯": "i",
+    "(?<=[jʲʧʤ])ei̯": "i",
+    "ie̯j": "i",
+    "uo̯j": "uj",
+    // TODO: n unstressed final syllables, all vowels except /a/ are lost, unless this loss would result in an impermissible final cluster. In that case, the vowel is retained as [ə]
+    "(?<=[ieɛaɔouː̯]\\.?ˈ?)ʣ(?=ʲ?[aeɛioɔur])": "z", // deaffrication of dz
+    "([^ieɛaɔoy])(\\.|ˈ)\1": "$2$1", // degemination
+    "t(\\.?ˈ?)([ʦʧ])": "$1$2",
+    "d(\\.?ˈ?)([ʣʤ])": "$1$2",
+}  
+
 function syllabify(input, vowels) {
     const v_regex = "([" + vowels + "][ː̯]?)"
     const v_regex_exclusive = "(?=[" + vowels + "])(?!.̯)"
@@ -850,6 +924,7 @@ String.prototype.evolve = function (rules) {
     var result = this;
     for (const [key, value] of Object.entries(rules)) {
         result = result.replace(new RegExp(key, "g"), value);
+        //console.log(result + "\n" + key + "\n" + value + "\n\n");
     }
     return result;
 }
@@ -978,8 +1053,21 @@ function submit(latin_input) {
     istr = istr_phonetic;
     istr = istr.evolve(istr_orthography);
 
-    // remember to re-break Ə-situation e in languages where it is relevant
-
+    // remember to re-break Ə-situation e in languages where it is relevant (comment duplicated)
+    
+    // Evolve to Proto-Italo-Western
+    pitwe_phonetic = proto_phonetic;
+    pitwe_phonetic = pitwe_phonetic.evolve(pitwe_firstpass);
+    pitwe = pitwe_phonetic;
+    pitwe = pitwe.evolve(proto_orthography);
+    
+    // Evolve to Old Gallo-Romance
+    ogall_phonetic = pitwe_phonetic;
+    ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
+    ogall = ogall_phonetic;
+    //ogall = ogall.evolve(ogall_orthography);
+    
+    // remember to re-break Ə-situation e in languages where it is relevant (comment duplicated)
 
     $("#latinphon").val(latin_phonetic);
     $("#proto").val(proto);
@@ -1002,4 +1090,8 @@ function submit(latin_input) {
     $("#megl").val(megl);
     $("#istr_phon").val(istr_phonetic);
     $("#istr").val(istr);
+    $("#pitwe_phon").val(pitwe_phonetic);
+    $("#pitwe").val(pitwe);
+    $("#ogall_phon").val(ogall_phonetic);
+    $("#ogall").val(ogall);
 }
