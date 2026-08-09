@@ -660,7 +660,7 @@ see: https: //codepen.io/paceaux/pen/mdmBPPx
         #Font #FontFamilies #Typeface
     =====*/
     --formBaseFontFamily: var(--baseFontFamily, 'Georgia', 'Times New Roman', 'serif');
-    --formTitleFontFamily: var(--titleFontFamily, 'Helvetica', 'Arial', 'sans-serif');
+    --formTitleFontFamily: var(--titleFontFamily, 'Arial', 'sans-serif');
 
     /*=====
         #Border
