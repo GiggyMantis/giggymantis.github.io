@@ -864,7 +864,7 @@ const ogall_firstpass = {
 const eofren_firstpass = {
     "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?![̂\\.].)" : "$1ː", // vowels lengthen in stressed open syllables
     "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])j" : "$1ːj", // vowels lengthen in closed syllables with a final palatalized consonant
-    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?=[^ieɛaɔou]+ʲ)" = "$1ː",
+    "(?<=ˈ[^ieɛaɔou])([ieɛaɔou])(?=[^ieɛaɔou]+ʲ)" : "$1ː",
     "ɛː": "ie̯", // Diphthongization of open-mid vowels /ɛː, ɔː/
     "ɔː": "uo̯",
     "(?<=[ieɛaɔouː̯]\\.?ˈ?)b(?=ʲ?[aeɛioɔur])": "v", // intervocalic lenition
