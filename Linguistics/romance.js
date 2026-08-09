@@ -805,7 +805,7 @@ const istr_firstpass = {
     "ə$" : "ɛ", // ə -> ɛ / _#
     "w" : "v", // w -> v
     "a(?=\\.?ˈ?r)" : "ɔ", // a -> ɔ / _r 
-    "(?<=ˈ[^\\.]*)a(?![^aieouəɔɛ])" : "ɔ", // stressed a -> ɔ unless followed by a consonant cluster
+    "(?<=ˈ[^\\.]*)a(?!\\.)" : "ɔ", // stressed a -> ɔ unless followed by a consonant cluster
 }
 
 const istr_orthography = {
