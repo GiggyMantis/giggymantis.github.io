@@ -63,6 +63,8 @@ const latin_fourthpass = {
     "(l)$" : "ɫ",
     "(l)\\.(?=[^lɫ])" : "ɫ.",
     "l.ɫ" : "l.l",
+    "(?<=^[^\\.]{0-3}[aeiouy])(ː?)[nm]s$" : "$1̃s", // Nasalization in monosyllables (doesn't affect length at all)
+    "(?<=^[^\\.]{0-3})([aeiouy]ː?)([nm])$" : "̃",
     "(?<=[aeiouy])ː?[nm](\\.?)(s)" : "̃ː$1s", // Nasalization
     "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s",
     "(ː[nm])$" : "̃ː",
@@ -916,7 +918,11 @@ const dalm_secondpass = {
 }
 
 const dalm_orthography = {
-    "" : ""
+    "^ˈ(?!.*\\.)" : "",
+    "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
+    "ˈ" : "",
+    "\\." : "",
+
 }
 
 
