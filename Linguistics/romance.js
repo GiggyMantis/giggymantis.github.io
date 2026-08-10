@@ -572,6 +572,7 @@ const proma_firstpass = {
     "([^aeiouə\\.ˈ\\(\\)])\\.(ˈ?)(?=\\1)" : ".$2",
     "(.)(?=\\1)" : "",
     "s(\\.?ˈ?)ʧ" : "ʃ$1t", // sch -> sht
+    "ʎj" : "ʎ", // lol
 }
 
 const proma_orthography = {
