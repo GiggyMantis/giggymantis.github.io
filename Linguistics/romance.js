@@ -805,34 +805,34 @@ const istr_firstpass = {
     "v\\.(ˈ?)j(?=([^aieouə]))" : "ʎ.$1", // vj -> ʎ
     "v(\\.?ˈ?)j" : "$1ʎ",
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
-    "ə$" : "ɛ", // ə -> ɛ / _#
+    "ə$" : "æ", // ə -> æ / _#
     "w" : "v", // w -> v
-    "a(?=\\.?ˈ?r)" : "ɔ", // a -> ɔ / _r 
-    "(?<=ˈ[^\\.]*)a(?![^aieouəɔɛ]\\.)" : "ɔ", // stressed a -> ɔ unless followed by a consonant cluster
-    "(?<=[aieouəɔɛ]\\.)n(?=[aieouəɔɛ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
+    "a(?=\\.?ˈ?r)" : "ɒ", // a -> ɒ / _r 
+    "(?<=ˈ[^\\.]*)a(?![^aieouəɒæ]\\.)" : "ɒ", // stressed a -> ɒ unless followed by a consonant cluster
+    "(?<=[aieouəɒæ]\\.)n(?=[aieouəɒæ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
 }
 
 const istr_assverb = {
-    "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "ɛ", // stressed -ere -> -ɛ
-    "(?<=[ɔei])\\.re$" : "",
+    "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "æ", // stressed -ere -> -æ
+    "(?<=[ɒei])\\.re$" : "",
 }
 
 const istr_orthography = {
     "^ˈ(?!.*\\.)" : "",
-    "ˈ([^aeoiuəɔɛ]{0,3})([aeoiuəɔɛ])" : "$1$2́",
+    "ˈ([^aeoiuəɒæ]{0,3})([aeoiuəɒæ])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
-    "k(?=[jieɛ])" : "ch",
-    "ɡ(?=[jieɛ])" : "gh",
+    "k(?=[jieæ])" : "ch",
+    "ɡ(?=[jieæ])" : "gh",
     "k": "c",
     "ɡ" : "g",
-    "ʤ(?=[jieɛ])" : "g",
-    "ʧ(?=[jieɛ])" : "c",
-    "(?<=[aeoiuəɔɛ]́?)j" : "ĭ",
+    "ʤ(?=[jieæ])" : "g",
+    "ʧ(?=[jieæ])" : "c",
+    "(?<=[aeoiuəɒæ]́?)j" : "ĭ",
     "j(?=e)" : "ĭ",
-    "(?<![aeoiuəɔɛ]́?)j(?!=[ueɛ])" : "e",
+    "(?<![aeoiuəɒæ]́?)j(?!=[ueæ])" : "e",
     "j" : "ĭ",
-    "(?<=[aeoiuəɔɛ]́?)w" : "ŭ",
+    "(?<=[aeoiuəɒæ]́?)w" : "ŭ",
     "ŋ" : "n",
     "w" : "o",
     "ʎ" : "ľ",
@@ -843,10 +843,9 @@ const istr_orthography = {
     "ʦ" : "ț",
     "ʣ" : "ḑ",
     "ʃ" : "ș",
-    "ə" : "ă",
-    "ɔ" : "å",
-    "ɛ" : "ę",
-    "ɨ" : "â",
+    "ɒ" : "å",
+    "æ" : "ę",
+    "ə" : "â",
 }
 
 //Old Gallo-Romance
