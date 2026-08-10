@@ -855,7 +855,7 @@ const dalm_firstpass = {
     "(?<=ˈ([^\\.]*))o\\.?" : "a.w",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
-    "\\.([^ˈ]+)[eo]$" : "$1", // loss of word-final e, o
+    "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
     "[eo]$" : "", 
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "w.ˈa", // ɔ -> wa
     "ɔ" : "wa",
