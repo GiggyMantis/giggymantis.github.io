@@ -845,14 +845,14 @@ const istr_orthography = {
 }
 
 const dalm_firstpass = {
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> o
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "^(ˈ?)([auʊoɔ])" : "$1j$2", // word-initial lightening
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // loss of word-final o, e
+    "\\.([^ˈ]*)[eo]$" : "$1", // loss of word-final e, o
 }
 
 const dalm_orthography = {
