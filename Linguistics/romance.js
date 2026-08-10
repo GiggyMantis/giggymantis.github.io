@@ -1148,7 +1148,7 @@ function submit(latin_input) {
     if ($("#assverb").is(":checked")) { 
         dalm_phonetic = dalm_phonetic.evolve(dalm_assverb);
     }
-    dalm_phonetic = dalm_phonetic.evolve(dalm_secondfpass);
+    dalm_phonetic = dalm_phonetic.evolve(dalm_secondpass);
     dalm = dalm_phonetic;
     dalm = dalm.evolve(dalm_orthography);
     
