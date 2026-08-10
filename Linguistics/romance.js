@@ -798,6 +798,8 @@ const megl_orthography = {
 }
 
 const istr_firstpass = {
+    "([^aeoiuə])\\.(ˈ?)wa" : ".$1o", // wa -> o
+    "wa" : "o",
     "([aeoiuə])\\.u$" : "$1w", // -u -> -∅
     "\\.([^aeoiuəˈ]*)u$" : "$1",
     "v\\.(ˈ?)j(?=([^aieouə]))" : "ʎ.$1", // vj -> ʎ
