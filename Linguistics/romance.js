@@ -848,9 +848,7 @@ const dalm_firstpass = {
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
-    "k\\.(ˈ?)t([^aeɛiɪoɔuʊ])" : "t.$1$2", // kt -> t
-    "k\\.(ˈ?)t" : ".$1t",
-    "kt" : "t",
+    "k(?=\\.ˈ?t)" : "j", // kt -> jt
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
@@ -866,7 +864,6 @@ const dalm_firstpass = {
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
-
 }
 
 const dalm_assverb = {
@@ -894,6 +891,7 @@ const dalm_secondpass = {
     "A" : "a",
     "E" : "e",
     "([tkpbdɡ])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such
+    "([jw])\\.(ˈ?)([^aeoiuɛɔ])" : ".$2$1$3", // reanalysis of clusters and such
     "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "w.ˈa", // ɔ -> wa in closed syllables
@@ -901,6 +899,7 @@ const dalm_secondpass = {
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
+    "\\.(ˈ?)([jw])([^aeoiuɛɔ])" : "$2.$1$3", // unreanalysis of clusters and such
     "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
     "j([mlr])" : "$2",
