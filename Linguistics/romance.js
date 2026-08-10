@@ -810,6 +810,11 @@ const istr_firstpass = {
     "(?<=[aieouəɔɛ]\\.)n(?=[aieouəɔɛ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
 }
 
+const istr_assverb = {
+    "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "ɛ", // stressed -ere -> -ɛ
+    "(?<=[aei])\\.re$" : "",
+}
+
 const istr_orthography = {
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuəɔɛ]{0,3})([aeoiuəɔɛ])" : "$1$2́",
@@ -1076,6 +1081,9 @@ function submit(latin_input) {
     // Evolve to Istro-Romanian
     istr_phonetic = proma_phonetic;
     istr_phonetic = istr_phonetic.evolve(istr_firstpass);
+    if ($("#assverb").is(":checked")) { 
+        istr_phonetic = istr_phonetic.evolve(istr_assverb);
+    }
     istr = istr_phonetic;
     istr = istr.evolve(istr_orthography);
     
