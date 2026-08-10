@@ -800,14 +800,14 @@ const megl_orthography = {
 const istr_firstpass = {
     "([^aeoiuə])\\.(ˈ?)wa" : ".$1o", // wa -> o
     "wa" : "o",
-    "([aeoiuə])\\.u$" : "$1w", // -u -> -∅
-    "\\.([^aeoiuəˈ]*)u$" : "$1",
+    "([aeoiuə])\\.u$" : "$1v", // -Vu -> -Vv
     "v\\.(ˈ?)j(?=([^aieouə]))" : "ʎ.$1", // vj -> ʎ
     "v(\\.?ˈ?)j" : "$1ʎ",
     "ʤ" : "ʒ", // ʤ deaffricatization
     "(?<=ʎ)ə$" : "e", // ʎə -> ʎe / _#
     "ə$" : "æ", // ə -> æ / _#
-    "w" : "v", // w -> v
+    "(?<![^aieouəɒæ]\\.?ˈ?)w" : "v", // w -> v
+    "[ptk](\\.?ˈ?)j" : "k$1ʎ", // Cj -> kʎ
     "a(?=\\.?ˈ?r)" : "ɒ", // a -> ɒ / _r 
     "(?<=ˈ[^\\.]*)a(?![^aieouəɒæ]\\.)" : "ɒ", // stressed a -> ɒ unless followed by a consonant cluster
     "(?<=[aieouəɒæ]\\.)n(?=[aieouəɒæ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
