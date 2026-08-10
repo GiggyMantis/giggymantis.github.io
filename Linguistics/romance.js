@@ -849,7 +849,10 @@ const dalm_firstpass = {
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
+    "[βw]" : "v", // β, w -> v
     "^(ˈ?)([auʊoɔ])" : "$1j$2", // word-initial lightening
+    "(?<=ˈ([^\\.]*))o(?=\\.([^aeoiuɛɪʊɔ]))" : "aw", // stressed o -> au
+    "(?<=ˈ([^\\.]*))o\\.?" : "a.w",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "\\.([^ˈ]*)[eo]$" : "$1", // loss of word-final e, o
