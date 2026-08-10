@@ -812,7 +812,7 @@ const istr_firstpass = {
 
 const istr_assverb = {
     "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "ɛ", // stressed -ere -> -ɛ
-    "(?<=[aei])\\.re$" : "",
+    "(?<=[ɔei])\\.re$" : "",
 }
 
 const istr_orthography = {
