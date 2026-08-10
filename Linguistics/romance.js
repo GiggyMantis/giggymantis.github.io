@@ -858,6 +858,7 @@ const dalm_firstpass = {
     "\\.([^ˈ]*)[eo]$" : "$1", // loss of word-final e, o
     "(?<![^aeoiuɛɪʊɔ])\\.ˈ([^aeoiuɛɪʊɔ])ɔ" : "w.ˈa", // ɔ -> wa
     "ɔ" : "wa",
+    "a(?=\\.?ˈ?n)" : "u" // a -> u / _#
 }
 
 const dalm_orthography = {
