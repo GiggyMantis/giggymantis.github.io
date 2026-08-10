@@ -63,8 +63,8 @@ const latin_fourthpass = {
     "(l)$" : "ɫ",
     "(l)\\.(?=[^lɫ])" : "ɫ.",
     "l.ɫ" : "l.l",
-    "(?<=^[^\\.]{0-3}[aeiouy])(ː?)[nm]s$" : "$1̃s", // Nasalization in monosyllables (doesn't affect length at all)
-    "(?<=^[^\\.]{0-3})([aeiouy]ː?)([nm])$" : "̃",
+    "(?<=^ˈ?[^\\.]{0,3}[aeiouy])(ː?)[nm]s$" : "$1̃s", // Nasalization in monosyllables (doesn't affect length at all)
+    "(?<=^ˈ?[^\\.]{0,3})([aeiouy]ː?)([nm])$" : "̃",
     "(?<=[aeiouy])ː?[nm](\\.?)(s)" : "̃ː$1s", // Nasalization
     "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s",
     "(ː[nm])$" : "̃ː",
@@ -85,8 +85,6 @@ const latin_fourthpass = {
     "\\.\\." : ".",
     "g" : "ɡ",
 }
-
-// eboracum -> joracu somehow
 
 const optional_early_monophthongs = {
     "au̯" : "oː",
