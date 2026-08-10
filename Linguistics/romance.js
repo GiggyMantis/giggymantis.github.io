@@ -807,6 +807,7 @@ const istr_firstpass = {
     "w" : "v", // w -> v
     "a(?=\\.?ˈ?r)" : "ɔ", // a -> ɔ / _r 
     "(?<=ˈ[^\\.]*)a(?![^aieouəɔɛ]\\.)" : "ɔ", // stressed a -> ɔ unless followed by a consonant cluster
+    "(?<=[aieouəɔɛ]\\.)n(?=[aieouəɔɛ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
 }
 
 const istr_orthography = {
