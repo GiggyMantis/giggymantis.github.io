@@ -845,9 +845,11 @@ const istr_orthography = {
 }
 
 const dalm_firstpass = {
-    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> o
-    "^(ˈ?)([auʊ])" : "$1j$2", // word-initial lightening
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "ɪj$" : "i",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
+    "^(ˈ?)([auʊoɔ])" : "$1j$2", // word-initial lightening
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // loss of word-final o, e
