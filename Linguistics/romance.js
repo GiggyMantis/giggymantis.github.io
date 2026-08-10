@@ -872,6 +872,7 @@ const dalm_firstpass = {
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
+    "aj(?=r)$" : "e", // -air -> -er // afaict this occurs in non-verbs too so
     "[eo]$" : "", 
     "v$" : "f", // -v -> -f
 }
