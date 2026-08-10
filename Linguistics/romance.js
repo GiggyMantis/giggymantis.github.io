@@ -1145,6 +1145,10 @@ function submit(latin_input) {
     // Evolve to Dalmatian
     dalm_phonetic = proto_phonetic;
     dalm_phonetic = dalm_phonetic.evolve(dalm_firstpass);
+    if ($("#assverb").is(":checked")) { 
+        dalm_phonetic = dalm_phonetic.evolve(dalm_assverb);
+    }
+    dalm_phonetic = dalm_phonetic.evolve(dalm_secondfpass);
     dalm = dalm_phonetic;
     dalm = dalm.evolve(dalm_orthography);
     
