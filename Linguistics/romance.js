@@ -845,6 +845,8 @@ const istr_orthography = {
 }
 
 const dalm_firstpass = {
+    "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "k\\.(ˈ?)t([^aeɛiɪoɔuʊ])" : "t.$1$2", // kt -> t
     "k\\.(ˈ?)t" : ".$1t",
@@ -852,8 +854,18 @@ const dalm_firstpass = {
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "[βw]" : "v", // β, w -> v
-    "^(ˈ?)([auʊoɔ])" : "$1j$2", // word-initial lightening
+    "w" : "β", // w -> β
+    "^(ˈ?)([auʊo])" : "$1j$2", // word-initial lightening
+    "^ˈɔ" : "ˈβɔ", // word-initial darkening
+    "[tk]ʲ" : "ʦ", // palatalization outcomes
+    "sʲ" : "s",
+    "dʲ" : "ʣ",
+    "ɡʲ" : "ʣ",
+    "nʲ" : "n",
+    "lʲ" : "ʎ",
+    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
+    "ʲ" : "j",
 
 }
 
@@ -866,7 +878,7 @@ const dalm_assverb = {
 }
 
 const dalm_secondpass = {
-    "(?<=ˈ[^\\.]*)u" : "y", // stressed u -> y
+    "(?<=ˈ[^\\.]*)u" : "y", // stressed u -> y  
     "k(?=\\.?ˈ?[iyj])" : "ʧ", // k-palatalization
     "(?<=ˈ[^\\.]*)o\\.(ˈ?)(?=[^aeoiuɛɔAE]+\\.ˈ?[aeoiuɛɔAE])" : "aw.$1", // stressed o -> aw
     "(?<=ˈ[^\\.]*)o(\\.?ˈ?)" : "a$1w",
@@ -878,7 +890,7 @@ const dalm_secondpass = {
     "(?<=ˈ[^\\.]*)i(\\.?ˈ?)" : "a$1j",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
-    "a(?=\\.?ˈ?[rn])" : "u", // a -> u / _n, _r
+    "a(?=\\.?ˈ?[rnβl])" : "u", // a -> u / _n, _r, _β, _l
     "A" : "a",
     "E" : "e",
     "([tkpbdɡ])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such
@@ -889,22 +901,17 @@ const dalm_secondpass = {
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
-    "[tk]ʲ" : "ʦ", // palatalization outcomes
-    "sʲ" : "ʃ",
-    "(?<=^ˈ?)dʲ" : "j",
-    "dʲ" : "ʣ",
-    "nʲ" : "ɲ",
-    "lʲ" : "ʎ",
-    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
-    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
-    "ʲ" : "j",
+    "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
+    "j\\.(ˈ?)([mlr])" : ".$1$2",
+    "j([mlr])" : "$2",
     "([^aeoiuɛɔ])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
     "aj(?=r)$" : "e", // -air -> -er // afaict this occurs in non-verbs too so
     "(?<=[^aeoiu]\\.[^aeoiu])[eo]$" : "ə", // -e, -o reduction after clusters
     "(?<!ˈ[\\.]*)[eo]$" : "", // -e, -o deletion
-    "v$" : "f", // -v -> -f
+    "β$" : "f", // word-final devoicing
+    "ʣ$" : "ʦ",
 }
 
 const dalm_orthography = {
