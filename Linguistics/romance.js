@@ -846,6 +846,9 @@ const istr_orthography = {
 
 const dalm_firstpass = {
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "k\\.(ˈ?)t([^aeɛiɪoɔuʊ])" : "t.$1$2", // kt -> t
+    "k\\.(ˈ?)t" : ".$1t",
+    "kt" : "t",
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
@@ -863,12 +866,14 @@ const dalm_assverb = {
 }
 
 const dalm_secondpass = {
+    "(?<=ˈ[^\\.]*)u" : "y", // stressed u -> y
+    "k(?=\\.?ˈ?[iyj])" : "ʧ", // k-palatalization
     "(?<=ˈ[^\\.]*)o\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "aw.$1", // stressed o -> aw
     "(?<=ˈ[^\\.]*)o(\\.?ˈ?)" : "a$1w",
     "(?<=ˈ[^\\.]*)e\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "aj.$1", // stressed e -> aj
     "(?<=ˈ[^\\.]*)e(\\.?ˈ?)" : "a$1j",
-    "(?<=ˈ[^\\.]*)u\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "oj.$1", // stressed u -> oj
-    "(?<=ˈ[^\\.]*)u(\\.?ˈ?)" : "o$1j",
+    "(?<=ˈ[^\\.]*)y\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "oj.$1", // y -> oj
+    "(?<=ˈ[^\\.]*)y(\\.?ˈ?)" : "o$1j",
     "(?<=ˈ[^\\.]*)i\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "aj.$1", // stressed i -> aj
     "(?<=ˈ[^\\.]*)i(\\.?ˈ?)" : "a$1j",
     "ɪ" : "e", // Vowel collapse
@@ -883,10 +888,11 @@ const dalm_secondpass = {
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
+    "([^aeoiuɛɔ])(\\.?ˈ?)\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
     "aj(?=r)$" : "e", // -air -> -er // afaict this occurs in non-verbs too so
-    "(?<=[^aeoiuɛɔ]\\.[^aeoiuɛɔ])[eo]$" : "ə", // -e, -o reduction after clusters
+    "(?<=[^aeoiu]\\.[^aeoiu])[eo]$" : "ə", // -e, -o reduction after clusters
     "(?<!ˈ[\\.]*)[eo]$" : "", // -e, -o deletion
     "v$" : "f", // -v -> -f
 }
