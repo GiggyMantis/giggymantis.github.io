@@ -862,24 +862,25 @@ const dalm_assverb = {
     "([^aeɛiɪoɔuʊ])e\\.re$" : ".$1re",
     "e\\.re$" : "re",
     "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "A", // -ére -> -are
-    "(?<=ˈ[^\\.]*)i(?=\\.re$)" : "e", // -ire -> -ere
+    "(?<=ˈ[^\\.]*)i(?=\\.re$)" : "E", // -ire -> -ere
 }
 
 const dalm_secondpass = {
     "(?<=ˈ[^\\.]*)u" : "y", // stressed u -> y
     "k(?=\\.?ˈ?[iyj])" : "ʧ", // k-palatalization
-    "(?<=ˈ[^\\.]*)o\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "aw.$1", // stressed o -> aw
+    "(?<=ˈ[^\\.]*)o\\.(ˈ?)(?=[^aeoiuɛɔAE]+\\.ˈ?[aeoiuɛɔAE])" : "aw.$1", // stressed o -> aw
     "(?<=ˈ[^\\.]*)o(\\.?ˈ?)" : "a$1w",
-    "(?<=ˈ[^\\.]*)e\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "aj.$1", // stressed e -> aj
+    "(?<=ˈ[^\\.]*)e\\.(ˈ?)(?=[^aeoiuɛɔAE]+\\.ˈ?[aeoiuɛɔAE])" : "aj.$1", // stressed e -> aj
     "(?<=ˈ[^\\.]*)e(\\.?ˈ?)" : "a$1j",
-    "(?<=ˈ[^\\.]*)y\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "oj.$1", // y -> oj
+    "(?<=ˈ[^\\.]*)y\\.(ˈ?)(?=[^aeoiuɛɔAE]+\\.ˈ?[aeoiuɛɔAE])" : "oj.$1", // y -> oj
     "(?<=ˈ[^\\.]*)y(\\.?ˈ?)" : "o$1j",
-    "(?<=ˈ[^\\.]*)i\\.(ˈ?)(?=[^aeoiuɛɔA]+\\.ˈ?[aeoiuɛɔA])" : "aj.$1", // stressed i -> aj
+    "(?<=ˈ[^\\.]*)i\\.(ˈ?)(?=[^aeoiuɛɔAE]+\\.ˈ?[aeoiuɛɔAE])" : "aj.$1", // stressed i -> aj
     "(?<=ˈ[^\\.]*)i(\\.?ˈ?)" : "a$1j",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "a(?=\\.?ˈ?[rn])" : "u", // a -> u / _n, _r
     "A" : "a",
+    "E" : "e",
     "([tkpbdɡ])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such
     "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
@@ -888,6 +889,15 @@ const dalm_secondpass = {
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
+    "[tk]ʲ" : "ʦ", // palatalization outcomes
+    "sʲ" : "ʃ",
+    "(?<=^ˈ?)dʲ" : "j",
+    "dʲ" : "ʣ",
+    "nʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
+    "ʲ" : "j",
     "([^aeoiuɛɔ])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
@@ -967,7 +977,7 @@ const eofren_firstpass = {
     "uo̯j": "uj",
     // TODO: n unstressed final syllables, all vowels except /a/ are lost, unless this loss would result in an impermissible final cluster. In that case, the vowel is retained as [ə]
     "(?<=[ieɛaɔouː̯]\\.?ˈ?)ʣ(?=ʲ?[aeɛioɔur])": "z", // deaffrication of dz
-    "([^ieɛaɔoy])(\\.|ˈ)\1": "$2$1", // degemination
+    "([^ieɛaɔoy])(\\.ˈ?)\\1": "$2$1", // degemination 
     "t(\\.?ˈ?)([ʦʧ])": "$1$2",
     "d(\\.?ˈ?)([ʣʤ])": "$1$2",
 }  
