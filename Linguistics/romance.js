@@ -856,10 +856,11 @@ const dalm_firstpass = {
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "\\.([^ˈ]+)[eo]$" : "$1", // loss of word-final e, o
-    "[eo]$" : "", // loss of word-final e, o
+    "[eo]$" : "", 
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "w.ˈa", // ɔ -> wa
     "ɔ" : "wa",
-    "a(?=\\.?ˈ?n)" : "u" // a -> u / _#
+    "a(?=\\.?ˈ?n)" : "u", // a -> u / _#
+    "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
 }
 
 const dalm_orthography = {
