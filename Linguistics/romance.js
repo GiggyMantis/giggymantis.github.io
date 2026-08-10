@@ -64,7 +64,7 @@ const latin_fourthpass = {
     "(l)\\.(?=[^lɫ])" : "ɫ.",
     "l.ɫ" : "l.l",
     "(?<=^ˈ?[^\\.]{0,3}[aeiouy])(ː?)[nm]s$" : "$1̃s", // Nasalization in monosyllables (doesn't affect length at all)
-    "(?<=^ˈ?[^\\.]{0,3})([aeiouy]ː?)([nm])$" : "̃",
+    "(?<=^ˈ?[^\\.]{0,3}[aeiouy]ː?)([nm])$" : "̃",
     "(?<=[aeiouy])ː?[nm](\\.?)(s)" : "̃ː$1s", // Nasalization
     "([aeiouy])([nm])\\.ː?s" : "$1̃ː.s",
     "(ː[nm])$" : "̃ː",
@@ -905,12 +905,11 @@ const dalm_secondpass = {
     "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
     "j([mlr])" : "$2",
-    "([^aeoiuɛɔ])(\\.?ˈ?)\\1": "$2$1", // degemination
+    "(?<=[aeoiu]\\.ˈ?)s(?=[aeoiu])" : "z", // intervocalic s voicing
+    "([^aeoiu])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
-    "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
-    "aj(?=r)$" : "e", // -air -> -er // afaict this occurs in non-verbs too so
-    "(?<=[^aeoiu]\\.[^aeoiu])[eo]$" : "ə", // -e, -o reduction after clusters
-    "(?<!ˈ[\\.]*)[eo]$" : "", // -e, -o deletion
+    "(?<=[^aeoiu]\\.[^aeoiuˈ])[eo]$" : "ə", // -e, -o reduction after clusters
+    "(?<!ˈ[^\\.]*)[eo]$" : "", // -e, -o deletion
     "β$" : "f", // word-final devoicing
     "ʣ$" : "ʦ",
 }
@@ -920,7 +919,21 @@ const dalm_orthography = {
     "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
-
+    "ə" : "e",
+    "(?=[aeoiu])j" : "i",
+    "w" : "u",
+    "k(?=[jie])" : "ch",
+    "ɡ(?=[jie])" : "gh",
+    "ʧ(?=[jie])" : "c",
+    "ʧ" : "č",
+    "^s" : "z",
+    "s" : "ss",
+    "z" : "s",
+    "k" : "c",
+    "ɡ" : "g",
+    "[ʦʣ]" : "z",
+    "ʎ" : "lj",
+    "β" : "v",
 }
 
 
