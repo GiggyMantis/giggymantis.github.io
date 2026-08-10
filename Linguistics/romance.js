@@ -852,21 +852,28 @@ const dalm_firstpass = {
     "[βw]" : "v", // β, w -> v
     "^(ˈ?)([auʊoɔ])" : "$1j$2", // word-initial lightening
     "(?<=ˈ[^\\.]*)o\\.(ˈ?)(?=[^aeoiuɛɔ]+\\.ˈ?[aeoiuɛɔ])" : "aw.$1", // stressed o -> aw
-    "(?<=ˈ[^\\.]*)o(\\.?ˈ?)" : "a.$1w",
+    "(?<=ˈ[^\\.]*)o(\\.?ˈ?)" : "a$1w",
+    "(?<=ˈ[^\\.]*)e\\.(ˈ?)(?=[^aeoiuɛɔ]+\\.ˈ?[aeoiuɛɔ])" : "aj.$1", // stressed e -> aj
+    "(?<=ˈ[^\\.]*)e(\\.?ˈ?)" : "a$1j",
     "(?<=ˈ[^\\.]*)u\\.(ˈ?)(?=[^aeoiuɛɔ]+\\.ˈ?[aeoiuɛɔ])" : "oj.$1", // stressed u -> oj
-    "(?<=ˈ[^\\.]*)u(\\.?ˈ?)" : "o.$1j",
+    "(?<=ˈ[^\\.]*)u(\\.?ˈ?)" : "o$1j",
     "(?<=ˈ[^\\.]*)i\\.(ˈ?)(?=[^aeoiuɛɔ]+\\.ˈ?[aeoiuɛɔ])" : "aj.$1", // stressed i -> aj
-    "(?<=ˈ[^\\.]*)i(\\.?ˈ?)" : "a.$1j",
+    "(?<=ˈ[^\\.]*)i(\\.?ˈ?)" : "a$1j",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
+    "a(?=\\.?ˈ?[rn])" : "u", // a -> u / _n, _r
+    "([tkpbdɡ])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such
+    "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
+    "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
+    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "w.ˈa", // ɔ -> wa in closed syllables
+    "ɔ" : "wa",
+    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
+    "ɛ" : "ja",
+    "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
+    "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
     "[eo]$" : "", 
-    "a(?=\\.?ˈ?[rn])" : "u", // a -> u / _n, _r
-    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "w.ˈa", // ɔ -> wa
-    "ɔ" : "wa",
-    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja
-    "ɛ" : "ja",
-    "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
+    "v$" : "f", // -v -> -f
 }
 
 const dalm_orthography = {
