@@ -844,6 +844,15 @@ const istr_orthography = {
     "ə" : "â",
 }
 
+const dalm_firstpass = {
+    "^(ˈ?)a" : "j$1a", // word-initial a-lightening
+}
+
+const dalm_orthography = {
+    "" : ""
+}
+
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -1083,6 +1092,12 @@ function submit(latin_input) {
     }
     istr = istr_phonetic;
     istr = istr.evolve(istr_orthography);
+
+    // Evolve to Dalmatian
+    dalm_phonetic = proto_phonetic;
+    dalm_phonetic = dalm_phonetic.evolve(dalm_firstpass);
+    dalm = dalm_phonetic;
+    dalm = dalm.evolve(dalm_orthography);
     
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
@@ -1111,6 +1126,8 @@ function submit(latin_input) {
     $("#megl").val(megl);
     $("#istr_phon").val(istr_phonetic);
     $("#istr").val(istr);
+    $("#dalm_phon").val(dalm_phonetic);
+    $("#dalm").val(dalm);
     $("#ogall_phon").val(ogall_phonetic);
     $("#ogall").val(ogall);
 }
