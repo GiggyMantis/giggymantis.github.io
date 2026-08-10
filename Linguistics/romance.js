@@ -888,7 +888,7 @@ const dalm_secondpass = {
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
-    "([^aeoiuɛɔ])(\\.?ˈ?)\1": "$2$1", // degemination
+    "([^aeoiuɛɔ])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "\\.([^ˈ\\.]+)[eo]$" : "$1", // loss of word-final e, o
     "aj(?=r)$" : "e", // -air -> -er // afaict this occurs in non-verbs too so
