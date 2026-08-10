@@ -810,7 +810,7 @@ const istr_firstpass = {
     "[ptk](\\.?ˈ?)j" : "k$1ʎ", // Cj -> kʎ
     "a(?=\\.?ˈ?r)" : "ɒ", // a -> ɒ / _r 
     "(?<=ˈ[^\\.]*)a(?![^aieouəɒæ]\\.)" : "ɒ", // stressed a -> ɒ unless followed by a consonant cluster
-    "(?<=[aieouəɒæ]\\.)n(?=[aieouəɒæ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
+    "(?<=[aieouəɒæ]\\.ˈ?)n(?=[aieouəɒæ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
 }
 
 const istr_assverb = {
