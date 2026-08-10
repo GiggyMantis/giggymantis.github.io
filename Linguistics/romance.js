@@ -891,15 +891,17 @@ const dalm_secondpass = {
     "A" : "a",
     "E" : "e",
     "([tkpbdɡ])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such
-    "([jw])\\.(ˈ?)([^aeoiuɛɔ])" : ".$2$1$3", // reanalysis of clusters and such
+    "([jw])\\.(ˈ?)([^aeoiuɛɔ])" : ".$2$1$3",
     "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
-    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "w.ˈa", // ɔ -> wa in closed syllables
+    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "$1.ˈwa", // ɔ -> wa in closed syllables
     "ɔ" : "wa",
-    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "j.ˈa", // ɛ -> ja in closed syllables
+    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "$1.ˈja", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
+    "(?<![^aeoiuɛɔ])\\.(ˈ?)([^aeoiuɛɔ])u\\.j" : "$2.$1wo.", // uj -> wo
+    "u\\.j" : "wo.",
     "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
-    "\\.(ˈ?)([jw])([^aeoiuɛɔ])" : "$2.$1$3", // unreanalysis of clusters and such
+    "\\.(ˈ?)([jw])([^aeoiuɛɔ])" : "$2.$1$3",
     "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
     "j([mlr])" : "$2",
