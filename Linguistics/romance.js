@@ -599,6 +599,7 @@ const proma_orthography = {
     "w": "u",
 }
 
+// TODO: make Romanian langs not lose word final -u if a cluster ending in a liquid ends the word
 const roma_firstpass = {
     "\\(a\\)" : "", // -j(a) -> -e
     "(?<=ˈ[^\\.]*r)e" : "ə", // stressed re -> rə
