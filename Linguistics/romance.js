@@ -905,6 +905,7 @@ const dalm_secondpass = {
     "u\\.j" : "wo.",
     "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
     "\\.(ˈ?)([jw])([^aeoiuɛɔ])" : "$2.$1$3",
+    "jak" : "jek", // jak -> jek
     "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
     "j([mlr])" : "$2",
