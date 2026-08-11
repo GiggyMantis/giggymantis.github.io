@@ -901,7 +901,7 @@ const dalm_secondpass = {
     "ɔ" : "wa",
     "(?<![^aeoiuɛɔU])\\.ˈ([^aeoiuɛɔU])ɛ" : "$1.ˈja", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
-    "U\\.j" : "U", // uj -> wo
+    "U\\.j" : "U.", // uj -> wo
     "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
     "\\.(ˈ?)([jw])([^aeoiuU])" : "$2.$1$3",
     "jak" : "jek", // jak -> jek
@@ -920,11 +920,11 @@ const dalm_secondpass = {
     "(?<=^ˈ?)w" : "β", // w- -> v-
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
     "ʣ$" : "ʦ",
-    "U" : "u(ɑ̯)", // turning U actually into u(a)
+    "U" : "uɔ̯", // turning U actually into uɔ̯
 }
 
 const dalm_orthography = {
-    "u\\(ɑ̯\\)" : "u(a)",
+    "uɔ̯" : "uo",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2̀",
     "ˈ" : "",
