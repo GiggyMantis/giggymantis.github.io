@@ -934,7 +934,7 @@ const dalm_orthography = {
     "ʧ$" : "č",
     "ʧ" : "ci",
     "^s" : "z",
-    "s" : "ss",
+    "s(?=[aeiou])|s$" : "ss",
     "z" : "s",
     "k" : "c",
     "ɡ" : "g",
