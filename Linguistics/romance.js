@@ -856,7 +856,7 @@ const dalm_firstpass = {
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "w" : "β", // w -> β
     "^(ˈ?)([auʊo])" : "$1j$2", // word-initial lightening
-    "^ˈɔ" : "ˈβɔ", // word-initial darkening
+    "^ˈɔ" : "ˈwɔ", // word-initial darkening
     "[tk]ʲ" : "ʦ", // palatalization outcomes
     "sʲ" : "s",
     "dʲ" : "ʣ",
@@ -892,7 +892,8 @@ const dalm_secondpass = {
     "a(?=\\.?ˈ?[rnβl])" : "u", // a -> u / _n, _r, _β, _l
     "A" : "a",
     "E" : "e",
-    "([tkpbdɡ])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such
+    "ɡ(?=\\.(ˈ?)l)" : "k", // gl -> kl
+    "([tpbd])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such [note that k is an exception here]
     "([jw])\\.(ˈ?)([^aeoiuɛɔ])" : ".$2$1$3",
     "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
@@ -902,7 +903,7 @@ const dalm_secondpass = {
     "ɛ" : "ja",
     "(?<![^aeoiuɛɔ])\\.(ˈ?)([^aeoiuɛɔ])u\\.j" : "$2.$1wo.", // uj -> wo
     "u\\.j" : "wo.",
-    "\\.(ˈ?)([tkpbdɡ])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such
+    "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
     "\\.(ˈ?)([jw])([^aeoiuɛɔ])" : "$2.$1$3",
     "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
@@ -916,6 +917,7 @@ const dalm_secondpass = {
     "(?<=[^aeoiu]\\.[^aeoiuˈ])[eo]$" : "ə", // -e, -o reduction after clusters
     "(ˈ[^\\.]*)\\.([^\\.]*)[eo]$" : "$1$2", // -e, -o deletion
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
+    "(?<=^ˈ?)w" : "β", // w- -> v-
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
     "ʣ$" : "ʦ",
 }
