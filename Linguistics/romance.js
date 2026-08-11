@@ -893,34 +893,34 @@ const dalm_secondpass = {
     "ɡ(?=\\.(ˈ?)l)" : "k", // gl -> kl
     "([tpbd])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such [note that k is an exception here]
     "([jw])\\.(ˈ?)([^aeoiuɛɔA])" : ".$2$1$3",
-    "a(?=\\.)|a$" : "u", // a -> u in open syllables
+    "ɔ(?=\\.)|ɔ$" : "a", // ɔ -> a in open syllables
+    "(?<=ˈ[^\\.]*)a(?=\\.)|(?<=ˈ[^\\.]*)a$" : "U", // stressed a -> u in open syllables
     "A" : "a",
-    "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
-    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "$1.ˈwa", // ɔ -> wa in closed syllables
+    "(?<![^aeoiuɛɔU])\\.ˈ([^aeoiuɛɔU])ɔ" : "$1.ˈwa", // ɔ -> wa in closed syllables
     "ɔ" : "wa",
-    "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɛ" : "$1.ˈja", // ɛ -> ja in closed syllables
+    "(?<![^aeoiuɛɔU])\\.ˈ([^aeoiuɛɔU])ɛ" : "$1.ˈja", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
-    "(?<![^aeoiuɛɔ])\\.(ˈ?)([^aeoiuɛɔ])u\\.j" : "$2.$1wo.", // uj -> wo
-    "u\\.j" : "wo.",
+    "u\\.j" : "U" // uj -> wo
     "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
-    "\\.(ˈ?)([jw])([^aeoiuɛɔ])" : "$2.$1$3",
+    "\\.(ˈ?)([jw])([^aeoiuU])" : "$2.$1$3",
     "jak" : "jek", // jak -> jek
-    "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
+    "j\\.(ˈ?)([mlr])([^aeiouU])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
     "j([mlr])" : "$2",
-    "s\\.(ˈ?)j([^aeɛiɪoɔuʊ])" : "s.$1$2", // sj -> s
+    "s\\.(ˈ?)j([^aeiouU])" : "s.$1$2", // sj -> s
     "s\\.(ˈ?)j" : ".$1s",
     "sj" : "s",
-    "(?<=[aeoiu]\\.ˈ?)s(?=[aeoiu])" : "z", // intervocalic s voicing
-    "([^aeoiu])(\\.?ˈ?)\\1": "$2$1", // degemination
+    "(?<=[aeiouU]\\.ˈ?)s(?=[aeiouU])" : "z", // intervocalic s voicing
+    "([^aeiouU])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
-    "(?<=[^aeoiu]\\.[^aeoiuˈ])[eo]$" : "ə", // -e, -o reduction after clusters
+    "(?<=[^aeiouU]\\.[^aeiouUˈ])[eo]$" : "ə", // -e, -o reduction after clusters
     "(ˈ[^\\.]*)\\.([^\\.]*)[eo]$" : "$1$2", // -e, -o deletion
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "(?<=^ˈ?)w" : "β", // w- -> v-
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
     "ʣ$" : "ʦ",
+    "U" : "u(ɑ̯)", // turning U actually into u(a)
 }
 
 const dalm_orthography = {
@@ -929,6 +929,7 @@ const dalm_orthography = {
     "ˈ" : "",
     "\\." : "",
     "ə" : "o",
+    "u\\(ɑ̯\\)" : "u(a)",
     "(?=[aeoiu])j" : "i",
     "j(?=[aeoiu])" : "i",
     "w" : "u",
