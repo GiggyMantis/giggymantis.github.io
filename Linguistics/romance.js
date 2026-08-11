@@ -913,7 +913,7 @@ const dalm_secondpass = {
     "([^aeoiu])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "(?<=[^aeoiu]\\.[^aeoiuˈ])[eo]$" : "ə", // -e, -o reduction after clusters
-    "(?<!ˈ[^\\.]*)[eo]$" : "", // -e, -o deletion
+    "(?<!ˈ[^\\.]*)\\.([^\\.]*)[eo]$" : "$1", // -e, -o deletion
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
     "ʣ$" : "ʦ",
