@@ -859,7 +859,7 @@ const dalm_firstpass = {
     "[tk]ʲ" : "ʦ", // palatalization outcomes
     "sʲ" : "s",
     "dʲ" : "ʣ",
-    "ɡʲ" : "ʣ",
+    "ɡʲ" : "j",
     "nʲ" : "n",
     "lʲ" : "ʎ",
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
@@ -914,6 +914,7 @@ const dalm_secondpass = {
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "(?<=[^aeoiu]\\.[^aeoiuˈ])[eo]$" : "ə", // -e, -o reduction after clusters
     "(?<!ˈ[^\\.]*)[eo]$" : "", // -e, -o deletion
+    "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
     "ʣ$" : "ʦ",
 }
