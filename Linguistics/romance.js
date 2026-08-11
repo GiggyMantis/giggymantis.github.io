@@ -924,12 +924,12 @@ const dalm_secondpass = {
 }
 
 const dalm_orthography = {
+    "u\\(ɑ̯\\)" : "u(a)",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2̀",
     "ˈ" : "",
     "\\." : "",
     "ə" : "o",
-    "u\\(ɑ̯\\)" : "u(a)",
     "(?=[aeoiu])j" : "i",
     "j(?=[aeoiu])" : "i",
     "w" : "u",
