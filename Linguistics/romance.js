@@ -889,12 +889,12 @@ const dalm_secondpass = {
     "(?<=ˈ[^\\.]*)i(\\.?ˈ?)" : "a$1j",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
-    "a(?=\\.?ˈ?[rnβl])" : "u", // a -> u / _n, _r, _β, _l
-    "A" : "a",
     "E" : "e",
     "ɡ(?=\\.(ˈ?)l)" : "k", // gl -> kl
     "([tpbd])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such [note that k is an exception here]
-    "([jw])\\.(ˈ?)([^aeoiuɛɔ])" : ".$2$1$3",
+    "([jw])\\.(ˈ?)([^aeoiuɛɔA])" : ".$2$1$3",
+    "a(?=\\.)|a$" : "u", // a -> u in open syllables
+    "A" : "a",
     "ɔ(?=\\.)|ɔ$" : "u", // ɔ -> u in open syllables
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
     "(?<![^aeoiuɛɔ])\\.ˈ([^aeoiuɛɔ])ɔ" : "$1.ˈwa", // ɔ -> wa in closed syllables
