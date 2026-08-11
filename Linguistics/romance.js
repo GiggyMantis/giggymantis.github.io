@@ -920,7 +920,7 @@ const dalm_secondpass = {
 
 const dalm_orthography = {
     "^ˈ(?!.*\\.)" : "",
-    "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
+    "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2̀",
     "ˈ" : "",
     "\\." : "",
     "ə" : "o",
