@@ -901,7 +901,7 @@ const dalm_secondpass = {
     "ɔ" : "wa",
     "(?<![^aeoiuɛɔU])\\.ˈ([^aeoiuɛɔU])ɛ" : "$1.ˈja", // ɛ -> ja in closed syllables
     "ɛ" : "ja",
-    "u\\.j" : "U" // uj -> wo
+    "u\\.j" : "U", // uj -> wo
     "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
     "\\.(ˈ?)([jw])([^aeoiuU])" : "$2.$1$3",
     "jak" : "jek", // jak -> jek
