@@ -849,6 +849,7 @@ const dalm_firstpass = {
     "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "k(?=\\.ˈ?t)" : "j", // kt -> jt
+    "k(?=\\.ˈ?s)" : "s", // ks -> ss
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
@@ -905,12 +906,15 @@ const dalm_secondpass = {
     "j\\.(ˈ?)([mlr])([^aeɛiɪoɔuʊ])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
     "j([mlr])" : "$2",
+    "s\\.(ˈ?)j([^aeɛiɪoɔuʊ])" : "s.$1$2", // sj -> s
+    "s\\.(ˈ?)j" : ".$1s",
+    "sj" : "s",
     "(?<=[aeoiu]\\.ˈ?)s(?=[aeoiu])" : "z", // intervocalic s voicing
     "([^aeoiu])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "(?<=[^aeoiu]\\.[^aeoiuˈ])[eo]$" : "ə", // -e, -o reduction after clusters
     "(?<!ˈ[^\\.]*)[eo]$" : "", // -e, -o deletion
-    "β$" : "f", // word-final devoicing
+    "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
     "ʣ$" : "ʦ",
 }
 
@@ -919,13 +923,15 @@ const dalm_orthography = {
     "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2́",
     "ˈ" : "",
     "\\." : "",
-    "ə" : "e",
+    "ə" : "o",
     "(?=[aeoiu])j" : "i",
+    "j(?=[aeoiu])" : "i",
     "w" : "u",
     "k(?=[jie])" : "ch",
     "ɡ(?=[jie])" : "gh",
     "ʧ(?=[jie])" : "c",
-    "ʧ" : "č",
+    "ʧ$" : "č",
+    "ʧ" : "ci",
     "^s" : "z",
     "s" : "ss",
     "z" : "s",
