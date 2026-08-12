@@ -798,7 +798,7 @@ const megl_orthography = {
     "w": "u̯",
 }
 
-const istr_firstpass = {
+const istr1245_firstpass = {
     "([^aeoiuə])\\.(ˈ?)wa" : ".$1o", // wa -> o
     "wa" : "o",
     "([aeoiuə])\\.u$" : "$1v", // -Vu -> -Vv
@@ -814,12 +814,12 @@ const istr_firstpass = {
     "(?<=[aieouəɒæ]\\.ˈ?)n(?=[aieouəɒæ])" : "r", // intervocalic rhotacism of r (not present in all dialects but it's a neat feature so I felt like including it) 
 }
 
-const istr_assverb = {
+const istr1245_assverb = {
     "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "æ", // stressed -ere -> -æ
     "(?<=[ɒei])\\.re$" : "",
 }
 
-const istr_orthography = {
+const istr1245_orthography = {
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuəɒæ]{0,3})([aeoiuəɒæ])" : "$1$2́",
     "ˈ" : "",
@@ -1180,14 +1180,14 @@ function submit(latin_input) {
     megl = megl_phonetic;
     megl = megl.evolve(megl_orthography);
 
-    // Evolve to Istro-Romanian
-    istr_phonetic = proma_phonetic;
-    istr_phonetic = istr_phonetic.evolve(istr_firstpass);
+    // Evolve to istr1245o-Romanian
+    istr1245_phonetic = proma_phonetic;
+    istr1245_phonetic = istr1245_phonetic.evolve(istr1245_firstpass);
     if ($("#assverb").is(":checked")) { 
-        istr_phonetic = istr_phonetic.evolve(istr_assverb);
+        istr1245_phonetic = istr1245_phonetic.evolve(istr1245_assverb);
     }
-    istr = istr_phonetic;
-    istr = istr.evolve(istr_orthography);
+    istr1245 = istr1245_phonetic;
+    istr1245 = istr1245.evolve(istr1245_orthography);
 
     // Evolve to Dalmatian
     dalm_phonetic = proto_phonetic;
@@ -1224,8 +1224,8 @@ function submit(latin_input) {
     $("#arom").val(arom);
     $("#megl_phon").val(megl_phonetic);
     $("#megl").val(megl);
-    $("#istr_phon").val(istr_phonetic);
-    $("#istr").val(istr);
+    $("#istr1245_phon").val(istr1245_phonetic);
+    $("#istr1245").val(istr1245);
     $("#dalm_phon").val(dalm_phonetic);
     $("#dalm").val(dalm);
     $("#ogall_phon").val(ogall_phonetic);
