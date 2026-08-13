@@ -981,8 +981,10 @@ const vene_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)ʦ(?=[aeɛioɔu])" : "z",
     "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aoɔu])" : "", // loss of intervocalic v before back vowels
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[tsk](\\.?ˈ?)([ʦʧ])" : "$2$1$2", // t-, s-, k- act like geminates for ʦ, ʧ
-    "[dzɡ](\\.?ˈ?)([ʣʤ])" : "$2$1$2", // d-, z-, g- act like geminates for ʣ, ʤ
+    "[tk](\\.?ˈ?)(ʧ)" : "$2$1$2", // t-, k- act like geminates for ʧ
+    "[dɡ](\\.?ˈ?)(ʤ)" : "$2$1$2", // d-, g- act like geminates for ʤ
+    "[tsk](\\.?ˈ?)(ʦ)" : "$2$1$2", // t-, s-, k- act like geminates for ʦ
+    "[dzɡ](\\.?ˈ?)(ʣ)" : "$2$1$2", // d-, z-, g- act like geminates for ʣ
     "^e([^aeiouɛɔ]*)\\.ˈ" : "ˈ$1", // pretonic initial e is deleted
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "^s(?=[bdɡʣʤ])" : "z", // assimilatory voicing of initial s-
