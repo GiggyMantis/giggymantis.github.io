@@ -934,7 +934,7 @@ const dalm_orthography = {
     "ˈ" : "",
     "\\." : "",
     "ə" : "o",
-    "(?=[aeoiu])j" : "i",
+    "(?=[aeoiu]̀?)j" : "i",
     "j(?=[aeoiu])" : "i",
     "w" : "u",
     "k(?=[jie])" : "ch",
@@ -943,7 +943,7 @@ const dalm_orthography = {
     "ʧ$" : "č",
     "ʧ" : "ci",
     "^s" : "z",
-    "(?<=[aeiou])s(?=[aeiou])|s$" : "ss",
+    "(?<=[aeiou]̀?)s(?=[aeiou])|s$" : "ss",
     "z" : "s",
     "k" : "c",
     "ɡ" : "g",
@@ -960,8 +960,8 @@ const vene_firstpass = {
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
-    "([^aeoiuɛɔj])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
-    "([^aeoiuɛɔj])(\\.?ˈ?)l" : "$2$1ʲ",
+    "([^aeoiuɛɔjl])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
+    "([^aeoiuɛɔjl])(\\.?ˈ?)l" : "$2$1ʲ",
     "sʲ" : "s", // palatalization outcomes
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
