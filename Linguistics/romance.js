@@ -656,8 +656,8 @@ const roma_orthography = {
     "ʤ(?=[jie])" : "g",
     "ʧ(?=[jie])" : "c",
     "(?<=[aeoiuɨă]́?)j" : "i",
-    "j(?=e)" : "i",
-    "(?<![aeoiuɨă]́?)j(?!=[ue])" : "e",
+    "j(?=[euo])" : "i",
+    "(?<![aeoiuɨă]́?)j(?!=[ueo])" : "e",
     "j" : "i",
     "(?<=[aeoiuɨă]́?)w" : "u",
     "ŋ" : "n",
@@ -951,8 +951,13 @@ const dalm_orthography = {
 
 const vene_firstpass = {
     "ɪ" : "e", // Vowel collapse
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "ʊ" : "o",
-    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "kʲ" : "θ",
+    "ɡʲ" : "ð",
+    "([ptkbdɡ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization of plosives when followed by l
+    "([ptkbdɡ])(\\.?ˈ?)l" : "$2$1ʲ", 
 }
 
 const vene_orthography = {
@@ -974,10 +979,10 @@ const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "k$1kʲ", // gemination of kj
-    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "β": "v",
     "[kt]ʲ": "ʦʲ",
-    "[dg]ʲ": "j", // TODO: divergent dj gj?
+    "[dɡ]ʲ": "j", // TODO: divergent dj gj?
     "k(\\.?ˈ?)l": "$1ʎ", // /ɡl/ and /kl/ become /ʎ/
     "k(\\.?ˈ?)([ts])": "j$1$2", // /kt/ > /jt/ and /ks/ > /js/
     "(?<=[ieɛaɔou]\\.?ˈ?)[fb](?=ʲ?[aeɛioɔur])": "v", // intervocalic lenition
