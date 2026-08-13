@@ -1005,18 +1005,18 @@ const vene_central_assverb = {
 
 const vene_venice_pass = {
     "ʎ" : "ʤ", // ʎ -> ʤ
-    "[ŋn]\\.(ˈ?)j(?=([^aeɛioɔu]))" : "ɲ.$1", // nj -> ɲ
+    "[ŋn]\\.(ˈ?)j(?=([^aeɛioɔuɐ]))" : "ɲ.$1", // nj -> ɲ
     "[ŋn](\\.?ˈ?)j" : "$1ɲ",
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
-    "(?<=[aeɛioɔu]\\.ˈ?)l(?=[aeɛioɔu])" : "e̯", // l-elision
+    "(?<=[aeɛioɔuɐ]\\.ˈ?)l(?=[aeɛioɔuɐ])" : "e̯", // l-elision
 }
 
 const vene_central_pass = {
     "ʎ" : "j", // ʎ -> j
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
-    "(?<=[aeɛioɔu]\\.ˈ?)l(?=[aeɛioɔu])" : "e̯", // l-elision
+    "(?<=[aeɛioɔuɐ]\\.ˈ?)l(?=[aeɛioɔuɐ])" : "e̯", // l-elision
 }
 
 const vene_belluno_pass = {
@@ -1027,7 +1027,7 @@ const vene_orthography = {
     "e̯" : "ł",
     "ɾ" : "r",
     "^ˈ(?!.*\\.)" : "",
-    "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
+    "ˈ([^aeoiuɛɔɐ]{0,3})([aeoiuɛɔɐ])" : "$1$2̀",
     "ˈ" : "",
     "\\." : "",
     "([eoiu])̀" : "$1́",
