@@ -854,6 +854,7 @@ const dalm_firstpass = {
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "k(?=\\.ˈ?t)" : "j", // kt -> jt
     "k(?=\\.ˈ?s)" : "s", // ks -> ss
+    "ɲ(\\.?ˈ?)ɲ" : "m$1n", // ɲɲ -> mn
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
@@ -956,11 +957,45 @@ const vene_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "ʊ" : "o",
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
-    "[tk]ʲ" : "θ",
-    "[dɡ]ʲ" : "ð",
-    "([ptkbdɡ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization of plosives when followed by l
-    "([ptkbdɡ])(\\.?ˈ?)l" : "$2$1ʲ", 
+    "[tk]ʲ" : "ʦ",
+    "[dɡ]ʲ" : "ʣ",
+    "([^aeoiuɛɔj])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
+    "([^aeoiuɛɔj])(\\.?ˈ?)l" : "$2$1ʲ",
+    "sʲ" : "s", // palatalization outcomes
+    "kʲ" : "ʧ",
+    "ɡʲ" : "ʤ",
+    "nʲ" : "n",
+    "lʲ" : "ʎ",
+    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
+    "ʲ" : "j",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[bfp](?=ɾ?[aeɛioɔu])" : "v", // lenition
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[ɡd](?=ɾ?[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
+    "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouə]))" : "$1.$2", // degemination
+    "([^aeiouə\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
 }
+
+const vene_western = {
+
+}
+
+const vene_venice = {
+
+}
+
+const vene_central = {
+
+}
+
+const vene_eastern = {
+
+}
+
+const 
 
 const vene_orthography = {
     "" : "",
