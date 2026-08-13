@@ -953,6 +953,7 @@ const dalm_orthography = {
 }
 
 const vene_firstpass = {
+    "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
@@ -969,11 +970,18 @@ const vene_firstpass = {
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
+    "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[bfp](?=ɾ?[aeɛioɔu])" : "v", // lenition
     "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[ɡd](?=ɾ?[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[k](?=ɾ?[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[t](?=ɾ?[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
+    "(?<=[aeɛioɔu]\\.ˈ?)ʦ(?=[aeɛioɔu])" : "z",
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[oɔu])" : "", // loss of intervocalic v before back vowels
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[ts](\\.?ˈ?)([ʦʧ])" : "$2$1$2", // t-, s- act like geminates for ʦ, ʧ
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "^s(?=[bdɡʣʤ])" : "z", // assimilatory voicing of initial s-
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1(?=([^aeɛioɔu]))" : "$1.$2", // degemination
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
