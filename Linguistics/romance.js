@@ -961,6 +961,7 @@ const vene_firstpass = {
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
+    "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
     "([^aeoiuɛɔjl])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
     "([^aeoiuɛɔjl\\.])(\\.?ˈ?)l" : "$2$1ʲ",
     "sʲ" : "s", // palatalization outcomes
@@ -985,27 +986,33 @@ const vene_firstpass = {
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1(?=([^aeɛioɔu]))" : "$1.$2", // degemination
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
+    "n(?=\\.)|n$" : "ŋ", // n -> ŋ at the end of a syllable
 }
 
 const vene_assverb = {
-    // TODO: fix -ere verbs?
-    // TODO: Venetian -e loss in verbs
+    "(?<=[eia])\\.re$" : "r", // -Vre -> -Vr
 }
 
-const vene_western = {
-
+const vene_central_assverb = {
+    "e\\.r$" : "a", // -er -> -ar
 }
 
-const vene_venice = {
-
+const vene_venice_pass = {
+    "ʎ" : "ʤ", // ʎ -> ʤ
+    "[ŋn]\\.(ˈ?)j(?=([^aeɛioɔu]))" : "ɲ.$1", // nj -> ɲ
+    "[ŋn](\\.?ˈ?)j" : "$1ɲ",
+    "ʣ" : "z", // ʣ -> z
+    "ʦ" : "s", // ʦ -> s
 }
 
-const vene_central = {
-
+const vene_central_pass = {
+    "ʎ" : "j", // ʎ -> j
+    "ʣ" : "z", // ʣ -> z
+    "ʦ" : "s", // ʦ -> s
 }
 
-const vene_eastern = {
-
+const vene_northern_pass = {
+    "ʎ" : "j", // ʎ -> j
 }
 
 const vene_orthography = {
@@ -1276,8 +1283,17 @@ function submit(latin_input) {
     // Evolve to Venetian
     vene_phonetic = proto_phonetic;
     vene_phonetic = vene_phonetic.evolve(vene_firstpass);
-    vene = vene_phonetic;
-    vene = vene.evolve(vene_orthography);
+    vene_central_phonetic = vene_phonetic;
+    if ($("#assverb").is(":checked")) { 
+        vene_phonetic = vene_phonetic.evolve(vene_assverb);
+        vene_central_phonetic = vene_central_phonetic.evolve(vene_central_assverb);
+    }
+    vene_central_phonetic = vene_central_phonetic.evolve(vene_central_pass);
+    vene_northern_phonetic = vene_phonetic.evolve(vene_northern_pass);
+    vene_venice_phonetic = vene_phonetic.evolve(vene_venice_pass);
+    vene_cent = vene_cent.evolve(vene_orthography);
+    vene_bell = vene_northern_phonetic.evolve(vene_orthography);
+    vene_veni = vene_venice_phonetic.evolve(vene_orthography);
 
     // // Evolve to Istrian
     // istr1244_phonetic = proto_phonetic;
@@ -1314,8 +1330,14 @@ function submit(latin_input) {
     $("#istr1245").val(istr1245);
     $("#dalm_phon").val(dalm_phonetic);
     $("#dalm").val(dalm);
-    $("#vene_phon").val(vene_phonetic);
-    $("#vene").val(vene);
+
+    $("#vene_veni").val(vene_veni);
+    $("#vene_veni_phon").val(vene_veni_phonetic);
+    $("#vene_cent").val(vene_cent);
+    $("#vene_cent_phon").val(vene_cent_phonetic);
+    $("#vene_bell").val(vene_bell);
+    $("#vene_bell_phon").val(vene_northern_phonetic);
+
     // $("#istr1244_phon").val(istr1244_phonetic);
     // $("#istr1244").val(istr1244);
     $("#ogall_phon").val(ogall_phonetic);
