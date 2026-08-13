@@ -1045,7 +1045,7 @@ const vene_orthography = {
     "kw" : "qu",
     "k(?=[ei])" : "ch",
     "k" : "c",
-    "^z" : "s",
+    "^z(?![aeoiu])" : "s",
     "z" : "x", 
     "ʦ" : "ç",
     "ʣ" : "z",
