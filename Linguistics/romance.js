@@ -798,6 +798,7 @@ const megl_orthography = {
     "w": "u̯",
 }
 
+// Istro-Romanian
 const istr1245_firstpass = {
     "([^aeoiuə])\\.(ˈ?)wa" : ".$1o", // wa -> o
     "wa" : "o",
@@ -947,6 +948,25 @@ const dalm_orthography = {
     "ʎ" : "lj",
     "β" : "v",
 }
+
+const vene_firstpass = {
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "([kg])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+}
+
+const vene_orthography = {
+    "" : "",
+}
+
+// // Istriot
+// const istr1244_firstpass = {
+//     "" : "",
+// }
+
+// const istr1244_orthography = {
+//     "" : "",
+// }
 
 
 //Old Gallo-Romance
@@ -1180,7 +1200,7 @@ function submit(latin_input) {
     megl = megl_phonetic;
     megl = megl.evolve(megl_orthography);
 
-    // Evolve to istr1245o-Romanian
+    // Evolve to Istro-Romanian
     istr1245_phonetic = proma_phonetic;
     istr1245_phonetic = istr1245_phonetic.evolve(istr1245_firstpass);
     if ($("#assverb").is(":checked")) { 
@@ -1198,6 +1218,18 @@ function submit(latin_input) {
     dalm_phonetic = dalm_phonetic.evolve(dalm_secondpass);
     dalm = dalm_phonetic;
     dalm = dalm.evolve(dalm_orthography);
+
+    // Evolve to Venetian
+    vene_phonetic = proto_phonetic;
+    vene_phonetic = vene_phonetic.evolve(vene_firstpass);
+    vene = vene_phonetic;
+    vene = vene.evolve(vene_orthography);
+
+    // // Evolve to Istrian
+    // istr1244_phonetic = proto_phonetic;
+    // istr1244_phonetic = istr1244_phonetic.evolve(istr1244_firstpass);
+    // istr1244 = istr1244_phonetic;
+    // istr1244 = istr1244.evolve(istr1244_orthography);
     
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
@@ -1228,6 +1260,10 @@ function submit(latin_input) {
     $("#istr1245").val(istr1245);
     $("#dalm_phon").val(dalm_phonetic);
     $("#dalm").val(dalm);
+    $("#vene_phon").val(vene_phonetic);
+    $("#vene").val(vene);
+    // $("#istr1244_phon").val(istr1244_phonetic);
+    // $("#istr1244").val(istr1244);
     $("#ogall_phon").val(ogall_phonetic);
     $("#ogall").val(ogall);
 }
