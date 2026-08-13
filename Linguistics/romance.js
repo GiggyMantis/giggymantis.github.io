@@ -954,8 +954,8 @@ const vene_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "ʊ" : "o",
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
-    "kʲ" : "θ",
-    "ɡʲ" : "ð",
+    "[tk]ʲ" : "θ",
+    "[dɡ]ʲ" : "ð",
     "([ptkbdɡ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization of plosives when followed by l
     "([ptkbdɡ])(\\.?ˈ?)l" : "$2$1ʲ", 
 }
