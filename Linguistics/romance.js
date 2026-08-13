@@ -982,7 +982,7 @@ const vene_firstpass = {
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[tsk](\\.?ˈ?)([ʦʧ])" : "$2$1$2", // t-, s-, k- act like geminates for ʦ, ʧ
     "[dzɡ](\\.?ˈ?)([ʣʤ])" : "$2$1$2", // d-, z-, g- act like geminates for ʣ, ʤ
-    "^e([^aeiouɛɔ]*)\\.(?=ˈ)" : "$1", // pretonic initial e is deleted
+    "^e([^aeiouɛɔ]*)\\.ˈ" : "ˈ$1", // pretonic initial e is deleted
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "^s(?=[bdɡʣʤ])" : "z", // assimilatory voicing of initial s-
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1(?=([^aeɛioɔu]))" : "$1.$2", // degemination
