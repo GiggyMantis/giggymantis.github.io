@@ -974,8 +974,8 @@ const vene_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
-    "([^aeiouɛɔ\\.ˈ])\\.(ˈ?)\\1(?=([^aeiouɛɔ]))" : "$1.$2", // degemination
-    "([^aeiouɛɔ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1(?=([^aeɛioɔu]))" : "$1.$2", // degemination
+    "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
 }
 
@@ -994,8 +994,6 @@ const vene_central = {
 const vene_eastern = {
 
 }
-
-const 
 
 const vene_orthography = {
     "" : "",
