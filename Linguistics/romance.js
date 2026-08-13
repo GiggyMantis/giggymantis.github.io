@@ -1011,7 +1011,7 @@ const vene_central_pass = {
     "ʦ" : "s", // ʦ -> s
 }
 
-const vene_bell_pass = {
+const vene_belluno_pass = {
     "ʎ" : "j", // ʎ -> j
 }
 
@@ -1283,17 +1283,17 @@ function submit(latin_input) {
     // Evolve to Venetian
     vene_phonetic = proto_phonetic;
     vene_phonetic = vene_phonetic.evolve(vene_firstpass);
-    vene_central_phonetic = vene_phonetic;
+    vene_cent_phonetic = vene_phonetic;
     if ($("#assverb").is(":checked")) { 
         vene_phonetic = vene_phonetic.evolve(vene_assverb);
-        vene_central_phonetic = vene_central_phonetic.evolve(vene_central_assverb);
+        vene_cent_phonetic = vene_cent_phonetic.evolve(vene_central_assverb);
     }
-    vene_central_phonetic = vene_central_phonetic.evolve(vene_central_pass);
-    vene_bell_phonetic = vene_phonetic.evolve(vene_bell_pass);
-    vene_venice_phonetic = vene_phonetic.evolve(vene_venice_pass);
-    vene_cent = vene_central_phonetic.evolve(vene_orthography);
+    vene_cent_phonetic = vene_cent_phonetic.evolve(vene_central_pass);
+    vene_bell_phonetic = vene_phonetic.evolve(vene_belluno_pass);
+    vene_veni_phonetic = vene_phonetic.evolve(vene_venice_pass);
+    vene_cent = vene_cent_phonetic.evolve(vene_orthography);
     vene_bell = vene_bell_phonetic.evolve(vene_orthography);
-    vene_veni = vene_venice_phonetic.evolve(vene_orthography);
+    vene_veni = vene_veni_phonetic.evolve(vene_orthography);
 
     // // Evolve to Istrian
     // istr1244_phonetic = proto_phonetic;
