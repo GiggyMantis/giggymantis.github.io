@@ -972,31 +972,35 @@ const vene_firstpass = {
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
     "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[bfp](?=ɾ?[aeɛioɔu])" : "v", // lenition
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[ɡd](?=ɾ?[aeɛioɔu])" : "",
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[k](?=ɾ?[aeɛioɔu])" : "ɡ",
-    "(?<=[aeɛioɔu]ɾ?\\.ˈ?)[t](?=ɾ?[aeɛioɔu])" : "d",
+    "(?<=[aeɛioɔu]\\.ˈ?)[bfp](?=[aeɛioɔu])" : "v", // lenition
+    "(?<=[aeɛioɔu]\\.ˈ?)[ɡd](?=[aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "(?<=[aeɛioɔu]\\.ˈ?)ʦ(?=[aeɛioɔu])" : "z",
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[oɔu])" : "", // loss of intervocalic v before back vowels
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aoɔu])" : "", // loss of intervocalic v before back vowels
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ts](\\.?ˈ?)([ʦʧ])" : "$2$1$2", // t-, s- act like geminates for ʦ, ʧ
+    "[tsk](\\.?ˈ?)([ʦʧ])" : "$2$1$2", // t-, s-, k- act like geminates for ʦ, ʧ
+    "[dzɡ](\\.?ˈ?)([ʣʤ])" : "$2$1$2", // d-, z-, g- act like geminates for ʣ, ʤ
+    "^e([^aeiouɛɔ]*)\\.(?=ˈ)" : "$1", // pretonic initial e is deleted
     "[ptkr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "^s(?=[bdɡʣʤ])" : "z", // assimilatory voicing of initial s-
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1(?=([^aeɛioɔu]))" : "$1.$2", // degemination
     "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
     "n(?=\\.)|n$" : "ŋ", // n -> ŋ at the end of a syllable
+    "(?<=ˈ[^\\.]*)a" : "ɐ", // stressed a -> ɐ
+    "r" : "ɾ", // /r/ is [ɾ] in most situations
+    "^ɾ" : "r",
 }
 
-//todo: elided l, ortho
-
 const vene_assverb = {
-    "(?<=[eia])\\.re$" : "r", // -Vre -> -Vr
+    "(?<=[eiɐ])\\.ɾe$" : "ɾ", // -Vre -> -Vr
 }
 
 const vene_central_assverb = {
-    "e\\.r$" : "a", // -er -> -ar
+    "e(?=\\.ɾe$)" : "a", // -ere -> -are
+    "(?<=ˈ[^\\.]*)a" : "ɐ", // stressed a -> ɐ
 }
 
 const vene_venice_pass = {
@@ -1005,12 +1009,14 @@ const vene_venice_pass = {
     "[ŋn](\\.?ˈ?)j" : "$1ɲ",
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
+    "(?<=[aeɛioɔu]\\.ˈ?)l(?=[aeɛioɔu])" : "e̯", // l-elision
 }
 
 const vene_central_pass = {
     "ʎ" : "j", // ʎ -> j
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
+    "(?<=[aeɛioɔu]\\.ˈ?)l(?=[aeɛioɔu])" : "e̯", // l-elision
 }
 
 const vene_belluno_pass = {
@@ -1018,7 +1024,43 @@ const vene_belluno_pass = {
 }
 
 const vene_orthography = {
-    "" : "",
+    "e̯" : "ł",
+    "ɾ" : "r",
+    "^ˈ(?!.*\\.)" : "",
+    "ˈ([^aeoiuə]{0,3})([aeoiuə])" : "$1$2̀",
+    "ˈ" : "",
+    "\\." : "",
+    "([eoiu])̀" : "$1́",
+    "ɛ" : "e",
+    "ɔ" : "o",
+    "ɐ" : "a",
+    "ʧ(?=[ei])" : "c",
+    "ʧ$" : "c'",
+    "ʧ" : "ci",
+    "ʤ(?=[ei])" : "g",
+    "ʤ$" : "g'",
+    "ʤ" : "gi",
+    "ɡ(?=[ei])" : "gh",
+    "ɡ" : "g",
+    "kw" : "qu",
+    "k(?=[ei])" : "ch",
+    "k" : "c",
+    "^z" : "s",
+    "z" : "x", 
+    "ʦ" : "ç",
+    "ʣ" : "z",
+    "θ" : "th",
+    "ð" : "dh",
+    "ŋ" : "n",
+    "ɲ" : "gn",
+    "w" : "u",
+    "j(?=[aeiou])" : "i",
+    "(?<=[aeioú̀])j" : "i",
+}
+
+const vene_delete_elided_l = {
+    "e̯(?=\\.?ˈ?[ieɛ])" : "",
+    "(?<=[ieɛ]\\.?ˈ?)e̯" : "",
 }
 
 // // Istriot
@@ -1296,6 +1338,8 @@ function submit(latin_input) {
     vene_cent = vene_cent_phonetic.evolve(vene_orthography);
     vene_bell = vene_bell_phonetic.evolve(vene_orthography);
     vene_veni = vene_veni_phonetic.evolve(vene_orthography);
+    vene_veni_phonetic = vene_veni_phonetic.evolve(vene_delete_elided_l);
+    vene_cent_phonetic = vene_cent_phonetic.evolve(vene_delete_elided_l);
 
     // // Evolve to Istrian
     // istr1244_phonetic = proto_phonetic;
