@@ -962,8 +962,8 @@ const vene_firstpass = {
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
     "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
-    "([^aeoiuɛɔjl])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
-    "([^aeoiuɛɔjl\\.])(\\.?ˈ?)l" : "$2$1ʲ",
+    "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
+    "([^aeoiuɛɔjl\\.ˈ])(\\.?ˈ?)l" : "$2$1ʲ",
     "sʲ" : "s", // palatalization outcomes
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
@@ -988,6 +988,8 @@ const vene_firstpass = {
     "(.)(?=\\1)" : "",
     "n(?=\\.)|n$" : "ŋ", // n -> ŋ at the end of a syllable
 }
+
+//todo: elided l, ortho
 
 const vene_assverb = {
     "(?<=[eia])\\.re$" : "r", // -Vre -> -Vr
