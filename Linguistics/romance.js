@@ -965,7 +965,6 @@ const vene_firstpass = {
     "sʲ" : "s", // palatalization outcomes
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
-    "nʲ" : "n",
     "lʲ" : "ʎ",
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
@@ -1141,6 +1140,7 @@ function submit(latin_input) {
     proto_phonetic = latin_phonetic;
 
     if ($("#early-monophthongs").is(":checked")) {
+        console.log("early");
          latin = latin.evolve(optional_early_monophthongs);
     }
 
