@@ -961,7 +961,7 @@ const vene_firstpass = {
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
     "([^aeoiuɛɔjl])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
-    "([^aeoiuɛɔjl])(\\.?ˈ?)l" : "$2$1ʲ",
+    "([^aeoiuɛɔjl\\.])(\\.?ˈ?)l" : "$2$1ʲ",
     "sʲ" : "s", // palatalization outcomes
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
