@@ -987,6 +987,11 @@ const vene_firstpass = {
     "(.)(?=\\1)" : "",
 }
 
+const vene_assverb = {
+    // TODO: fix -ere verbs?
+    // TODO: Venetian -e loss in verbs
+}
+
 const vene_western = {
 
 }
