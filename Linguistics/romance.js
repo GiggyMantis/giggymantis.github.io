@@ -953,9 +953,10 @@ const dalm_orthography = {
 }
 
 const vene_firstpass = {
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "ɪ" : "e", // Vowel collapse
-    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "ʊ" : "o",
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
