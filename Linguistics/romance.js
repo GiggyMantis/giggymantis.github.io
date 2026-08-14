@@ -973,6 +973,7 @@ const vene_firstpass = {
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
     "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "(?<=[aeɛioɔu]\\.ˈ?)[bfp](?=[aeɛioɔu])" : "v", // lenition
     "(?<=[aeɛioɔu]\\.ˈ?)[ɡd](?=[aeɛioɔu])" : "",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
@@ -1075,15 +1076,21 @@ const vene_delete_elided_l = {
 //     "" : "",
 // }
 
+// First doing shared sound changes between Tuscan and Standard Italian, then can split them
 const tusc_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "ɪj$" : "i",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "aj$" : "e", // aj$ collapse
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "[ptkbdɡ](\\.?ˈ?)s" : "s$1s", // [C +stop]s -> ss
 }
 
 const tusc_orthography = {
