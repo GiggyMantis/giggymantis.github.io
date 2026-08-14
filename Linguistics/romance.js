@@ -1111,7 +1111,7 @@ const tusc_firstpass = {
     "j(\\.?ˈ?)j" : "dʤ",
     "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
     "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
-    "dʲ" : "ʤ" // sporadically ʣ
+    "dʲ" : "ʤ", // sporadically, ʣ
     "nʲ" : "ɲ",
     "lʲ" : "ʎ",
     "rʲ" : "j",
