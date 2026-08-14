@@ -1082,8 +1082,9 @@ const tusc_firstpass = {
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "ɪj$" : "i",
+    "ʊj$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)(.)ʲ" : "$2$1$2ʲ", // gemination of palatals
+    "(?<=[aeoiuɛɔɪʊwj\\.ˈ])(\\.?ˈ?)(.)ʲ" : "$2$1$2ʲ", // gemination of palatals
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
