@@ -1103,7 +1103,7 @@ const tusc_orthography = {
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
-    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "k$1kʲ", // gemination of kj
+    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "kʲ$1kʲ", // gemination of kj
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "β": "v",
     "[kt]ʲ": "ʦʲ",
