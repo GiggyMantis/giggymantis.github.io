@@ -961,7 +961,8 @@ const vene_firstpass = {
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
-    "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
+    "(?<=^(ˈ?))j" : "ʣ", // j -> ʣ / except when after or before a consonant
+    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ʣ",
     "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
     "([^aeoiuɛɔjl\\.ˈ])(\\.?ˈ?)l" : "$2$1ʲ",
     "sʲ" : "s", // palatalization outcomes
@@ -1105,9 +1106,9 @@ const tusc_firstpass = {
     "tʲ" : "ʦ",
     "kʲ" : "ʧ",
     "ɡʲ" : "j",
-    "^dʲ" : "j",
-    "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)[dɡj]?(?=j)" : "j$1", 
-    "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)j" : "j$1j",
+    "(?<=^(ˈ?))dʲ" : "j",
+    "(?<=[aeoiuɛɔw\\.ˈ?])(\\.?ˈ?)[dɡj]?(?=j)" : "j$1", 
+    "(?<=[aeoiuɛɔw\\.ˈ?])(\\.?ˈ?)j" : "j$1j",
     "j(\\.?ˈ?)j" : "dʤ",
     "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
     "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
