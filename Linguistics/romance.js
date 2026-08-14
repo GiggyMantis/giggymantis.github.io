@@ -1084,7 +1084,6 @@ const tusc_firstpass = {
     "ɪj$" : "i",
     "ʊj$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "(?<=[aeoiuɛɔɪʊwj\\.ˈ])(\\.?ˈ?)(.)ʲ" : "$2$1$2ʲ", // gemination of palatals
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -1092,7 +1091,18 @@ const tusc_firstpass = {
     "aj$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ptkbdɡ](\\.?ˈ?)s" : "s$1s", // [C +stop]s -> ss
+    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "(?<=[aeoiuɛɔɪʊwj\\.ˈ])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔɪʊwj\\.ˈ])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "(?<=[aeɛioɔu])sʲ" : "ʒ", // palatalization outcomes
+    "sʲ" : "ʃ",
+    "([tkdɡ])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    "tʲ" : "ʦ",
+    "kʲ" : "ʧ",
+    "[dɡ]ʲ" : "ʤ",
+    "lʲ" : "ʎ",
+    "(?<![^aeɛioɔu])j" : "ʤ",
+    "rʲ" : "j",
 }
 
 const tusc_orthography = {
@@ -1103,7 +1113,7 @@ const tusc_orthography = {
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
-    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "kʲ$1kʲ", // gemination of kj
+    "(?<=[aeoiuɛɔɪʊwj])(\\.?ˈ?)kʲ" : "k$1kʲ", // gemination of kj
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "β": "v",
     "[kt]ʲ": "ʦʲ",
