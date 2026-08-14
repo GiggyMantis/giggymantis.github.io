@@ -1096,6 +1096,7 @@ const tusc_firstpass = {
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "aw" : "u", // au -> u
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", // NOTE: This specific one is different in Standard Italian
     "(?<=[aeɛioɔu])sʲ" : "ʒ", // NOTE: This specific one is different in Standard Italian
