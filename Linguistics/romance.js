@@ -962,7 +962,7 @@ const vene_firstpass = {
     "[tk]ʲ" : "ʦ",
     "[dɡ]ʲ" : "ʣ",
     "(?<=^(ˈ?))j" : "ʣ", // j -> ʣ / except when after or before a consonant
-    "(?<=[aeɛioɔu]\\.ˈ?)j(?=[aeɛioɔu])" : "ʣ",
+    "j(\\.?ˈ?)j" : "$1ʣ",
     "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
     "([^aeoiuɛɔjl\\.ˈ])(\\.?ˈ?)l" : "$2$1ʲ",
     "sʲ" : "s", // palatalization outcomes
