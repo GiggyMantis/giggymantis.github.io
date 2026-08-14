@@ -1096,8 +1096,10 @@ const tusc_firstpass = {
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "(?<=[aeɛioɔu])sʲ" : "ʒ", // palatalization outcomes // NOTE: This specific one is different in Standard Italian
-    "(?<=ʒ\\.?ˈ?)sʲ" : "ʒ",
+    "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
+    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", // NOTE: This specific one is different in Standard Italian
+    "(?<=[aeɛioɔu])sʲ" : "ʒ", // NOTE: This specific one is different in Standard Italian
+    "(?<=ʒ\\.?ˈ?)sʲ" : "ʒ", // NOTE: This specific one is different in Standard Italian
     "sʲ" : "ʃ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
@@ -1108,7 +1110,7 @@ const tusc_firstpass = {
     "(?<=^(ˈ?))dʲ" : "j",
     "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
-    "j(\\.?ˈ?)j" : "dʤ",
+    "j(\\.?ˈ?)j" : "d$1ʤ",
     "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
     "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
     "dʲ" : "ʤ", // sporadically, ʣ
@@ -1119,6 +1121,7 @@ const tusc_firstpass = {
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
+    "t(?=\\.ˈ?r)" : "d", // tr -> dr
 }
 
 const tusc_orthography = {
