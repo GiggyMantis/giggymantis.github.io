@@ -1075,6 +1075,18 @@ const vene_delete_elided_l = {
 //     "" : "",
 // }
 
+const tusc_firstpass = {
+    "β" : "v", // β -> v
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+}
+
+const tusc_orthography = {
+    "" : "",
+}
 
 //Old Gallo-Romance
 const ogall_firstpass = {
@@ -1203,6 +1215,8 @@ function submit(latin_input) {
 
     latin_phonetic = latinate_stress(latin_phonetic);
 
+    $("#latinphon").val(latin_phonetic);
+
     // Evolve to Proto-Romance
     proto_phonetic = latin_phonetic;
 
@@ -1240,6 +1254,9 @@ function submit(latin_input) {
     proto = proto_phonetic;
     proto = proto.evolve(proto_orthography);
 
+    $("#proto").val(proto);
+    $("#proto_phon").val(proto_phonetic);
+
     // Evolve to Logudorese Sardinian
     logu_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
@@ -1250,6 +1267,9 @@ function submit(latin_input) {
     logu = logu.evolve(sard_orthography);
     logu_phonetic = logu_phonetic.evolve(sard_finish);
 
+    $("#logu_phon").val(logu_phonetic);
+    $("#logu").val(logu);
+
     // Evolve to Nuorese Sardinian
     nuor_phonetic = proto_phonetic;
     if ($("#assverb").is(":checked")) { 
@@ -1259,6 +1279,9 @@ function submit(latin_input) {
     nuor = nuor_phonetic;
     nuor = nuor.evolve(sard_orthography);
     nuor_phonetic = nuor_phonetic.evolve(sard_finish);
+
+    $("#nuor_phon").val(nuor_phonetic);
+    $("#nuor").val(nuor);
 
     // Evolve to Campidanese Sardinian
     camp_phonetic = proto_phonetic;
@@ -1273,6 +1296,9 @@ function submit(latin_input) {
     camp = camp.evolve(sard_orthography);
     camp_phonetic = camp_phonetic.evolve(sard_finish);
 
+    $("#camp_phon").val(camp_phonetic);
+    $("#camp").val(camp);
+
     // Evolve to African
     afri_phonetic = proto_phonetic;
     afri_phonetic = afri_phonetic.evolve(afri_firstpass);
@@ -1280,11 +1306,17 @@ function submit(latin_input) {
     afri = afri.evolve(latin_firstpass);
     afri = afri.evolve(afri_orthography);
 
+    $("#afri_phon").val(afri_phonetic);
+    $("#afri").val(afri);
+
     // Evolve to Proto-Romanian
     proma_phonetic = proto_phonetic;
     proma_phonetic = proma_phonetic.evolve(proma_firstpass);
     proma = proma_phonetic;
     proma = proma.evolve(proma_orthography);
+
+    $("#proma_phon").val(proma_phonetic);
+    $("#proma").val(proma);
 
     // Evolve to Romanian
     roma_phonetic = proma_phonetic;
@@ -1296,17 +1328,26 @@ function submit(latin_input) {
     roma = roma_phonetic;
     roma = roma.evolve(roma_orthography);
 
+    $("#roma_phon").val(roma_phonetic);
+    $("#roma").val(roma);
+
     // Evolve to Aromanian
     arom_phonetic = proma_phonetic;
     arom_phonetic = arom_phonetic.evolve(arom_firstpass);
     arom = arom_phonetic;
     arom = arom.evolve(arom_orthography);
 
+    $("#arom_phon").val(arom_phonetic);
+    $("#arom").val(arom);
+
     // Evolve to Meglo-Romanian
     megl_phonetic = proma_phonetic;
     megl_phonetic = megl_phonetic.evolve(megl_firstpass);
     megl = megl_phonetic;
     megl = megl.evolve(megl_orthography);
+
+    $("#megl_phon").val(megl_phonetic);
+    $("#megl").val(megl);
 
     // Evolve to Istro-Romanian
     istr1245_phonetic = proma_phonetic;
@@ -1317,6 +1358,9 @@ function submit(latin_input) {
     istr1245 = istr1245_phonetic;
     istr1245 = istr1245.evolve(istr1245_orthography);
 
+    $("#istr1245_phon").val(istr1245_phonetic);
+    $("#istr1245").val(istr1245);
+
     // Evolve to Dalmatian
     dalm_phonetic = proto_phonetic;
     dalm_phonetic = dalm_phonetic.evolve(dalm_firstpass);
@@ -1326,6 +1370,9 @@ function submit(latin_input) {
     dalm_phonetic = dalm_phonetic.evolve(dalm_secondpass);
     dalm = dalm_phonetic;
     dalm = dalm.evolve(dalm_orthography);
+
+    $("#dalm_phon").val(dalm_phonetic);
+    $("#dalm").val(dalm);
 
     // Evolve to Venetian
     vene_phonetic = proto_phonetic;
@@ -1344,49 +1391,36 @@ function submit(latin_input) {
     vene_veni_phonetic = vene_veni_phonetic.evolve(vene_delete_elided_l);
     vene_cent_phonetic = vene_cent_phonetic.evolve(vene_delete_elided_l);
 
-    // // Evolve to Istrian
-    // istr1244_phonetic = proto_phonetic;
-    // istr1244_phonetic = istr1244_phonetic.evolve(istr1244_firstpass);
-    // istr1244 = istr1244_phonetic;
-    // istr1244 = istr1244.evolve(istr1244_orthography);
-    
-    // Evolve to Old Gallo-Romance
-    ogall_phonetic = proto_phonetic;
-    ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
-    ogall = ogall_phonetic;
-    //ogall = ogall.evolve(ogall_orthography);
-    
-    $("#latinphon").val(latin_phonetic);
-    $("#proto").val(proto);
-    $("#proto_phon").val(proto_phonetic);
-    $("#logu_phon").val(logu_phonetic);
-    $("#logu").val(logu);
-    $("#nuor_phon").val(nuor_phonetic);
-    $("#nuor").val(nuor);
-    $("#camp_phon").val(camp_phonetic);
-    $("#camp").val(camp);
-    $("#afri_phon").val(afri_phonetic);
-    $("#afri").val(afri);
-    $("#proma_phon").val(proma_phonetic);
-    $("#proma").val(proma);
-    $("#roma_phon").val(roma_phonetic);
-    $("#roma").val(roma);
-    $("#arom_phon").val(arom_phonetic);
-    $("#arom").val(arom);
-    $("#megl_phon").val(megl_phonetic);
-    $("#megl").val(megl);
-    $("#istr1245_phon").val(istr1245_phonetic);
-    $("#istr1245").val(istr1245);
-    $("#dalm_phon").val(dalm_phonetic);
-    $("#dalm").val(dalm);
     $("#vene_veni_phon").val(vene_veni_phonetic);
     $("#vene_veni").val(vene_veni);
     $("#vene_cent_phon").val(vene_cent_phonetic);
     $("#vene_cent").val(vene_cent);
     $("#vene_bell_phon").val(vene_bell_phonetic);
     $("#vene_bell").val(vene_bell);
+
+    // // Evolve to Istrian
+    // istr1244_phonetic = proto_phonetic;
+    // istr1244_phonetic = istr1244_phonetic.evolve(istr1244_firstpass);
+    // istr1244 = istr1244_phonetic;
+    // istr1244 = istr1244.evolve(istr1244_orthography);
+
     // $("#istr1244_phon").val(istr1244_phonetic);
     // $("#istr1244").val(istr1244);
+
+    // Evolve to Tuscan
+    tusc_phonetic = proto_phonetic;
+    tusc_phonetic = tusc_phonetic.evolve(tusc_firstpass);
+    tusc = tusc_phonetic.evolve(tusc_orthography);
+
+    $("#tusc_phon").val(tusc_phonetic);
+    $("#tusc").val(tusc);
+    
+    // Evolve to Old Gallo-Romance
+    ogall_phonetic = proto_phonetic;
+    ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
+    ogall = ogall_phonetic;
+    //ogall = ogall.evolve(ogall_orthography);
+
     $("#ogall_phon").val(ogall_phonetic);
     $("#ogall").val(ogall);
 }
