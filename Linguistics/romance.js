@@ -1093,8 +1093,7 @@ const tusc_firstpass = {
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
-    "βʲ" : "bʲ", // early palatal outcome
-    "β" : "v", // β -> v
+    "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "(?<=[aeɛioɔu])sʲ" : "ʒ", // palatalization outcomes // NOTE: This specific one is different in Standard Italian
