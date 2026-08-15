@@ -1547,6 +1547,9 @@ function submit(latin_input) {
     ital_phonetic = ital_phonetic.evolve(ital_firstpass);
     ital = ital_phonetic.evolve(ital_orthography);
 
+    $("#ital_phon").val(ital_phonetic);
+    $("#ital").val(ital);
+
     // Evolve to Tuscan
     tusc_phonetic = proto_phonetic;
     tusc_phonetic = tusc_phonetic.evolve(tusc_firstpass);
