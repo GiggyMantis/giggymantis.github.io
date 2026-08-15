@@ -1130,8 +1130,8 @@ const tusc_firstpass = {
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
-    "(?<=^ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
-    "([^aeɛioɔu\\.ˈl])(\\.?ˈ?)l" : "$1$2$1j",
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
 
 }
@@ -1273,8 +1273,7 @@ function submit(latin_input) {
     proto_phonetic = latin_phonetic;
 
     if ($("#early-monophthongs").is(":checked")) {
-        console.log("early");
-         latin = latin.evolve(optional_early_monophthongs);
+        proto_phonetic = proto_phonetic.evolve(optional_early_monophthongs);
     }
 
     proto_phonetic = proto_phonetic.evolve(proto_firstpass);
