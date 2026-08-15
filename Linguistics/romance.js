@@ -935,7 +935,7 @@ const dalm_orthography = {
     "\\." : "",
     "ə" : "o",
     "(?=[aeoiu]̀?)j" : "i",
-    "j(?=[aeoiu])" : "i",
+    "(?<=[^aeoiù]j(?=[aeoiu])" : "i",
     "w" : "u",
     "k(?=[jie])" : "ch",
     "ɡ(?=[jie])" : "gh",
@@ -974,6 +974,7 @@ const vene_firstpass = {
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
     "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k\\.kw", // ˈVkwV -> ˈVkkwV
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "(?<=[aeɛioɔu]\\.ˈ?)[bfp](?=[aeɛioɔu])" : "v", // lenition
     "(?<=[aeɛioɔu]\\.ˈ?)[ɡd](?=[aeɛioɔu])" : "",
