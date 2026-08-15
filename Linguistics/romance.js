@@ -1130,8 +1130,8 @@ const ital_firstpass = {
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "ɔ(?=n)" : "o", // prenasal raising 
-    "o(?=[^\\.r]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r
-    "e(?=[^\\.r]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r 
+    "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
+    "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
