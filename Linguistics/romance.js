@@ -935,7 +935,7 @@ const dalm_orthography = {
     "\\." : "",
     "ə" : "o",
     "(?=[aeoiu]̀?)j" : "i",
-    "(?<=[^aeoiù]j(?=[aeoiu])" : "i",
+    "(?<=[^aeoiù])j(?=[aeoiu])" : "i",
     "w" : "u",
     "k(?=[jie])" : "ch",
     "ɡ(?=[jie])" : "gh",
