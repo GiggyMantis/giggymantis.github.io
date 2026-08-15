@@ -1218,6 +1218,8 @@ const tusc_firstpass = {
     "∅" : "",
 }
 
+const tusc_assverb = /(?<!ˈ[^\.]*)re$/g
+
 const ital_orthography = {
     "" : "",
 }
@@ -1540,10 +1542,18 @@ function submit(latin_input) {
     // $("#istr1244_phon").val(istr1244_phonetic);
     // $("#istr1244").val(istr1244);
 
+    // Evolve to Standard Italian
+    ital_phonetic = proto_phonetic;
+    ital_phonetic = ital_phonetic.evolve(ital_firstpass);
+    ital = ital_phonetic.evolve(ital_orthography);
+
     // Evolve to Tuscan
     tusc_phonetic = proto_phonetic;
     tusc_phonetic = tusc_phonetic.evolve(tusc_firstpass);
-    tusc = tusc_phonetic.evolve(tusc_orthography);
+    if ($("#assverb").is(":checked")) { 
+        tusc_phonetic = tusc_phonetic.replace(tusc_assverb, "");
+    }
+    tusc = tusc_phonetic.evolve(ital_orthography);
 
     $("#tusc_phon").val(tusc_phonetic);
     $("#tusc").val(tusc);
