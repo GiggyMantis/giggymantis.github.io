@@ -934,7 +934,7 @@ const dalm_orthography = {
     "ˈ" : "",
     "\\." : "",
     "ə" : "o",
-    "(?=[aeoiu]̀?)j" : "i",
+    "(?<=[aeoiu]̀?)j" : "i",
     "(?<=[^aeoiù])j(?=[aeoiu])" : "i",
     "w" : "u",
     "k(?=[jie])" : "ch",
@@ -1022,7 +1022,7 @@ const vene_central_pass = {
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
     "(?<=[aeɛioɔuɐ]\\.ˈ?)l(?=[aeɛioɔuɐ])" : "e̯", // l-elision
-    "(?<=[^aeɛioɔuɐ])[eiɛ]\\.(ˈ?)(?=[aeɛioɔuɐ])" : "\\.$1j" // palatal semivocalization
+    "(?<=[^aeɛioɔuɐ])[eiɛ]\\.(ˈ?)(?=[aeɛioɔuɐ])" : ".$1j" // palatal semivocalization
 }
 
 const vene_belluno_pass = {
@@ -1065,8 +1065,8 @@ const vene_orthography = {
 }
 
 const vene_delete_elided_l = {
-    "e̯(?=\\.?ˈ?[ieɛ])" : "",
-    "(?<=[ieɛ]\\.?ˈ?)e̯" : "",
+    "e̯(?=\\.?ˈ?[ieɛj])" : "",
+    "(?<=[ieɛj]\\.?ˈ?)e̯" : "",
 }
 
 // // Istriot
@@ -1078,7 +1078,73 @@ const vene_delete_elided_l = {
 //     "" : "",
 // }
 
-// First doing shared sound changes between Tuscan and Standard Italian, then can split them
+
+const ital_firstpass = {
+    "β" : "v", // β -> v
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "[iɪ]j$" : "i",
+    "ʊj$" : "ʊ",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k\\.kw", // ˈVkwV -> ˈVkkwV
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "aj$" : "e", // aj$ collapse
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
+    "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "vʲ" : "bʲ", // early palatal outcome
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "aw" : "o", // au -> o (later u in some cases)
+    "sʲ\\.(ˈ?)sʲ" : "$1ʧ", // palatalization outcomes
+    "sʲ" : "ʧ",
+    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    "kʲ(?=\\.?ˈ?kʲ)" : "t",
+    "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "tʲ" : "ʦ",
+    "kʲ" : "ʧ",
+    "s(\\.?ˈ?)[ʦʧ]" : "ʃ$1ʃ",
+    "ɡʲ" : "j",
+    "(?<=^(ˈ?))dʲ" : "j",
+    "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
+    "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
+    "j(\\.?ˈ?)j" : "d$1ʤ",
+    "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
+    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
+    "dʲ" : "ʤ", // sporadically, ʣ
+    "nʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "rʲ" : "j",
+    "ʲ(?=[^aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
+    "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
+    "ʲ" : "j",
+    "t(?=\\.ˈ?r)" : "d", // tr -> dr
+    "p(?=\\.ˈ?r)" : "b", // pr -> br
+    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "ɔ(?=n)" : "o", // prenasal raising 
+    "o(?=[^\\.r]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r
+    "e(?=[^\\.r]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r 
+    "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
+    "[o](?=n\\.?ˈ?ɡ)" : "u", 
+    "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
+    "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɔ(?![aeɛioɔu\\.])" : "$2\\.$1wɔ", // breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![aeɛioɔu\\.])" : "wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɛ(?![aeɛioɔu\\.])" : "$2\\.$1jɛ", // breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![aeɛioɔu\\.])" : "jɛ",
+    "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+}
+
 const tusc_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
@@ -1100,9 +1166,9 @@ const tusc_firstpass = {
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
-    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", // NOTE: This specific one is different in Standard Italian
-    "(?<=[aeɛioɔu])sʲ" : "ʒ", // NOTE: This specific one is different in Standard Italian
-    "(?<=ʒ\\.?ˈ?)sʲ" : "ʒ", // NOTE: This specific one is different in Standard Italian
+    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", 
+    "(?<=[aeɛioɔu])sʲ" : "ʒ",
+    "(?<=ʒ\\.?ˈ?)sʲ" : "ʒ",
     "sʲ" : "ʃ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
@@ -1137,10 +1203,22 @@ const tusc_firstpass = {
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
-
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
+    "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "(?<=[aeɛioɔu])d\\.(ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ.$1ʒ", // intervocalic deaffrication of ʧ, ʤ
+    "(?<=[aeɛioɔu])t\\.(ˈ?)ʧ(?=[aeɛioɔu])" : "ʃ.$1ʃ",
+    "(?<=[aeɛioɔu]\\.ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ",
+    "(?<=[aeɛioɔu]\\.ˈ?)ʧ(?=[aeɛioɔu])" : "ʃ",
+    "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+    "(?<=[aeɛioɔu])([ptk])\\.ˈ\\1" : "∅$1.ˈ$1ʰ", // Tuscan gorgia
+    "(?<=[aeɛioɔu]\\.ˈ?)k" : "h",
+    "(?<=[aeɛioɔu]\\.ˈ?)t" : "θ",
+    "(?<=[aeɛioɔu]\\.ˈ?)p" : "ɸ",
+    "∅" : "",
 }
 
-const tusc_orthography = {
+const ital_orthography = {
     "" : "",
 }
 
