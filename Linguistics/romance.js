@@ -919,7 +919,7 @@ const dalm_secondpass = {
     "([^aeiouU])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
     "(?<=[^aeiouU]\\.[^aeiouUˈ])[eo]$" : "ə", // -e, -o reduction after clusters
-    "(ˈ[^\\.]*)\\.([^\\.]*)[eo]$" : "$1$2", // -e, -o deletion
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // -e, -o deletion
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "(?<=^ˈ?)w" : "β", // w- -> v-
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
@@ -1130,7 +1130,7 @@ const tusc_firstpass = {
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
-    "(?<=^[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "j", // Cl -> CCj
+    "(?<=^ˈ?[^aeɛioɔu\\.ˈ])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈ])(\\.?ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
 
