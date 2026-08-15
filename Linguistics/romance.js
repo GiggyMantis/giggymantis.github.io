@@ -985,7 +985,7 @@ const vene_firstpass = {
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "(?<=[aeɛioɔu]\\.ˈ?)ʦ(?=[aeɛioɔu])" : "z",
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aoɔu])" : "", // loss of intervocalic v before back vowels
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[oɔu])" : "", // loss of intervocalic v before back vowels
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[tk](\\.?ˈ?)(ʧ)" : "$2$1$2", // t-, k- act like geminates for ʧ
     "[dɡ](\\.?ˈ?)(ʤ)" : "$2$1$2", // d-, g- act like geminates for ʤ
