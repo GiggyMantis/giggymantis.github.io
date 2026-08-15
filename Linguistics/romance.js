@@ -101,7 +101,7 @@ const proto_firstpass = {
     "ʏ" : "ɪ",
     "(?<=[aeoiuɛɔɪʊː̯̃])\\.([^aeoiuɛɔɪʊː̯̃])w" : "$1.w",
     "(?<![stdnkɡ]\\.?)w" : "β", // Fricatization of w
-    "([aeoiuɛɔɪʊ][ː̯]?\\.?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "$1β", // Intervocalic fricatization of b
+    "(?<=[aeoiuɛɔɪʊ][ː̯]?\\.?ˈ?)(b)(?=[aeoiuyɛɔɪʊʏ])" : "β", // Intervocalic fricatization of b
     "ae̯" : "ɛː", // Diphthong collapse
     "oe̯" : "eː",
     "ui̯" : "u.i",
