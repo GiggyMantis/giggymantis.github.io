@@ -898,8 +898,12 @@ const dalm_secondpass = {
     "([tpbd])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such [note that k is an exception here]
     "([jw])\\.(ˈ?)([^aeoiuɛɔA])" : ".$2$1$3",
     "ɔ(?=\\.)|ɔ$" : "a", // ɔ -> a in open syllables
+    "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
+    "\\.(ˈ?)([jw])([^aeoiuU])" : "$2.$1$3",
     "(?<=ˈ[^\\.]*)a(?=\\.)|(?<=ˈ[^\\.]*)a$" : "U", // stressed a -> u in open syllables
     "A" : "a",
+    "([tpbd])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such [note that k is an exception here]
+    "([jw])\\.(ˈ?)([^aeoiuɛɔA])" : ".$2$1$3",
     "ɛ(?=\\.)|ɛ$" : "i", // ɛ -> i in open syllables
     "(?<![^aeoiuɛɔU])\\.ˈ([^aeoiuɛɔU])ɔ" : "$1.ˈwa", // ɔ -> wa in closed syllables
     "ɔ" : "wa",
@@ -1099,7 +1103,7 @@ const ital_firstpass = {
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "aw" : "o", // au -> o (later u in some cases)
-    "sʲ\\.(ˈ?)sʲ" : "$1ʧ", // palatalization outcomes
+    "sʲ(\\.ˈ?)sʲ" : "$1ʧ", // palatalization outcomes
     "sʲ" : "ʧ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
@@ -1164,6 +1168,8 @@ const ital_orthography = {
     "ʃ+" : "sʧ",
     "ʒ+" : "zʤ",
     "z" : "s",
+    "w" : "u",
+    "j" : "i",
     "ʤ(?=[ei])" : "g",
     "ʤ" : "gi",
     "ʧ(?=[ei])" : "c",
@@ -1175,8 +1181,6 @@ const ital_orthography = {
     "ʎ+(?=i)" : "gl",
     "ʎ+" : "gli",
     "ɲ+" : "gn",
-    "w" : "u",
-    "j" : "i",
 }
 
 const tusc_firstpass = {
