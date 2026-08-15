@@ -1143,6 +1143,40 @@ const ital_firstpass = {
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![aeɛioɔu\\.])" : "jɛ",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+    "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+}
+
+const ital_orthography = {
+    "h" : "k",
+    "θ" : "t",
+    "ɸ" : "p",
+    "ʰ" : "",
+    "ŋ" : "n",
+    "^ˈ(?!.*\\.)" : "",
+    "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
+    "ˈ" : "",
+    "\\." : "",
+    "([eoiu])̀" : "$1́",
+    "ɛ" : "e",
+    "ɔ" : "o",
+    "tʧ" : "cʧ",
+    "dʤ" : "gʤ",
+    "ʃ+" : "sʧ",
+    "ʒ+" : "zʤ",
+    "z" : "s",
+    "ʤ(?=[ei])" : "g",
+    "ʤ" : "gi",
+    "ʧ(?=[ei])" : "c",
+    "ʧ" : "ci",
+    "ɡ(?=[ei])" : "gh",
+    "ɡ" : "g",
+    "k(?=[ei])" : "ch",
+    "k" : "c",
+    "ʎ+(?=i)" : "gl",
+    "ʎ+" : "gli",
+    "ɲ+" : "gn",
+    "w" : "u",
+    "j" : "i",
 }
 
 const tusc_firstpass = {
@@ -1205,23 +1239,23 @@ const tusc_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+    "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+}
+
+const tusc_assverb = /(?<=[eia])\.re$/g
+
+const tusc_after_ortho = {
     "(?<=[aeɛioɔu])d\\.(ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ.$1ʒ", // intervocalic deaffrication of ʧ, ʤ
     "(?<=[aeɛioɔu])t\\.(ˈ?)ʧ(?=[aeɛioɔu])" : "ʃ.$1ʃ",
     "(?<=[aeɛioɔu]\\.ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ",
     "(?<=[aeɛioɔu]\\.ˈ?)ʧ(?=[aeɛioɔu])" : "ʃ",
     "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
-    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(?<=[aeɛioɔu])([ptk])\\.ˈ\\1" : "∅$1.ˈ$1ʰ", // Tuscan gorgia
     "(?<=[aeɛioɔu]\\.ˈ?)k" : "h",
     "(?<=[aeɛioɔu]\\.ˈ?)t" : "θ",
     "(?<=[aeɛioɔu]\\.ˈ?)p" : "ɸ",
     "∅" : "",
-}
-
-const tusc_assverb = /(?<!ˈ[^\.]*)re$/g
-
-const ital_orthography = {
-    "" : "",
 }
 
 //Old Gallo-Romance
@@ -1557,6 +1591,7 @@ function submit(latin_input) {
         tusc_phonetic = tusc_phonetic.replace(tusc_assverb, "");
     }
     tusc = tusc_phonetic.evolve(ital_orthography);
+    tusc_phonetic = tusc_phonetic.evolve(tusc_after_ortho);
 
     $("#tusc_phon").val(tusc_phonetic);
     $("#tusc").val(tusc);
