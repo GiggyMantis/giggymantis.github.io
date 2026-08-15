@@ -1141,10 +1141,10 @@ const ital_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɔ(?![aeɛioɔu\\.])" : "$2\\.$1wɔ", // breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![aeɛioɔu\\.])" : "wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɛ(?![aeɛioɔu\\.])" : "$2\\.$1jɛ", // breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![aeɛioɔu\\.])" : "jɛ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɔ(?![^aeɛioɔu\\.])" : "$2\\.$1wɔ", // breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![^aeɛioɔu\\.])" : "wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɛ(?![^aeɛioɔu\\.])" : "$2\\.$1jɛ", // breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![^aeɛioɔu\\.])" : "jɛ",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
