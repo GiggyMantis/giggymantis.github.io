@@ -974,7 +974,6 @@ const vene_firstpass = {
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
     "ʲ" : "j",
     "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k\\.kw", // ˈVkwV -> ˈVkkwV
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "(?<=[aeɛioɔu]\\.ˈ?)[bfp](?=[aeɛioɔu])" : "v", // lenition
     "(?<=[aeɛioɔu]\\.ˈ?)[ɡd](?=[aeɛioɔu])" : "",
@@ -1089,6 +1088,7 @@ const tusc_firstpass = {
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k\\.kw", // ˈVkwV -> ˈVkkwV
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "aj$" : "e", // aj$ collapse
