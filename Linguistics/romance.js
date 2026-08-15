@@ -500,7 +500,7 @@ const proma_firstpass = {
     "β" : "v",
     "j" : "ʤ", // j -> ʤ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "ɪj$" : "i",
+    "[iɪ]j$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e",
     "(?<=^[ɛe]s\\.(ˈ?))w" : "b", // esw -> esb
@@ -856,7 +856,7 @@ const dalm_firstpass = {
     "k(?=\\.ˈ?s)" : "s", // ks -> ss
     "ɲ(\\.?ˈ?)ɲ" : "m$1n", // ɲɲ -> mn
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "ɪj$" : "i",
+    "[iɪ]j$" : "i",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "w" : "β", // w -> β
     "^(ˈ?)([auʊo])" : "$1j$2", // word-initial lightening
@@ -1022,6 +1022,7 @@ const vene_central_pass = {
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
     "(?<=[aeɛioɔuɐ]\\.ˈ?)l(?=[aeɛioɔuɐ])" : "e̯", // l-elision
+    "(?<=[^aeɛioɔuɐ])[eiɛ]\\.(ˈ?)(?=[aeɛioɔuɐ])" : "\\.$1j" // palatal semivocalization
 }
 
 const vene_belluno_pass = {
@@ -1082,7 +1083,7 @@ const tusc_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "ɪj$" : "i",
+    "[iɪ]j$" : "i",
     "ʊj$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
@@ -1124,6 +1125,11 @@ const tusc_firstpass = {
     "ʲ" : "j",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "o(?=[^\\.]?\\.ˈ)" : "u", // pretonic o -> u
+    "e(?=[^\\.]?\\.ˈ)" : "i", // pretonic e -> i
+    "e(?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
+    "o(?=n\\.?ˈ?[kɡ])" : "u", 
+    "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
+
 }
 
 const tusc_orthography = {
