@@ -1096,8 +1096,8 @@ const tusc_firstpass = {
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcome
-    "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
-    "(?<=[aeoiuɛɔwj\\.ˈ?])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "(?<=[aeoiuɛɔwj\\.ˈ])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔwj\\.ˈ])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", // NOTE: This specific one is different in Standard Italian
@@ -1125,6 +1125,8 @@ const tusc_firstpass = {
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
     "ʲ" : "j",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
+    "p(?=\\.ˈ?r)" : "b", // pr -> br
+    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.r]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r
     "e(?=[^\\.r]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r 
@@ -1134,6 +1136,7 @@ const tusc_firstpass = {
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
 
 }
 
