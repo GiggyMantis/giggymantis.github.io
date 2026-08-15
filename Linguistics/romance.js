@@ -1125,13 +1125,13 @@ const tusc_firstpass = {
     "ʲ" : "j",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "ɔ(?=n)" : "o", // prenasal raising 
-    "o(?=[^\\.r]?\\.ˈ)" : "u", // pretonic o -> u, not before an r- cluster
-    "e(?=[^\\.r]?\\.ˈ)" : "i", // pretonic e -> i, not before an r- cluster
+    "o(?=[^\\.r]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r
+    "e(?=[^\\.r]?\\.ˈ[^r)" : "i", // pretonic e -> i, not before r 
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
-    "(?<=^ˈ?[^aeɛioɔu\\.ˈ])l" : "j", // Cl -> CCj
-    "([^aeɛioɔu\\.ˈ])(\\.?ˈ?)l" : "$1$2$1j",
+    "(?<=^ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.?ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
 
 }
