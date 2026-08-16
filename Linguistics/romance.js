@@ -851,6 +851,9 @@ const istr1245_orthography = {
 const dalm_firstpass = {
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "[iɪ]j$" : "i",
+    "ʊj$" : "ʊ",
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "k(?=\\.ˈ?t)" : "j", // kt -> jt
     "k(?=\\.ˈ?s)" : "s", // ks -> ss
@@ -959,6 +962,9 @@ const dalm_orthography = {
 const vene_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "[iɪ]j$" : "i",
+    "ʊj$" : "ʊ",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
