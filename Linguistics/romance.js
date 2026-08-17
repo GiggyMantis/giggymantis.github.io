@@ -1282,10 +1282,11 @@ const cors_firstpass = {
     "(?<=ˈ[^\\.]*)[ɪe]S$" : "ɛ",
     "[ɪe]S$" : "e",
     "ɛS$" : "eS",
-    "ʊS$" : "u",
+    "ʊS$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
+    "o$" : "u",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
