@@ -1103,7 +1103,6 @@ const ital_firstpass = {
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
-    "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
@@ -1205,7 +1204,6 @@ const tusc_firstpass = {
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
-    "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
@@ -1289,7 +1287,6 @@ const cors_firstpass = {
     "o$" : "u",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
-    "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
