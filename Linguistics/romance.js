@@ -1327,6 +1327,7 @@ const cors_firstpass = {
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "[ɛe](?=r)" : "a", // ɛ, e -> a / _rC, _r#
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
