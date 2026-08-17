@@ -1185,6 +1185,7 @@ const ital_orthography = {
     "ʧ" : "ci",
     "ɡ(?=[ei])" : "gh",
     "ɡ" : "g",
+    "kw" : "qu",
     "k(?=[ei])" : "ch",
     "k" : "c",
     "ʎ+(?=i)" : "gl",
