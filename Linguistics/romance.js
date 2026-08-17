@@ -1093,9 +1093,11 @@ const vene_delete_elided_l = {
 const ital_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
-    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "[iɪ]j$" : "i",
-    "ʊj$" : "ʊ",
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "[iɪ]S$" : "i",
+    "(?<=ˈ[^\\.]*)[eɛ]S$" : "ɛ",
+    "eS$" : "e",
+    "ʊS$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
@@ -1103,7 +1105,7 @@ const ital_firstpass = {
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
-    "aj$" : "e", // aj$ collapse
+    "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
@@ -1133,7 +1135,7 @@ const ital_firstpass = {
     "ʲ(?=[^aeɛioɔu])" : "",
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
-    "ʲ" : "j",
+    "ʲ|S" : "j",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
@@ -1194,16 +1196,19 @@ const ital_orthography = {
 const tusc_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
-    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "[iɪ]j$" : "i",
-    "ʊj$" : "ʊ",
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "[iɪ]S$" : "i",
+    "(?<=ˈ[^\\.]*)[eɛ]S$" : "ɛ",
+    "eS$" : "e",
+    "ʊS$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e", // aj$ collapse
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
@@ -1235,7 +1240,7 @@ const tusc_firstpass = {
     "ʲ(?=[^aeɛioɔu])" : "",
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
-    "ʲ" : "j",
+    "ʲ|S" : "j",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
@@ -1273,9 +1278,11 @@ const tusc_after_ortho = {
 const cors_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
-    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "[iɪ]j$" : "i",
-    "ʊj$" : "ʊ",
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "[iɪ]S$" : "i",
+    "(?<=ˈ[^\\.]*)[eɛ]S$" : "ɛ",
+    "eS$" : "e",
+    "ʊS$" : "u",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
@@ -1283,7 +1290,7 @@ const cors_firstpass = {
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "([kɡ])(\\.?)w(?=\\.?ˈ?[eɛi])" : "$2$1",
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
-    "aj$" : "e", // aj$ collapse
+    "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
@@ -1315,7 +1322,7 @@ const cors_firstpass = {
     "ʲ(?=[^aeɛioɔu])" : "",
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
-    "ʲ" : "j",
+    "ʲ|S" : "j",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
