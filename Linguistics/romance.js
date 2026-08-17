@@ -1298,7 +1298,7 @@ const cors_firstpass = {
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "aw" : "o", // au -> o (later u in some cases)
+    "aw" : "a", // au -> a [in some Corsican dialects, this is o (later u in some cases) as in Tuscan]
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", 
     "(?<=[aeɛioɔu])sʲ" : "ʒ",
