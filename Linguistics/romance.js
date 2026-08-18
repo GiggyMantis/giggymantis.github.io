@@ -1366,7 +1366,7 @@ const cors_firstpass = {
 }
 
 const cors_assverb = {
-    "(?<ˈ[^\\.]*)i\\.re$" : "Xe", // -ˈire -> -e
+    "ˈ([^\\.]*)i\\.re$" : "X$1e", // -ˈire -> -e
     "\\.([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : ".ˈ$1$2",
     "^([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : "ˈ$1$2",
     "X" : "ˈ", // this should never happen but whatever
