@@ -1151,14 +1151,18 @@ const ital_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?![^aeɛioɔu\\.])" : "$2.$1wɔ", // breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![^aeɛioɔu\\.])" : "wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɛ(?![^aeɛioɔu\\.])" : "$2.$1jɛ", // breaking of ɛ
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?![^aeɛioɔu\\.])" : "$2.$1Wɔ", // breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![^aeɛioɔu\\.])" : "Wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?![^aeɛioɔu\\.])" : "$2.$1jɛ", // breaking of ɛ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![^aeɛioɔu\\.])" : "jɛ",
-    "([wj])([wj])" : "$1",
+    "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+}
+
+const ital_after_ortho = {
+    "W" : "w",
 }
 
 const ital_orthography = {
@@ -1182,10 +1186,10 @@ const ital_orthography = {
     "ʒ+" : "zʤ",
     "z" : "s",
     "kw" : "qu",
-    "w" : "u",
+    "[wW]" : "u",
     "j" : "i",
-    "c" : "chj",
-    "ɟ" : "ghj",
+    "c+" : "chj",
+    "ɟ+" : "ghj",
     "ʤ(?=[ei])" : "g",
     "ʤ" : "gi",
     "ʧ(?=[ei])" : "c",
@@ -1347,8 +1351,7 @@ const cors_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "k\\.(ˈ?)kj" : "c.$1c", // new palatalization of c, g
-    "ɡ\\.(ˈ?)ɡj" : "ɟ.$1ɟ", 
+    "([ɡk])\\.(ˈ?)\\1j" : "$1.$2j", // new palatalization of c, g
     "k(\\.?ˈ?)j(?=[^aeɛioɔu])" : "c$1", 
     "ɡ(\\.?ˈ?)j(?=[^aeɛioɔu])" : "ɟ$1",
     "k(\\.?ˈ?)j" : "$1c", 
@@ -1683,6 +1686,7 @@ function submit(latin_input) {
     ital_phonetic = proto_phonetic;
     ital_phonetic = ital_phonetic.evolve(ital_firstpass);
     ital = ital_phonetic.evolve(ital_orthography);
+    ital_phonetic = ital_phonetic.evolve(ital_after_ortho);
 
     $("#ital_phon").val(ital_phonetic);
     $("#ital").val(ital);
