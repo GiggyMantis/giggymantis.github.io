@@ -1370,7 +1370,7 @@ const cors_assverb = {
     "\\.([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : ".ˈ$1$2",
     "^([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : "ˈ$1$2",
     "X" : "ˈ", // this should never happen but whatever
-    "(?<=[ea])\\.re$" : "r", // -Vre -> -Vr
+    "(?<=[ea])\\.re$" : "", // -Vre -> -Vr
 }
 
 //Old Gallo-Romance
