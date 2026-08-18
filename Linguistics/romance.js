@@ -926,7 +926,8 @@ const dalm_secondpass = {
     "(?<=[aeiouU]\\.ˈ?)s(?=[aeiouU])" : "z", // intervocalic s voicing
     "([^aeiouU])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
-    "(?<=[^aeiouUjw]\\.[^aeiouUˈ])[eo]$" : "ə", // -e, -o reduction after clusters
+    "(?<=[^aeiouUjw]\\.[^aeiouUˈ]+)[eo]$" : "ə", // -e, -o reduction after clusters
+    "(?<=[^aeiouU]\\.[^aeiouUˈ]{2,})[eo]$" : "ə", 
     "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // -e, -o deletion
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "(?<=^ˈ?)w" : "β", // w- -> v-
@@ -1177,6 +1178,7 @@ const ital_orthography = {
     "ʃ+" : "sʧ",
     "ʒ+" : "zʤ",
     "z" : "s",
+    "kw" : "qu",
     "w" : "u",
     "j" : "i",
     "ʤ(?=[ei])" : "g",
@@ -1185,7 +1187,6 @@ const ital_orthography = {
     "ʧ" : "ci",
     "ɡ(?=[ei])" : "gh",
     "ɡ" : "g",
-    "kw" : "qu",
     "k(?=[ei])" : "ch",
     "k" : "c",
     "ʎ+(?=i)" : "gl",
@@ -1338,6 +1339,12 @@ const cors_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "k\\.(ˈ?)kj" : "c.$1c", // new palatalization of c, g
+    "ɡ\\.(ˈ?)ɡj" : "ɟ.$1ɟ", 
+    "k\\.(ˈ?)j(?=[^aeɛioɔu])" : "c.$1", 
+    "ɡ\\.(ˈ?)j(?=[^aeɛioɔu])" : "ɟ.$1",
+    "k\\.(ˈ?)j" : ".$1c", 
+    "ɡ\\.(ˈ?)j" : ".$1ɟ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
