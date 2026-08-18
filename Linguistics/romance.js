@@ -1173,7 +1173,9 @@ const ital_orthography = {
     "([eo])̀" : "$1́",
     "ɛ" : "e",
     "ɔ" : "o",
-    "tʧ" : "cʧ",
+    "tʦ" : "zz",
+    "dʣ" : "zz",
+    "[ʦʣ]" : "z",
     "dʤ" : "gʤ",
     "ʃ+" : "sʧ",
     "ʒ+" : "zʤ",
@@ -1181,6 +1183,8 @@ const ital_orthography = {
     "kw" : "qu",
     "w" : "u",
     "j" : "i",
+    "c" : "chj",
+    "ɟ" : "ghj",
     "ʤ(?=[ei])" : "g",
     "ʤ" : "gi",
     "ʧ(?=[ei])" : "c",
@@ -1341,10 +1345,14 @@ const cors_firstpass = {
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
     "k\\.(ˈ?)kj" : "c.$1c", // new palatalization of c, g
     "ɡ\\.(ˈ?)ɡj" : "ɟ.$1ɟ", 
-    "k\\.(ˈ?)j(?=[^aeɛioɔu])" : "c.$1", 
-    "ɡ\\.(ˈ?)j(?=[^aeɛioɔu])" : "ɟ.$1",
-    "k\\.(ˈ?)j" : ".$1c", 
-    "ɡ\\.(ˈ?)j" : ".$1ɟ",
+    "k(\\.?ˈ?)j(?=[^aeɛioɔu])" : "c$1", 
+    "ɡ(\\.?ˈ?)j(?=[^aeɛioɔu])" : "ɟ$1",
+    "k(\\.?ˈ?)j" : "$1c", 
+    "ɡ(\\.?ˈ?)j" : "$1ɟ",
+    "dʤ(?=[^aeɛioɔu])" : "ɟ", 
+    "d(\\.ˈ?)ʤ(?=[^aeɛioɔu])" : "ɟ$1", 
+    "d(\\.ˈ?)ʤ" : "$1ɟ", 
+    "^ʤ" : "ɟ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
