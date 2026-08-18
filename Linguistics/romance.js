@@ -1363,6 +1363,10 @@ const cors_firstpass = {
     "^ʤ" : "ɟ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+    "e" : "ɛ", // metaphony
+    "o" : "ɔ",
+    "ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "e",
+    "ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "o",
 }
 
 const cors_assverb = {
