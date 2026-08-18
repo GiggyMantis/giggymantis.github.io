@@ -1373,6 +1373,14 @@ const cors_assverb = {
     "(?<=[ea])\\.re$" : "", // -Vre -> -Vr
 }
 
+const cors_after_ortho = {
+    "(?<=[aeɛioɔu]\\.ˈ?)p(?=[aeɛioɔu])" : "b", // lenition
+    "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
+    "(?<=[aeɛioɔu]\\.ˈ?)ʧ(?=[aeɛioɔu])" : "ʤ",
+    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu])(\\.?ˈ?)([nmŋ])" : "̃$1$2", // vowel nasalization
+}
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -1719,6 +1727,7 @@ function submit(latin_input) {
         cors_phonetic = cors_phonetic.evolve(cors_assverb);
     }
     cors = cors_phonetic.evolve(ital_orthography);
+    cors_phonetic = cors_phonetic.evolve(cors_after_ortho);
 
     $("#cors_phon").val(cors_phonetic);
     $("#cors").val(cors);
