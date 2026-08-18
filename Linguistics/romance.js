@@ -878,7 +878,7 @@ const dalm_firstpass = {
 
 const dalm_assverb = {
     "([aeɛiɪoɔuʊ])\\.([^aeɛiɪoɔuʊ])e\\.re$" : "$1$2.re", // -ere -> -re
-    "([^aeɛiɪoɔuʊ])e\\.re$" : ".$1re",
+    "(?<!ˈ[^\\.]*)([^aeɛiɪoɔuʊ])e\\.re$" : ".$1re",
     "e\\.re$" : "re",
     "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "A", // -ére -> -are
     "(?<=ˈ[^\\.]*)i(?=\\.re$)" : "E", // -ire -> -ere
@@ -1370,11 +1370,11 @@ const cors_firstpass = {
 }
 
 const cors_assverb = {
-    "ˈ([^\\.]*)i\\.re$" : "X$1e", // -ˈire -> -e
+    "ˈ([^\\.]*)i\\.rɛ$" : "X$1ɛ", // -ˈire -> -e
     "\\.([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : ".ˈ$1$2",
     "^([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : "ˈ$1$2",
     "X" : "ˈ", // this should never happen but whatever
-    "(?<=[ea])\\.re$" : "", // -Vre -> -Vr
+    "(?<=[ɛa])\\.rɛ$" : "", // -Vre -> -Vr
 }
 
 const cors_after_ortho = {
@@ -1493,7 +1493,7 @@ String.prototype.evolve = function (rules) {
     var result = this;
     for (const [key, value] of Object.entries(rules)) {
         result = result.replace(new RegExp(key, "g"), value);
-        console.log(result + "\n" + key + "\n" + value + "\n\n");
+        // console.log(result + "\n" + key + "\n" + value + "\n\n");
     }
     return result;
 }
