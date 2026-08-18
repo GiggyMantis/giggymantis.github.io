@@ -1151,9 +1151,9 @@ const ital_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?![^aeɛioɔu\\.])" : "$2\\.$1wɔ", // breaking of ɔ
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?![^aeɛioɔu\\.])" : "$2.$1wɔ", // breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![^aeɛioɔu\\.])" : "wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɛ(?![^aeɛioɔu\\.])" : "$2\\.$1jɛ", // breaking of ɛ
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɛ(?![^aeɛioɔu\\.])" : "$2.$1jɛ", // breaking of ɛ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![^aeɛioɔu\\.])" : "jɛ",
     "([wj])([wj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
