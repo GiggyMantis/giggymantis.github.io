@@ -1493,7 +1493,7 @@ String.prototype.evolve = function (rules) {
     var result = this;
     for (const [key, value] of Object.entries(rules)) {
         result = result.replace(new RegExp(key, "g"), value);
-        // console.log(result + "\n" + key + "\n" + value + "\n\n");
+        console.log(result + "\n" + key + "\n" + value + "\n\n");
     }
     return result;
 }
