@@ -926,9 +926,10 @@ const dalm_secondpass = {
     "(?<=[aeiouU]\\.ˈ?)s(?=[aeiouU])" : "z", // intervocalic s voicing
     "([^aeiouU])(\\.?ˈ?)\\1": "$2$1", // degemination
     "^(ˈ?)jal" : "$1jwal", // jal -> jwal / #_C
+    "([jw])\\.([^aeiouUˈ]+)[eo]$" : "$1$2",  // -e, -o deletion (fist half)
     "(?<=[^aeiouUjw]\\.[^aeiouUˈ]+)[eo]$" : "ə", // -e, -o reduction after clusters
     "(?<=[^aeiouU]\\.[^aeiouUˈ]{2,})[eo]$" : "ə", 
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // -e, -o deletion
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // -e, -o deletion (second half)
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "(?<=^ˈ?)w" : "β", // w- -> v-
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
