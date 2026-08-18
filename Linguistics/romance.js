@@ -903,7 +903,7 @@ const dalm_secondpass = {
     "([jw])\\.(ˈ?)([^aeoiuɛɔA])" : ".$2$1$3",
     "ɔ(?=\\.)|ɔ$" : "a", // ɔ -> a in open syllables
     "\\.(ˈ?)([tpbd])([rljw])" : "$2.$1$3", // unreanalysis of clusters and such 
-    "\\.(ˈ?)([jw])([^aeoiuU])" : "$2.$1$3",
+    "\\.(ˈ?)([jw])([^aeoiuUA])" : "$2.$1$3",
     "(?<=ˈ[^\\.]*)a(?=\\.)|(?<=ˈ[^\\.]*)a$" : "U", // stressed a -> u in open syllables
     "A" : "a",
     "([tpbd])\\.(ˈ?)([rljw])" : ".$2$1$3", // reanalysis of clusters and such [note that k is an exception here]
@@ -929,7 +929,7 @@ const dalm_secondpass = {
     "([jw])\\.([^aeiouUˈ]+)[eo]$" : "$1$2",  // -e, -o deletion (fist half)
     "(?<=[^aeiouUjw]\\.[^aeiouUˈ]+)[eo]$" : "ə", // -e, -o reduction after clusters
     "(?<=[^aeiouU]\\.[^aeiouUˈ]{2,})[eo]$" : "ə", 
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)[eo]$" : "", // -e, -o deletion (second half)
+    "(?<=ˈ[^\\.]*)\\.([^\\.]*)[eo]$" : "$1", // -e, -o deletion (second half)
     "i(?=\\.?ˈ?j)" : "a", // ij -> aj
     "(?<=^ˈ?)w" : "β", // w- -> v-
     "β$" : "f", // word-final devoicing of v and dz (but for example, not z)
