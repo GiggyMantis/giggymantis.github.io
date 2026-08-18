@@ -1121,7 +1121,7 @@ const ital_firstpass = {
     "tʲ" : "ʦ",
     "kʲ" : "ʧ",
     "s(\\.?ˈ?)[ʦʧ]" : "ʃ$1ʃ",
-    "ɡʲ" : "j",
+    "ɡʲ" : "ʤ",
     "(?<=^(ˈ?))dʲ" : "j",
     "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
@@ -1151,9 +1151,9 @@ const ital_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɔ(?![^aeɛioɔu\\.])" : "$2\\.$1wɔ", // breaking of ɔ
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw]+)ɔ(?![^aeɛioɔu\\.])" : "$2\\.$1wɔ", // breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?![^aeɛioɔu\\.])" : "wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([aeɛioɔuˈ]+)ɛ(?![^aeɛioɔu\\.])" : "$2\\.$1jɛ", // breaking of ɛ
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw+)ɛ(?![^aeɛioɔu\\.])" : "$2\\.$1jɛ", // breaking of ɛ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?![^aeɛioɔu\\.])" : "jɛ",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
@@ -1229,7 +1229,7 @@ const tusc_firstpass = {
     "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
     "tʲ" : "ʦ",
     "kʲ" : "ʧ",
-    "ɡʲ" : "j",
+    "ɡʲ" : "ʤ",
     "(?<=^(ˈ?))dʲ" : "j",
     "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
