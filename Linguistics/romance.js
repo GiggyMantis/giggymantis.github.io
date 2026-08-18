@@ -1716,7 +1716,7 @@ function submit(latin_input) {
     cors_phonetic = proto_phonetic;
     cors_phonetic = cors_phonetic.evolve(cors_firstpass);
     if ($("#assverb").is(":checked")) { 
-        cors_phonetic = cors_phonetic.replace(cors_assverb, "");
+        cors_phonetic = cors_phonetic.evolve(cors_assverb);
     }
     cors = cors_phonetic.evolve(ital_orthography);
 
