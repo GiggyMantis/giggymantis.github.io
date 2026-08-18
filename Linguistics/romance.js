@@ -879,7 +879,7 @@ const dalm_firstpass = {
 const dalm_assverb = {
     "([aeɛiɪoɔuʊ])\\.([^aeɛiɪoɔuʊ])e\\.re$" : "$1$2.re", // -ere -> -re
     "(?<!ˈ[^\\.]*)([^aeɛiɪoɔuʊ])e\\.re$" : ".$1re",
-    "e\\.re$" : "re",
+    "(?<!ˈ[^\\.]*)e\\.re$" : "re",
     "(?<=ˈ[^\\.]*)e(?=\\.re$)" : "A", // -ére -> -are
     "(?<=ˈ[^\\.]*)i(?=\\.re$)" : "E", // -ire -> -ere
 }
