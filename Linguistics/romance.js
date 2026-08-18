@@ -1115,7 +1115,7 @@ const ital_firstpass = {
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ(\\.ˈ?)sʲ" : "$1ʧ", // palatalization outcomes
-    "sʲ" : "ʧ",
+    "sʲ" : "ʧ", // sporadically ʤ, annoyingly not always corresponding to Tuscan ʒ
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
     "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
@@ -1226,9 +1226,9 @@ const tusc_firstpass = {
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
-    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", 
-    "(?<=[aeɛioɔu])sʲ" : "ʒ",
-    "(?<=ʒ\\.?ˈ?)sʲ" : "ʒ",
+    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ",
+    "(?<=[aeɛioɔu])sʲ" : "ʃ", // sporadically ʒ
+    "(?<=ʃ\\.?ˈ?)sʲ" : "ʃ",
     "sʲ" : "ʃ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
@@ -1311,8 +1311,8 @@ const cors_firstpass = {
     "aw" : "a", // au -> a [in some Corsican dialects, this is o (later u in some cases) as in Tuscan]
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", 
-    "(?<=[aeɛioɔu])sʲ" : "ʒ",
-    "(?<=ʒ\\.?ˈ?)sʲ" : "ʒ",
+    "(?<=[aeɛioɔu])sʲ" : "ʃ", // sporadically ʒ
+    "(?<=ʃ\\.?ˈ?)sʲ" : "ʃ",
     "sʲ" : "ʃ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
