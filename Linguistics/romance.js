@@ -1365,6 +1365,14 @@ const cors_firstpass = {
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
 
+const cors_assverb = {
+    "(?<ˈ[^\\.]*)i\\.re$" : "Xe", // -ˈire -> -e
+    "\\.([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : ".ˈ$1$2",
+    "^([^\\.]*[aeɛioɔu])([^\\.]*\\.)X" : "ˈ$1$2",
+    "X" : "ˈ", // this should never happen but whatever
+    "(?<=[ea])\\.re$" : "r", // -Vre -> -Vr
+}
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -1707,6 +1715,9 @@ function submit(latin_input) {
     // Evolve to Corsican
     cors_phonetic = proto_phonetic;
     cors_phonetic = cors_phonetic.evolve(cors_firstpass);
+    if ($("#assverb").is(":checked")) { 
+        cors_phonetic = cors_phonetic.replace(cors_assverb, "");
+    }
     cors = cors_phonetic.evolve(ital_orthography);
 
     $("#cors_phon").val(cors_phonetic);
