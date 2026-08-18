@@ -1247,6 +1247,7 @@ const tusc_firstpass = {
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
@@ -1318,7 +1319,7 @@ const cors_firstpass = {
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
     "j(\\.?ˈ?)j" : "d$1ʤ",
     "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
-    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
+    "(?<=[^aeɛioɔu]\\.?ˈ?   )dʲ" : "ʣ",
     "dʲ" : "ʤ", // sporadically, ʣ
     "nʲ" : "ɲ",
     "lʲ" : "ʎ",
@@ -1330,6 +1331,7 @@ const cors_firstpass = {
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
     "[ɛe](?=r)" : "a", // ɛ, e -> a / _rC, _r#
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
