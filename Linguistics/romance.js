@@ -968,6 +968,7 @@ const vene_firstpass = {
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "([iɪ])j$" : "$1",
     "ʊj$" : "ʊ",
+    "ej$" : "ɪ",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -1089,13 +1090,13 @@ const istr1244_firstpass = {
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "([iɪ])j$" : "$1",
     "oj$" : "uj",
+    "ej$" : "i",
     "ʊj$" : "ʊ",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "([kɡ])\\.w(?=\\.?ˈ?[eɛi])" : ".$1",
-    "(?<=s\\.?ˈ?)[tk]ʲ" : "ʧ",
     "[tk]ʲ" : "s",
     "[dɡ]ʲ" : "z",
     "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
