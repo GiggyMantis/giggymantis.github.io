@@ -1092,6 +1092,17 @@ const istr1244_firstpass = {
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "(?<=ˈ[^\\.]*)u([^aeɛioɔu])\\." : "ow.$1", // stressed u -> ow
+    "(?<=ˈ[^\\.]*)u" : "ow",
+    "(?<=ˈ[^\\.]*)i([^aeɛioɔu])\\." : "ej.$1", // stressed i -> ej
+    "(?<=ˈ[^\\.]*)i" : "ej",
+    "([^aeɛioɔu])\\.ˈ([^aeɛioɔu])+ɛ" : "$1.ˈ$2je", // stressed ɛ -> je
+    "\\.ˈ([^aeɛioɔu])ɛ" : "$1.ˈje",
+    "(?<=ˈ[^\\.]*)ɛ" : "je",
+    "([^aeɛioɔu])\\.ˈ([^aeɛioɔu])+ɔ" : "$1.ˈ$2wo", // stressed ɔ -> wo
+    "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈwo",
+    "(?<=ˈ[^\\.]*)ɔ" : "wo",
+
 }
 
 const istr1244_orthography = {
