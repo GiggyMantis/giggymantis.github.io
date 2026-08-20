@@ -1095,6 +1095,7 @@ const istr1244_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "([kɡ])\\.w(?=\\.?ˈ?[eɛi])" : ".$1",
+    "(?<=s\\.?ˈ?)[tk]ʲ" : "ʧ",
     "[tk]ʲ" : "s",
     "[dɡ]ʲ" : "z",
     "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
