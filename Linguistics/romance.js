@@ -1101,7 +1101,7 @@ const istr1244_firstpass = {
     "(?<=ˈ[^\\.]*)ɛ" : "je",
     "([^aeɛioɔu])\\.ˈ([^aeɛioɔu])+ɔ" : "$1.ˈ$2wo", // stressed ɔ -> wo
     "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈwo",
-    "(?<=ˈ[^\\.]*)ɔ" : "wo",
+    "(?<=ˈ[^\\.]*)ɔ" : "je",
 
 }
 
@@ -1510,7 +1510,7 @@ String.prototype.evolve = function (rules) {
     var result = this;
     for (const [key, value] of Object.entries(rules)) {
         result = result.replace(new RegExp(key, "g"), value);
-        console.log(result + "\n" + key + "\n" + value + "\n\n");
+        // console.log(result + "\n" + key + "\n" + value + "\n\n");
     }
     return result;
 }
