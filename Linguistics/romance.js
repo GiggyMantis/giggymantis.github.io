@@ -1088,10 +1088,15 @@ const istr1244_firstpass = {
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
     "[iɪ]j$" : "i",
+    "oj$" : "uj",
     "ʊj$" : "ʊ",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "([kɡ])\\.w(?=\\.?ˈ?[eɛi])" : ".$1",
+    "[tk]ʲ" : "s",
+    "[dɡ]ʲ" : "z",
     "(?<=ˈ[^\\.]*)u([^aeɛioɔu])\\." : "ow.$1", // stressed u -> ow
     "(?<=ˈ[^\\.]*)u" : "ow",
     "(?<=ˈ[^\\.]*)i([^aeɛioɔu])\\." : "ej.$1", // stressed i -> ej
