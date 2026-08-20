@@ -1102,7 +1102,7 @@ const istr1244_firstpass = {
     "sʲ" : "s", // palatalization outcomes
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
-    "lʲ" : "ʎ",
+    "lʲ" : "j",
     "rʲ" : "r",
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
@@ -1119,6 +1119,11 @@ const istr1244_firstpass = {
     "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈwo",
     "(?<=ˈ[^\\.]*)ɔ" : "je",
     "(?<!ˈ[^\\.]*)e$" : "o", // -e -> -o
+    "(?<=ej)\\.to$" : "", // -eîto -> -eî
+    "t(?=\\.ˈ?r)" : "d", // tr -> dr -> r
+    "d\\.(ˈ?)r(?=[^aeɛioɔu])" : "r.$1", 
+    "d(\\.?ˈ?)r" : "$1r", 
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[tk](\\.?ˈ?)(ʧ)" : "$2$1$2", // t-, k- act like geminates for ʧ
     "[dɡ](\\.?ˈ?)(ʤ)" : "$2$1$2", // d-, g- act like geminates for ʤ
