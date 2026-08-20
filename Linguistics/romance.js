@@ -853,7 +853,7 @@ const dalm_firstpass = {
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=^(ˈ?))j" : "ʣ", // j- -> ʣ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "[iɪ]j$" : "i",
+    "([iɪ])j$" : "$1",
     "ʊj$" : "ʊ",
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "k(?=\\.ˈ?t)" : "j", // kt -> jt
@@ -966,7 +966,7 @@ const vene_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "[iɪ]j$" : "i",
+    "([iɪ])j$" : "$1",
     "ʊj$" : "ʊ",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
@@ -1087,7 +1087,7 @@ const istr1244_firstpass = {
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
-    "[iɪ]j$" : "i",
+    "([iɪ])j$" : "$1",
     "oj$" : "uj",
     "ʊj$" : "ʊ",
     "ɪ" : "e", // Vowel collapse
@@ -1097,6 +1097,17 @@ const istr1244_firstpass = {
     "([kɡ])\\.w(?=\\.?ˈ?[eɛi])" : ".$1",
     "[tk]ʲ" : "s",
     "[dɡ]ʲ" : "z",
+    "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
+    "([^aeoiuɛɔjl\\.ˈ])(\\.?ˈ?)l" : "$2$1ʲ",
+    "sʲ" : "s", // palatalization outcomes
+    "kʲ" : "ʧ",
+    "ɡʲ" : "ʤ",
+    "lʲ" : "ʎ",
+    "rʲ" : "r",
+    "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
+    "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
+    "ʲ" : "j",
+    "k(\\.?ˈ?)\\.w(ˈ?)j" : "k.$1j", // kwj -> kj
     "(?<=ˈ[^\\.]*)u([^aeɛioɔu])\\." : "ow.$1", // stressed u -> ow
     "(?<=ˈ[^\\.]*)u" : "ow",
     "(?<=ˈ[^\\.]*)i([^aeɛioɔu])\\." : "ej.$1", // stressed i -> ej
@@ -1107,6 +1118,15 @@ const istr1244_firstpass = {
     "([^aeɛioɔu])\\.ˈ([^aeɛioɔu])+ɔ" : "$1.ˈ$2wo", // stressed ɔ -> wo
     "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈwo",
     "(?<=ˈ[^\\.]*)ɔ" : "je",
+    "(?<!ˈ[^\\.]*)e$" : "o", // -e -> -o
+    "[pk](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[tk](\\.?ˈ?)(ʧ)" : "$2$1$2", // t-, k- act like geminates for ʧ
+    "[dɡ](\\.?ˈ?)(ʤ)" : "$2$1$2", // d-, g- act like geminates for ʤ
+    "[tsk](\\.?ˈ?)(ʦ)" : "$2$1$2", // t-, s-, k- act like geminates for ʦ
+    "[dzɡ](\\.?ˈ?)(ʣ)" : "$2$1$2", // d-, z-, g- act like geminates for ʣ   
+    "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1(?=([^aeɛioɔu]))" : "$1.$2", // degemination
+    "([^aeɛioɔu\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
 
 }
 
