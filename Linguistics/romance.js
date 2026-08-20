@@ -1083,14 +1083,20 @@ const vene_delete_elided_l = {
     "(?<=[ieɛj]\\.?ˈ?)e̯" : "",
 }
 
-// // Istriot
-// const istr1244_firstpass = {
-//     "" : "",
-// }
+const istr1244_firstpass = {
+    "β" : "v", // β -> v
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
+    "[iɪ]j$" : "i",
+    "ʊj$" : "ʊ",
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+}
 
-// const istr1244_orthography = {
-//     "" : "",
-// }
+const istr1244_orthography = {
+    "" : "",
+}
 
 
 const ital_firstpass = {
@@ -1694,14 +1700,14 @@ function submit(latin_input) {
     $("#vene_bell_phon").val(vene_bell_phonetic);
     $("#vene_bell").val(vene_bell);
 
-    // // Evolve to Istrian
-    // istr1244_phonetic = proto_phonetic;
-    // istr1244_phonetic = istr1244_phonetic.evolve(istr1244_firstpass);
-    // istr1244 = istr1244_phonetic;
-    // istr1244 = istr1244.evolve(istr1244_orthography);
+    // Evolve to Istrian
+    istr1244_phonetic = proto_phonetic;
+    istr1244_phonetic = istr1244_phonetic.evolve(istr1244_firstpass);
+    istr1244 = istr1244_phonetic;
+    istr1244 = istr1244.evolve(istr1244_orthography);
 
-    // $("#istr1244_phon").val(istr1244_phonetic);
-    // $("#istr1244").val(istr1244);
+    $("#istr1244_phon").val(istr1244_phonetic);
+    $("#istr1244").val(istr1244);
 
     // Evolve to Standard Italian
     ital_phonetic = proto_phonetic;
