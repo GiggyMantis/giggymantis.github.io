@@ -1122,7 +1122,8 @@ const istr1244_firstpass = {
     "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈwo",
     "(?<=ˈ[^\\.]*)ɔ" : "wo",
     "(?<=ej)\\.to$" : "", // -eîto -> -eî
-    "\\.([^aeɛioɔuˈ\\.]*[sn])e$" : "$1", // -e -> -∅, then -C to -Co (unless C is s or n)
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[oɔu])" : "", // deletion of intervocalic v before back vowels
+    "\\.([^aeɛioɔuˈ\\.]*s)e$" : "$1", // -e -> -∅, then -C to -Co (unless C is s)
     "(?<!ˈ[^\\.]*)e$" : "o",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr -> r
     "d\\.(ˈ?)r(?=[^aeɛioɔu])" : "r.$1", 
