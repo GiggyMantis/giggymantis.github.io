@@ -1472,6 +1472,72 @@ const cors_after_ortho = {
     "(?<=[aeɛioɔu])(\\.?ˈ?)([nmŋ])" : "̃$1$2", // vowel nasalization
 }
 
+const lazi_firstpass = {
+    "β" : "v", // β -> v
+    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "iS$" : "i",
+    "[ɪe]S$" : "e",
+    "ʊS$" : "ʊ",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "aS$" : "e", // aj$ collapse
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
+    "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "vʲ" : "bʲ", // early palatal outcome
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "aw" : "o", // au -> o (later u in some cases)
+    "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
+    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ",
+    "(?<=[aeɛioɔu])sʲ" : "ʃ", // sporadically ʒ
+    "(?<=ʃ\\.?ˈ?)sʲ" : "ʃ",
+    "sʲ" : "ʃ",
+    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    "kʲ(?=\\.?ˈ?kʲ)" : "t",
+    "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "tʲ" : "ʦ",
+    "kʲ" : "ʧ",
+    "ɡʲ" : "ʤ",
+    "(?<=^(ˈ?))dʲ" : "ʤ",
+    "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
+    "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
+    "j(\\.?ˈ?)j" : "d$1ʤ",
+    "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
+    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
+    "dʲ" : "ʤ", // sporadically, ʣ
+    "nʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "rʲ" : "j",
+    "ʲ(?=[^aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
+    "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
+    "ʲ|S" : "j",
+    "t(?=\\.ˈ?r)" : "d", // tr -> dr
+    "p(?=\\.ˈ?r)" : "b", // pr -> br
+    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
+    "ɔ(?=n)" : "o", // prenasal raising 
+    "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
+    "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
+    "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
+    "[o](?=n\\.?ˈ?ɡ)" : "u", 
+    "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
+    "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+    "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+}
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -1828,6 +1894,15 @@ function submit(latin_input) {
     $("#cors_phon").val(cors_phonetic);
     $("#cors").val(cors);
     
+    // Evolve to Romanesco
+    lazi_phonetic = lazi_phonetic;
+    lazi_phonetic = lazi_phonetic.evolve(lazi_firstpass);
+    lazi = lazi_phonetic;
+    lazi = lazi.evolve(ital_orthography);
+
+    $("#lazi_phon").val(lazi_phonetic);
+    $("#lazi").val(lazi);
+
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
     ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
