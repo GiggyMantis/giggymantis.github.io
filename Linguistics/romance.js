@@ -1895,7 +1895,7 @@ function submit(latin_input) {
     $("#cors").val(cors);
     
     // Evolve to Romanesco
-    lazi_phonetic = lazi_phonetic;
+    lazi_phonetic = proto_phonetic;
     lazi_phonetic = lazi_phonetic.evolve(lazi_firstpass);
     lazi = lazi_phonetic;
     lazi = lazi.evolve(ital_orthography);
