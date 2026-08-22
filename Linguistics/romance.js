@@ -1143,6 +1143,10 @@ const istr1244_firstpass = {
 
 }
 
+const istr1244_assverb = {
+    "(?<!ˈ[^\\.]*)re$" : "", // -re -> -∅
+}
+
 const istr1244_orthography = {
     "" : "",
 }
