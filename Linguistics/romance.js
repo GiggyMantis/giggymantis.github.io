@@ -1105,6 +1105,8 @@ const istr1244_firstpass = {
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
     "lʲ" : "j",
+    "nʲ" : "ɲ",
+    "n(?=i)" : "ɲ",
     "rʲ" : "r",
     "(?<=[aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : "$2.$1j",
     "(?<=[^aeɛiou])\\.(ˈ?)(.)ʲ(?=[aeɛiou])" : ".$1$2j",
@@ -1123,7 +1125,8 @@ const istr1244_firstpass = {
     "(?<=ˈ[^\\.]*)ɔ" : "wo",
     "(?<=ej)\\.to$" : "", // -eîto -> -eî
     "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", // deletion of intervocalic v before u
-    "(?<=[aeɛioɔu]\\.ˈ?)[b](?=[aeɛioɔu])" : "v", // lenition
+    "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "v", // lenition
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)[lj](?=i)" : "", // deletion of intervocalic l, j before i
