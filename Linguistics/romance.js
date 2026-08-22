@@ -1101,6 +1101,7 @@ const istr1244_firstpass = {
     "[dɡ]ʲ" : "z",
     "([^aeoiuɛɔjl\\.ˈ])\\.(ˈ?)l([^aeoiuɛɔ]+)" : "$1ʲ.$2$3", // palatalization when followed by l
     "([^aeoiuɛɔjl\\.ˈ])(\\.?ˈ?)l" : "$2$1ʲ",
+    "k(?=\\.ˈ?s)" : "s", // ks -> ss
     "sʲ" : "s", // palatalization outcomes
     "kʲ" : "ʧ",
     "ɡʲ" : "ʤ",
@@ -1120,12 +1121,12 @@ const istr1244_firstpass = {
     "\\.ˈ([^aeɛioɔu])ɛ" : "$1.ˈje",
     "(?<=ˈ[^\\.]*)ɛ" : "je",
     "(?<=ˈ[^\\.]*)o" : "u",// stressed o -> u
-    "([^aeɛioɔu])\\.ˈ([^aeɛioɔu])+ɔ" : "$1.ˈ$2wo", // stressed ɔ -> wo
-    "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈwo",
-    "(?<=ˈ[^\\.]*)ɔ" : "wo",
+    "([^aeɛioɔu])\\.ˈ([^aeɛioɔu])+ɔ" : "$1.ˈ$2Wo", // stressed ɔ -> wo
+    "\\.ˈ([^aeɛioɔu])ɔ" : "$1.ˈWo",
+    "(?<=ˈ[^\\.]*)ɔ" : "Wo",
     "(?<=ej)\\.to$" : "", // -eîto -> -eî
+    "(?<=[aeɛioɔu]\\.ˈ?)[bpf](?=[aeɛioɔu])" : "v", // lenition
     "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", // deletion of intervocalic v before u
-    "(?<=[aeɛioɔu]\\.ˈ?)b(?=[aeɛioɔu])" : "v", // lenition
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z",
     "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
     "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
@@ -1154,10 +1155,32 @@ const istr1244_secondpass = {
     "(.)(?=\\1)" : "",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "j", // Cl -> Cj
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+}
+
+const istr1244_after_ortho = {
+    "W" : "w",
 }
 
 const istr1244_orthography = {
-    "" : "",
+    "ŋ" : "n",
+    "^ˈ(?!.*\\.)" : "",
+    "ˈ([^aeoiu]{0,3})([aeoiu])" : "$1$2̀",
+    "ˈ" : "",
+    "\\." : "",
+    "kw" : "qu",
+    "(?<=è?)j" : "î",
+    "(?<=ò?)w" : "û",
+    "[wW]" : "u",
+    "ʤ(?=[ei])" : "g",
+    "ʤ" : "gi",
+    "ʧ(?=[ei])" : "c",
+    "ʧ" : "ci",
+    "ɡ(?=[ei])" : "gh",
+    "ɡ" : "g",
+    "k(?=[ei])" : "ch",
+    "k" : "c",
+    "ɲ+" : "gn",
 }
 
 
@@ -1235,10 +1258,6 @@ const ital_after_ortho = {
 }
 
 const ital_orthography = {
-    "h" : "k",
-    "θ" : "t",
-    "ɸ" : "p",
-    "ʰ" : "",
     "ŋ" : "n",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
@@ -1771,6 +1790,7 @@ function submit(latin_input) {
     istr1244_phonetic = istr1244_phonetic.evolve(istr1244_secondpass);
     istr1244 = istr1244_phonetic;
     istr1244 = istr1244.evolve(istr1244_orthography);
+    istr1244_phonetic = istr1244_phonetic.evolve(istr1244_after_ortho);
 
     $("#istr1244_phon").val(istr1244_phonetic);
     $("#istr1244").val(istr1244);
