@@ -1353,12 +1353,6 @@ const tusc_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ" : "$2.$1Wɔ", // breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ" : "Wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ" : "$2.$1jɛ", // breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ" : "jɛ",
-    "([wj])([wWj])" : "$1",
-    "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
@@ -1528,11 +1522,8 @@ const lazi_firstpass = {
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
-    "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
-    "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
-    "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
@@ -1540,6 +1531,12 @@ const lazi_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ" : "$2.$1Wɔ", // breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ" : "Wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ" : "$2.$1jɛ", // breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ" : "jɛ",
+    "([wj])([wWj])" : "$1",
+    "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
