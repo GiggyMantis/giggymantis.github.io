@@ -1123,7 +1123,18 @@ const istr1244_firstpass = {
     "(?<=ˈ[^\\.]*)ɔ" : "wo",
     "(?<=ej)\\.to$" : "", // -eîto -> -eî
     "(?<=[aeɛioɔu]\\.ˈ?)v(?=u)" : "", // deletion of intervocalic v before u
+    "(?<=[aeɛioɔu]\\.ˈ?)[b](?=[aeɛioɔu])" : "v", // lenition
+    "(?<=[aeɛioɔu]\\.ˈ?)k(?=[aeɛioɔu])" : "ɡ",
+    "(?<=[aeɛioɔu]\\.ˈ?)t(?=[aeɛioɔu])" : "d",
     "(?<=[aeɛioɔu]\\.ˈ?)[lj](?=i)" : "", // deletion of intervocalic l, j before i
+}
+
+const istr1244_assverb = {
+    "e\\.re$" : "i", // -ere -> -i
+    "(?<=ˈ[^\\.]*)\\.re$" : "", // -re -> -∅
+}
+
+const istr1244_secondpass = {
     "\\.([^aeɛioɔuˈ\\.]*s)e$" : "$1", // -e -> -∅, then -C to -Co (unless C is s)
     "(?<!ˈ[^\\.]*)e$" : "o",
     "t(?=\\.ˈ?r)" : "d", // tr -> dr -> r
@@ -1140,11 +1151,6 @@ const istr1244_firstpass = {
     "(.)(?=\\1)" : "",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)l" : "j", // Cl -> Cj
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
-
-}
-
-const istr1244_assverb = {
-    "(?<!ˈ[^\\.]*)re$" : "", // -re -> -∅
 }
 
 const istr1244_orthography = {
@@ -1756,6 +1762,10 @@ function submit(latin_input) {
     // Evolve to Istrian
     istr1244_phonetic = proto_phonetic;
     istr1244_phonetic = istr1244_phonetic.evolve(istr1244_firstpass);
+    if ($("#assverb").is(":checked")) { 
+        istr1244_phonetic = istr1244_phonetic.evolve(istr1244_assverb);
+    }
+    istr1244_phonetic = istr1244_phonetic.evolve(istr1244_secondpass);
     istr1244 = istr1244_phonetic;
     istr1244 = istr1244.evolve(istr1244_orthography);
 
