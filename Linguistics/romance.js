@@ -1281,6 +1281,7 @@ const ital_orthography = {
     "ʒ+" : "zʤ",
     "kw" : "qu",
     "[wW]" : "u",
+    "jj" : "j",
     "j" : "i",
     "JJ" : "J",
     "J" : "j",
@@ -1508,11 +1509,10 @@ const lazi_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
-    "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
     "[ɪe]S$" : "e",
-    "ʊS$" : "ʊ",
+    "ʊS$" : "u",
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
@@ -1587,6 +1587,7 @@ const lazi_firstpass = {
     "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
     "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
+    "u$" : "o", // -u -> -o
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
 }
