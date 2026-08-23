@@ -1234,10 +1234,10 @@ const ital_firstpass = {
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
+    "a(?=r\\.ˈ)|a(?=*?\\.ˈr)" : "e", // pretonic ar -> er
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
-    "(?<!ˈ[^\\.]*)a(?=\\.?ˈ?r)" : "e", // unstressed ar -> er
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
@@ -1345,10 +1345,10 @@ const tusc_firstpass = {
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
+    "a(?=r\\.ˈ)|a(?=*?\\.ˈr)" : "e", // pretonic ar -> er
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
-    "(?<!ˈ[^\\.]*)a(?=\\.?ˈ?r)" : "e", // unstressed ar -> er
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
@@ -1431,10 +1431,10 @@ const cors_firstpass = {
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
+    "a(?=r\\.ˈ)|a(?=*?\\.ˈr)" : "e", // pretonic ar -> er
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
-    "(?<!ˈ[^\\.]*)a(?=\\.?ˈ?r)" : "e", // unstressed ar -> er
     "(?<!ˈ[^\\.]*)o" : "u", // corsican raising
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
