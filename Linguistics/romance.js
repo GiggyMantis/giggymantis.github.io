@@ -1508,14 +1508,14 @@ const lazi_firstpass = {
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
-    "vʲ" : "bʲ", // early palatal outcome
+    "vʲ" : "bʲ", // early palatal outcomes
+    "(?<!s\\.?ˈ?)sʲ" : "s",
+    "k(\\.?ˈ?)kʲ" : "t$1ʦ",
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
-    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ",
-    "(?<=[aeɛioɔu])sʲ" : "ʃ", 
-    "(?<=ʃ\\.?ˈ?)sʲ" : "ʃ",
+    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "sʲ$1sʲ",
     "sʲ" : "ʃ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
@@ -1537,17 +1537,15 @@ const lazi_firstpass = {
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
     "ʲ|S" : "j",
-    "n(\\.ˈ?)d" : "n$1n", // nd -> nn
-    "n(\\.ˈ?)v" : "m$1m", // nv -> mm
-    "m(\\.ˈ?)b" : "m$1m", // mb -> mm
-    "l(\\.ˈ?)d" : "l$1l", // ld -> ll
+    "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
+    "n(\\.?ˈ?)v" : "m$1m", // nv -> mm
+    "m(\\.?ˈ?)b" : "m$1m", // mb -> mm
+    "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
+    "(?<=[nlr]\\.?ˈ?)s" : "ʦ", // affrication of s after n, l, r
     "^(ˈ?)b" : "$1v", // b -> v / #_
     "(?<=[aeɛioɔur]\\.?ˈ?)b" : "v", // b -> v / V_, r_
     "v(\\.ˈ?)v" : "b$1b", // vv -> bb
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
-    "t(?=\\.ˈ?r)" : "d", // tr -> dr
-    "p(?=\\.ˈ?r)" : "b", // pr -> br
-    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
@@ -1564,7 +1562,22 @@ const lazi_firstpass = {
     "(?<=^ˈ?)ɡw" : "v", // gw- -> v-, go- -> vo
     "(?<=^ˈ?)ɡ(?=[ouɔ])" : "v", // gw- -> v-, g[V +back]- -> vV
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
-    "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+    "(?<!d\\.?ˈ?)ʤ" : "dʤ", // always gemination of b, ʤ
+    "(?<!b\\.?ˈ?)b(?!\\.?ˈ?b)" : "bb",
+    "([aeɛioɔu])(\\.ˈ?)dʤ" : "d$1$2ʤ",
+    "([aeɛioɔu])(\\.ˈ?)bb" : "b$1$2b",
+    "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
+    "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
+    "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
+    "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+    "(.)(?=\\1)" : "", 
+}
+
+const lazi_after_ortho = {
+    "r" : "ɾ", // tapping of r
+    "ɾ\\.(ˈ?)ɾ(?=([^aeɛioɔu]))" : "ɾ.$1", // degemination of ɾ
+    "ɾ\\.(ˈ?)ɾ" : ".$1ɾ",
+    "(ɾ)(?=ɾ)" : "",
 }
 
 //Old Gallo-Romance
