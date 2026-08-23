@@ -1368,6 +1368,23 @@ const tusc_firstpass = {
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
 
+const lazitusc_secondpass = {
+    "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
+    "n(\\.?ˈ?)v" : "m$1m", // nv -> mm
+    "m(\\.?ˈ?)b" : "m$1m", // mb -> mm
+    "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
+    "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
+    "(?<!d\\.?ˈ?)ʤ" : "dʤ", // always gemination of b, ʤ
+    "(?<!b\\.?ˈ?)b(?!\\.?ˈ?b)" : "bb",
+    "([aeɛioɔu])(\\.ˈ?)dʤ" : "d$1$2ʤ",
+    "([aeɛioɔu])(\\.ˈ?)bb" : "b$1$2b",
+    "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
+    "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
+    "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
+    "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+    "(.)(?=\\1)" : "", 
+}
+
 const tusc_assverb = /(?<=[eia])\.re$/g
 
 const tusc_after_ortho = {
@@ -1381,6 +1398,8 @@ const tusc_after_ortho = {
     "(?<=[aeɛioɔu]\\.ˈ?)t" : "θ",
     "(?<=[aeɛioɔu]\\.ˈ?)p" : "ɸ",
     "∅" : "",
+    "W" : "w",
+    "J" : "j",
 }
 
 const cors_firstpass = {
@@ -1553,10 +1572,10 @@ const lazi_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ" : "$2.$1Wɔ", // breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ" : "Wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ" : "$2.$1jɛ", // breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ" : "jɛ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "$2.$1Wɔ", // metaphonic breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "Wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "$2.$1jɛ", // metaphonic breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "jɛ",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "(?<=^ˈ?)ɡw" : "v", // gw- -> v-, go- -> vo
@@ -1918,11 +1937,17 @@ function submit(latin_input) {
     if ($("#assverb").is(":checked")) { 
         tusc_phonetic = tusc_phonetic.replace(tusc_assverb, "");
     }
+    lazitusc_phonetic = tusc_phonetic.evolve(lazitusc_secondpass);
     tusc = tusc_phonetic.evolve(ital_orthography);
     tusc_phonetic = tusc_phonetic.evolve(tusc_after_ortho);
+    lazitusc = lazitusc_phonetic.evolve(ital_orthography);
+    lazitusc_phonetic = lazitusc_phonetic.evolve(ital_after_ortho);
 
     $("#tusc_phon").val(tusc_phonetic);
     $("#tusc").val(tusc);
+
+    $("#lazitusc_phon").val(lazitusc_phonetic);
+    $("#lazitusc").val(lazitusc);
 
     // Evolve to Corsican
     cors_phonetic = proto_phonetic;
