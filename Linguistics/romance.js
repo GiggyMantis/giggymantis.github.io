@@ -1495,6 +1495,8 @@ const lazi_firstpass = {
     "[^aeɛiɪoɔuʊjwn]$" : "",
     "ɪ" : "e", // Vowel collapse
     "ʊ" : "o",
+    "ɲ(\\.?ˈ?)ɲ(?=[^aeɛioɔu])" : "n$1", // loss of ɲ
+    "ɲ(\\.?ˈ?)ɲ" : "$1n", 
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
