@@ -963,6 +963,7 @@ const dalm_orthography = {
 }
 
 const vene_firstpass = {
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
@@ -1085,6 +1086,7 @@ const vene_delete_elided_l = {
 }
 
 const istr1244_firstpass = {
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
@@ -1185,6 +1187,8 @@ const istr1244_orthography = {
 
 
 const ital_firstpass = {
+    "(?<=[s])w" : "ʊ.", // sw -> so.
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1293,6 +1297,8 @@ const ital_orthography = {
 }
 
 const tusc_firstpass = {
+    "(?<=[s])w" : "ʊ.", // sw -> so.
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv   
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1375,6 +1381,8 @@ const tusc_after_ortho = {
 }
 
 const cors_firstpass = {
+    "(?<=[s])w" : "ʊ.", // sw -> so.
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1476,6 +1484,8 @@ const cors_after_ortho = {
 }
 
 const lazi_firstpass = {
+    "(?<=[s])w" : "ʊ.", // sw -> so.
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1521,6 +1531,8 @@ const lazi_firstpass = {
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
     "ʲ|S" : "j",
+    "n(\\.ˈ?)d" : "n$1n", // nd -> nn
+    ""
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
