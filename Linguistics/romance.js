@@ -1381,6 +1381,7 @@ const lazitusc_secondpass = {
     "([aeɛioɔu])(\\.ˈ?)bb" : "b$1$2b",
     "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
+    "^\\." : "",
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
 }
@@ -1589,6 +1590,7 @@ const lazi_firstpass = {
     "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
     "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
+    "^\\." : "",
     "u$" : "o", // -u -> -o
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
