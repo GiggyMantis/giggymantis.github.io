@@ -1572,10 +1572,10 @@ const lazi_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "$2.$1Wɔ", // metaphonic breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[iu])" : "Wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "$2.$1jɛ", // metaphonic breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[iu])" : "jɛ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wɔ", // metaphonic breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1jɛ", // metaphonic breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "jɛ",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "(?<=^ˈ?)ɡw" : "v", // gw- -> v-, go- -> vo
