@@ -1238,7 +1238,7 @@ const ital_firstpass = {
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
-    "a(?=r\\.ˈ)|a(?=*?\\.ˈr)" : "e", // pretonic ar -> er
+    "a(?=r\\.ˈ)|a(?=.?\\.ˈr)" : "e", // pretonic ar -> er
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
@@ -1260,6 +1260,7 @@ const ital_firstpass = {
 
 const ital_after_ortho = {
     "W" : "w",
+    "J" : "j",
 }
 
 const ital_orthography = {
@@ -1281,6 +1282,8 @@ const ital_orthography = {
     "kw" : "qu",
     "[wW]" : "u",
     "j" : "i",
+    "JJ" : "J",
+    "J" : "j",
     "c+" : "chj",
     "ɟ+" : "ghj",
     "ʤ(?=[ei])" : "g",
@@ -1351,7 +1354,7 @@ const tusc_firstpass = {
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
-    "a(?=r\\.ˈ)|a(?=*?\\.ˈr)" : "e", // pretonic ar -> er
+    "a(?=r\\.ˈ)|a(?=.?\\.ˈr)" : "e", // pretonic ar -> er
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
@@ -1439,7 +1442,7 @@ const cors_firstpass = {
     "ɔ(?=n)" : "o", // prenasal raising 
     "o(?=[^\\.rs]?\\.ˈ[^r])" : "u", // pretonic o -> u, not before r or [s cluster]
     "e(?=[^\\.rs]?\\.ˈ[^r])" : "i", // pretonic e -> i, not before r or [s cluster]
-    "a(?=r\\.ˈ)|a(?=*?\\.ˈr)" : "e", // pretonic ar -> er
+    "a(?=r\\.ˈ)|a(?=.?\\.ˈr)" : "e", // pretonic ar -> er
     "[eɛ](?=n\\.?ˈ?[kɡ])" : "i", // anafonesi
     "[o](?=n\\.?ˈ?ɡ)" : "u", 
     "(?<=ˈ[^\\.]*)e(?=\\.?[ʎɲ])" : "i", 
@@ -1499,6 +1502,7 @@ const lazi_firstpass = {
     "ɲ(\\.?ˈ?)ɲ" : "$1n", 
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "^(ˈ?)ɡʲ" : "$1j", // g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
@@ -1510,22 +1514,21 @@ const lazi_firstpass = {
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ",
-    "(?<=[aeɛioɔu])sʲ" : "ʃ", // sporadically ʒ
+    "(?<=[aeɛioɔu])sʲ" : "ʃ", 
     "(?<=ʃ\\.?ˈ?)sʲ" : "ʃ",
     "sʲ" : "ʃ",
     "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
     "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "pʲ" : "ʧ",
     "tʲ" : "ʦ",
     "kʲ" : "ʧ",
+    "bʲ" : "j",
+    "(?<=^ˈ?)[ɡd]ʲ" : "j", 
     "ɡʲ" : "ʤ",
-    "(?<=^(ˈ?))dʲ" : "ʤ",
+    "dʲ" : "ʤ", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
-    "j(\\.?ˈ?)j" : "d$1ʤ",
-    "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
-    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
-    "dʲ" : "ʤ", // sporadically, ʣ
     "nʲ" : "ɲ",
     "lʲ" : "ʎ",
     "rʲ" : "j",
@@ -1536,7 +1539,12 @@ const lazi_firstpass = {
     "n(\\.ˈ?)d" : "n$1n", // nd -> nn
     "n(\\.ˈ?)v" : "m$1m", // nv -> mm
     "m(\\.ˈ?)b" : "m$1m", // mb -> mm
+    "m(\\.ˈ?)b" : "m$1m", // mj -> mm
     "l(\\.ˈ?)d" : "l$1l", // ld -> ll
+    "^(ˈ?)b" : "$1v", // b -> v / #_
+    "(?<=[aeɛioɔur]\\.?ˈ?)b" : "v", // b -> v / V_, r_
+    "v(\\.ˈ?)v" : "b$1b", // vv -> bb
+    "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
     "t(?=\\.ˈ?r)" : "d", // tr -> dr
     "p(?=\\.ˈ?r)" : "b", // pr -> br
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
@@ -1553,6 +1561,8 @@ const lazi_firstpass = {
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ" : "jɛ",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "(?<=^ˈ?)ɡw" : "v", // gw- -> v-, go- -> vo
+    "(?<=^ˈ?)ɡ(?=[ouɔ])" : "v", // gw- -> v-, g[V +back]- -> vV
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(.)(?=\\1)" : "", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
 }
