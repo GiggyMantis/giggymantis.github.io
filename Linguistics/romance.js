@@ -1968,8 +1968,7 @@ function submit(latin_input) {
     lazi_phonetic = lazi_phonetic.evolve(lazi_firstpass);
     lazi = lazi_phonetic;
     lazi = lazi.evolve(ital_orthography);
-    lazi_phonetic = lazi_phonetic.evolve(ital_after_ortho);
-
+    lazi_phonetic = lazi_phonetic.evolve(lazi_after_ortho);
 
     $("#lazi_phon").val(lazi_phonetic);
     $("#lazi").val(lazi);
