@@ -1515,7 +1515,8 @@ const lazi_firstpass = {
     "[ɪe]S$" : "e",
     "ʊS$" : "u",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "ɪ" : "e", // Vowel collapse
+    "(?<!ˈ[^\\.]*)oS$" : "u", // Vowel collapse
+    "ɪ" : "e", 
     "ʊ" : "o",
     "ɲ(\\.?ˈ?)ɲ(?=[^aeɛioɔu])" : "n$1", // loss of ɲ
     "ɲ(\\.?ˈ?)ɲ" : "$1n", 
@@ -1604,7 +1605,93 @@ const lazi_after_ortho = {
 }
 
 const coci_firstpass = {
-    "" : ""
+        "(?<=[s])w" : "ʊ.", // sw -> so.
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "β" : "v", // β -> v
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "iS$" : "i",
+    "[ɪe]S$" : "e",
+    "ʊS$" : "u",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
+    "ɪ" : "e", // Vowel collapse
+    "ʊ" : "o",
+    "ɲ(\\.?ˈ?)ɲ(?=[^aeɛioɔu])" : "n$1", // loss of ɲ
+    "ɲ(\\.?ˈ?)ɲ" : "$1n", 
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "^(ˈ?)ɡʲ" : "$1j", // g
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "aS$" : "e", // aj$ collapse
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
+    "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "vʲ" : "bʲ", // early palatal outcomes
+    "(?<!s\\.?ˈ?)sʲ" : "s",
+    "k(\\.?ˈ?)kʲ" : "t$1ʦ",
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "aw" : "o", // au -> o (later u in some cases)
+    "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
+    "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "sʲ$1sʲ",
+    "sʲ" : "ʃ",
+    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    "kʲ(?=\\.?ˈ?kʲ)" : "t",
+    "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "pʲ" : "ʧ",
+    "tʲ" : "ʦ",
+    "kʲ" : "ʧ",
+    "m(\\.?ˈ?)bʲ" : "nʲ$1nʲ",
+    "bʲ" : "j",
+    "n(\\.?ˈ?)ɡʲ" : "nʲ$1nʲ",
+    "ɡ(\\.?ˈ?)ɡʲ" : "j$1j",
+    "ɡʲ" : "j",
+    "d(\\.?ˈ?)dʲ" : "j$1j",
+    "dʲ" : "j", 
+    "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
+    "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
+    "[mn]ʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "rʲ" : "j",
+    "ʲ(?=[^aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
+    "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
+    "ʲ|S" : "j",
+    "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
+    "n(\\.?ˈ?)v" : "m$1m", // nv -> mm
+    "m(\\.?ˈ?)b" : "m$1m", // mb -> mm
+    "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
+    "(?<=[nlr]\\.?ˈ?)s" : "ʦ", // affrication of s after n, l, r
+    "^(ˈ?)b" : "$1v", // b -> v / #_
+    "(?<=[aeɛioɔur]\\.?ˈ?)b" : "v", // b -> v / V_, r_
+    "v(\\.ˈ?)v" : "b$1b", // vv -> bb
+    "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
+    "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
+    "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wɔ", // metaphonic breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wɔ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1jɛ", // metaphonic breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "jɛ",
+    "([wj])([wWj])" : "$1",
+    "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "(?<=^ˈ?)ɡw" : "v", // gw- -> v-, go- -> vo
+    "(?<=^ˈ?)ɡ(?=[ouɔ])" : "v", // gw- -> v-, g[V +back]- -> vV
+    "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+    "(?<!d\\.?ˈ?)ʤ" : "dʤ", // always gemination of b, ʤ
+    "(?<!b\\.?ˈ?)b(?!\\.?ˈ?b)" : "bb",
+    "([aeɛioɔu])(\\.ˈ?)dʤ" : "d$1$2ʤ",
+    "([aeɛioɔu])(\\.ˈ?)bb" : "b$1$2b",
+    "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
+    "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
+    "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
+    "^\\." : "",
+    "u$" : "o", // -u -> -o
+    "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
+    "(.)(?=\\1)" : "", 
 }
 
 //Old Gallo-Romance
