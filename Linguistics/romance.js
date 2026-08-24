@@ -1603,6 +1603,10 @@ const lazi_after_ortho = {
     "(ɾ)(?=ɾ)" : "",
 }
 
+const coci_firstpass = {
+    "" : ""
+}
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -1974,6 +1978,15 @@ function submit(latin_input) {
 
     $("#lazi_phon").val(lazi_phonetic);
     $("#lazi").val(lazi);
+
+    // Evolve to Sabino
+    cico_phonetic = proto_phonetic;
+    cico_phonetic = cico_phonetic.evolve(cico_firstpass);
+    cico = cico_phonetic;
+    cico = cico.evolve(ital_orthography);
+
+    $("#cico_phon").val(cico_phonetic);
+    $("#cico").val(cico);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
