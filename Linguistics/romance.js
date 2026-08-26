@@ -1662,10 +1662,8 @@ const cico_firstpass = {
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
     "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
-    "(?<=[nlr]\\.?ˈ?)s" : "ʦ", // affrication of s after n, l, r
-    "^(ˈ?)b" : "$1v", // b -> v / #_
-    "(?<=[aeɛioɔur]\\.?ˈ?)b" : "v", // b -> v / V_, r_
-    "v(\\.ˈ?)v" : "b$1b", // vv -> bb
+    "^(ˈ?)[dɡv]" : "$1", // ɡ, d, v -> ∅ / #_
+    "(?<=[aeɛioɔu]\\.ˈ?)[vdb](?=[aeɛioɔu])" : "", // intervocalic deletion of v, d, b
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
@@ -2072,6 +2070,7 @@ function submit(latin_input) {
     cico_phonetic = cico_phonetic.evolve(cico_firstpass);
     cico = cico_phonetic;
     cico = cico.evolve(ital_orthography);
+    cici_phonetic = lazi_phonetic.evolve(lazi_after_ortho /*[sic]*/); 
 
     $("#cico_phon").val(cico_phonetic);
     $("#cico").val(cico);
