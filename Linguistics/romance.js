@@ -1604,8 +1604,8 @@ const lazi_after_ortho = {
     "(ɾ)(?=ɾ)" : "",
 }
 
-const coci_firstpass = {
-        "(?<=[s])w" : "ʊ.", // sw -> so.
+const cico_firstpass = {
+    "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
