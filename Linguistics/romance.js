@@ -1660,6 +1660,8 @@ const cico_firstpass = {
     "n(\\.?ˈ?)v" : "m$1m", // nv -> mm
     "m(\\.?ˈ?)b" : "m$1m", // mb -> mm
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
+    "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
+    "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
     "(?<=[nlr]\\.?ˈ?)s" : "ʦ", // affrication of s after n, l, r
     "^(ˈ?)b" : "$1v", // b -> v / #_
     "(?<=[aeɛioɔur]\\.?ˈ?)b" : "v", // b -> v / V_, r_
@@ -1672,12 +1674,12 @@ const cico_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "(?<=[aeɛioɔu]\\.ˈ?)s(?=[aeɛioɔu])" : "z", // intervocalic voicing of s 
     "^ˈ?s(?=[mnɡbdv])" : "z", // word-initial assimialtory voicing of s
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wɔ", // metaphonic breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1jɛ", // metaphonic breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "jɛ",
-    "([wj])([wWj])" : "$1",
-    "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "(?<=ˈ[^\\.]*)o(?=[^\\.]\\.[^\\.][ui])" : "U", // sabine metaphony
+    "(?<=ˈ[^\\.]*)e(?=[^\\.]\\.[^\\.][ui])" : "I",
+    "(?<=ˈ[^\\.]*)ɔ(?=[^\\.]\\.[^\\.][ui])" : "o",
+    "(?<=ˈ[^\\.]*)ɛ(?=[^\\.]\\.[^\\.][ui])" : "e",
+    "U" : "u",
+    "I" : "i",
     "(?<=^ˈ?)ɡw" : "v", // gw- -> v-, go- -> vo
     "(?<=^ˈ?)ɡ(?=[ouɔ])" : "v", // gw- -> v-, g[V +back]- -> vV
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
