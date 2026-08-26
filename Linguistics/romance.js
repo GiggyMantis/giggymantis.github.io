@@ -2070,7 +2070,7 @@ function submit(latin_input) {
     cico_phonetic = cico_phonetic.evolve(cico_firstpass);
     cico = cico_phonetic;
     cico = cico.evolve(ital_orthography);
-    cici_phonetic = lazi_phonetic.evolve(lazi_after_ortho /*[sic]*/); 
+    cici_phonetic = cici_phonetic.evolve(lazi_after_ortho /*[sic]*/); 
 
     $("#cico_phon").val(cico_phonetic);
     $("#cico").val(cico);
