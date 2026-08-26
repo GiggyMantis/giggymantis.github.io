@@ -1689,7 +1689,6 @@ const cico_firstpass = {
     "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
     "^\\." : "",
-    "u$" : "o", // -u -> -o
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
 }
