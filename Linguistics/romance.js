@@ -1693,6 +1693,11 @@ const cico_firstpass = {
     "(.)(?=\\1)" : "", 
 }
 
+const neap_firstpass = {
+    "" : ""
+}
+
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -2074,6 +2079,15 @@ function submit(latin_input) {
 
     $("#cico_phon").val(cico_phonetic);
     $("#cico").val(cico);
+
+    // Evolve to Neapolitan
+    neap_phonetic = proto_phonetic;
+    neap_phonetic = neap_phonetic.evolve(neap_firstpass);
+    neap = neap_phonetic;
+    neap = neap.evolve(ital_orthography);
+
+    $("#neap_phon").val(neap_phonetic);
+    $("#neap").val(neap);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
