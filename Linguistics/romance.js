@@ -1716,6 +1716,7 @@ const neap_firstpass = {
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "jɛ",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
 
 
