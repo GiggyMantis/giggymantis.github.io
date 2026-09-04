@@ -1694,7 +1694,22 @@ const cico_firstpass = {
 }
 
 const neap_firstpass = {
-    "" : ""
+    "(?<=[s])w" : "ʊ.", // sw -> so.
+    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "β" : "v", // β -> v
+    "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "iS$" : "i",
+    "[ɪe]S$" : "e",
+    "ʊS$" : "u",
+    "[^aeɛiɪoɔuʊjwn]$" : "",
+    "(?<!ˈ[^\\.]*)oS$" : "u", // Vowel collapse
+    "ɪ" : "e", 
+    "ʊ" : "o",
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
+    "^(ˈ?)ɡʲ" : "$1j", // g
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "aS$" : "e", // aj$ collapse
 }
 
 
