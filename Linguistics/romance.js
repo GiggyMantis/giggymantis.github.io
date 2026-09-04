@@ -1700,9 +1700,9 @@ const neap_firstpass = {
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
     "[ɪe]S$" : "e",
-    "ʊS$" : "u",
+    "ʊS$" : "ʊ",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "(?<!ˈ[^\\.]*)oS$" : "u", // Vowel collapse
+    "(?<!ˈ[^\\.]*)oS$" : "o", // Vowel collapse
     "ɪ" : "e", 
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -1710,12 +1710,18 @@ const neap_firstpass = {
     "^(ˈ?)ɡʲ" : "$1j", // g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wɔ", // metaphonic breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wɔ",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1jɛ", // metaphonic breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "jɛ",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
+    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1je", // metaphonic breaking of ɛ
+    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "je",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
+    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
 
