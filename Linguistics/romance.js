@@ -1722,9 +1722,9 @@ const neap_firstpass = {
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
     "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj, jj
-    "$(ˈ?)j(?=j)" : "$1", // jj -> j / #_
+    "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
     "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
-    "$(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
+    "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
