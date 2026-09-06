@@ -1728,8 +1728,8 @@ const neap_firstpass = {
     "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
     "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
-    "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
+    "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
 
 
