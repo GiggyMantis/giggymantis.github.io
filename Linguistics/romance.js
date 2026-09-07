@@ -1719,11 +1719,15 @@ const neap_firstpass = {
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "je",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
-"sʲ(\\.ˈ?)sʲ" : "$1ʧ", // TODO: ALL palatalization outcomes
-    "sʲ" : "ʧ", // sporadically ʤ, annoyingly not always corresponding to Tuscan ʒ
-    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    "pʲ" : "kʲ", // early palatalization outcomes
+    "bʲ" : "ɡʲ",
+    "sʲ" : "s", 
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "sʲ(\\.?ˈ?)kʲ" : "ʃ$1ʃ", // palatalization outcomes
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
     "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
     "tʲ" : "ʦ",
     "kʲ" : "ʧ",
     "s(\\.?ˈ?)[ʦʧ]" : "ʃ$1ʃ",
