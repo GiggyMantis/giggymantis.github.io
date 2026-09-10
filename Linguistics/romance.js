@@ -1264,6 +1264,7 @@ const ital_after_ortho = {
 }
 
 const ital_orthography = {
+    "ɫ" : "l",
     "ŋ" : "n",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
@@ -1302,6 +1303,7 @@ const ital_orthography = {
     "ʎ+(?=i)" : "gl",
     "ʎ+" : "gli",
     "ɲ+" : "gn",
+    "ə" : "'",
 }
 
 const tusc_firstpass = {
@@ -1755,11 +1757,13 @@ const neap_firstpass = {
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
-    "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj, jj
+    "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj (over multiple syllables)
+    "[bɡ](?=ˈ?j)" : "", // bj, ɡj -> j
     "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
     "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
     "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
+    "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
     "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
