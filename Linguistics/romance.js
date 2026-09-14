@@ -1718,13 +1718,13 @@ const neap_firstpass = {
     "aS$" : "e", // aj$ collapse
     "e(?=[^\\.]*\\.[^\\.]*[iu])" : "i", // Metaphony/vowel harmony
     "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
-    "u$" : "o", // -u -> -o
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1je", // metaphonic breaking of ɛ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "je",
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
+    "u$" : "o", // -u -> -o
     "pʲ" : "kʲ", // early palatalization outcomes
     "bʲ" : "ɡʲ",
     "sʲ" : "s", 
@@ -1764,6 +1764,7 @@ const neap_firstpass = {
     "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
+    "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
     "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
