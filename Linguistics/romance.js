@@ -1720,6 +1720,7 @@ const neap_firstpass = {
     "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
+    "(?<=^ˈ?)b(?=W)" : "v", // bw -> vw / #_
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1je", // metaphonic breaking of ɛ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "je",
     "([wj])([wWj])" : "$1",
@@ -1766,6 +1767,10 @@ const neap_firstpass = {
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
     "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
+}
+
+const neap_after_ortho = {
+    "W" : "w",
     "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
 
@@ -2157,6 +2162,7 @@ function submit(latin_input) {
     neap_phonetic = neap_phonetic.evolve(neap_firstpass);
     neap = neap_phonetic;
     neap = neap.evolve(ital_orthography);
+    neap_phonetic = neap_phonetic.evolve(neap_after_ortho);
 
     $("#neap_phon").val(neap_phonetic);
     $("#neap").val(neap);
