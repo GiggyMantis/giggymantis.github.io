@@ -919,7 +919,7 @@ const dalm_secondpass = {
     "jak" : "jek", // jak -> jek
     "j\\.(ˈ?)([mlr])([^aeiouU])" : "$2.$1$3", // j[m,l,r] -> [m,l,r]
     "j\\.(ˈ?)([mlr])" : ".$1$2",
-    "j([mlr])" : "$2",
+    "j([mlr])" : "$1",
     "s\\.(ˈ?)j([^aeiouU])" : "s.$1$2", // sj -> s
     "s\\.(ˈ?)j" : ".$1s",
     "sj" : "s",
@@ -1765,12 +1765,12 @@ const neap_firstpass = {
     "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
-    "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
 }
 
 const neap_after_ortho = {
     "W" : "w",
+    "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
     "[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words
 }
 
