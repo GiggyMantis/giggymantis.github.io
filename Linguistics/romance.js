@@ -1768,6 +1768,8 @@ const neap_firstpass = {
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
 }
 
+const neap_assverb = /(?<=[eia])\.re$/g
+
 const neap_after_ortho = {
     "W" : "w",
     "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
@@ -2160,6 +2162,9 @@ function submit(latin_input) {
     // Evolve to Neapolitan
     neap_phonetic = proto_phonetic;
     neap_phonetic = neap_phonetic.evolve(neap_firstpass);
+    if ($("#assverb").is(":checked")) { 
+        neap_phonetic = neap_phonetic.replace(neap_assverb, "");
+    }
     neap = neap_phonetic;
     neap = neap.evolve(ital_orthography);
     neap_phonetic = neap_phonetic.evolve(neap_after_ortho);
