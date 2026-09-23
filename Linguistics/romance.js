@@ -1773,7 +1773,7 @@ const neap_assverb = /(?<=[eia])\.re$/g
 const neap_after_ortho = {
     "W" : "w",
     "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
-    "(?<!ˈ)[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words unless stressed
+    "(?<!ˈ[^\\.]*)[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words unless stressed
 }
 
 //Old Gallo-Romance
