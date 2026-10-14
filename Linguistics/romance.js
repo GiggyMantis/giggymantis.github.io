@@ -1777,7 +1777,7 @@ const neap_after_ortho = {
     "(?<!ˈ[^\\.]*)[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words unless stressed
     "^(ˈ?)d" : "$1r", // #d -> r
     "(?<=n)(\\.?ˈ?)t" : "$1d", // voicing of t after nasals
-    "(?<=n)(\\.?ˈ?)p" : "$1b", // voicing of p after nasals
+    "(?<=m)(\\.?ˈ?)p" : "$1b", // voicing of p after nasals
 }
 
 //Old Gallo-Romance
