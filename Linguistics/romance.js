@@ -1778,6 +1778,7 @@ const neap_after_ortho = {
     "^(ˈ?)d" : "$1r", // #d -> r
     "(?<=n)(\\.?ˈ?)t" : "$1d", // voicing of t after nasals
     "(?<=m)(\\.?ˈ?)p" : "$1b", // voicing of p after nasals
+    "ʎ" : "ʝ", // yeísmo
 }
 
 const sici_firstpass = {
@@ -1797,6 +1798,9 @@ const sici_firstpass = {
     "^(ˈ?)ɡʲ" : "$1j", // g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
+    "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
+    "e$" : "i", // vowel collapse at the ends of words
+    "o$" : "u",
     }
 
 //Old Gallo-Romance
@@ -2200,8 +2204,8 @@ function submit(latin_input) {
     sici = sici_phonetic;
     sici = sici.evolve(ital_orthography);
 
-    $("sici_phon").val(sici_phonetic);
-    $("sici").val(sici);
+    $("#sici_phon").val(sici_phonetic);
+    $("#sici").val(sici);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
