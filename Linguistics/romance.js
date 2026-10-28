@@ -1797,58 +1797,7 @@ const sici_firstpass = {
     "^(ˈ?)ɡʲ" : "$1j", // g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
-    "e(?=[^\\.]*\\.[^\\.]*[iu])" : "i", // Metaphony/vowel harmony
-    "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
-    "(?<=^ˈ?)b(?=W)" : "v", // bw -> vw / #_
-    "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjwW])ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1je", // metaphonic breaking of ɛ
-    "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɛ(?=[^\\.]*\\.[^\\.]*[jiu])" : "je",
-    "([wj])([wWj])" : "$1",
-    "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
-    "u$" : "o", // -u -> -o
-    "pʲ" : "kʲ", // early palatalization outcomes
-    "bʲ" : "ɡʲ",
-    "sʲ" : "s", 
-    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
-    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "sʲ(\\.?ˈ?)kʲ" : "ʃ$1ʃ", // palatalization outcomes
-    "kʲ(?=\\.?ˈ?kʲ)" : "t",
-    "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
-    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
-    "tʲ" : "ʦ",
-    "kʲ" : "ʧ",
-    "s(\\.?ˈ?)[ʦʧ]" : "ʃ$1ʃ",
-    "ɡʲ" : "ʤ",
-    "(?<=^(ˈ?))dʲ" : "ʤ",
-    "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
-    "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
-    "j(\\.?ˈ?)j" : "d$1ʤ",
-    "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
-    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
-    "dʲ" : "ʤ",
-    "nʲ" : "ɲ",
-    "lʲ" : "ʎ",
-    "rʲ" : "j",
-    "ʲ(?=[^aeɛioɔu])" : "",
-    "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
-    "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
-    "ʲ|S" : "j",
-    "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
-    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
-    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
-    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
-    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
-    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
-    "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj (over multiple syllables)
-    "[bɡ](?=ˈ?j)" : "", // bj, ɡj -> j
-    "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
-    "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
-    "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
-    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
-    "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
-    "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
-}
+    }
 
 //Old Gallo-Romance
 const ogall_firstpass = {
