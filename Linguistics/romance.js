@@ -645,6 +645,7 @@ const roma_secondpass = {
     "v$" : "w" // -v -> -w
 }
 
+// TODO: Somehow [j.j] becomes <ii> in some situations
 const roma_orthography = {
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɨə]{0,3})([aeoiuɨə])" : "$1$2́",
@@ -1699,6 +1700,7 @@ const cico_firstpass = {
     "(.)(?=\\1)" : "", 
 }
 
+//TODO: cr -> gr in Neapolitan and Sicilian (then to /w/ in Sicilian)
 const neap_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
