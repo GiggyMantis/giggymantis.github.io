@@ -1728,6 +1728,7 @@ const neap_firstpass = {
     "([wj])([wWj])" : "$1",
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "u$" : "o", // -u -> -o
+    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "pʲ" : "kʲ", // early palatalization outcomes
     "bʲ" : "ɡʲ",
     "sʲ" : "s", 
@@ -1798,9 +1799,12 @@ const sici_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
+    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
+    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "ɡk(?=\\.ˈ?r)" : "w", // gr -> wr
     "e$" : "i", // vowel collapse at the ends of words
     "o$" : "u",
     }
