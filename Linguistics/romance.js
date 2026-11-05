@@ -1783,6 +1783,7 @@ const neap_after_ortho = {
     "ʎ" : "ʝ", // yeísmo
 }
 
+//TODO: strange raising in words like pisci, sirpenti, fimmina
 const sici_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
