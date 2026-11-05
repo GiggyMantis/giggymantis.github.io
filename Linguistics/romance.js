@@ -645,7 +645,6 @@ const roma_secondpass = {
     "v$" : "w" // -v -> -w
 }
 
-// TODO: Somehow [j.j] becomes <ii> in some situations
 const roma_orthography = {
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɨə]{0,3})([aeoiuɨə])" : "$1$2́",
@@ -660,6 +659,7 @@ const roma_orthography = {
     "ʤ(?=[jie])" : "g",
     "ʧ(?=[jie])" : "c",
     "(?<=[aeoiuɨă]́?)j" : "i",
+    "jj" : "j",
     "j(?=[euo])" : "i",
     "(?<![aeoiuɨă]́?)j(?!=[ueo])" : "e",
     "j" : "i",
@@ -1700,7 +1700,6 @@ const cico_firstpass = {
     "(.)(?=\\1)" : "", 
 }
 
-//TODO: cr -> gr in Neapolitan and Sicilian (then to /w/ in Sicilian)
 const neap_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
@@ -1799,15 +1798,16 @@ const sici_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
-    "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
     "aS$" : "e", // aj$ collapse
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
-    "ɡk(?=\\.ˈ?r)" : "w", // gr -> wr
+    "ɡ(?=\\.ˈ?r)" : "w", // gr -> wr
     "e$" : "i", // vowel collapse at the ends of words
     "o$" : "u",
-    }
+    "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
+    //TODO: retroflex-stop-ization of geminate lateral    
+}
 
 //Old Gallo-Romance
 const ogall_firstpass = {
