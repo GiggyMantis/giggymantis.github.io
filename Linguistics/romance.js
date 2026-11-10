@@ -1808,6 +1808,11 @@ const sici_firstpass = {
     // TODO: retroflex-stop-ization of geminate lateral    
     "e$" : "i", // vowel collapse at the ends of words
     "o$" : "u",
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
 }
 
 //Old Gallo-Romance
