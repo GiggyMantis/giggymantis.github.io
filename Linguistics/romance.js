@@ -1804,10 +1804,10 @@ const sici_firstpass = {
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "ɡ(?=\\.ˈ?r)" : "w", // gr -> wr
+    "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
+    // TODO: retroflex-stop-ization of geminate lateral    
     "e$" : "i", // vowel collapse at the ends of words
     "o$" : "u",
-    "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
-    //TODO: retroflex-stop-ization of geminate lateral    
 }
 
 //Old Gallo-Romance
