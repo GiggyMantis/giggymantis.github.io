@@ -1784,7 +1784,6 @@ const neap_after_ortho = {
     "ʎ" : "ʝ", // yeísmo
 }
 
-//TODO: strange raising in words like pisci, sirpenti, fimmina
 const sici_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
@@ -1794,11 +1793,11 @@ const sici_firstpass = {
     "[ɪe]S$" : "e",
     "ʊS$" : "u",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "(?<!ˈ[^\\.]*)oS$" : "o"T, // Vowel collapse
+    "(?<!ˈ[^\\.]*)oS$" : "o", 
     "ɪ" : "i", 
     "ʊ" : "u",
     "e" : "i",
-    "o" : "u",
+    "o" : "u", // Vowel collapse
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
@@ -1809,9 +1808,7 @@ const sici_firstpass = {
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "ɡ(?=\\.ˈ?r)" : "w", // gr -> wr
     "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
-    // TODO: retroflex-stop-ization of geminate lateral    
-    "e$" : "i", // vowel collapse at the ends of words
-    "o$" : "u",
+    // TODO: retroflex-stop-ization of geminate lateral 
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
