@@ -1794,9 +1794,11 @@ const sici_firstpass = {
     "[ɪe]S$" : "e",
     "ʊS$" : "u",
     "[^aeɛiɪoɔuʊjwn]$" : "",
-    "(?<!ˈ[^\\.]*)oS$" : "o", // Vowel collapse
-    "ɪ" : "e", 
-    "ʊ" : "o",
+    "(?<!ˈ[^\\.]*)oS$" : "o"T, // Vowel collapse
+    "ɪ" : "i", 
+    "ʊ" : "u",
+    "e" : "i",
+    "o" : "u",
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
