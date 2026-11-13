@@ -1284,6 +1284,7 @@ const ital_orthography = {
     "ʒ+" : "zʤ",
     "kw" : "qu",
     "[wW]" : "u",
+    "ɰ" : "gu",
     "jj" : "j",
     "j" : "i",
     "JJ" : "J",
@@ -1799,6 +1800,7 @@ const sici_firstpass = {
     "ʊ" : "u",
     "e" : "i",
     "o" : "u", // Vowel collapse
+    "^(ˈ?)b" : "v", // vetacism at the starts of words  
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
@@ -1807,7 +1809,7 @@ const sici_firstpass = {
     "aS$" : "e", // aj$ collapse
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
-    "ɡ(?=\\.ˈ?r)" : "w", // gr -> wr //TODO: this should occur after orthography
+    "ɡ(?=\\.ˈ?r)" : "ɰ", // gr -> ɰr
     "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // geminate l becomes retroflex stop
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
@@ -1815,8 +1817,12 @@ const sici_firstpass = {
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
-    // deletion of g
+}
+
+const sici_after_ortho = {
+    "ɰ" : "w", // whatever
     "r" : "ɾ", // tapping of r 
+    "s(?=.?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
 }
 
 //Old Gallo-Romance
