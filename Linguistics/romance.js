@@ -1274,6 +1274,7 @@ const ital_orthography = {
     "([eo])̀" : "$1́",
     "ɛ" : "e",
     "ɔ" : "o",
+    "ɖ" : "ḍ",
     "z" : "s",
     "tʦ" : "zz",
     "dʣ" : "zz",
@@ -1806,14 +1807,16 @@ const sici_firstpass = {
     "aS$" : "e", // aj$ collapse
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
-    "ɡ(?=\\.ˈ?r)" : "w", // gr -> wr
+    "ɡ(?=\\.ˈ?r)" : "w", // gr -> wr //TODO: this should occur after orthography
     "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
-    // TODO: retroflex-stop-ization of geminate lateral 
+    "l(\\.?ˈ?)l" : "ɖ$1ɖ", // geminate l becomes retroflex stop
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
+    // deletion of g
+    "r" : "ɾ", // tapping of r 
 }
 
 //Old Gallo-Romance
