@@ -1295,6 +1295,7 @@ const ital_orthography = {
     "ʤ(?=[ei])" : "g",
     "dʤ" : "ggi",
     "ʤ" : "gi",
+    "ç+" : "ç",
     "tʧ(?=[ei])" : "cc",
     "ʧ(?=[ei])" : "c",
     "tʧ" : "cci",
@@ -1791,6 +1792,7 @@ const sici_firstpass = {
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
+    "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "iS$" : "i",
     "[ɪe]S$" : "e",
     "ʊS$" : "u",
@@ -1815,6 +1817,8 @@ const sici_firstpass = {
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "f(\\.?ˈ?)j" : "ç$1ç", // fj -> çç
+    "^(ˈ?)ç(?=ç)" : "$1", // çç -> ç / #_
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
 }
@@ -1823,6 +1827,7 @@ const sici_after_ortho = {
     "ɰ" : "w", // whatever
     "r" : "ɾ", // tapping of r 
     "s(?=.?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
+    //TODO: all the retroflex things
 }
 
 //Old Gallo-Romance
@@ -2228,6 +2233,7 @@ function submit(latin_input) {
 
     $("#sici_phon").val(sici_phonetic);
     $("#sici").val(sici);
+    $("#sici_phon").val(sici_after_ortho);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
