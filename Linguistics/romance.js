@@ -2230,10 +2230,10 @@ function submit(latin_input) {
     sici_phonetic = sici_phonetic.evolve(sici_firstpass);
     sici = sici_phonetic;
     sici = sici.evolve(ital_orthography);
+    sici_phonetic = sici_phonetic.evolve(sici_after_ortho);
 
     $("#sici_phon").val(sici_phonetic);
     $("#sici").val(sici);
-    $("#sici_phon").val(sici_after_ortho);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
