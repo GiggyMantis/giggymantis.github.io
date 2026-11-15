@@ -1676,7 +1676,7 @@ const cico_firstpass = {
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
     "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
-    "^(ˈ?)d" : "$1ð", // ɡ, d, v -> ∅ / #_
+    "^(ˈ?)d" : "$1D", // d -> ð / #_
     "^(ˈ?)[dɡv]" : "$1", // ɡ, v -> ∅ / #_
     "(?<=[aeɛioɔu]\\.ˈ?)[vdb](?=[aeɛioɔu])" : "", // intervocalic deletion of v, d, b
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
