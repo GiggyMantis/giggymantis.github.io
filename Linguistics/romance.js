@@ -1794,6 +1794,10 @@ const neap_after_ortho = {
     "ʎ" : "ʝ", // yeísmo
 }
 
+const sici_assverb = {
+    "([^\\.]*\\.)ˈ([^\\.]*)(?=e\\.re$)" : "ˈ$1$2"
+}
+
 const sici_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
@@ -2248,6 +2252,9 @@ function submit(latin_input) {
 
     // Evolve to Sicilian
     sici_phonetic = proto_phonetic;
+    if ($("#assverb").is(":checked")) { 
+        sici_phonetic = sici_phonetic.evolve(sici_assverb); // the relevant verb changes occured before other sound changes
+    }
     sici_phonetic = sici_phonetic.evolve(sici_firstpass);
     sici = sici_phonetic;
     sici = sici.evolve(ital_orthography);
