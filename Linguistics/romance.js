@@ -1266,6 +1266,7 @@ const ital_after_ortho = {
 
 const ital_orthography = {
     "ɫ" : "l",
+    "ð" : "d",
     "ŋ" : "n",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
@@ -1674,7 +1675,8 @@ const cico_firstpass = {
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
     "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
-    "^(ˈ?)[dɡv]" : "$1", // ɡ, d, v -> ∅ / #_
+    "^(ˈ?)d" : "$1ð", // ɡ, d, v -> ∅ / #_
+    "^(ˈ?)[dɡv]" : "$1", // ɡ, v -> ∅ / #_
     "(?<=[aeɛioɔu]\\.ˈ?)[vdb](?=[aeɛioɔu])" : "", // intervocalic deletion of v, d, b
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
@@ -1816,6 +1818,7 @@ const sici_firstpass = {
     "ɡ(?=\\.ˈ?r)" : "ɰ", // gr -> ɰr
     "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // geminate l becomes retroflex stop
+    "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
@@ -1828,14 +1831,17 @@ const sici_firstpass = {
 const sici_after_ortho = {
     "ɰ" : "w", // whatever it's good enuff
     "r" : "ɾ", // tapping of r 
-    "ɾ(\\.?ˈ?)ɾ" : "ʐ$1ʐ", // ʐʐ
+    "(?<=^ˈ?)ɾ" : "ʐ", // ʐ
+    "ɾ(\\.?ˈ?)ɾ" : "ʐ$1ʐ",
+    "(?<=[aɛiɔu])d(?=[aɛiɔu])" : "ɾ", // intervocalic rhotic tapping, holy usamerican batman
+    "(?<=^ˈ?)d" : "ɾ", // also happens at the start of a word
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
     "k(\\.?ˈ?)k?j" : "c$1$2c", // palatal assimilation
     "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1$2ɟ",
     "ɔ(?=[^\\.]*\\.[^\\.]*[ui])" : "(w)ɔ", // uo
     "ɛ(?=[^\\.]*\\.[^\\.]*[ui])" : "(j)ɛ", // ie
-    "u" : "ʊ",
-    "i" : "ɪ",
+    "(?<!ˈ[^\\.]*)u" : "ʊ",
+    "(?<!ˈ[^\\.]*)i" : "ɪ",
     //TODO: all the retroflex things
 }
 
