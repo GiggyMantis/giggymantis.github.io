@@ -1826,7 +1826,7 @@ const sici_firstpass = {
 const sici_after_ortho = {
     "ɰ" : "w", // whatever
     "r" : "ɾ", // tapping of r 
-    "s(?=.?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
+    "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
     //TODO: all the retroflex things
 }
 
