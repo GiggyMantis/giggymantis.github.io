@@ -1724,6 +1724,16 @@ const neap_firstpass = {
     "e(?=[^\\.]*\\.[^\\.]*[iu])" : "i", // Metaphony/vowel harmony
     "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
+    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
+    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
+    "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj (over multiple syllables)
+    "[bɡ](?=ˈ?j)" : "", // bj, ɡj -> j
+    "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
+    "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
+    "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
     "(?<=^ˈ?)b(?=W)" : "v", // bw -> vw / #_
@@ -1761,16 +1771,6 @@ const neap_firstpass = {
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
     "ʲ|S" : "j",
     "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
-    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
-    "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
-    "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
-    "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
-    "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
-    "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj (over multiple syllables)
-    "[bɡ](?=ˈ?j)" : "", // bj, ɡj -> j
-    "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
-    "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
-    "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
@@ -1825,7 +1825,7 @@ const sici_firstpass = {
 }
 
 const sici_after_ortho = {
-    "ɰ" : "w", // whatever
+    "ɰ" : "w", // whatever it's good enuff
     "r" : "ɾ", // tapping of r 
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
     "k(\\.?ˈ?)k?j" : "c$1$2c", // palatal assimilation
