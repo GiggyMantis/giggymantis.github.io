@@ -1827,6 +1827,7 @@ const sici_firstpass = {
 const sici_after_ortho = {
     "ɰ" : "w", // whatever it's good enuff
     "r" : "ɾ", // tapping of r 
+    "ɾ(\\.?ˈ?)ɾ" : "ʐ$1ʐ", // ʐʐ
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
     "k(\\.?ˈ?)k?j" : "c$1$2c", // palatal assimilation
     "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1$2ɟ",
