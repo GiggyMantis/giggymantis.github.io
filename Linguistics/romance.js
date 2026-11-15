@@ -1266,7 +1266,7 @@ const ital_after_ortho = {
 
 const ital_orthography = {
     "ɫ" : "l",
-    "ð" : "d",
+    "D" : "d",
     "ŋ" : "n",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
@@ -1615,6 +1615,7 @@ const lazi_after_ortho = {
     "ɾ\\.(ˈ?)ɾ" : ".$1ɾ",
     "(ɾ)(?=ɾ)" : "",
     "W" : "w",
+    "D" : "ð",
 }
 
 const cico_firstpass = {
@@ -1706,6 +1707,8 @@ const cico_firstpass = {
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
 }
+
+const cico_assverb = /(?<=[eia])\.re$/g
 
 const neap_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
@@ -2220,6 +2223,9 @@ function submit(latin_input) {
     // Evolve to Sabino
     cico_phonetic = proto_phonetic;
     cico_phonetic = cico_phonetic.evolve(cico_firstpass);
+    if ($("#assverb").is(":checked")) { 
+        cico_phonetic = cico_phonetic.replace(cico_assverb, "");
+    }
     cico = cico_phonetic;
     cico = cico.evolve(ital_orthography);
     cico_phonetic = cico_phonetic.evolve(lazi_after_ortho /*[sic]*/); 
