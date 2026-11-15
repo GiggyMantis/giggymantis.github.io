@@ -1828,10 +1828,10 @@ const sici_after_ortho = {
     "ɰ" : "w", // whatever
     "r" : "ɾ", // tapping of r 
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
-    "k(\\.?(?:k))(\\.?ˈ?)j" : "c$1$2c", // palatal assimilation
-    "ɡ(\\.?(?:ɡ))(\\.?ˈ?)j" : "ɟ$1$2ɟ", // palatal assimilation
-    "ɔ(?=[^\\.]*\\.[^\\.][uji])" : "(w)ɔ", // uo
-    "ɛ(?=[^\\.]*\\.[^\\.][uji])" : "(j)ɛ", // ie
+    "k(\\.?ˈ?)k?j" : "c$1$2c", // palatal assimilation
+    "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1$2ɟ",
+    "ɔ(?=[^\\.]*\\.[^\\.]*[ui])" : "(w)ɔ", // uo
+    "ɛ(?=[^\\.]*\\.[^\\.]*[ui])" : "(j)ɛ", // ie
     //TODO: all the retroflex things
 }
 
