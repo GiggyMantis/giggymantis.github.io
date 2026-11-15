@@ -1612,6 +1612,7 @@ const lazi_after_ortho = {
     "ɾ\\.(ˈ?)ɾ(?=([^aeɛioɔu]))" : "ɾ.$1", // degemination of ɾ
     "ɾ\\.(ˈ?)ɾ" : ".$1ɾ",
     "(ɾ)(?=ɾ)" : "",
+    "W" : "w",
 }
 
 const cico_firstpass = {
@@ -1827,6 +1828,10 @@ const sici_after_ortho = {
     "ɰ" : "w", // whatever
     "r" : "ɾ", // tapping of r 
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
+    "k+(\\.ˈ?)j" : "c$1c", // palatal assimilation
+    "ɡ+(\\.ˈ?)j" : "ɟ$1ɟ", // palatal assimilation
+    "ɔ(?=[^\\.]*\\.[^\\.][uji])" : "(w)ɔ", // uo
+    "ɛ(?=[^\\.]*\\.[^\\.][uji])" : "(j)ɛ", // ie
     //TODO: all the retroflex things
 }
 
