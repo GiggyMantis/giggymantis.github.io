@@ -1738,7 +1738,7 @@ const neap_firstpass = {
     "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj (over multiple syllables)
     "[bɡ](?=ˈ?j)" : "", // bj, ɡj -> j
     "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
-    "f(\\.?ˈ?)f+j" : "ʃ$1ʃ", // fj -> ʃʃ
+    "f(\\.?ˈ?)f*j" : "ʃ$1ʃ", // fj -> ʃʃ
     "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
@@ -1794,10 +1794,6 @@ const neap_after_ortho = {
     "ʎ" : "ʝ", // yeísmo
 }
 
-const sici_assverb = {
-    "([^\\.]*\\.)ˈ([^\\.]*)(?=e\\.re$)" : "ˈ$1$2"
-}
-
 const sici_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
     "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
@@ -1829,7 +1825,7 @@ const sici_firstpass = {
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
-    "f(\\.?ˈ?)f+j" : "ç$1ç", // fj -> çç
+    "f(\\.?ˈ?)f*j" : "ç$1ç", // fj -> çç
     "^(ˈ?)ç(?=ç)" : "$1", // çç -> ç / #_
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
@@ -2252,9 +2248,6 @@ function submit(latin_input) {
 
     // Evolve to Sicilian
     sici_phonetic = proto_phonetic;
-    if ($("#assverb").is(":checked")) { 
-        sici_phonetic = sici_phonetic.evolve(sici_assverb); // the relevant verb changes occured before other sound changes
-    }
     sici_phonetic = sici_phonetic.evolve(sici_firstpass);
     sici = sici_phonetic;
     sici = sici.evolve(ital_orthography);
