@@ -1275,6 +1275,8 @@ const ital_orthography = {
     "ɛ" : "e",
     "ɔ" : "o",
     "ɖ" : "ḍ",
+    "^ç" : "ʧ",
+    "ç" : "ʃ",
     "z" : "s",
     "tʦ" : "zz",
     "dʣ" : "zz",
@@ -1295,7 +1297,6 @@ const ital_orthography = {
     "ʤ(?=[ei])" : "g",
     "dʤ" : "ggi",
     "ʤ" : "gi",
-    "ç+" : "ç",
     "tʧ(?=[ei])" : "cc",
     "ʧ(?=[ei])" : "c",
     "tʧ" : "cci",
@@ -1732,7 +1733,7 @@ const neap_firstpass = {
     "[bɡ](?=\\.ˈ?j)" : "j", // bj, ɡj -> jj (over multiple syllables)
     "[bɡ](?=ˈ?j)" : "", // bj, ɡj -> j
     "^(ˈ?)j(?=j)" : "$1", // jj -> j / #_
-    "f(\\.?ˈ?)j" : "ʃ$1ʃ", // fj -> ʃʃ
+    "f(\\.?ˈ?)f+j" : "ʃ$1ʃ", // fj -> ʃʃ
     "^(ˈ?)ʃ(?=ʃ)" : "$1", // ʃʃ -> ʃ / #_
     "(?<=[aeɛioɔu])\\.(ˈ?)([^aeɛioɔuˈjw])ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "$2.$1Wo", // metaphonic breaking of ɔ
     "(?<=ˈ?[aeɛioɔu\\.ˈ]*)ɔ(?=[^\\.]*\\.[^\\.]*[jiu])" : "Wo",
@@ -1803,7 +1804,7 @@ const sici_firstpass = {
     "ʊ" : "u",
     "e" : "i",
     "o" : "u", // Vowel collapse
-    "^(ˈ?)b" : "v", // vetacism at the starts of words  
+    "^(ˈ?)b" : "$1v", // vetacism at the starts of words  
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
@@ -1818,7 +1819,7 @@ const sici_firstpass = {
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
-    "f(\\.?ˈ?)j" : "ç$1ç", // fj -> çç
+    "f(\\.?ˈ?)f+j" : "ç$1ç", // fj -> çç
     "^(ˈ?)ç(?=ç)" : "$1", // çç -> ç / #_
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
@@ -1833,6 +1834,8 @@ const sici_after_ortho = {
     "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1$2ɟ",
     "ɔ(?=[^\\.]*\\.[^\\.]*[ui])" : "(w)ɔ", // uo
     "ɛ(?=[^\\.]*\\.[^\\.]*[ui])" : "(j)ɛ", // ie
+    "u" : "ʊ",
+    "i" : "ɪ",
     //TODO: all the retroflex things
 }
 
