@@ -177,8 +177,8 @@ const proto_secondpass = {
     "([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])" : "$1.$2$3",
     "(?<![^aeoiuɛɔɪʊ])\\.ˈ([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ])" : "$1.ˈ$2",
     "\\.([^aeoiuɛɔɪʊ])ˈ([^aeoiuɛɔɪʊ])" : ".ˈ$1$2",
-    "([^aeoiuɛɔɪʊ])\\.(ˈ?)jɛ" : ".$2$1e",
-    "([^aeoiuɛɔɪʊ])\\.(ˈ?)wɔ" : ".$2$1o",
+    "([^aeoiuɛɔɪʊj])\\.(ˈ?)jɛ" : ".$2$1e",
+    "([^aeoiuɛɔɪʊw])\\.(ˈ?)wɔ" : ".$2$1o",
     "(?<=[aeoiuɛɔɪʊ])\\.([^aeoiuɛɔɪʊ])([^aeoiuɛɔɪʊ\\.])" : "$1.$2", // V.CC realigned to VC.C
     "([^aeoiuɛɔɪʊ])\\.(ˈ?)\\1w" : "$1.$2$1", // w deletion after geminates
     "W" : "w", // undoes earlier temporary notation shift,
