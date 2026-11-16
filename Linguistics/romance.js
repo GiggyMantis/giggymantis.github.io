@@ -1403,9 +1403,9 @@ const lazitusc_secondpass = {
 const tusc_assverb = /(?<=[eia])\.re$/g
 
 const tusc_after_ortho = {
-    "(?<=[aeɛioɔu])d\\.(ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ.$1ʒ", // intervocalic deaffrication of ʧ, ʤ
-    "(?<=[aeɛioɔu])t\\.(ˈ?)ʧ(?=[aeɛioɔu])" : "ʃ.$1ʃ",
-    "(?<=[aeɛioɔu]\\.ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ",
+    "(?<=[aeɛioɔu])d\\.(ˈ?)ʤ(?=[aeɛioɔu])" : "d.$1ʒ", // intervocalic shortening of tʧ, dʤ
+    "(?<=[aeɛioɔu])t\\.(ˈ?)ʧ(?=[aeɛioɔu])" : "t.$1ʃ",
+    "(?<=[aeɛioɔu]\\.ˈ?)ʤ(?=[aeɛioɔu])" : "ʒ", // intervocalic deaffrication of ʧ, ʤ
     "(?<=[aeɛioɔu]\\.ˈ?)ʧ(?=[aeɛioɔu])" : "ʃ",
     "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
     "(?<=[aeɛioɔu])([ptk])\\.ˈ\\1" : "∅$1.ˈ$1ʰ", // Tuscan gorgia
