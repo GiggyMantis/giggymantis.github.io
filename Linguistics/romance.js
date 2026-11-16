@@ -1834,6 +1834,7 @@ const sici_firstpass = {
     "(?<=^ˈ?)b(?=j)" : "", // #bj -> j
     "(b)(?=\\.?ˈ?\\1?j)" : "ɡ", // b(b)j, -> ɡ(ɡ)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
+    // TODO: palatalization
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
 }
 
