@@ -831,7 +831,7 @@ const istr1245_orthography = {
     "\\." : "",
     "ɡ" : "g",
     "(?<=[aeoiuəɒæ]́?)j" : "ĭ",
-    "j(?=e)" : "ĭ",
+    "j(?=[eę])" : "ĭ",
     "(?<![aeoiuəɒæ]́?)j(?!=[ueæ])" : "e",
     "j" : "ĭ",
     "(?<=[aeoiuəɒæ]́?)w" : "ŭ",
@@ -964,7 +964,7 @@ const dalm_orthography = {
 }
 
 const vene_firstpass = {
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
@@ -1087,7 +1087,7 @@ const vene_delete_elided_l = {
 }
 
 const istr1244_firstpass = {
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
@@ -1189,7 +1189,7 @@ const istr1244_orthography = {
 
 const ital_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1314,7 +1314,7 @@ const ital_orthography = {
 
 const tusc_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv   
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // other Cw -> Cv   
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1417,7 +1417,7 @@ const tusc_after_ortho = {
 
 const cors_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1520,7 +1520,7 @@ const cors_after_ortho = {
 
 const lazi_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
@@ -1620,7 +1620,7 @@ const lazi_after_ortho = {
 
 const cico_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
@@ -1712,7 +1712,7 @@ const cico_assverb = /(?<=[eia])\.re$/g
 
 const neap_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ]\\.?)w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
@@ -1750,8 +1750,8 @@ const neap_firstpass = {
     "u$" : "o", // -u -> -o
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "pʲ" : "kʲ", // early palatalization outcomes
-    "bʲ" : "ɡʲ",
-    "sʲ" : "s", 
+    "[vb]ʲ" : "ɡʲ",
+    "sʲ" : "s",
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "sʲ(\\.?ˈ?)kʲ" : "ʃ$1ʃ", // palatalization outcomes
@@ -1828,6 +1828,7 @@ const sici_firstpass = {
     "f(\\.?ˈ?)f*j" : "ç$1ç", // fj -> çç
     "^(ˈ?)ç(?=ç)" : "$1", // çç -> ç / #_
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
+    "(?<=^ˈ?)b(?=j)" : "", // #bj -> jh
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
 }
 
@@ -1839,8 +1840,8 @@ const sici_after_ortho = {
     "(?<=[aɛiɔu])d(?=[aɛiɔu])" : "ɾ", // intervocalic rhotic tapping, holy usamerican batman
     "(?<=^ˈ?)d" : "ɾ", // also happens at the start of a word
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
-    "k(\\.?ˈ?)k?j" : "c$1$2c", // palatal assimilation
-    "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1$2ɟ",
+    "k(\\.?ˈ?)k?j" : "c$1c", // palatal assimilation
+    "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1ɟ",
     "ɔ(?=[^\\.]*\\.[^\\.]*[ui])" : "(w)ɔ", // uo
     "ɛ(?=[^\\.]*\\.[^\\.]*[ui])" : "(j)ɛ", // ie
     "^j(?=i)" : "(j)", // in words like jittari
