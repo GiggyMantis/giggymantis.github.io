@@ -208,7 +208,7 @@ const proto_secondpass = {
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
     "([^aeoiuɛɔɪʊwj\\.ˈ])(\\.?ˈ?)j" : "$2$1ʲ", // palatalization
     "(?<=[^aeoiuɛɔɪʊwjˈ])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwjˈ])j" : "$1$2$3ʲ",
-    "jj" : "j", // /jj/ can't exist except when split between two syllables
+    "(?<!ˈ)jj" : "j", // /jj/ can't exist except when split between two syllables
     "ŋ(\\.?ˈ?)n" : "ɲ$1ɲ",
     "^\\." : "",
     "(\\.)\\1" : ".",
@@ -1326,7 +1326,7 @@ const tusc_firstpass = {
     "ʊ" : "o",
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
@@ -1535,7 +1535,7 @@ const lazi_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
@@ -1634,7 +1634,7 @@ const cico_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
@@ -1725,7 +1725,7 @@ const neap_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "e(?=[^\\.]*\\.[^\\.]*[iu])" : "i", // Metaphony/vowel harmony
     "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
@@ -1797,7 +1797,7 @@ const neap_after_ortho = {
 
 const sici_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊk])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])\\.w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -1815,7 +1815,7 @@ const sici_firstpass = {
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
-    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV    "aj$" : "e",
+    "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
     "aS$" : "e", // aj$ collapse
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
@@ -1832,9 +1832,11 @@ const sici_firstpass = {
     "(?<=^ˈ?)b(?=j)" : "", // #bj -> j
     "(b)(?=\\.?ˈ?\\1?j)" : "ɡ", // b(b)j, -> ɡ(ɡ)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
+    "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
 }
 
 const sici_after_ortho = {
+    "J" : "j", // spelling purposes
     "ɰ" : "w", // whatever it's good enuff
     "r" : "ɾ", // tapping of r 
     "(?<=^ˈ?)ɾ" : "ʐ", // ʐ
