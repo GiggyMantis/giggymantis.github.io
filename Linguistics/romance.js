@@ -1,3 +1,5 @@
+var debugmode = false // Now updateable in the Console!
+
 // First pass is used to standardize Latin input orthography
 const latin_firstpass = {
     "ă" : "a",
@@ -208,7 +210,7 @@ const proto_secondpass = {
     "(?<=^[^\\.]*\\.[^\\.]*)u(?=[^\\.]*\\.ˈ[^\\.]*\\.)" : "ʊ",
     "([^aeoiuɛɔɪʊwj\\.ˈ])(\\.?ˈ?)j" : "$2$1ʲ", // palatalization
     "(?<=[^aeoiuɛɔɪʊwjˈ])(\\.?)(ˈ?)([^aeoiuɛɔɪʊwjˈ])j" : "$1$2$3ʲ",
-    "(?<!ˈ)jj" : "j", // /jj/ can't exist except when split between two syllables
+    "jj" : "j", // /jj/ can't exist except when split between two syllables
     "ŋ(\\.?ˈ?)n" : "ɲ$1ɲ",
     "^\\." : "",
     "(\\.)\\1" : ".",
@@ -1963,7 +1965,7 @@ String.prototype.evolve = function (rules) {
     var result = this;
     for (const [key, value] of Object.entries(rules)) {
         result = result.replace(new RegExp(key, "g"), value);
-        // console.log(result + "\n" + key + "\n" + value + "\n\n");
+        if (debugmode) { console.log(result + "\n" + key + "\n" + value + "\n\n"); }
     }
     return result;
 }
