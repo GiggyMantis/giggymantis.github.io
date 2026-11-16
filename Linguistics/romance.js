@@ -964,7 +964,7 @@ const dalm_orthography = {
 }
 
 const vene_firstpass = {
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
@@ -1087,7 +1087,7 @@ const vene_delete_elided_l = {
 }
 
 const istr1244_firstpass = {
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "j", // Ṿs -> Ṿj / _#
@@ -1189,7 +1189,7 @@ const istr1244_orthography = {
 
 const ital_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1314,7 +1314,7 @@ const ital_orthography = {
 
 const tusc_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv   
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv   
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1417,7 +1417,7 @@ const tusc_after_ortho = {
 
 const cors_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
@@ -1520,7 +1520,7 @@ const cors_after_ortho = {
 
 const lazi_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
@@ -1620,7 +1620,7 @@ const lazi_after_ortho = {
 
 const cico_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
@@ -1712,7 +1712,7 @@ const cico_assverb = /(?<=[eia])\.re$/g
 
 const neap_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊkɡ])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "iS$" : "i",
@@ -1796,7 +1796,7 @@ const neap_after_ortho = {
 
 const sici_firstpass = {
     "(?<=[s])w" : "ʊ.", // sw -> so.
-    "(?<=[^aeɛiɪoɔuʊ])w" : "v", // other Cw -> Cv
+    "(?<=[^aeɛiɪoɔuʊk])w" : "v", // other Cw -> Cv
     "β" : "v", // β -> v
     "(?<=[aeɛiɪoɔuʊjw])s$" : "S", // Ṿs -> Ṿj / _#
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -1843,6 +1843,7 @@ const sici_after_ortho = {
     "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1$2ɟ",
     "ɔ(?=[^\\.]*\\.[^\\.]*[ui])" : "(w)ɔ", // uo
     "ɛ(?=[^\\.]*\\.[^\\.]*[ui])" : "(j)ɛ", // ie
+    "^j(?=i)" : "(j)", // in words like jittari
     "(?<!ˈ[^\\.]*)u" : "ʊ",
     "(?<!ˈ[^\\.]*)i" : "ɪ",
     //TODO: all the retroflex things
