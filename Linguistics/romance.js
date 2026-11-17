@@ -1754,6 +1754,7 @@ const neap_firstpass = {
     "(?<=[ʃʤʧ]\\.?ˈ?)j" : "",
     "u$" : "o", // -u -> -o
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
+    "(?<=a)l(?=[^aeoiuɛɔ]*\\.)" : "w", // al -> aw
     "pʲ" : "kʲ", // early palatalization outcomes
     "[vb]ʲ" : "ɡʲ",
     "sʲ" : "s",
@@ -1826,7 +1827,7 @@ const sici_firstpass = {
     "n(\\.?ˈ?)d" : "n$1n", // nd -> nn
     "k(?=\\.ˈ?r)" : "ɡ", // cr -> gr
     "ɡ(?=\\.ˈ?r)" : "ɰ", // gr -> ɰr
-    "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
+    "(?<=a)l(?=[^aeoiuɛɔ]*\\.)" : "w", // al -> aw
     "l(\\.?ˈ?)l" : "ɖ$1ɖ", // geminate l becomes retroflex stop
     "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
@@ -1839,6 +1840,7 @@ const sici_firstpass = {
     "(b)(?=\\.?ˈ?\\1?j)" : "ɡ", // b(b)j, -> ɡ(ɡ)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
     // TODO: palatalization
+    "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
 }
