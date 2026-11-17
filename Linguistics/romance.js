@@ -1856,13 +1856,10 @@ const sici_firstpass = {
     "kʲ" : "ʧ",
     "s(\\.?ˈ?)[ʦʧ]" : "ʃ$1ʃ",
     "ɡʲ" : "ʤ",
+    "(?<=^(ˈ?))dʲ" : "j",
     "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
-    "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
-    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
-    "dʲ" : "ʤ",
+    "dʲ" : "ʣ",
     "nʲ" : "ɲ",
-    "lʲ" : "ʎ",
-    "rʲ" : "j",
     "ʲ(?=[^aeɛioɔu])" : "",
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
@@ -1891,6 +1888,7 @@ const sici_after_ortho = {
     "(?<!ˈ[^\\.]*)u" : "ʊ",
     "(?<!ˈ[^\\.]*)i" : "ɪ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
+    "(?<=^ˈ)a" : "(j)a", // iotic enlengthening
     //TODO: all the retroflex things
 }
 
