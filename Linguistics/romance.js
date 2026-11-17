@@ -1170,10 +1170,13 @@ const istr1244_after_ortho = {
 
 const istr1244_orthography = {
     "ŋ" : "n",
+    "z" : "ſ", // seems to be the most common form, altho <z>, <x>, and <ʃ> are also used
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiu]{0,3})([aeoiu])" : "$1$2̀",
     "ˈ" : "",
     "\\." : "",
+    "ts" : "z",
+    "dz" : "z",
     "kw" : "qu",
     "(?<=è?)j" : "î",
     "(?<=ò?)w" : "û",
@@ -1840,7 +1843,30 @@ const sici_firstpass = {
     "(b)(?=\\.?ˈ?\\1?j)" : "ɡ", // b(b)j, -> ɡ(ɡ)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
     // TODO: palatalization
+    "pʲ" : "kʲ", // early palatalization outcomes
+    "[vb]ʲ" : "ɡʲ",
+    "sʲ" : "s",
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "sʲ(\\.?ˈ?)kʲ" : "ʃ$1ʃ", // palatalization outcomes
+    "kʲ(?=\\.?ˈ?kʲ)" : "t",
+    "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    "tʲ" : "ʦ",
+    "kʲ" : "ʧ",
+    "s(\\.?ˈ?)[ʦʧ]" : "ʃ$1ʃ",
+    "ɡʲ" : "ʤ",
     "l(?=ʲ)" : "ɡ", // velar-stop-ization of palatal lateral (needs to occur AFTER normal palatal outcomes)
+    "(?<![^aeoiuɛɔwj]\\.?ˈ?)j" : "ʤ",
+    "(?<=[^aeɛioɔu]\\.?ˈ?)dʲ" : "ʣ",
+    "dʲ" : "ʤ",
+    "nʲ" : "ɲ",
+    "lʲ" : "ʎ",
+    "rʲ" : "j",
+    "ʲ(?=[^aeɛioɔu])" : "",
+    "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
+    "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
+    "ʲ|S" : "j",
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
 }
