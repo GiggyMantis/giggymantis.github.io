@@ -1840,7 +1840,6 @@ const sici_firstpass = {
     // TODO: palatalization
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
-    "^cc" : "c", // lol
 }
 
 const sici_after_ortho = {
@@ -1851,6 +1850,7 @@ const sici_after_ortho = {
     "ɾ(\\.?ˈ?)ɾ" : "ʐ$1ʐ",
     "(?<=[aɛiɔu])d(?=[aɛiɔu])" : "ɾ", // intervocalic rhotic tapping, holy usamerican batman
     "(?<=^ˈ?)d" : "ɾ", // also happens at the start of a word
+    "ɾɾ" : "ɾ", // this should only happen at the start of words so i don't care of even adding the word start marker
     "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
     "k(\\.?ˈ?)k?j" : "c$1c", // palatal assimilation
     "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1ɟ",
