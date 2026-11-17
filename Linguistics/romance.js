@@ -1089,6 +1089,7 @@ const vene_delete_elided_l = {
 }
 
 const istr1244_firstpass = {
+    "n(\\.ˈ?)nʲ" : "$1nʲ",
     "(?<=[^aeɛiɪoɔuʊkɡ]\\.)w" : "v", // Cw -> Cv
     "β" : "v", // β -> v
     "(?<=ˈ[^\\.]*\\.[^\\.]*)u$" : "ʊ", // word-final u -> ʊ
@@ -1707,7 +1708,8 @@ const cico_firstpass = {
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
     "^\\." : "",
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
-    "(.)(?=\\1)" : "", 
+    "(.)(?=\\1)" : "",
+    "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
 }
 
 const cico_assverb = /(?<=[eia])\.re$/g
@@ -1778,6 +1780,7 @@ const neap_firstpass = {
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
     "ʲ|S" : "j",
+    "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
     "(?<=[rln]\\.?ˈ?)s" : "ʦ", // affrication of s after r, l, n
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
@@ -1836,6 +1839,8 @@ const sici_firstpass = {
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
     // TODO: palatalization
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
+    "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
+    "^cc" : "c", // lol
 }
 
 const sici_after_ortho = {
