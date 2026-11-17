@@ -1208,6 +1208,7 @@ const ital_firstpass = {
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",
     "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
@@ -1333,7 +1334,7 @@ const tusc_firstpass = {
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
@@ -1439,7 +1440,7 @@ const cors_firstpass = {
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
@@ -1542,7 +1543,7 @@ const lazi_firstpass = {
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcomes
     "(?<!s\\.?ˈ?)sʲ" : "s",
     "k(\\.?ˈ?)kʲ" : "t$1ʦ",
@@ -1641,7 +1642,7 @@ const cico_firstpass = {
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcomes
     "(?<!s\\.?ˈ?)sʲ" : "s",
     "k(\\.?ˈ?)kʲ" : "t$1ʦ",
@@ -1734,7 +1735,7 @@ const neap_firstpass = {
     "e(?=[^\\.]*\\.[^\\.]*[iu])" : "i", // Metaphony/vowel harmony
     "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
     "(?<=[^aeɛioɔu\\.ˈ]\\.?ˈ?)jj" : "j", // Cjj -> Cj
     "v(?=\\.?ˈ?v?j)" : "b", // v(v)j -> b(b)j
@@ -1817,7 +1818,7 @@ const sici_firstpass = {
     "o" : "u", // Vowel collapse
     "^(ˈ?)b" : "$1v", // vetacism at the starts of words  
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
