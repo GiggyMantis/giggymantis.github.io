@@ -1041,7 +1041,8 @@ const vene_central_pass = {
     "ʣ" : "z", // ʣ -> z
     "ʦ" : "s", // ʦ -> s
     "(?<=[aeɛioɔuɐ]\\.ˈ?)l(?=[aeɛioɔuɐ])" : "e̯", // l-elision
-    "(?<=[^aeɛioɔuɐ])[eiɛ]\\.(ˈ?)(?=[aeɛioɔuɐ])" : ".$1j" // palatal semivocalization
+    "(?<=[^aeɛioɔuɐ])[eiɛ]\\.(ˈ?)(?=[aeɛioɔuɐ])" : ".$1j", // palatal semivocalization
+    "^(ˈ?)([^aeɛioɔuɐ]+)\\.(ˈ?)" : "$1$2$3",
 }
 
 const vene_belluno_pass = {
