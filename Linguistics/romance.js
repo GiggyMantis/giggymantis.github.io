@@ -1654,6 +1654,7 @@ const cico_firstpass = {
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "l(\\.ˈ?)lʲ?" : "lʲ$1lʲ",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "sʲ$1sʲ",
@@ -1674,7 +1675,7 @@ const cico_firstpass = {
     "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
     "[mn]ʲ" : "ɲ",
-    "lʲ" : "ʎ",
+    "lʲ" : "l",
     "rʲ" : "j",
     "ʲ(?=[^aeɛioɔu])" : "",
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
@@ -1686,7 +1687,6 @@ const cico_firstpass = {
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
     "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
-    "(?<=[aeɛioɔu]\\.ˈ?)[vdb](?=[aeɛioɔu])" : "", // intervocalic deletion of v, d, b
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
@@ -1715,15 +1715,18 @@ const cico_firstpass = {
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "",
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
+    "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
 }
 
 const cico_after_ortho = {
-    "^(ˈ?)[dɡv]" : "($1)", // ɡ, v, d -> (∅) / #_
+    "^(ˈ?)([dɡv])" : "$1($2)", // ɡ, v, d -> (∅) / #_
+    "(?<=[aeɛioɔu]\\.ˈ?)([vdb])(?=[aeɛioɔu])" : "($1)", // intervocalic deletion of v, d, b
     "r" : "ɾ", // tapping of r
     "ɾ\\.(ˈ?)ɾ(?=([^aeɛioɔu]))" : "ɾ.$1", // degemination of ɾ
     "ɾ\\.(ˈ?)ɾ" : ".$1ɾ",
     "(ɾ)(?=ɾ)" : "",
     "W" : "w",
+    "J" : "j",
 }
 
 const cico_assverb = /(?<=[eia])\.re$/g
@@ -1876,8 +1879,8 @@ const sici_firstpass = {
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
     "(?<=[^aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : ".$1$2j",
     "ʲ|S" : "j",
-    "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
+    "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
 }
 
 const sici_after_ortho = {
