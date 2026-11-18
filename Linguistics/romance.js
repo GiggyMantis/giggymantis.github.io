@@ -1816,6 +1816,8 @@ const neap_after_ortho = {
     "^(ˈ?)d" : "$1r", // #d -> r
     "(?<=n)(\\.?ˈ?)t" : "$1d", // voicing of t after nasals
     "(?<=m)(\\.?ˈ?)p" : "$1b", // voicing of p after nasals
+    "([ndrl])(\\.?ˈ?)ʦ" : "$1$2ʣ", // voicing of z after voiced
+    "s(\\.?ˈ?)([dbɡnmɲ])" : "z$1$2", // voicing of s before voiced
     "ʎ" : "ʝ", // yeísmo
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
 }
@@ -1909,7 +1911,7 @@ const sici_after_ortho = {
     "d(\\.?ˈ?)ɾ" : "ɖ$1ɽ", 
     "st?(\\.?ˈ?)ɾ" : "ʂ$1ɽ",
     "t(\\.?ˈ?)ɾ" : "ʈ$1ɽ",
-    "([nd])(\\.?ˈ?)ʦ" : "$1$2ʣ", // voicing
+    "([ndrl])(\\.?ˈ?)ʦ" : "$1$2ʣ", // voicing
     "s(\\.?ˈ?)([dbɡnmɲ])" : "z$1$2",
 }
 
