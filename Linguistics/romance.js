@@ -1881,6 +1881,7 @@ const sici_firstpass = {
     "ʲ|S" : "j",
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
+    "^i\\.?" : "", // unstressed word-initial i deletion
 }
 
 const sici_after_ortho = {
