@@ -1857,7 +1857,6 @@ const sici_firstpass = {
     "(?<=^ˈ?)b(?=j)" : "", // #bj -> j
     "(b)(?=\\.?ˈ?\\1?j)" : "ɡ", // b(b)j, -> ɡ(ɡ)j
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // p(p)j, t(t)j -> k(k)j
-    // TODO: palatalization
     "pʲ" : "kʲ", // early palatalization outcomes
     "[vb]ʲ" : "ɡʲ",
     "sʲ" : "s",
@@ -1906,7 +1905,12 @@ const sici_after_ortho = {
     "(?<!ˈ[^\\.]*)i" : "ɪ",
     "n(?=\\.?ˈ?[ɡk])" : "ŋ", // realization of ng 
     "(?<=^ˈ)a" : "(j)a", // iotic enlengthening
-    //TODO: all the retroflex things
+    "sd?(\\.?ˈ?)ɾ" : "ʐ$1ɽ", // retroflexion
+    "d(\\.?ˈ?)ɾ" : "ɖ$1ɽ", 
+    "st?(\\.?ˈ?)ɾ" : "ʂ$1ɽ",
+    "t(\\.?ˈ?)ɾ" : "ʈ$1ɽ",
+    "([nd])(\\.?ˈ?)ʦ" : "$1$2ʣ", // voicing
+    "s(\\.?ˈ?)([dbɡnmɲ])" : "z$1$2",
 }
 
 //Old Gallo-Romance
