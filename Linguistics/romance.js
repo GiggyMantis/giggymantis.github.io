@@ -1274,7 +1274,6 @@ const ital_after_ortho = {
 
 const ital_orthography = {
     "ɫ" : "l",
-    "D" : "d",
     "ŋ" : "n",
     "^ˈ(?!.*\\.)" : "",
     "ˈ([^aeoiuɛɔ]{0,3})([aeoiuɛɔ])" : "$1$2̀",
@@ -1625,8 +1624,7 @@ const lazi_after_ortho = {
     "ɾ\\.(ˈ?)ɾ(?=([^aeɛioɔu]))" : "ɾ.$1", // degemination of ɾ
     "ɾ\\.(ˈ?)ɾ" : ".$1ɾ",
     "(ɾ)(?=ɾ)" : "",
-    "W" : "w",
-    "D" : "ð",
+    "W" : "w"
 }
 
 const cico_firstpass = {
@@ -1688,8 +1686,6 @@ const cico_firstpass = {
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
     "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
-    "^(ˈ?)d" : "$1D", // d -> ð / #_
-    "^(ˈ?)[dɡv]" : "$1", // ɡ, v -> ∅ / #_
     "(?<=[aeɛioɔu]\\.ˈ?)[vdb](?=[aeɛioɔu])" : "", // intervocalic deletion of v, d, b
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
@@ -1719,6 +1715,15 @@ const cico_firstpass = {
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "",
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
+}
+
+const cico_after_ortho = {
+    "^(ˈ?)[dɡv]" : "($1)", // ɡ, v, d -> (∅) / #_
+    "r" : "ɾ", // tapping of r
+    "ɾ\\.(ˈ?)ɾ(?=([^aeɛioɔu]))" : "ɾ.$1", // degemination of ɾ
+    "ɾ\\.(ˈ?)ɾ" : ".$1ɾ",
+    "(ɾ)(?=ɾ)" : "",
+    "W" : "w",
 }
 
 const cico_assverb = /(?<=[eia])\.re$/g
@@ -2279,7 +2284,7 @@ function submit(latin_input) {
     }
     cico = cico_phonetic;
     cico = cico.evolve(ital_orthography);
-    cico_phonetic = cico_phonetic.evolve(lazi_after_ortho /*[sic]*/); 
+    cico_phonetic = cico_phonetic.evolve(cico_after_ortho); 
 
     $("#cico_phon").val(cico_phonetic);
     $("#cico").val(cico);
