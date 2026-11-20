@@ -1842,7 +1842,8 @@ const sici_firstpass = {
     "o" : "u", // Vowel collapse
     "^(ˈ?)b" : "$1v", // vetacism at the starts of words  
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
+    "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
     "(?<=ˈ[^\\.]*[aeɛioɔu])k\\.w" : "k.kw", // ˈVkwV -> ˈVkkwV
@@ -1921,14 +1922,16 @@ const sici_after_ortho = {
 const lomb_firstpass = {
     "u$" : "", // deletion of word final -o
     "\\.(?=[^\\.aɪiɛeɔoʊu]$)" : "",
+    "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "u" : "y", // gallo-italic vowel changes
-    "ɔ" : "ø",
     "ɛ" : "e",
     "ɪ" : "e",
     "ʊ" : "o",
     "o" : "u", // TODO: make this more accurate
     "(?<=ˈ[^\\.]*)([aieuoyø])(?=\\.)" : "$1ː", // stressed open vowels elongate
     "(?<=ˈ[^\\.]*)([aieuoyø])$" : "$1ː",
+    "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
     "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyø]))" : "$1.$2", // degemination
     "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
