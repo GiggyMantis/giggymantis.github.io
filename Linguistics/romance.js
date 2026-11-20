@@ -1923,6 +1923,8 @@ const sici_after_ortho = {
 
 // TODO: first palatalization, second palatalization, test more words
 // TODO: revisit assee
+// TODO: consider splitting into west and east\
+// TODO: coda elision of l before ø and d after a in Western
 const lomb_firstpass = {
     "β" : "v", // β -> v
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
