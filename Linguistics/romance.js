@@ -2333,7 +2333,7 @@ function submit(latin_input) {
     // Evolve to Lombard
     lomb_phonetic = proto_phonetic;
     lomb_phonetic = lomb_phonetic.evolve(lomb_firstpass);
-    lomb = lomb_phonetic.
+    lomb = lomb_phonetic;
 
     $("lomb_phon").val(lomb_phonetic);
     $("lomb").val(lomb);
