@@ -1747,6 +1747,7 @@ const neap_firstpass = {
     "(?<!ˈ[^\\.]*)oS$" : "o", // Vowel collapse
     "ɪ" : "e", 
     "ʊ" : "o",
+    "aw" : "o", // au -> o 
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "([kɡ])(?=\\.?ˈ?[eɛi])" : "$1ʲ", // palatalization of k g
     "^(ˈ?)ɡʲ" : "$1j", // g
@@ -1840,6 +1841,7 @@ const sici_firstpass = {
     "ʊ" : "u",
     "e" : "i",
     "o" : "u", // Vowel collapse
+    "aw" : "o", // au -> o 
     "^(ˈ?)b" : "$1v", // vetacism at the starts of words  
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
@@ -1920,6 +1922,7 @@ const sici_after_ortho = {
 }
 
 // TODO: first palatalization, second palatalization, test more words
+// TODO: revisit assee
 const lomb_firstpass = {
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
@@ -1929,12 +1932,13 @@ const lomb_firstpass = {
     "ɪ" : "e",
     "ʊ" : "o",
     "o" : "u", // TODO: make this more accurate
+    "aw" : "o", // au -> o 
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=\\.)" : "$1ː", // stressed open vowels elongate
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])$" : "$1ː",
     "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
-    "\\.(?=[^\\.aieuoyøɔɛ]$)" : "",
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
+    "\\.(?=[^\\.aieuoyøɔɛ]*$)" : "",
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
