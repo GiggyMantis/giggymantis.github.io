@@ -2335,8 +2335,8 @@ function submit(latin_input) {
     lomb_phonetic = lomb_phonetic.evolve(lomb_firstpass);
     lomb = lomb_phonetic;
 
-    $("lomb_phon").val(lomb_phonetic);
-    $("lomb").val(lomb);
+    $("#lomb_phon").val(lomb_phonetic);
+    $("#lomb").val(lomb);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
