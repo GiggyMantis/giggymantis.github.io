@@ -1919,6 +1919,7 @@ const sici_after_ortho = {
     "s(\\.?ˈ?)([dbɡnmɲ])" : "z$1$2",
 }
 
+// TODO: first palatalization, second palatalization, test more words
 const lomb_firstpass = {
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
@@ -1933,6 +1934,7 @@ const lomb_firstpass = {
     "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "\\.(?=[^\\.aieuoyøɔɛ]$)" : "",
+    "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
