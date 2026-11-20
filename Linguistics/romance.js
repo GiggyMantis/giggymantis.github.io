@@ -1924,6 +1924,9 @@ const sici_after_ortho = {
 // TODO: first palatalization, second palatalization, test more words
 // TODO: revisit assee
 const lomb_firstpass = {
+    "β" : "v", // β -> v
+    "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "(?<=nk\\.?ˈ?)t" : "k", // forward-assimilation in nct (as in *strinctum)
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
@@ -1934,8 +1937,8 @@ const lomb_firstpass = {
     "o" : "u", // TODO: make this more accurate
     "(?<=a)l" : "w", // al -> aw 
     "aw" : "o", // au -> o 
-    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=\\.)" : "$1ː", // stressed open vowels elongate
-    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])$" : "$1ː",
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?$)" : "$1ː",
     "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
@@ -1943,6 +1946,7 @@ const lomb_firstpass = {
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
+    // Velarization of coda nasals
 
 }
 
