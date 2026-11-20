@@ -1926,6 +1926,9 @@ const lomb_firstpass = {
     "o" : "u", // TODO: make this more accurate
     "(?<=ˈ[^\\.]*)([aieuoyø])(?=\\.)" : "$1ː", // stressed open vowels elongate
     "(?<=ˈ[^\\.]*)([aieuoyø])$" : "$1ː",
+    "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyø]))" : "$1.$2", // degemination
+    "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
 }
 
 //Old Gallo-Romance
