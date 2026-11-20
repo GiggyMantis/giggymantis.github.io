@@ -1920,20 +1920,21 @@ const sici_after_ortho = {
 }
 
 const lomb_firstpass = {
-    "u$" : "", // deletion of word final -o
-    "\\.(?=[^\\.aɪiɛeɔoʊu]$)" : "",
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "u" : "y", // gallo-italic vowel changes
     "ɛ" : "e",
     "ɪ" : "e",
     "ʊ" : "o",
     "o" : "u", // TODO: make this more accurate
-    "(?<=ˈ[^\\.]*)([aieuoyø])(?=\\.)" : "$1ː", // stressed open vowels elongate
-    "(?<=ˈ[^\\.]*)([aieuoyø])$" : "$1ː",
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=\\.)" : "$1ː", // stressed open vowels elongate
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])$" : "$1ː",
     "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
-    "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyø]))" : "$1.$2", // degemination
-    "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
+    "\\.(?=[^\\.aieuoyøɔɛ]$)" : "",
+    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
+    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
 
 }
