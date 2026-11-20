@@ -1679,7 +1679,7 @@ const cico_firstpass = {
     "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
     "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
     "[mn]ʲ" : "ɲ",
-    "lʲ" : "l",
+    "lʲ" : "j",
     "rʲ" : "j",
     "ʲ(?=[^aeɛioɔu])" : "",
     "(?<=[aeɛioɔu])\\.(ˈ?)(.)ʲ(?=[aeɛioɔu])" : "$2.$1j",
@@ -1932,6 +1932,7 @@ const lomb_firstpass = {
     "ɪ" : "e",
     "ʊ" : "o",
     "o" : "u", // TODO: make this more accurate
+    "(?<=a)l" : "w", // al -> aw 
     "aw" : "o", // au -> o 
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=\\.)" : "$1ː", // stressed open vowels elongate
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])$" : "$1ː",
