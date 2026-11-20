@@ -1919,7 +1919,13 @@ const sici_after_ortho = {
 }
 
 const lomb_firstpass = {
-    "" : "",
+    "u" : "y", // gallo-italic vowel changes
+    "ɔ" : "ø",
+    "ɛ" : "e",
+    "ʊ" : "o",
+    "o" : "u", // TODO: make this more accurate
+    "(?<=ˈ[^\\.]*)([aieuoyø])(?=\\.)" : "$1ː", // stressed open vowels elongate
+    "(?<=ˈ[^\\.]*)([aieuoyø])$" : "$1ː",
 }
 
 //Old Gallo-Romance
