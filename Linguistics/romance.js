@@ -1929,6 +1929,8 @@ const lomb_firstpass = {
     "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyø]))" : "$1.$2", // degemination
     "([^aieuoyø\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
+    "o$" : "", // deletion of word final -o
+    "\\.(?=[^\\.aieuoyø]$)" : "",
 }
 
 //Old Gallo-Romance
