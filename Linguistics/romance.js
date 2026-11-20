@@ -1898,7 +1898,7 @@ const sici_after_ortho = {
     "(?<=[aɛiɔu])d(?=[aɛiɔu])" : "ɾ", // intervocalic rhotic tapping, holy usamerican batman
     "(?<=^ˈ?)d" : "ɾ", // also happens at the start of a word
     "ɾɾ" : "ɾ", // this should only happen at the start of words so i don't care of even adding the word start marker
-    "s(?=[^aɛiɔu]?\\.)" : "ʃ", // retraction of s in syllable coda or cluster
+    "s(?=[^aɛiɔu]?\\.[^s])" : "ʃ", // retraction of s in syllable coda or cluster
     "k(\\.?ˈ?)k?j" : "c$1c", // palatal assimilation
     "ɡ(\\.?ˈ?)ɡ?j" : "ɟ$1ɟ",
     "ɔ(?=[^\\.]*\\.[^\\.]*[ui])" : "(w)ɔ", // uo
