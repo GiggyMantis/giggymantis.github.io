@@ -1918,6 +1918,10 @@ const sici_after_ortho = {
     "s(\\.?ˈ?)([dbɡnmɲ])" : "z$1$2",
 }
 
+const lomb_firstpass = {
+    "" : "",
+}
+
 //Old Gallo-Romance
 const ogall_firstpass = {
     "ɪ" : "e", // Vowel collapse
@@ -2325,6 +2329,14 @@ function submit(latin_input) {
 
     $("#sici_phon").val(sici_phonetic);
     $("#sici").val(sici);
+
+    // Evolve to Lombard
+    lomb_phonetic = proto_phonetic;
+    lomb_phonetic = lomb_phonetic.evolve(lomb_firstpass);
+    lomb = lomb_phonetic.
+
+    $("lomb_phon").val(lomb_phonetic);
+    $("lomb").val(lomb);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;

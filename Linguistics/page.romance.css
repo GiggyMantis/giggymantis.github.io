@@ -261,5 +261,5 @@ We also make them bigger and space them out
 
 /* Font support :3 */
 output {
-    font-family: math; 
+    font-family: initial; 
 }
