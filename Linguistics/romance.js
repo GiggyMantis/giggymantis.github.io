@@ -1590,7 +1590,7 @@ const lazi_firstpass = {
     "m(\\.?ˈ?)b" : "m$1m", // mb -> mm
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "(?<=[nlr]\\.?ˈ?)s" : "ʦ", // affrication of s after n, l, r
-    "^(ˈ?)b" : "$1v", // b -> v / #_
+    "^(ˈ?)b(?=[aeɛioɔu])" : "$1v", // b -> v / #_V
     "(?<=[aeɛioɔur]\\.?ˈ?)b" : "v", // b -> v / V_, r_
     "v(\\.ˈ?)v" : "b$1b", // vv -> bb
     "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
