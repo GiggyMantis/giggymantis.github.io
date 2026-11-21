@@ -1934,6 +1934,7 @@ const lomb_firstpass = {
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
+    "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "u" : "y", // gallo-italic vowel changes
     "ɛ" : "e",
     "ɪ" : "e",
