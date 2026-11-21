@@ -1951,6 +1951,9 @@ const lomb_firstpass = {
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
+    "(?<=[aieuoyøɔɛwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
+    "(?<=[aieuoyøɔɛwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
