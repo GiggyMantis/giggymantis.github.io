@@ -1933,6 +1933,7 @@ const lomb_firstpass = {
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
+    "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
     "u" : "y", // gallo-italic vowel changes
     "ɛ" : "e",
     "ɪ" : "e",
@@ -1946,6 +1947,9 @@ const lomb_firstpass = {
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
     "\\.(?=[^\\.aieuoyøɔɛ]*$)" : "",
+    "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
+    "(?<=[aieuoyøɔɛ]\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
+    "(?<=[aieuoyøɔɛ]\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
