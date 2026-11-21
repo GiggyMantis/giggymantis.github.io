@@ -1925,6 +1925,7 @@ const sici_after_ortho = {
 // TODO: revisit assee
 // TODO: consider splitting into west and east\
 // TODO: coda elision of l before ø and d after a in Western
+// TODO: lenition
 const lomb_firstpass = {
     "β" : "v", // β -> v
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
