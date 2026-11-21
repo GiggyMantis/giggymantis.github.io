@@ -1651,7 +1651,8 @@ const cico_firstpass = {
     "aS$" : "e", // aj$ collapse
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
-    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",
+    "[ptkbdɡr](\\.?ˈ?)s" : "s$1s", // [C +stop]s, rs -> ss
     "vʲ" : "bʲ", // early palatal outcomes
     "(?<!s\\.?ˈ?)sʲ" : "s",
     "k(\\.?ˈ?)kʲ" : "t$1ʦ",
@@ -1691,7 +1692,7 @@ const cico_firstpass = {
     "l(\\.?ˈ?)d" : "l$1l", // ld -> ll
     "n(\\.?ˈ?)t" : "n$1d", // nt -> nd
     "m(\\.?ˈ?)p" : "m$1b", // mp -> mb
-    "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1v", // Cv (other than rv) -> Cb
+    "(?<=[^aeɛioɔur])(\\.ˈ?)v" : "$1b", // Cv (other than rv) -> Cb
     "([ʧʤʃʒ])j" : "ʤ", // j is not realized after postalveolars
     "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
@@ -1842,7 +1843,7 @@ const sici_firstpass = {
     "e" : "i",
     "o" : "u", // Vowel collapse
     "aw" : "o", // au -> o 
-    "^(ˈ?)b" : "$1v", // vetacism at the starts of words  
+    "^(ˈ?)b(?=[aɛiɔu])" : "$1v", // vetacism at the starts of words  
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
