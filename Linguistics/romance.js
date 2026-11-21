@@ -1220,7 +1220,7 @@ const ital_firstpass = {
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ(\\.ˈ?)sʲ" : "$1ʧ", // palatalization outcomes
     "sʲ" : "ʧ", // sporadically ʤ, annoyingly not always corresponding to Tuscan ʒ
@@ -1345,7 +1345,7 @@ const tusc_firstpass = {
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ",
@@ -1452,7 +1452,7 @@ const cors_firstpass = {
     "vʲ" : "bʲ", // early palatal outcome
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "aw" : "a", // au -> a [in some Corsican dialects, this is o (later u in some cases) as in Tuscan]
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "ʒ$1ʒ", 
@@ -1558,7 +1558,7 @@ const lazi_firstpass = {
     "k(\\.?ˈ?)kʲ" : "t$1ʦ",
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "sʲ$1sʲ",
@@ -1657,7 +1657,7 @@ const cico_firstpass = {
     "k(\\.?ˈ?)kʲ" : "t$1ʦ",
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "l(\\.ˈ?)lʲ?" : "lʲ$1lʲ",
     "aw" : "o", // au -> o (later u in some cases)
     "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
@@ -1781,7 +1781,7 @@ const neap_firstpass = {
     "sʲ" : "s",
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "sʲ(\\.?ˈ?)kʲ" : "ʃ$1ʃ", // palatalization outcomes
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
     "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
@@ -1870,7 +1870,7 @@ const sici_firstpass = {
     "sʲ" : "s",
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
     "(?<=[aeoiuɛɔwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
-    "n(\\.ˈ?)nʲ" : "nʲ$1nʲ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "sʲ(\\.?ˈ?)kʲ" : "ʃ$1ʃ", // palatalization outcomes
     "kʲ(?=\\.?ˈ?kʲ)" : "t",
     "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
@@ -1923,9 +1923,8 @@ const sici_after_ortho = {
 
 // TODO: first palatalization, second palatalization, test more words
 // TODO: revisit assee
-// TODO: consider splitting into west and east\
+// TODO: split into west and east
 // TODO: coda elision of l before ø and d after a in Western
-// TODO: lenition
 const lomb_firstpass = {
     "β" : "v", // β -> v
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
