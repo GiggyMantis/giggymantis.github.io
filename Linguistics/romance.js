@@ -1933,8 +1933,11 @@ const lomb_firstpass = {
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
+    "k(\\.?ˈ?)kʲ" : "t$1ʃ", // early palatal outcomes
+    "kʲ" : "ʃ",
+    "ɡ(\\.?ˈ?)ɡʲ" : "d$1ʒ",
+    "ɡʲ" : "dʲ",
     "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
-    "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
     "u" : "y", // gallo-italic vowel changes
     "ɛ" : "e",
     "ɪ" : "e",
@@ -1951,8 +1954,6 @@ const lomb_firstpass = {
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
-    "(?<=[aieuoyøɔɛwj])(\\.?ˈ?)(.)ʲ?(?=\\2ʲ)" : "$2ʲ$1", // gemination of palatals
-    "(?<=[aieuoyøɔɛwj])(\\.?ˈ?)(.ʲ)" : "$2$1$2",
     "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
