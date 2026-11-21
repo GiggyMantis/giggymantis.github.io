@@ -1946,12 +1946,12 @@ const lomb_firstpass = {
     "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
-    "\\.(?=[^\\.aieuoyøɔɛ]*$)" : "",
-    "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
-    "(?<=[aieuoyøɔɛ]\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
-    "(?<=[aieuoyøɔɛ]\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
-    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
-    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "\\.(?=[^\\.aieuoyøɔɛː]*$)" : "",
+    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
+    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
+    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
+    "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
+    "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
     // Velarization of coda nasals
 
