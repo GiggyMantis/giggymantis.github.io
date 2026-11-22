@@ -1930,9 +1930,9 @@ const east2276_firstpass = {
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
-    "k(\\.?ˈ?)kʲ" : "t$1ʃ", // early palatal outcomes
+    "k(\\.?ˈ?)kʲ" : "ʧ$1ʧ", // early palatal outcomes
     "kʲ" : "ʃ",
-    "ɡ(\\.?ˈ?)ɡʲ" : "d$1ʒ",
+    "ɡ(\\.?ˈ?)ɡʲ" : "ʤ$1ʤ",
     "ɡʲ" : "dʲ",
     "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
     "u" : "y", // gallo-italic vowel changes
@@ -1949,6 +1949,8 @@ const east2276_firstpass = {
     "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
     "(?<=[aieuoyøɔɛ]\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
     "(?<=[aieuoyøɔɛ]\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
+    "ʃ" : "s",
+    "ʒ" : "z",
     "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
@@ -1960,6 +1962,8 @@ const east2276_firstpass = {
     "ʤ$" : "ʧ",
     "z$" : "s",
     "v$" : "f",
+    "s(?!=\\.?ˈ?j)" : "h", // debuccalization
+    "s(\\.?ˈ?)j" : "h$1ʧ",
 
 }
 
@@ -2410,15 +2414,16 @@ function submit(latin_input) {
     $("#sici_phon").val(sici_phonetic);
     $("#sici").val(sici);
 
-    // Evolve to Eastern Lombard
+    // Evolve to Lombard
+    //   Eastern
     east2276_phonetic = proto_phonetic;
     east2276_phonetic = east2276_phonetic.evolve(east2276_firstpass);
     east2276 = east2276_phonetic;
 
     $("#east2276_phon").val(east2276_phonetic);
-    $("east2276").val(east2276)
+    $("#east2276").val(east2276)
 
-    // Evolve to Western Lombard
+    //   Western
     west2343_phonetic = proto_phonetic;
     west2343_phonetic = west2343_phonetic.evolve(west2343_firstpass);
     west2343 = west2343_phonetic;
