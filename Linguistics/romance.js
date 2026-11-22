@@ -1922,11 +1922,47 @@ const sici_after_ortho = {
     "s(\\.?ˈ?)([dbɡnmɲ])" : "z$1$2",
 }
 
+// Eastern Lombard
+const east2276_firstpass = {
+    "β" : "v", // β -> v
+    "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
+    "(?<=nk\\.?ˈ?)t" : "k", // forward-assimilation in nct (as in *strinctum)
+    "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
+    "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
+    "m(\\.?ˈ?)n" : "n$1n", // mn -> nn
+    "k(\\.?ˈ?)kʲ" : "t$1ʃ", // early palatal outcomes
+    "kʲ" : "ʃ",
+    "ɡ(\\.?ˈ?)ɡʲ" : "d$1ʒ",
+    "ɡʲ" : "dʲ",
+    "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
+    "u" : "y", // gallo-italic vowel changes
+    "ɛ" : "e",
+    "ɪ" : "e",
+    "ʊ" : "o",
+    "o" : "u", // TODO: make this more accurate
+    "(?<=a)l" : "w", // al -> aw 
+    "aw" : "o", // au -> o 
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?$)" : "$1ː",
+    "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
+    "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
+    "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
+    "\\.(?=[^\\.aieuoyøɔɛː]*$)" : "",
+    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
+    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
+    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
+    "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
+    "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
+    "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
+    // Velarization of coda nasals
+
+}
+
 // TODO: first palatalization, second palatalization, test more words
 // TODO: revisit assee
-// TODO: split into west and east
 // TODO: coda elision of l before ø and d after a in Western
-const lomb_firstpass = {
+const west2343b_firstpass = {
     "β" : "v", // β -> v
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=nk\\.?ˈ?)t" : "k", // forward-assimilation in nct (as in *strinctum)
@@ -2370,13 +2406,21 @@ function submit(latin_input) {
     $("#sici_phon").val(sici_phonetic);
     $("#sici").val(sici);
 
-    // Evolve to Lombard
-    lomb_phonetic = proto_phonetic;
-    lomb_phonetic = lomb_phonetic.evolve(lomb_firstpass);
-    lomb = lomb_phonetic;
+    // Evolve to Eastern Lombard
+    east2276_phonetic = proto_phonetic;
+    east2276_phonetic = east2276_phonetic.evolve(east2276_firstpass);
+    east2276 = east2276_phonetic;
 
-    $("#lomb_phon").val(lomb_phonetic);
-    $("#lomb").val(lomb);
+    $("#east2276_phon").val(east2276_phonetic);
+    $("east2276").val(east2276)
+
+    // Evolve to Western Lombard
+    west2343_phonetic = proto_phonetic;
+    west2343_phonetic = west2343_phonetic.evolve(west2343_firstpass);
+    west2343 = west2343_phonetic;
+
+    $("#west2343_phon").val(west2343_phonetic);
+    $("#west2343").val(west2343);
 
     // Evolve to Old Gallo-Romance
     ogall_phonetic = proto_phonetic;
