@@ -1942,27 +1942,31 @@ const east2276_firstpass = {
     "o" : "u", // TODO: make this more accurate
     "(?<=a)l" : "w", // al -> aw 
     "aw" : "o", // au -> o 
-    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
-    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?$)" : "$1ː",
-    "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
+    "ɔ" : "ø", // finishing up gallo-italic vowel changes
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
-    "\\.(?=[^\\.aieuoyøɔɛː]*$)" : "",
-    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
-    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
-    "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
+    "\\.(?=[^\\.aieuoyøɔɛ]*$)" : "",
+    "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
+    "(?<=[aieuoyøɔɛ]\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
+    "(?<=[aieuoyøɔɛ]\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
     "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
-    "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
-    "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
+    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
     // Velarization of coda nasals
+    "b$" : "p", // word-final devoicing
+    "d$" : "t",
+    "ɡ$" : "k",
+    "ʤ$" : "ʧ",
+    "z$" : "s",
+    "v$" : "f",
 
 }
 
 // TODO: first palatalization, second palatalization, test more words
 // TODO: revisit assee
 // TODO: coda elision of l before ø and d after a in Western
-const west2343b_firstpass = {
+const west2343_firstpass = {
     "β" : "v", // β -> v
     "^[ɛeɪ]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
     "(?<=nk\\.?ˈ?)t" : "k", // forward-assimilation in nct (as in *strinctum)
@@ -1994,7 +1998,7 @@ const west2343b_firstpass = {
     "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛː\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
-    // Velarization of coda nasals
+    // Velarization of nasals before velars
 
 }
 
