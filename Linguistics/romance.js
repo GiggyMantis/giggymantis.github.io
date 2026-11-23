@@ -1406,6 +1406,8 @@ const lazitusc_secondpass = {
     "l(?=\\.?ˈ?[^aeɛioɔu])" : "r", // lC -> rC
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
     "^\\." : "",
+    "(?<=^[^\\.aeɛioɔu]*)\\." : "",
+    "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
 }
@@ -1618,6 +1620,8 @@ const lazi_firstpass = {
     "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
     "^\\." : "",
+    "(?<=^[^\\.aeɛioɔu]*)\\." : "",
+    "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
     "u$" : "o", // -u -> -o
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "", 
@@ -1717,6 +1721,8 @@ const cico_firstpass = {
     "ŋ(\\.?ˈ?)ɡj" : "ɲ$1ɲ", // ŋgj -> ɲɲ
     "^[aeɛioɔu](?=\\.?ˈ?[mnɲŋ])" : "", // deletion of unstressed word-initial vowels before nasals
     "^\\." : "",
+    "(?<=^[^\\.aeɛioɔu]*)\\." : "",
+    "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
     "^(ˈ?)dʤ" : "$1ʤ", // word-initial or non-whole-syllable degemination (phonetic only, still occurs phonemically but oh well)
     "(.)(?=\\1)" : "",
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
@@ -1813,6 +1819,7 @@ const neap_firstpass = {
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
     "^[ei](?=[nm])" : "ə", // unstressed word-initial i deletion before nasals
     "(?<=^[^\\.aeɛioɔu]*)\\." : "",
+    "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
 }
 
 const neap_assverb = /(?<=[eia])\.re$/g
@@ -1897,6 +1904,7 @@ const sici_firstpass = {
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "^i\\.?" : "", // unstressed word-initial i deletion
     "(?<=^[^\\.aeɛioɔu]*)\\." : "",
+    "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
 }
 
 const sici_after_ortho = {
