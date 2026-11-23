@@ -1812,7 +1812,7 @@ const neap_firstpass = {
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
     "^[ei](?=[nm])" : "ə", // unstressed word-initial i deletion before nasals
-    "\\.(?=[^\\.aeɛioɔu]*\\.)" : "",
+    "(?<=^[^\\.aeɛioɔu]*)\\." : "",
 }
 
 const neap_assverb = /(?<=[eia])\.re$/g
@@ -1896,7 +1896,7 @@ const sici_firstpass = {
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "^i\\.?" : "", // unstressed word-initial i deletion
-    "\\.(?=[^\\.aeɛioɔu]*\\.)" : "",
+    "(?<=^[^\\.aeɛioɔu]*)\\." : "",
 }
 
 const sici_after_ortho = {
