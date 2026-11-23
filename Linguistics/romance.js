@@ -1936,7 +1936,6 @@ const east2276_firstpass = {
     "ɡʲ" : "dʲ",
     "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
     "u" : "y", // gallo-italic vowel changes
-    "ɛ" : "e",
     "ɪ" : "e",
     "ʊ" : "o",
     "o" : "u", // TODO: make this more accurate
@@ -1945,7 +1944,10 @@ const east2276_firstpass = {
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
     "y" : "ø", // loss of vowel length [this + previous rule can also be seen as just vowel quality change in stressed open vowels]
     "øː" : "y",
+    "(?<=ˈ[^\\.]*)e(?=!ː)" : "ɛ",
+    "(?<=ˈ[^\\.]*)o(?=!ː)" : "ɔ",
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
+    "[rl]\\.$" : "\\.a$1",
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
     "\\.(?=[^\\.aieuoyøɔɛ]*$)" : "",
     "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
@@ -1966,6 +1968,7 @@ const east2276_firstpass = {
     "v$" : "f",
     "(?<!^ˈ?)s(?!=\\.?ˈ?j)" : "h", // debuccalization
     "s(\\.?ˈ?)j" : "h$1ʧ",
+    "a$" : "ɔ", // a -> ɔ / _#
 
 }
 
@@ -1995,6 +1998,7 @@ const west2343_firstpass = {
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?$)" : "$1ː",
     "ɔ(?=ː)" : "ø", // finishing up gallo-italic vowel changes
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
+    "[rl]\\.$" : "\\.a$1",
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
     "\\.(?=[^\\.aieuoyøɔɛː]*$)" : "",
     "(?<=[aieuoyøɔɛ]ː?\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
