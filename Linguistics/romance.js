@@ -1937,8 +1937,7 @@ const east2276_firstpass = {
     "([kɡ])(?=\\.?ˈ?[eɛiɪ])" : "$1ʲ", // palatalization of k g
     "u" : "y", // gallo-italic vowel changes
     "ɪ" : "e",
-    "ʊ" : "o",
-    "o" : "u",
+    "[ʊo]" : "u",
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
     "y" : "ø", // loss of vowel length [this + previous rule can also be seen as just vowel quality change in stressed open vowels]
     "øː" : "y",
