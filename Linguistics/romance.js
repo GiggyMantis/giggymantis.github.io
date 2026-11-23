@@ -1942,7 +1942,9 @@ const east2276_firstpass = {
     "o" : "u", // TODO: make this more accurate
     "(?<=a)l" : "w", // al -> aw 
     "aw" : "o", // au -> o 
-    "ɔ" : "ø", // finishing up gallo-italic vowel changes
+    "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
+    "y" : "ø", // loss of vowel length [this + previous rule can also be seen as just vowel quality change in stressed open vowels]
+    "øː" : "y",
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
     "\\.(?=[^\\.aieuoyøɔɛ]*$)" : "",
