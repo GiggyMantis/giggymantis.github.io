@@ -1818,9 +1818,9 @@ const neap_firstpass = {
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
     "^[ei](?=[nm])" : "ə", // unstressed word-initial i deletion before nasals
-    "(?<=^[^\\.aeɛioɔu]*)\\." : "",
-    "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
-    "^ˈndr" : "ˈnne\\.r",
+    "(?<=^ə?[^\\.aeɛioɔu]*)\\." : "",
+    "(?<=^ə?)([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
+    "(?<=^ə?)ˈndr" : "ˈnne\\.r",
 }
 
 const neap_assverb = /(?<=[eia])\.re$/g
