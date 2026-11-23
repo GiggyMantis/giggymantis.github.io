@@ -1820,6 +1820,7 @@ const neap_firstpass = {
     "^[ei](?=[nm])" : "ə", // unstressed word-initial i deletion before nasals
     "(?<=^[^\\.aeɛioɔu]*)\\." : "",
     "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
+    "^ˈndr" : "ˈnne\\.r",
 }
 
 const neap_assverb = /(?<=[eia])\.re$/g
@@ -1905,6 +1906,7 @@ const sici_firstpass = {
     "^i\\.?" : "", // unstressed word-initial i deletion
     "(?<=^[^\\.aeɛioɔu]*)\\." : "",
     "^([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
+    "^ˈndr" : "ˈnne\\.r",
 }
 
 const sici_after_ortho = {
