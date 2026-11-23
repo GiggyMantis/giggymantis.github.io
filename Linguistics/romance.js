@@ -1811,12 +1811,15 @@ const neap_firstpass = {
     "([pt])(?=\\.?ˈ?\\1?j)" : "k", // TODO: voiced palatal combo outcomes
     "l(\\.?ˈ?)l" : "ɫ$1ɫ", // velarization of geminate laterals
     "(?<=[aeɛioɔu])(\\.ˈ?)m(?=[aeɛioɔu])" : "m$1m", // m geminates intervocalically
+    "^[ei](?=[nm])" : "ə", // unstressed word-initial i deletion before nasals
+    "\\.(?=[^\\.aeɛioɔu]*\\.)" : "",
 }
 
 const neap_assverb = /(?<=[eia])\.re$/g
 
 const neap_after_ortho = {
     "W" : "w",
+    "ə" : "",
     "s(?=\\.[^s])" : "ʃ", // sC -> ʃC
     "(?<!ˈ[^\\.]*)[aɛeiɔou]$" : "ə", // vowels neutralize to schwa at the ends of words unless stressed
     "^(ˈ?)d" : "$1r", // #d -> r
@@ -1893,6 +1896,7 @@ const sici_firstpass = {
     "([^aeɛioɔu])(\\.?ˈ?)ji" : "$2$1i", // ji -> i
     "j(\\.ˈ?)j" : "J$1J", // for spelling purposes
     "^i\\.?" : "", // unstressed word-initial i deletion
+    "\\.(?=[^\\.aeɛioɔu]*\\.)" : "",
 }
 
 const sici_after_ortho = {
