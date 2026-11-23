@@ -1756,6 +1756,7 @@ const neap_firstpass = {
     "aS$" : "e", // aj$ collapse
     "e(?=[^\\.]*\\.[^\\.]*[iu])" : "i", // Metaphony/vowel harmony
     "o(?=[^\\.]*\\.[^\\.]*[iu])" : "u",
+    "k(?=\\.ˈ?s)" : "s", // ks -> ss
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    "(?<=ˈ?[^aeɛioɔu\\.ˈl])l" : "j", // Cl -> CCj
     "([^aeɛioɔu\\.ˈl])(\\.ˈ?)l" : "$1$2$1j",
@@ -1844,6 +1845,7 @@ const sici_firstpass = {
     "o" : "u", // Vowel collapse
     "aw" : "o", // au -> o 
     "^(ˈ?)b(?=[aɛiɔu])" : "$1v", // vetacism at the starts of words  
+    "k(?=\\.ˈ?s)" : "s", // ks -> ss
     "[ptkbdɡ](\\.?ˈ?)([ptk])" : "$2$1$2", // [C1 +stop][C2 +stop] -> C2C2
     "[bdɡ](\\.?ˈ?)([bdɡ])" : "$2$1$2",    
     "^[ɛe]s\\.(ˈ?)" : "$1s", // reversal of proto-romance *įsC
@@ -2436,12 +2438,12 @@ function submit(latin_input) {
     $("#west2343_phon").val(west2343_phonetic);
     $("#west2343").val(west2343);
 
-    // Evolve to Old Gallo-Romance
-    ogall_phonetic = proto_phonetic;
-    ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
-    ogall = ogall_phonetic;
-    //ogall = ogall.evolve(ogall_orthography);
+    // // Evolve to Old Gallo-Romance
+    // ogall_phonetic = proto_phonetic;
+    // ogall_phonetic = ogall_phonetic.evolve(ogall_firstpass);
+    // ogall = ogall_phonetic;
+    // //ogall = ogall.evolve(ogall_orthography);
 
-    $("#ogall_phon").val(ogall_phonetic);
-    $("#ogall").val(ogall);
+    // $("#ogall_phon").val(ogall_phonetic);
+    // $("#ogall").val(ogall);
 }
