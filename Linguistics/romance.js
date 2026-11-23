@@ -1962,7 +1962,7 @@ const east2276_firstpass = {
     "ʤ$" : "ʧ",
     "z$" : "s",
     "v$" : "f",
-    "s(?!=\\.?ˈ?j)" : "h", // debuccalization
+    "(?<=.)s(?!=\\.?ˈ?j)" : "h", // debuccalization
     "s(\\.?ˈ?)j" : "h$1ʧ",
 
 }
