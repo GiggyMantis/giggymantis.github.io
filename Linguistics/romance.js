@@ -1944,8 +1944,8 @@ const east2276_firstpass = {
     "(?<=ˈ[^\\.]*)([aieuoyøɔɛ])(?=r?\\.)" : "$1ː", // stressed open vowels elongate (rC clusters transparent)
     "y" : "ø", // loss of vowel length [this + previous rule can also be seen as just vowel quality change in stressed open vowels]
     "øː" : "y",
-    "(?<=ˈ[^\\.]*)e(?=!ː)" : "ɛ",
-    "(?<=ˈ[^\\.]*)o(?=!ː)" : "ɔ",
+    "(?<!ˈ[^\\.]*)e(?=!ː)" : "ɛ",
+    "(?<!ˈ[^\\.]*)o(?=!ː)" : "ɔ",
     "ː" : "",
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "[rl]\\.$" : "\\.a$1",
