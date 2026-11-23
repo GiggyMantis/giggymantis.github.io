@@ -1820,7 +1820,7 @@ const neap_firstpass = {
     "^[ei](?=[nm])" : "ə", // unstressed word-initial i deletion before nasals
     "(?<=^ə?[^\\.aeɛioɔu]*)\\." : "",
     "(?<=^ə?)([^ˈ\\.aeɛioɔu]*)ˈ" : "ˈ$1",
-    "(?<=ˈ^ə?)ndr" : "nne\\.r",
+    "(?<=^ˈə?)ndr" : "nne\\.r",
 }
 
 const neap_assverb = /(?<=[eia])\.re$/g
