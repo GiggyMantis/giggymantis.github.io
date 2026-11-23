@@ -1946,6 +1946,7 @@ const east2276_firstpass = {
     "øː" : "y",
     "(?<=ˈ[^\\.]*)e(?=!ː)" : "ɛ",
     "(?<=ˈ[^\\.]*)o(?=!ː)" : "ɔ",
+    "ː" : "",
     "(?<!ˈ[^\\.]*)([ieuoyøɔɛ])$" : "", // unstressed word-final vowels other than a are deleted
     "[rl]\\.$" : "\\.a$1",
     "(?<=[^aieuoyøɔɛ])w$" : "", // as in cinque
