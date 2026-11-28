@@ -1969,6 +1969,7 @@ const east2276_firstpass = {
     "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
     "(?<=[aieuoyøɔɛ]\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
     "(?<=[aieuoyøɔɛ]\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aieuoyøɔɛ])" : "($1)", // intervocalic deletion of v
     "ʃ" : "s",
     "ʒ" : "z",
     "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
