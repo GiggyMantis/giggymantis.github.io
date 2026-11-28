@@ -1969,14 +1969,35 @@ const east2276_firstpass = {
     "(?<=[aieuoyøɔɛ]\\.ˈ?)t(?=[aieuoyøɔɛ])" : "d", // intervocalic lenition
     "(?<=[aieuoyøɔɛ]\\.ˈ?)p(?=[aieuoyøɔɛ])" : "b",
     "(?<=[aieuoyøɔɛ]\\.ˈ?)k(?=[aieuoyøɔɛ])" : "ɡ",
-    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aieuoyøɔɛ])" : "($1)", // intervocalic deletion of v
     "ʃ" : "s",
     "ʒ" : "z",
     "(.)(\\.ˈ?)\\1ʲ" : "$1ʲ$2$1ʲ", // palatalization of geminates
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
     "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
     "(.)(?=\\1)" : "",
-    // Velarization of coda nasals
+    // "sʲ?(\\.?ˈ?)[tk]ʲ" : "sʲ$1sʲ", // palatalization outcomes 
+    // "sʲ?(\\.?ˈ?)[dɡ]ʲ" : "sʲ$1sʲ",
+    // "sʲ" : "ʃ",
+    // "([td])ʲ(?=\\.?ˈ?\\1ʲ)" : "$1",
+    // "kʲ(?=\\.?ˈ?kʲ)" : "t",
+    // "ɡʲ(?=\\.?ˈ?ɡʲ)" : "d",
+    "tʲ" : "s",
+    // "kʲ" : "ʧ",
+    "nʲ(\\.?ˈ?)ɡʲ" : "n$1ʤ",
+    "ɡʲ" : "z",
+    "dʲ" : "j", 
+    "(?<=[aeoiuɛɔ]\\.ˈ?)[dɡ]?(?=\\.?ˈ?j)" : "j", 
+    "(?<=[aeoiuɛɔ]\\.ˈ?)(\\.?ˈ?)j(?!\\.ˈ?j)" : "j$1j",
+    "[mn]ʲ" : "ɲ",
+    "lʲ" : "j",
+    "rʲ" : "r",
+    "ʲ(?=[^aieuoyøɔɛ])" : "",
+    "(?<=[aieuoyøɔɛ])\\.(ˈ?)(.)ʲ(?=[aieuoyøɔɛ])" : "$2.$1j",
+    "(?<=[^aieuoyøɔɛ])\\.(ˈ?)(.)ʲ(?=[aieuoyøɔɛ])" : ".$1$2j",
+    "ʲ|S" : "j",
+    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1(?=([^aieuoyøɔɛ]))" : "$1.$2", // degemination
+    "([^aieuoyøɔɛ\\.ˈ])\\.(ˈ?)\\1" : ".$2$1",
+    "(.)(?=\\1)" : "",
     "b$" : "p", // word-final devoicing
     "d$" : "t",
     "ɡ$" : "k",
@@ -1986,7 +2007,8 @@ const east2276_firstpass = {
     "(?<!^ˈ?)s(?!=\\.?ˈ?j)" : "h", // debuccalization
     "s(\\.?ˈ?)j" : "h$1ʧ",
     "a$" : "ɔ", // a -> ɔ / _#
-
+    "(?<=[aeɛioɔu]\\.ˈ?)v(?=[aieuoyøɔɛ])" : "(j)", // intervocalic deletion of v to (j)
+    // TODO: vr -> or? wr?
 }
 
 // TODO: first palatalization, second palatalization, test more words
